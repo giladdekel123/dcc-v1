@@ -6,3 +6,5 @@ corpus/**/*.csv text eol=lf
 corpus/README.md text eol=lf
 # Evaluation query files are fingerprinted by SHA-256 in reports; keep their bytes stable.
 eval/queries/*.yaml text eol=lf
+# Frozen evaluation baseline snapshot; byte-stable for the guard test.
+eval/frozen/** text eol=lf
