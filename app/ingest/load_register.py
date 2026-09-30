@@ -31,7 +31,7 @@ REGISTER_FILES = {
 }
 # Every table holding project data. The convention vocabularies are not listed and never touched.
 PROJECT_TABLES = [
-    "information_link", "content_segment", "extraction", "revision_file", "revision_status",
+    "search_entry", "information_link", "content_segment", "extraction", "revision_file", "revision_status",
     "revision", "document", "person", "organisation", "wbs_element",
 ]
 

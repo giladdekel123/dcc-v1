@@ -14,7 +14,7 @@ DCC_TABLES = {
     "discipline", "doc_type", "stage", "permitted_use", "status",
     "wbs_element", "organisation", "person",
     "document", "revision", "revision_status", "revision_file",
-    "extraction", "content_segment", "information_link",
+    "extraction", "content_segment", "information_link", "search_entry",
 }
 
 
