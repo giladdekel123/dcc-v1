@@ -234,3 +234,64 @@ quality evaluation:
    paraphrase cases where the baseline is weakest.
 4. **Keep this baseline report frozen as the reference.** Any M3 tuning or new engine is
    measured against it with the same frozen query set.
+
+## 8. Addendum: the same evaluation on the 100-document corpus
+
+After the corpus expansion (M2.5), the same frozen 58 queries were run once more, with ranking
+unchanged, on the 100-document corpus (report `baseline-fts-v1-2026-09-30-corpus-v2`).
+- The original 47 documents and their files are byte-identical in both corpora; the
+  frozen-corpus guard checks this.
+- The 53 new documents each passed an answer-safety review, so none of them is a valid answer
+  to any of the 58 queries, and the ground truth is unchanged.
+
+| | 47 documents (register 3717ff517034) | 100 documents (register de124139ab67) |
+|---|---|---|
+| hit@1 overall | 0.76 | **0.71** |
+| hit@3 overall | 0.97 | 0.95 |
+| hit@10 overall | 1.00 | 1.00 |
+| MRR overall | 0.86 | **0.83** |
+| hit@1 generated (40) | 0.80 | **0.72** |
+| hit@1 human (18) | 0.67 | 0.67 (unchanged) |
+| Revision: exact / shown (of 15) | 11 / 12 | 11 / 12 |
+
+**Five generated queries moved down. In each case, only new distractor documents were ranked
+above the answer:**
+
+| Query | Rank | Ranked above the answer |
+|---|---|---|
+| G011 "Pond 1 GA" | 1 → 2 | Pond 1 West Outfall Headwall Details |
+| G021 "the monthly progress report issued at the start of September" | 1 → 2 | Monthly Progress Report – September 2025 (issued 3 October) |
+| G040 "the variation the council accepted for about 48 thousand pounds" | 1 → 3 | Variations 05 and 03 |
+| G032 "the drawing that changed after the contractor's question about soft clay" | 3 → 5 | RFI-0017 and RFI-0016 |
+| G003 "pond needs to hold more water…" | 7 → 8 | Pond 1 West Outfall Headwall Details |
+
+**What this adds to the analysis:**
+1. **Some of the 47-document figures were a small-corpus effect,** as section 4 expected. The
+   categories that looked perfect (partial_name, date_anchored, status_anchored) each lost one
+   query once realistic near-duplicates existed.
+2. **The human queries didn't change at all.** Their failures were already caused by the patterns
+   in section 3, not by corpus size, so the human figures are the more stable reference.
+3. **New evidence for F5 (structured cues as words):**
+   - G040's "about 48 thousand pounds" can't be matched to £48,650, so other variations outrank it.
+   - G021's "issued at the start of September" is matched on the month in a title, not on the
+     issue date.
+4. **Several strong distractors had no effect:**
+   - the Northgrid cable-protection letter (against H006);
+   - the Pond 1 flow control submittal (against G030, H009 and H013);
+   - the deck plan P01 (against H008);
+   - the road safety audit response (against H011 and H018).
+
+   Those queries either already separated correctly, or already failed for another reason (H006
+   is still at rank 7 because of its WBS 330 cue).
+5. **The conclusions in sections 5–7 are unchanged.** Every answer is still in the top 10.
+   Ordering and revision choice, not recall, remain the problem. The options analysis still
+   applies, and the scalability benchmark is still needed.
+
+From this point, the 100-document report is the reference for comparing future engines. The
+47-document report stays as the historical first baseline.
+
+**Measurement tooling:** every report now records the corpus it was measured against (document,
+revision and file counts, plus a fingerprint of the register), and `--compare` names both reports
+and their corpora. The corpus information in the two reports above was added after their runs,
+without changing any result. A confirmation re-run on the 100-document corpus produced identical
+results and the same fingerprint.

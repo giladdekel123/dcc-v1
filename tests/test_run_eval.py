@@ -82,3 +82,30 @@ def test_evaluate_against_dev_data(data_conn):
     assert t1.rank == 1 and t1.found == "KVL-ADM-410-SC-S-0003"
     assert t2.rank and t2.rev_named is True      # C02 is shown as latest for construction
     assert t3.rank is None and t3.rev_exact is None
+
+
+def test_corpus_info_distinguishes_the_frozen_and_current_corpus():
+    import json
+    from eval.run_eval import CORPUS_FILES, REPORTS_DIR, corpus_info
+    frozen = corpus_info(Path(__file__).resolve().parent.parent / "eval" / "frozen" / "corpus-v1",
+                         {name: name.split("/")[-1] for name in CORPUS_FILES})
+    assert (frozen["documents"], frozen["revisions"], frozen["files"]) == (47, 62, 64)
+    first_run = json.loads((REPORTS_DIR / "baseline-fts-v1-2026-09-30.json").read_text(encoding="utf-8"))
+    assert first_run["corpus"]["fingerprint"] == frozen["fingerprint"]
+
+    current = corpus_info()
+    assert current["documents"] == 100 and current["fingerprint"] != frozen["fingerprint"]
+
+
+def test_comparison_names_both_runs_and_their_corpora():
+    from eval.run_eval import compare
+    outcomes = [outcome("a", "vague_topic", 1)]
+    base = {"engine": "e", "created": "2026-01-01", "query_files": {"q.yaml": "0" * 64},
+            "summary": summarise(outcomes), "outcomes": [o.__dict__ for o in outcomes]}
+    small = {**base, "corpus": {"documents": 47, "revisions": 62, "files": 64, "fingerprint": "a" * 64}}
+    large = {**base, "corpus": {"documents": 100, "revisions": 120, "files": 122, "fingerprint": "b" * 64}}
+    text = compare(small, large, "run-47", "run-100")
+    assert "**A** `run-47`: e, 2026-01-01, 47 documents" in text
+    assert "**B** `run-100`: e, 2026-01-01, 100 documents" in text
+    assert "Same queries: yes. Same corpus: no." in text
+    assert "corpus not recorded" in compare(base, base)

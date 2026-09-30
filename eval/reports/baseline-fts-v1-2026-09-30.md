@@ -2,6 +2,7 @@
 
 - Date: 2026-09-30  
 - Code commit: 09d640f  
+- Corpus: 47 documents, 62 revisions, 64 files (register 3717ff517034) - recorded after the run, from eval/frozen/corpus-v1 (the register this run used)  
 - Query files: `generated.yaml` (f41998658911), `human.yaml` (5d2f35983b37)
 
 ## Summary

@@ -26,7 +26,12 @@ from dcc_corpus import naming
 
 QUERIES_DIR = REPO_ROOT / "eval" / "queries"
 REPORTS_DIR = REPO_ROOT / "eval" / "reports"
-DOCUMENTS_CSV = REPO_ROOT / "corpus" / "register" / "documents.csv"
+CORPUS_DIR = REPO_ROOT / "corpus"
+DOCUMENTS_CSV = CORPUS_DIR / "register" / "documents.csv"
+# Files that define the corpus a run was measured against, in fingerprint order.
+CORPUS_FILES = ("register/wbs.csv", "register/organisations.csv", "register/people.csv",
+                "register/documents.csv", "register/revisions.csv", "register/revision_status.csv",
+                "register/revision_files.csv", "links.csv")
 
 AUTHORS = ("generated", "human")
 CATEGORIES = ("vague_topic", "partial_name", "old_revision", "cross_type", "date_anchored",
@@ -118,6 +123,38 @@ def load_queries(directory: Path = QUERIES_DIR, known_codes: set[str] | None = N
     return queries, hashes
 
 
+def corpus_info(corpus_dir: Path = CORPUS_DIR, layout: dict[str, str] | None = None) -> dict:
+    """Size and fingerprint of the corpus register a run is measured against.
+
+    The fingerprint is a SHA-256 over the register and link CSVs in a fixed order, so two runs
+    report the same fingerprint only if they used exactly the same register (and so the same files).
+    `layout` maps each name in CORPUS_FILES to a path relative to corpus_dir, for flat snapshots.
+    """
+    digest = hashlib.sha256()
+    for name in CORPUS_FILES:
+        path = corpus_dir / (layout[name] if layout else name)
+        digest.update(name.encode() + b"\0" + path.read_bytes() + b"\0")
+
+    def count(name: str) -> int:
+        path = corpus_dir / (layout[name] if layout else name)
+        with open(path, encoding="utf-8", newline="") as f:
+            return sum(1 for _ in csv.DictReader(f))
+
+    return {
+        "documents": count("register/documents.csv"),
+        "revisions": count("register/revisions.csv"),
+        "files": count("register/revision_files.csv"),
+        "fingerprint": digest.hexdigest(),
+    }
+
+
+def corpus_text(report: dict) -> str:
+    c = report.get("corpus")
+    if not c:
+        return "corpus not recorded"
+    return f"{c['documents']} documents, {c['revisions']} revisions, {c['files']} files (register {c['fingerprint'][:12]})"
+
+
 def evaluate(conn: psycopg.Connection, queries: list[Query]) -> list[Outcome]:
     outcomes = []
     for q in queries:
@@ -181,6 +218,8 @@ def markdown_report(report: dict) -> str:
         "",
         f"- Date: {report['created']}  ",
         f"- Code commit: {report['commit'] or 'unknown'}  ",
+        f"- Corpus: {corpus_text(report)}"
+        + (f" - {report['corpus']['note']}" if report.get("corpus", {}).get("note") else "") + "  ",
         f"- Query files: " + ", ".join(f"`{name}` ({sha[:12]})" for name, sha in report["query_files"].items()),
         "",
         "## Summary",
@@ -213,9 +252,15 @@ def markdown_report(report: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def compare(a: dict, b: dict) -> str:
-    """Markdown comparison of two reports (b relative to a)."""
-    lines = [f"# {b['engine']} ({b['created']}) vs {a['engine']} ({a['created']})", "",
+def compare(a: dict, b: dict, name_a: str = "A", name_b: str = "B") -> str:
+    """Markdown comparison of two reports (b relative to a). Names are usually the report file stems."""
+    same_corpus = a.get("corpus", {}).get("fingerprint") == b.get("corpus", {}).get("fingerprint")
+    lines = [f"# Comparison: {name_b} vs {name_a}", "",
+             f"- **A** `{name_a}`: {a['engine']}, {a['created']}, {corpus_text(a)}",
+             f"- **B** `{name_b}`: {b['engine']}, {b['created']}, {corpus_text(b)}",
+             f"- Same queries: {'yes' if a['query_files'] == b['query_files'] else 'NO - query files differ'}. "
+             f"Same corpus: {'yes' if same_corpus and a.get('corpus') else 'no'}.",
+             "", "Figures are B, with the change from A in brackets.", "",
              "| | hit@1 | hit@3 | hit@10 | MRR |", "|---|---|---|---|---|"]
     groups = [("overall", a["summary"]["overall"], b["summary"]["overall"])]
     groups += [(c, a["summary"]["by_category"][c], b["summary"]["by_category"][c]) for c in CATEGORIES]
@@ -246,7 +291,7 @@ def main() -> None:
 
     if args.compare:
         a, b = (json.loads(p.read_text(encoding="utf-8")) for p in args.compare)
-        print(compare(a, b))
+        print(compare(a, b, args.compare[0].stem, args.compare[1].stem))
         return
 
     try:
@@ -264,6 +309,7 @@ def main() -> None:
         "created": date.today().isoformat(),
         "commit": _commit(),
         "query_files": hashes,
+        "corpus": corpus_info(),
         "summary": summarise(outcomes),
         "outcomes": [asdict(o) for o in outcomes],
     }

@@ -2,6 +2,7 @@
 
 - Date: 2026-09-30  
 - Code commit: 4a2f261  
+- Corpus: 100 documents, 120 revisions, 122 files (register de124139ab67) - recorded after the run, from the committed corpus register (unchanged since the run)  
 - Query files: `generated.yaml` (f41998658911), `human.yaml` (5d2f35983b37)
 
 ## Summary

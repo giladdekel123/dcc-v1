@@ -6,6 +6,13 @@
     "generated.yaml": "f41998658911512fc769afd0dd19e58399d73bae428f15faee6bcca7513f2238",
     "human.yaml": "5d2f35983b375f723ebe7c99070252ee14769db81a08efcfc3a01744dba92710"
   },
+  "corpus": {
+    "documents": 100,
+    "revisions": 120,
+    "files": 122,
+    "fingerprint": "de124139ab678c5150004da3a268207d051dfd9e13a5618607cc4c199b30a74d",
+    "note": "recorded after the run, from the committed corpus register (unchanged since the run)"
+  },
   "summary": {
     "overall": {
       "n": 58,
