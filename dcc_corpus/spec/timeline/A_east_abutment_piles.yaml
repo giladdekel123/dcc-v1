@@ -64,11 +64,13 @@ documents:
     title: Progress Meeting No. 7 Minutes
     owner: Mark Bellamy
     template: docx_minutes
+    also_in: [B, C, E]
   MM10:
     doc_code: KVL-CGC-100-MM-G-0010
     title: Progress Meeting No. 10 Minutes
     owner: Mark Bellamy
     template: docx_minutes
+    also_in: [B, E]
 
 events:
 
@@ -264,7 +266,7 @@ events:
               due: 2025-06-16
             - ref: "7.4"
               title: Mill Lane culvert
-              discussion: Trial holes found the water main about 0.6 m shallower than the utility records.
+              discussion: Trial holes found the water main about 0.6 m deeper than the utility records, close to the culvert roof.
               action: Write to Northvale Water with trial hole results
               owner: Tom Reddy
               due: 2025-06-20
@@ -498,8 +500,11 @@ events:
                 resumed on 11 August with 24 m piles.
             - ref: "10.4"
               title: Mill Lane culvert
-              discussion: Response from Northvale Water on the water main level is still awaited.
-              action: Chase Northvale Water
+              discussion: >
+                ADM response to RFI-0013 issued 15 July - culvert to be lowered and a protection slab
+                provided over the water main. Revised culvert drawing and slab details due 20 August.
+                Northvale Water acceptance of the slab proposal is still awaited.
+              action: Chase Northvale Water for acceptance of the protection slab
               owner: Tom Reddy
               due: 2025-08-21
 

@@ -44,10 +44,13 @@ people:
   - {name: Tom Reddy,      org: NCC, title: Highways Engineer}
   - {name: Priya Nair,     org: ADM, title: Lead Bridge Engineer}
   - {name: David Okafor,   org: ADM, title: Project Engineer}
+  - {name: Sam Whitfield,  org: ADM, title: Drainage Engineer}
+  - {name: Nadia Hussain,  org: ADM, title: Highways Engineer}
   - {name: Laura Chen,     org: ADM, title: Document Controller}
   - {name: Mark Bellamy,   org: CGC, title: Project Manager}
   - {name: Jo Kimani,      org: CGC, title: Site Engineer}
   - {name: Ryan Doyle,     org: CGC, title: Piling Supervisor}
+  - {name: Chris Moran,    org: CGC, title: Commercial Manager}
   - {name: Emma Price,     org: SGI, title: Principal Geotechnical Engineer}
   - {name: Gareth Lloyd,   org: NVW, title: Asset Engineer}
   - {name: Anne Kowalski,  org: BCS, title: Checking Engineer}

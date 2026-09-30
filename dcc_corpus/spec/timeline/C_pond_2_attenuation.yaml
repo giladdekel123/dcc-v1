@@ -1,0 +1,379 @@
+# Storyline C: Pond 2 East attenuation - a tighter discharge limit, a superseding report,
+# an enlarged pond, and a rejected substitute flow control device.
+#
+# Pond 1 West (unchanged): 1,650 m3, discharge 6.0 l/s.
+# Pond 2 East: 2,150 m3 at 8.0 l/s (RP-0014, C01 drawings) -> 2,780 m3 at 5.0 l/s (RP-0021, C02).
+
+storyline: C
+name: Pond 2 East attenuation
+
+documents:
+  DSR:
+    doc_code: KVL-ADM-300-RP-D-0014
+    title: Drainage Strategy Report
+    owner: Sam Whitfield
+    template: pdf_report
+  P1GA:
+    doc_code: KVL-ADM-310-DR-D-0310
+    title: Pond 1 West General Arrangement
+    owner: Sam Whitfield
+    template: pdf_drawing
+  P2GA:
+    doc_code: KVL-ADM-320-DR-D-0320
+    title: Pond 2 East General Arrangement
+    owner: Sam Whitfield
+    template: pdf_drawing
+  DL1:
+    doc_code: KVL-ADM-300-DR-D-0301
+    title: Drainage Layout Sheet 1 of 3 - Ch 0+000 to 1+400
+    owner: Sam Whitfield
+    template: pdf_drawing
+  DL2:
+    doc_code: KVL-ADM-300-DR-D-0302
+    title: Drainage Layout Sheet 2 of 3 - Ch 1+400 to 2+800
+    owner: Sam Whitfield
+    template: pdf_drawing
+  DL3:
+    doc_code: KVL-ADM-300-DR-D-0303
+    title: Drainage Layout Sheet 3 of 3 - Ch 2+800 to 4+200
+    owner: Sam Whitfield
+    template: pdf_drawing
+  NCC11:
+    doc_code: KVL-NCC-320-LT-D-0011
+    title: Pond 2 East - Revised Discharge Limit
+    owner: Helen Marsh
+    template: docx_letter
+  DSAR:
+    doc_code: KVL-ADM-300-RP-D-0021
+    title: Drainage Strategy and Attenuation Design Report
+    owner: Sam Whitfield
+    template: pdf_report
+  FCD:
+    doc_code: KVL-CGC-320-SB-D-0009
+    title: Pond 2 Flow Control Chamber - Vortex Flow Control Device
+    owner: Jo Kimani
+    template: docx_submittal
+
+events:
+
+  - date: 2024-06-14
+    summary: ADM issues the drainage strategy for review at preliminary design.
+    issue:
+      - doc: DSR
+        rev: P01
+        stage: PD
+        status: RV
+        description: Issued for review
+        filed: superseded
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  This report sets out the surface water drainage strategy for the Kestrel Valley
+                  Link Road. Runoff from the new carriageway is collected by kerb drainage and
+                  carrier drains and attenuated in two ponds before discharge.
+            - heading: 2 Attenuation ponds
+              paragraphs:
+                - >
+                  Pond 1 West serves chainage 0+000 to 2+100 and discharges to the Kest tributary.
+                  Pond 2 East serves chainage 2+100 to 4+200 and discharges to Mill Brook upstream
+                  of the Mill Lane culvert.
+              table:
+                columns: [Pond, Catchment (ha), Storage (m3), Discharge limit (l/s)]
+                rows:
+                  - [Pond 1 West, 4.1, 1650, 6.0]
+                  - [Pond 2 East, 5.3, 2150, 8.0]
+            - heading: 3 Discharge limits
+              paragraphs:
+                - >
+                  Discharge limits are set at the greenfield runoff rate for the 1 in 1 year event,
+                  as agreed in principle with Northvale County Council as lead local flood authority.
+
+  - date: 2024-11-29
+    summary: ADM updates the drainage strategy at detailed design and submits it for approval.
+    issue:
+      - doc: DSR
+        rev: P02
+        stage: DD
+        status: AP
+        description: Detailed design update - submitted for approval
+        filed: superseded
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  This revision updates the drainage strategy for detailed design. Catchment areas
+                  and pond volumes are confirmed from the detailed highway model.
+            - heading: 2 Attenuation ponds
+              paragraphs:
+                - >
+                  Pond 1 West and Pond 2 East are retained as at revision P01. Each pond has a
+                  vortex flow control chamber at its outlet.
+              table:
+                columns: [Pond, Catchment (ha), Storage (m3), Discharge limit (l/s)]
+                rows:
+                  - [Pond 1 West, 4.1, 1650, 6.0]
+                  - [Pond 2 East, 5.3, 2150, 8.0]
+            - heading: 3 Discharge limits
+              paragraphs:
+                - >
+                  Discharge limits remain at the greenfield runoff rate. Any change to the flood
+                  model for Mill Brook may require the Pond 2 East limit to be revisited.
+
+  - date: 2025-01-10
+    summary: NCC accepts the drainage strategy P02 (status change, no new revision).
+    status_change:
+      - {doc: DSR, rev: P02, status: AC, by: NCC, note: Accepted as lead local flood authority}
+
+  - date: 2025-03-10
+    summary: ADM issues the pond and drainage layout drawings for construction.
+    issue:
+      - doc: P1GA
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filename: Pond1 GA C01.pdf
+        content:
+          scale: "1:200 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: pond, volume_m3: 1650, outlet_lps: 6.0, top_water_level: 11.90, base_level: 10.40}
+          notes:
+            - Pond 1 West attenuation storage 1,650 m3. Discharge limit 6.0 l/s to the Kest tributary.
+            - Top water level +11.90 mAOD. Base level +10.40 mAOD. Side slopes 1 in 4.
+      - doc: P2GA
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:200 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: pond, volume_m3: 2150, outlet_lps: 8.0, top_water_level: 12.40, base_level: 10.60}
+          notes:
+            - Pond 2 East attenuation storage 2,150 m3. Discharge limit 8.0 l/s to Mill Brook.
+            - Top water level +12.40 mAOD. Base level +10.60 mAOD. Side slopes 1 in 4.
+            - Vortex flow control chamber at the outlet.
+      - doc: DL1
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:500 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: layout, chainage_from: "0+000", chainage_to: "1+400", sheet: 1, of: 3}
+          notes:
+            - Carrier drains 300 mm to 450 mm diameter. Gullies at 20 m centres.
+            - Outfall to Pond 1 West shown on KVL-ADM-310-DR-D-0310.
+      - doc: DL2
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:500 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: layout, chainage_from: "1+400", chainage_to: "2+800", sheet: 2, of: 3}
+          notes:
+            - Carrier drains 375 mm to 525 mm diameter. Catchment split at chainage 2+100.
+            - River Kest Bridge deck drainage connects at chainage 1+950.
+      - doc: DL3
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:500 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: layout, chainage_from: "2+800", chainage_to: "4+200", sheet: 3, of: 3}
+          notes:
+            - Carrier drains 375 mm to 600 mm diameter.
+            - Outfall to Pond 2 East at chainage 3+650, then to Mill Brook via the flow control chamber.
+
+  - date: 2025-05-22
+    summary: NCC tightens the Pond 2 East discharge limit after an updated flood model.
+    issue:
+      - doc: NCC11
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: David Okafor
+          cc: [Sam Whitfield, Mark Bellamy]
+          subject: Kestrel Valley Link Road - Pond 2 East - revised discharge limit
+          paragraphs:
+            - >
+              Our updated flood model for Mill Brook, completed in April 2025, shows increased flood
+              risk downstream of Mill Lane. As lead local flood authority we must reduce the
+              permitted discharge from Pond 2 East from 8.0 l/s to 5.0 l/s.
+            - >
+              Please revise the attenuation design and confirm the storage volume required. The
+              Pond 1 West discharge limit of 6.0 l/s is unchanged.
+          signed_by: Helen Marsh
+
+  - date: 2025-07-30
+    summary: ADM issues a new report (new document number) that supersedes the drainage strategy.
+    issue:
+      - doc: DSAR
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval - supersedes KVL-ADM-300-RP-D-0014
+        copies:
+          - location: KVL Project/01 Management/Correspondence/Email Attachments/2025-07
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  This report supersedes the Drainage Strategy Report KVL-ADM-300-RP-D-0014. It
+                  responds to Northvale County Council's letter KVL-NCC-320-LT-D-0011, which reduced
+                  the Pond 2 East discharge limit from 8.0 l/s to 5.0 l/s.
+            - heading: 2 Attenuation design
+              paragraphs:
+                - >
+                  To meet the 5.0 l/s limit, Pond 2 East storage increases from 2,150 m3 to 2,780 m3.
+                  The pond base is lowered from +10.60 mAOD to +10.20 mAOD and the footprint extended
+                  north by 8 m. Pond 1 West is unchanged.
+              table:
+                columns: [Pond, Catchment (ha), Storage (m3), Discharge limit (l/s)]
+                rows:
+                  - [Pond 1 West, 4.1, 1650, 6.0]
+                  - [Pond 2 East, 5.3, 2780, 5.0]
+            - heading: 3 Flow control
+              paragraphs:
+                - >
+                  The Pond 2 East flow control device must pass no more than 5.0 l/s at the design
+                  head of 1.8 m. Revised drawings KVL-ADM-320-DR-D-0320 and KVL-ADM-300-DR-D-0303
+                  will be issued at revision C02.
+
+  - date: 2025-08-25
+    summary: NCC accepts the attenuation design report (status change, no new revision).
+    status_change:
+      - {doc: DSAR, rev: P01, status: AC, by: NCC, note: Accepted - 5.0 l/s limit met}
+
+  - date: 2025-08-29
+    summary: CGC submits the Pond 2 flow control device.
+    issue:
+      - doc: FCD
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Sam Whitfield
+          spec_clause: Series 500 - Drainage and service ducts
+          sections:
+            - heading: 1 Product
+              paragraphs:
+                - >
+                  Aqualine VFC-150 vortex flow control device in a 1500 mm precast chamber at the
+                  Pond 2 East outlet, set to pass 5.0 l/s at a design head of 1.8 m.
+            - heading: 2 Performance
+              paragraphs:
+                - >
+                  The manufacturer's head-discharge curve is attached. Discharge at 1.8 m head is
+                  4.9 l/s. A bypass door and a sump are included for maintenance.
+
+  - date: 2025-09-12
+    summary: ADM approves the flow control device with comments.
+    status_change:
+      - {doc: FCD, rev: P01, status: AN, by: ADM, note: Approved with comments - fit the specified 150 mm outlet}
+
+  - date: 2025-10-06
+    summary: CGC resubmits with a cheaper substitute device.
+    issue:
+      - doc: FCD
+        rev: P02
+        stage: CN
+        status: AP
+        description: Resubmitted with substitute device
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Sam Whitfield
+          spec_clause: Series 500 - Drainage and service ducts
+          sections:
+            - heading: 1 Product
+              paragraphs:
+                - >
+                  Proposed substitute: Streamflow SV-100 vortex flow control device, offered as a
+                  cost saving and a shorter delivery time than the Aqualine VFC-150 approved at P01.
+            - heading: 2 Performance
+              paragraphs:
+                - >
+                  The manufacturer's curve for the SV-100 gives a discharge of 6.3 l/s at the design
+                  head of 1.8 m.
+
+  - date: 2025-10-14
+    summary: ADM rejects the substitute; P01 remains the approved device.
+    status_change:
+      - {doc: FCD, rev: P02, status: RJ, by: ADM, note: Rejected - 6.3 l/s exceeds the 5.0 l/s limit; P01 device stands}
+
+  - date: 2025-10-20
+    summary: ADM issues the enlarged Pond 2 and drainage sheet 3 at C02 (sheet 3 title block has the wrong number).
+    issue:
+      - doc: P2GA
+        rev: C02
+        stage: CN
+        status: FC
+        description: Pond enlarged for 5.0 l/s discharge limit
+        content:
+          scale: "1:200 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: pond, volume_m3: 2780, outlet_lps: 5.0, top_water_level: 12.40, base_level: 10.20}
+          notes:
+            - Pond 2 East storage increased to 2,780 m3 for a 5.0 l/s discharge limit. See KVL-ADM-300-RP-D-0021.
+            - Base lowered to +10.20 mAOD and footprint extended north by 8 m. Top water level +12.40 mAOD.
+            - Flow control device to approved submittal KVL-CGC-320-SB-D-0009 P01.
+      - doc: DL3
+        rev: C02
+        stage: CN
+        status: FC
+        description: Pond 2 outfall revised for enlarged pond
+        content:
+          scale: "1:500 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          titleblock_doc_code: KVL-ADM-300-DR-D-0302   # planted discrepancy: register says 0303
+          geometry: {kind: layout, chainage_from: "2+800", chainage_to: "4+200", sheet: 3, of: 3}
+          notes:
+            - Outfall to the enlarged Pond 2 East moved 8 m north at chainage 3+650.
+            - Carrier drains 375 mm to 600 mm diameter, unchanged.
+
+links:
+  - {from: DSAR, to: DSR, type: supersedes}
+  - {from: DSAR, to: NCC11, type: responds_to}
+  - {from: P2GA@C02, to: DSAR, type: related_to}
+  - {from: DL3@C02, to: P2GA@C02, type: related_to}
+  - {from: FCD, to: DSAR, type: related_to}
+
+planted:
+  - {case: correct_not_latest, target: FCD, note: "Latest revision P02 was rejected; P01 remains approved with comments"}
+  - {case: superseded_by_new_number, target: DSR, note: "Superseded by KVL-ADM-300-RP-D-0021"}
+  - {case: titleblock_discrepancy, target: DL3@C02, note: "Title block drawing number 0302; register 0303"}
+  - {case: legacy_filename, target: P1GA@C01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: P1GA, note: "Pond 1 West vs Pond 2 East"}
+  - {case: near_duplicate, target: DSAR, note: "Similar title to the Drainage Strategy Report it supersedes"}
+  - {case: file_copy, target: DSAR@P01, note: "Also filed as an email attachment"}
+  - {case: status_change_no_revision, target: FCD@P01, note: "For approval, then approved with comments"}
+  - {case: status_change_no_revision, target: DSR@P02, note: "For approval, then accepted"}

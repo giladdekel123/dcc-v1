@@ -61,6 +61,21 @@ def test_pile_schedule_sheet():
     assert "-11.15" in schedule.body
 
 
+def test_planted_declared_values_differ_from_the_register():
+    sheet3 = extract(KVL / "02 Design/300 Drainage/Drawings/"
+                           "KVL-ADM-300-DR-D-0303_C02 - Drainage Layout Sheet 3 of 3 - Ch 2+800 to 4+200.pdf", "pdf")
+    assert (sheet3.fields["doc_code"], sheet3.fields["rev_code"]) == ("KVL-ADM-300-DR-D-0302", "C02")
+
+    boq = extract(KVL / "04 Commercial/BoQ/Copy of BoQ rev2 FINAL.xlsx", "xlsx")
+    assert (boq.fields["doc_code"], boq.fields["rev_code"]) == ("KVL-ADM-000-BQ-Q-0001", "P03")
+
+
+def test_programme_dates_read_as_iso_dates():
+    result = extract(KVL / "02 Design/100 Project management/Schedules/"
+                           "KVL-CGC-100-SC-G-0002_P03 - Construction Programme.xlsx", "xlsx")
+    assert "Completion | 000 | 2026-06-26 | 2026-06-26" in text(result)
+
+
 def test_corrupt_file_fails_without_raising(tmp_path):
     broken = tmp_path / "broken.pdf"
     broken.write_bytes(b"%PDF-1.4 this is not really a pdf")

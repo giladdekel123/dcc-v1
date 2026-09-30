@@ -1,13 +1,74 @@
-storyline,storyline_name,doc_code
-A,East abutment piles,KVL-SGI-410-RP-T-0001
-A,East abutment piles,KVL-ADM-410-DR-S-0102
-A,East abutment piles,KVL-ADM-410-DR-S-0110
-A,East abutment piles,KVL-ADM-410-SC-S-0003
-A,East abutment piles,KVL-BCS-410-CT-S-0001
-A,East abutment piles,KVL-CGC-410-RI-S-0011
-A,East abutment piles,KVL-CGC-410-RI-S-0012
-A,East abutment piles,KVL-CGC-410-RI-S-0015
-A,East abutment piles,KVL-ADM-410-LT-S-0031
-A,East abutment piles,KVL-CGC-410-SB-S-0004
-A,East abutment piles,KVL-CGC-100-MM-G-0007
-A,East abutment piles,KVL-CGC-100-MM-G-0010
+storyline,storyline_name,doc_code,membership
+A,East abutment piles,KVL-SGI-410-RP-T-0001,home
+A,East abutment piles,KVL-ADM-410-DR-S-0102,home
+A,East abutment piles,KVL-ADM-410-DR-S-0110,home
+A,East abutment piles,KVL-ADM-410-SC-S-0003,home
+A,East abutment piles,KVL-BCS-410-CT-S-0001,home
+A,East abutment piles,KVL-CGC-410-RI-S-0011,home
+A,East abutment piles,KVL-CGC-410-RI-S-0012,home
+A,East abutment piles,KVL-CGC-410-RI-S-0015,home
+A,East abutment piles,KVL-ADM-410-LT-S-0031,home
+A,East abutment piles,KVL-CGC-410-SB-S-0004,home
+A,East abutment piles,KVL-CGC-100-MM-G-0007,home
+B,Mill Lane culvert and water main,KVL-CGC-100-MM-G-0007,also
+C,Pond 2 East attenuation,KVL-CGC-100-MM-G-0007,also
+E,Routine project history,KVL-CGC-100-MM-G-0007,also
+A,East abutment piles,KVL-CGC-100-MM-G-0010,home
+B,Mill Lane culvert and water main,KVL-CGC-100-MM-G-0010,also
+E,Routine project history,KVL-CGC-100-MM-G-0010,also
+B,Mill Lane culvert and water main,KVL-ADM-330-DR-S-0205,home
+B,Mill Lane culvert and water main,KVL-ADM-330-DR-S-0206,home
+B,Mill Lane culvert and water main,KVL-NCC-610-LT-U-0014,home
+B,Mill Lane culvert and water main,KVL-CGC-330-RI-S-0013,home
+B,Mill Lane culvert and water main,KVL-NVW-610-LT-U-0003,home
+B,Mill Lane culvert and water main,KVL-ADM-330-LT-S-0034,home
+B,Mill Lane culvert and water main,KVL-BCS-330-CT-S-0002,home
+B,Mill Lane culvert and water main,KVL-CGC-330-BQ-Q-0007,home
+B,Mill Lane culvert and water main,KVL-NVW-610-LT-U-0004,home
+C,Pond 2 East attenuation,KVL-ADM-300-RP-D-0014,home
+C,Pond 2 East attenuation,KVL-ADM-310-DR-D-0310,home
+C,Pond 2 East attenuation,KVL-ADM-320-DR-D-0320,home
+C,Pond 2 East attenuation,KVL-ADM-300-DR-D-0301,home
+C,Pond 2 East attenuation,KVL-ADM-300-DR-D-0302,home
+C,Pond 2 East attenuation,KVL-ADM-300-DR-D-0303,home
+C,Pond 2 East attenuation,KVL-NCC-320-LT-D-0011,home
+C,Pond 2 East attenuation,KVL-ADM-300-RP-D-0021,home
+C,Pond 2 East attenuation,KVL-CGC-320-SB-D-0009,home
+D,Eastern Roundabout surfacing substitution,KVL-ADM-000-BQ-Q-0001,home
+D,Eastern Roundabout surfacing substitution,KVL-ADM-510-DR-C-0501,home
+D,Eastern Roundabout surfacing substitution,KVL-CGC-510-LT-C-0022,home
+D,Eastern Roundabout surfacing substitution,KVL-CGC-510-SB-C-0012,home
+D,Eastern Roundabout surfacing substitution,KVL-ADM-510-LT-C-0036,home
+E,Routine project history,KVL-CGC-100-MM-G-0005,home
+C,Pond 2 East attenuation,KVL-CGC-100-MM-G-0005,also
+E,Routine project history,KVL-CGC-100-MM-G-0006,home
+C,Pond 2 East attenuation,KVL-CGC-100-MM-G-0006,also
+D,Eastern Roundabout surfacing substitution,KVL-CGC-100-MM-G-0006,also
+E,Routine project history,KVL-CGC-100-MM-G-0008,home
+A,East abutment piles,KVL-CGC-100-MM-G-0008,also
+B,Mill Lane culvert and water main,KVL-CGC-100-MM-G-0008,also
+E,Routine project history,KVL-CGC-100-MM-G-0009,home
+A,East abutment piles,KVL-CGC-100-MM-G-0009,also
+B,Mill Lane culvert and water main,KVL-CGC-100-MM-G-0009,also
+D,Eastern Roundabout surfacing substitution,KVL-CGC-100-MM-G-0009,also
+E,Routine project history,KVL-CGC-100-MM-G-0012,home
+A,East abutment piles,KVL-CGC-100-MM-G-0012,also
+C,Pond 2 East attenuation,KVL-CGC-100-MM-G-0012,also
+E,Routine project history,KVL-CGC-100-SC-G-0002,home
+A,East abutment piles,KVL-CGC-100-SC-G-0002,also
+B,Mill Lane culvert and water main,KVL-CGC-100-SC-G-0002,also
+E,Routine project history,KVL-CGC-100-RP-G-0006,home
+A,East abutment piles,KVL-CGC-100-RP-G-0006,also
+B,Mill Lane culvert and water main,KVL-CGC-100-RP-G-0006,also
+C,Pond 2 East attenuation,KVL-CGC-100-RP-G-0006,also
+E,Routine project history,KVL-CGC-100-RP-G-0007,home
+A,East abutment piles,KVL-CGC-100-RP-G-0007,also
+B,Mill Lane culvert and water main,KVL-CGC-100-RP-G-0007,also
+D,Eastern Roundabout surfacing substitution,KVL-CGC-100-RP-G-0007,also
+E,Routine project history,KVL-CGC-100-RP-G-0008,home
+A,East abutment piles,KVL-CGC-100-RP-G-0008,also
+B,Mill Lane culvert and water main,KVL-CGC-100-RP-G-0008,also
+D,Eastern Roundabout surfacing substitution,KVL-CGC-100-RP-G-0008,also
+E,Routine project history,KVL-CGC-200-LT-C-0019,home
+E,Routine project history,KVL-NCC-200-LT-C-0016,home
+E,Routine project history,KVL-ADM-700-DR-E-0701,home

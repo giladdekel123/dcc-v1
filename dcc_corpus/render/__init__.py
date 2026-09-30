@@ -1,4 +1,4 @@
-from dcc_corpus.render import docx_documents, pdf_document, pdf_drawing, xlsx_schedule
+from dcc_corpus.render import docx_documents, pdf_document, pdf_drawing, xlsx_boq, xlsx_programme, xlsx_schedule
 
 RENDERERS = {
     "pdf_drawing": pdf_drawing.render,
@@ -9,4 +9,6 @@ RENDERERS = {
     "docx_minutes": docx_documents.render_minutes,
     "docx_submittal": docx_documents.render_submittal,
     "xlsx_schedule": xlsx_schedule.render,
+    "xlsx_boq": xlsx_boq.render,
+    "xlsx_programme": xlsx_programme.render,
 }

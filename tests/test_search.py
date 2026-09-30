@@ -38,7 +38,7 @@ def codes(response):
 def test_index_has_one_row_per_revision_and_rebuilds_identically(indexed):
     snapshot = "select revision_id, document_id, tsv::text, trgm_text from dcc.search_entry order by 1"
     first = indexed.execute(snapshot).fetchall()
-    assert len(first) == 17
+    assert len(first) == 62
     build_index(indexed)
     assert indexed.execute(snapshot).fetchall() == first
 
@@ -68,7 +68,7 @@ def test_revision_evidence_for_the_general_arrangement(indexed):
 
 def test_filters(indexed):
     minutes = search(indexed, "", Filters(doc_type="MM"))
-    assert sorted(codes(minutes)) == ["KVL-CGC-100-MM-G-0007", "KVL-CGC-100-MM-G-0010"]
+    assert sorted(codes(minutes)) == [f"KVL-CGC-100-MM-G-{n:04d}" for n in (5, 6, 7, 8, 9, 10, 12)]
     assert {r.document.wbs.code for r in search(indexed, "", Filters(wbs="400")).results} == {"410"}
     early = search(indexed, "piles", Filters(date_to=date(2024, 12, 31)))
     assert early.results and all(r.revision.revision_date.year == 2024 for r in early.results)

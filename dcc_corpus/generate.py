@@ -29,7 +29,7 @@ TABLES = {
     "register/revision_files.csv": ["doc_code", "rev_code", "copy_role", "filename", "original_location",
                                     "storage_path", "file_format", "size_bytes", "sha256"],
     "links.csv": ["from_doc_code", "from_rev_code", "to_doc_code", "to_rev_code", "link_type", "provenance", "note"],
-    "ground_truth/threads.csv": ["storyline", "storyline_name", "doc_code"],
+    "ground_truth/threads.csv": ["storyline", "storyline_name", "doc_code", "membership"],
     "ground_truth/planted_cases.csv": ["case", "doc_code", "rev_code", "note"],
 }
 
@@ -66,6 +66,7 @@ def generate(out: Path, seed: int = DEFAULT_SEED) -> dict[str, list[dict]]:
 
     wbs_folders = {w["code"]: f"{w['code']} {w['name']}" for w in project["wbs"]}
     documents = timeline["documents"]
+    storyline_names = {s["code"]: s["name"] for s in timeline["storylines"]}
     tables = {name: [] for name in TABLES}
     history: dict[str, list] = {key: [] for key in documents}
 
@@ -86,8 +87,10 @@ def generate(out: Path, seed: int = DEFAULT_SEED) -> dict[str, list[dict]]:
             "discipline_code": code.discipline, "doc_type_code": code.doc_type,
             "originator_code": code.originator, "owner_name": doc["owner"],
         })
-        tables["ground_truth/threads.csv"].append(
-            {"storyline": timeline["storyline"], "storyline_name": timeline["name"], "doc_code": doc["doc_code"]})
+        for storyline in [doc["storyline"], *doc["also_in"]]:
+            tables["ground_truth/threads.csv"].append({
+                "storyline": storyline, "storyline_name": storyline_names[storyline], "doc_code": doc["doc_code"],
+                "membership": "home" if storyline == doc["storyline"] else "also"})
 
     for event in timeline["events"]:
         when = event["date"]
