@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCC V1</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; color: #1f2328; }
+    h1 { margin-bottom: 0.25rem; }
+    .muted { color: #59636e; }
+    code { background: #f2f4f6; padding: 0.1rem 0.3rem; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>DCC V1</h1>
+  <p class="muted">Project document retrieval from partial memory. Search is not available yet.</p>
+  <p>Backend health: <code id="health">checking…</code></p>
+
+  <script>
+    fetch("/api/health")
+      .then((r) => r.json())
+      .then((h) => {
+        document.getElementById("health").textContent =
+          `${h.status} · v${h.version} · database ${h.database}`;
+      })
+      .catch(() => {
+        document.getElementById("health").textContent = "unreachable";
+      });
+  </script>
+</body>
+</html>
