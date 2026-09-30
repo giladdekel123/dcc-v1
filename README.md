@@ -39,10 +39,21 @@ Interactive API docs are at http://127.0.0.1:8000/docs.
 pytest
 ```
 
+## Synthetic corpus
+
+```bash
+python -m dcc_corpus.generate   # regenerates corpus/ deterministically (seed 1905)
+```
+
+The corpus is committed as the stable V1 test set; tests check it matches a fresh generation.
+
 ## Layout
 
 ```
-app/        FastAPI backend (config, API routes)
-web/        static frontend served at /
-tests/      pytest suite
+app/          FastAPI backend (config, API routes, database)
+web/          static frontend served at /
+dcc_corpus/   KVL naming convention, corpus spec and deterministic generator
+corpus/       generated synthetic project files, register CSVs, links, ground truth
+supabase/     database migrations
+tests/        pytest suite (database tests skip without DATABASE_URL)
 ```

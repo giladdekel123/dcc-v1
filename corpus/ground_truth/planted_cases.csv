@@ -1,0 +1,9 @@
+case,doc_code,rev_code,note
+correct_not_latest,KVL-ADM-410-DR-S-0102,,Latest revision P03 is for comment; C02 is the latest for construction
+titleblock_discrepancy,KVL-ADM-410-DR-S-0102,P03,Title block status FC; register status RV
+legacy_filename,KVL-ADM-410-LT-S-0031,P01,Filename does not follow the convention
+file_copy,KVL-ADM-410-DR-S-0102,C02,Also filed as an email attachment
+near_duplicate,KVL-CGC-410-RI-S-0011,,West abutment RFI with similar wording to RFI-0012
+status_change_no_revision,KVL-CGC-410-SB-S-0004,P01,"For approval, then approved with comments"
+status_change_no_revision,KVL-CGC-410-RI-S-0012,P01,"Open, then closed"
+late_finding_in_appendix,KVL-SGI-410-RP-T-0001,P01,Soft clay lens reported only in Appendix C

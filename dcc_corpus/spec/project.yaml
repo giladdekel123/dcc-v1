@@ -1,0 +1,53 @@
+# Kestrel Valley Link Road (KVL): fictional project reference data.
+# All organisations and people are fictional.
+
+project:
+  code: KVL
+  name: Kestrel Valley Link Road
+  description: >
+    A 4.2 km single-carriageway bypass for the market town of Kestrel Valley, with the
+    River Kest Bridge, the Mill Lane box culvert, two attenuation ponds and the Eastern
+    Roundabout.
+
+stages:              # indicative programme dates for each lifecycle stage
+  PD: {start: 2024-01-01, end: 2024-06-30}
+  DD: {start: 2024-07-01, end: 2025-03-31}
+  CN: {start: 2025-04-01, end: 2026-06-30}
+  HO: {start: 2026-04-01, end: 2026-09-30}
+
+wbs:
+  - {code: "000", name: Project-wide}
+  - {code: "100", name: Project management}
+  - {code: "200", name: Earthworks and pavement, aliases: [earthworks, pavement, carriageway]}
+  - {code: "300", name: Drainage, aliases: [drainage]}
+  - {code: "310", name: Pond 1 West, parent: "300", aliases: [pond 1, west pond, attenuation pond 1]}
+  - {code: "320", name: Pond 2 East, parent: "300", aliases: [pond 2, east pond, attenuation pond 2]}
+  - {code: "330", name: Mill Lane Culvert, parent: "300", aliases: [culvert, mill lane, box culvert]}
+  - {code: "400", name: Structures, aliases: [structures]}
+  - {code: "410", name: River Kest Bridge, parent: "400", aliases: [bridge, river bridge, kest bridge]}
+  - {code: "500", name: Junctions}
+  - {code: "510", name: Eastern Roundabout, parent: "500", aliases: [roundabout, east roundabout]}
+  - {code: "600", name: Utilities}
+  - {code: "610", name: Water Main Diversion, parent: "600", aliases: [water main, diversion]}
+  - {code: "700", name: Environment and landscaping, aliases: [ecology, landscaping]}
+
+organisations:
+  - {code: NCC, name: Northvale County Council, role: client, aliases: [council, client, highway authority]}
+  - {code: ADM, name: Arden Moss Consulting Engineers, role: designer, aliases: [Arden Moss, designer, consultant]}
+  - {code: CGC, name: Castlegate Civils Ltd, role: contractor, aliases: [Castlegate, contractor, main contractor]}
+  - {code: SGI, name: Stratum Ground Investigations, role: geotechnical subconsultant, aliases: [Stratum, GI contractor]}
+  - {code: NVW, name: Northvale Water, role: utility owner, aliases: [water company, utility]}
+  - {code: BCS, name: Brightwell Checking Services, role: independent checker, aliases: [Brightwell, checker, Cat III checker]}
+
+people:
+  - {name: Helen Marsh,    org: NCC, title: Project Manager}
+  - {name: Tom Reddy,      org: NCC, title: Highways Engineer}
+  - {name: Priya Nair,     org: ADM, title: Lead Bridge Engineer}
+  - {name: David Okafor,   org: ADM, title: Project Engineer}
+  - {name: Laura Chen,     org: ADM, title: Document Controller}
+  - {name: Mark Bellamy,   org: CGC, title: Project Manager}
+  - {name: Jo Kimani,      org: CGC, title: Site Engineer}
+  - {name: Ryan Doyle,     org: CGC, title: Piling Supervisor}
+  - {name: Emma Price,     org: SGI, title: Principal Geotechnical Engineer}
+  - {name: Gareth Lloyd,   org: NVW, title: Asset Engineer}
+  - {name: Anne Kowalski,  org: BCS, title: Checking Engineer}

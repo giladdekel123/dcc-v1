@@ -1,0 +1,6 @@
+# Keep the committed synthetic corpus byte-identical to a fresh generation on every platform.
+*.pdf  binary
+*.docx binary
+*.xlsx binary
+corpus/**/*.csv text eol=lf
+corpus/README.md text eol=lf

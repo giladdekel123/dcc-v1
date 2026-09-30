@@ -1,0 +1,18 @@
+doc_code,rev_code,revision_date,stage_code,sender_code,description
+KVL-SGI-410-RP-T-0001,P01,2024-10-18,DD,,First issue
+KVL-ADM-410-DR-S-0102,P02,2024-12-10,DD,,Issued for review
+KVL-BCS-410-CT-S-0001,P01,2025-02-20,DD,,First issue
+KVL-ADM-410-DR-S-0102,C01,2025-03-01,DD,,Issued for construction
+KVL-ADM-410-DR-S-0110,C01,2025-03-01,DD,,Issued for construction
+KVL-CGC-410-RI-S-0011,P01,2025-06-03,CN,,Raised
+KVL-CGC-100-MM-G-0007,P01,2025-06-12,CN,,Issued
+KVL-CGC-410-RI-S-0012,P01,2025-06-16,CN,,Raised
+KVL-ADM-410-LT-S-0031,P01,2025-06-30,CN,,Issued
+KVL-BCS-410-CT-S-0001,P02,2025-07-08,CN,,Reissued for revised east abutment piles
+KVL-ADM-410-DR-S-0102,C02,2025-07-10,CN,,Piles lengthened following RFI-0012
+KVL-ADM-410-DR-S-0110,C02,2025-07-10,CN,,Piles lengthened following RFI-0012
+KVL-ADM-410-SC-S-0003,C02,2025-07-10,CN,,First issue with lengthened piles
+KVL-CGC-410-RI-S-0015,P01,2025-07-22,CN,,Raised
+KVL-CGC-410-SB-S-0004,P01,2025-07-25,CN,,Submitted for approval
+KVL-CGC-100-MM-G-0010,P01,2025-08-14,CN,,Issued
+KVL-ADM-410-DR-S-0102,P03,2025-10-02,CN,,Proposed abutment drainage layer - for comment
