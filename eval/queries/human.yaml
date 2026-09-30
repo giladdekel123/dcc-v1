@@ -3,13 +3,128 @@
 # Follow eval/README.md: write each query from eval/briefing.md and memory FIRST,
 # then look up the expected document code in corpus/register/documents.csv.
 #
-# Example (copy, uncomment and edit; ids H001, H002, ...):
-#
-# - id: H001
-#   author: human
-#   category: vague_topic
-#   query: the letter where the designer told the contractor how long the piles should be
-#   expected: [KVL-ADM-410-LT-S-0031]
-#   notes: optional
+# Query wording below is exactly as finalised by the author; do not edit it.
+# Ground truth (category, expected, expected_rev) taken from the corpus register,
+# links and storyline source data; not from running the search engine.
 
-[]
+- id: H001
+  author: human
+  category: partial_name
+  query: "WBS 330 – culvert clash with existing water main"
+  expected: [KVL-CGC-330-RI-S-0013]
+
+- id: H002
+  author: human
+  category: vague_topic
+  query: "WBS 300 drainage. Change in allowable discharge for Pond 2. Pond 2 infrastructure."
+  expected: [KVL-NCC-320-LT-D-0011, KVL-ADM-300-RP-D-0021]
+  notes: "Either the council letter that made the change or the WBS 300 report that implements it."
+
+- id: H003
+  author: human
+  category: cross_type
+  query: "WBS 410 River Kest Bridge. Soft clay found below the east abutment piles. RFI and response."
+  expected: [KVL-CGC-410-RI-S-0012, KVL-ADM-410-LT-S-0031]
+  notes: "RFI or its response; a hit on either counts."
+
+- id: H004
+  author: human
+  category: status_anchored
+  query: "WBS 510 Eastern Roundabout. Document approving the alternative pavement material for construction."
+  expected: [KVL-ADM-510-LT-C-0036, KVL-CGC-510-SB-C-0012]
+  notes: "The designer's acceptance letter or the submittal approved with comments."
+
+- id: H005
+  author: human
+  category: vague_topic
+  query: "WBS 320 Pond 2 East. Somewhere the allowable discharge was changed from 8 to 5 litres per second."
+  expected: [KVL-NCC-320-LT-D-0011]
+
+- id: H006
+  author: human
+  category: sender_anchored
+  query: "WBS 330 Mill Lane Culvert. Document from Northvale Water about protecting the existing water main."
+  expected: [KVL-NVW-610-LT-U-0004, KVL-NVW-610-LT-U-0003]
+  notes: "Both Northvale Water letters discuss protecting the main; both are filed under WBS 610, not 330."
+
+- id: H007
+  author: human
+  category: date_anchored
+  query: "WBS 100 Project Management. Meeting minutes from around July or August where the recovery programme was discussed."
+  expected: [KVL-CGC-100-MM-G-0010, KVL-CGC-100-MM-G-0008]
+  notes: "Meeting 10 (14 Aug, programme accepted) or meeting 8 (26 Jun, programme issued)."
+
+- id: H008
+  author: human
+  category: old_revision
+  query: "WBS 410 River Kest Bridge. I need the earlier general arrangement drawing, before the construction revision."
+  expected: [KVL-ADM-410-DR-S-0102]
+  expected_rev: P02
+
+- id: H009
+  author: human
+  category: status_anchored
+  query: "WBS 320 Pond 2 East. Flow-control submittal that was rejected."
+  expected: [KVL-CGC-320-SB-D-0009]
+  expected_rev: P02
+
+- id: H010
+  author: human
+  category: related_chain
+  query: "WBS 410 River Kest Bridge. Drawing issued after the RFI about the soft clay below the piles was resolved."
+  expected: [KVL-ADM-410-DR-S-0102, KVL-ADM-410-DR-S-0110]
+  expected_rev: C02
+  notes: "Both drawings were revised to C02 after RFI-0012 was answered."
+
+- id: H011
+  author: human
+  category: sender_anchored
+  query: "WBS 510 Eastern Roundabout. I think there was a letter from the contractor about changing the asphalt aggregate to PSV 60 or 65."
+  expected: [KVL-CGC-510-LT-C-0022]
+
+- id: H012
+  author: human
+  category: related_chain
+  query: "WBS 320 Pond 2 East. What document caused us to enlarge Pond 2?"
+  expected: [KVL-NCC-320-LT-D-0011]
+
+- id: H013
+  author: human
+  category: correct_not_latest
+  query: "WBS 320 Pond 2 East. I need the drawing that was approved for the flow control arrangement."
+  expected: [KVL-CGC-320-SB-D-0009]
+  expected_rev: P01
+  notes: "No flow control drawing exists; the approved item is submittal P01 (P02 was rejected)."
+
+- id: H014
+  author: human
+  category: date_anchored
+  query: "WBS 330 Mill Lane Culvert. Something from around the time of the trial hole about the water main being deeper than expected."
+  expected: [KVL-NCC-610-LT-U-0014, KVL-CGC-100-MM-G-0007]
+  notes: "Both say the main was 0.6 m deeper than recorded, within days of the June trial holes."
+
+- id: H015
+  author: human
+  category: correct_not_latest
+  query: "WBS 410 River Kest Bridge. Which general arrangement drawing were we supposed to use for construction?"
+  expected: [KVL-ADM-410-DR-S-0102]
+  expected_rev: C02
+
+- id: H016
+  author: human
+  category: vague_topic
+  query: "WBS 330 Mill Lane Culvert. What was the cost of the variation for protecting the water main?"
+  expected: [KVL-CGC-330-BQ-Q-0007]
+
+- id: H017
+  author: human
+  category: related_chain
+  query: "WBS 300 Drainage. What replaced the earlier drainage strategy report?"
+  expected: [KVL-ADM-300-RP-D-0021]
+
+- id: H018
+  author: human
+  category: vague_topic
+  query: "WBS 510 Eastern Roundabout. Where's the document where we finally agreed what surfacing to use?"
+  expected: [KVL-ADM-510-LT-C-0036, KVL-CGC-510-SB-C-0012]
+  notes: "The acceptance letter or the approved submittal settled the surfacing."
