@@ -1,0 +1,11 @@
+from_doc_code,from_rev_code,to_doc_code,to_rev_code,link_type,provenance,note
+KVL-CGC-410-RI-S-0012,,KVL-CGC-100-MM-G-0007,,generated_from,registered,
+KVL-CGC-410-RI-S-0012,,KVL-SGI-410-RP-T-0001,,related_to,registered,
+KVL-ADM-410-LT-S-0031,,KVL-CGC-410-RI-S-0012,,responds_to,registered,
+KVL-CGC-410-RI-S-0012,,KVL-ADM-410-DR-S-0102,C02,affects,registered,
+KVL-CGC-410-RI-S-0012,,KVL-ADM-410-DR-S-0110,C02,affects,registered,
+KVL-CGC-410-RI-S-0012,,KVL-ADM-410-SC-S-0003,C02,affects,registered,
+KVL-ADM-410-DR-S-0110,C02,KVL-CGC-410-RI-S-0015,,clarified_by,registered,
+KVL-CGC-410-SB-S-0004,,KVL-ADM-410-DR-S-0110,C02,related_to,registered,
+KVL-BCS-410-CT-S-0001,P02,KVL-ADM-410-DR-S-0102,C02,related_to,registered,
+KVL-CGC-100-MM-G-0010,,KVL-CGC-410-RI-S-0012,,related_to,registered,

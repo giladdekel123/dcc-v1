@@ -1,0 +1,546 @@
+# Storyline A: River Kest Bridge east abutment piles.
+#
+# A dated project history. Each event issues document revisions and/or changes statuses.
+# `documents` holds the registered attributes that do not change across revisions;
+# `content` holds what will appear inside the rendered file (not registered metadata).
+# Links read "from <type> to"; "KEY@REV" targets a specific revision.
+
+storyline: A
+name: East abutment piles
+
+documents:
+  GI:
+    doc_code: KVL-SGI-410-RP-T-0001
+    title: River Kest Bridge Ground Investigation Report
+    owner: Emma Price
+    template: pdf_report
+  GA:
+    doc_code: KVL-ADM-410-DR-S-0102
+    title: River Kest Bridge East Abutment General Arrangement
+    owner: Priya Nair
+    template: pdf_drawing
+  PL:
+    doc_code: KVL-ADM-410-DR-S-0110
+    title: River Kest Bridge East Abutment Piling Layout
+    owner: Priya Nair
+    template: pdf_drawing
+  PS:
+    doc_code: KVL-ADM-410-SC-S-0003
+    title: River Kest Bridge East Abutment Pile Schedule
+    owner: David Okafor
+    template: xlsx_schedule
+  CERT:
+    doc_code: KVL-BCS-410-CT-S-0001
+    title: River Kest Bridge Substructure Category III Check Certificate
+    owner: Anne Kowalski
+    template: pdf_certificate
+  RFI11:
+    doc_code: KVL-CGC-410-RI-S-0011
+    title: RFI-0011 West Abutment Bearing Plinth Dimensions
+    owner: Jo Kimani
+    template: docx_rfi
+  RFI12:
+    doc_code: KVL-CGC-410-RI-S-0012
+    title: RFI-0012 East Abutment Piles - Soft Clay Below Founding Level
+    owner: Jo Kimani
+    template: docx_rfi
+  RFI15:
+    doc_code: KVL-CGC-410-RI-S-0015
+    title: RFI-0015 East Abutment Pile Cut-off Level Clarification
+    owner: Jo Kimani
+    template: docx_rfi
+  LT31:
+    doc_code: KVL-ADM-410-LT-S-0031
+    title: Response to RFI-0012 East Abutment Piles
+    owner: Priya Nair
+    template: docx_letter
+  MS:
+    doc_code: KVL-CGC-410-SB-S-0004
+    title: Piling Method Statement - River Kest Bridge East Abutment
+    owner: Ryan Doyle
+    template: docx_submittal
+  MM07:
+    doc_code: KVL-CGC-100-MM-G-0007
+    title: Progress Meeting No. 7 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+  MM10:
+    doc_code: KVL-CGC-100-MM-G-0010
+    title: Progress Meeting No. 10 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+
+events:
+
+  - date: 2024-10-18
+    summary: SGI issues the bridge GI report; BH-E3 soft clay is reported only in an appendix.
+    issue:
+      - doc: GI
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  Stratum Ground Investigations was appointed by Arden Moss Consulting Engineers
+                  to investigate ground conditions at the proposed River Kest Bridge on the
+                  Kestrel Valley Link Road. This report presents the factual records and our
+                  interpretation for the design of the abutment foundations.
+            - heading: 2 Fieldwork
+              paragraphs:
+                - >
+                  Five cable percussive boreholes with rotary follow-on were completed between
+                  2 and 20 September 2024: BH-W1 and BH-W2 at the west abutment, and BH-E1,
+                  BH-E2 and BH-E3 at the east abutment. BH-E3 was added late at the request of
+                  the designer and was completed on 20 September 2024.
+            - heading: 3 Ground conditions
+              paragraphs:
+                - >
+                  The sequence comprises made ground over soft to firm alluvial clay, dense
+                  sand and gravel, and weathered mudstone. At BH-E1 and BH-E2 the mudstone was
+                  proven from about -4.5 mAOD.
+                - >
+                  The interpretation in this section is based on BH-W1 to BH-E2. The results of
+                  BH-E3 were received after the interpretive assessment was completed and are
+                  presented in Appendix C.
+              table:
+                columns: [Borehole, Ground level (mAOD), Top of mudstone (mAOD), Notes]
+                rows:
+                  - [BH-W1, 13.60, -3.90, ""]
+                  - [BH-W2, 13.75, -4.10, ""]
+                  - [BH-E1, 14.20, -4.40, ""]
+                  - [BH-E2, 14.15, -4.60, ""]
+                  - [BH-E3, 14.30, -9.80, See Appendix C]
+            - heading: 4 Recommendations
+              paragraphs:
+                - >
+                  Bored cast-in-place piles founded in the weathered mudstone are recommended
+                  at both abutments. Pile lengths of the order of 18 m are expected at the east
+                  abutment.
+            - heading: Appendix C - BH-E3 (late borehole)
+              paragraphs:
+                - >
+                  BH-E3 encountered a lens of very soft to soft grey clay between -2.1 mAOD and
+                  -6.4 mAOD, below the dense gravel, with mudstone not proven until -9.8 mAOD.
+                  The lens was not encountered at BH-E1 or BH-E2. Its lateral extent is unknown.
+
+  - date: 2024-12-10
+    summary: ADM issues the east abutment GA for review during detailed design.
+    issue:
+      - doc: GA
+        rev: P02
+        stage: DD
+        status: RV
+        description: Issued for review
+        filed: superseded
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -5.15}
+          notes:
+            - Preliminary - for review and comment only.
+            - Pile founding level subject to confirmation from the ground investigation.
+            - All levels in metres above Ordnance Datum (mAOD).
+
+  - date: 2025-02-20
+    summary: BCS issues the Category III check certificate for the substructure design.
+    issue:
+      - doc: CERT
+        rev: P01
+        stage: DD
+        status: IS
+        description: First issue
+        filed: superseded
+        content:
+          structure: River Kest Bridge - abutments and foundations
+          category: Category III
+          checked_documents:
+            - [KVL-ADM-410-DR-S-0102, P02]
+            - [KVL-SGI-410-RP-T-0001, P01]
+          statement: >
+            We certify that reasonable professional skill and care has been used in the
+            independent check of the design of the structure described, and that the design
+            has been checked for compliance with the agreed design basis.
+          checker: Anne Kowalski
+          designer: Priya Nair
+
+  - date: 2025-03-01
+    summary: ADM issues the GA and piling layout for construction (18 m piles).
+    issue:
+      - doc: GA
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -5.15}
+          notes:
+            - 8 No. 900 mm diameter bored cast-in-place piles, 18.0 m long.
+            - Pile toe level -5.15 mAOD. Pile cut-off level +12.85 mAOD.
+            - All levels in metres above Ordnance Datum (mAOD).
+      - doc: PL
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:50 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -5.15}
+          notes:
+            - Pile positions set out from abutment centreline grid.
+            - Pile toe level -5.15 mAOD. Pile cut-off level +12.85 mAOD.
+
+  - date: 2025-06-03
+    summary: CGC raises RFI-0011 about the west abutment bearing plinths (near-duplicate distractor).
+    issue:
+      - doc: RFI11
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: Priya Nair
+          subject: West abutment bearing plinth dimensions
+          question:
+            - >
+              Bearing plinth dimensions on the west abutment GA (KVL-ADM-410-DR-S-0101) show
+              600 x 600 mm, but the bearing schedule gives 650 x 650 mm. Please confirm which
+              governs before the plinths are formed.
+          references: [KVL-ADM-410-DR-S-0101]
+          response_required_by: 2025-06-10
+          programme_impact: Minor - plinth formwork on hold
+
+  - date: 2025-06-12
+    summary: Progress meeting 7 records the soft clay found during east abutment piling.
+    issue:
+      - doc: MM07
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 7
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Ryan Doyle, Helen Marsh, Tom Reddy, Priya Nair]
+          apologies: [David Okafor]
+          items:
+            - ref: "7.1"
+              title: Health and safety
+              discussion: No reportable incidents this period. Near miss at the haul road crossing to be briefed at toolbox talks.
+              action: Brief all operatives on the haul road crossing
+              owner: Jo Kimani
+              due: 2025-06-19
+            - ref: "7.2"
+              title: Programme
+              discussion: Earthworks two weeks behind due to wet weather. Recovery plan to follow.
+              action: Issue recovery programme
+              owner: Mark Bellamy
+              due: 2025-06-26
+            - ref: "7.3"
+              title: River Kest Bridge - east abutment piling
+              discussion: >
+                Piling started on 9 June. At pile E3 the boring log recorded very soft grey clay
+                from about -2 mAOD, and the design toe level of -5.15 mAOD was reached still in
+                soft clay. Piling at the east abutment is paused. RD noted the ground does not
+                match the GI interpretation.
+              action: Raise an RFI on east abutment pile founding level
+              owner: Jo Kimani
+              due: 2025-06-16
+            - ref: "7.4"
+              title: Mill Lane culvert
+              discussion: Trial holes found the water main about 0.6 m shallower than the utility records.
+              action: Write to Northvale Water with trial hole results
+              owner: Tom Reddy
+              due: 2025-06-20
+            - ref: "7.5"
+              title: Pond 2 East
+              discussion: ADM revised drainage calculations for Pond 2 are awaited.
+              action: Confirm date for revised Pond 2 calculations
+              owner: Priya Nair
+              due: 2025-06-20
+
+  - date: 2025-06-16
+    summary: CGC raises RFI-0012 on the east abutment piles.
+    issue:
+      - doc: RFI12
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: Priya Nair
+          subject: East abutment piles - soft clay below founding level
+          question:
+            - >
+              During boring of pile E3 at the east abutment, very soft grey clay was encountered
+              from approximately -2.0 mAOD and continued below the design toe level of
+              -5.15 mAOD shown on drawings KVL-ADM-410-DR-S-0102 C01 and KVL-ADM-410-DR-S-0110 C01.
+            - >
+              Please confirm a revised pile founding level and pile length for the east abutment
+              piles, and whether temporary casing is required through the soft clay.
+          references: [KVL-ADM-410-DR-S-0102, KVL-ADM-410-DR-S-0110, KVL-SGI-410-RP-T-0001]
+          response_required_by: 2025-06-30
+          programme_impact: Significant - east abutment piling stopped
+
+  - date: 2025-06-20
+    summary: RFI-0011 answered and closed.
+    status_change:
+      - {doc: RFI11, rev: P01, status: CL, by: CGC, note: Answered by ADM email - 650 x 650 mm governs}
+
+  - date: 2025-06-30
+    summary: ADM responds to RFI-0012 by letter (filed under a legacy filename).
+    issue:
+      - doc: LT31
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        filename: Response to RFI 12 - piles.docx
+        content:
+          to: Mark Bellamy
+          cc: [Helen Marsh, Anne Kowalski]
+          subject: River Kest Bridge - east abutment piles - response to RFI-0012
+          paragraphs:
+            - >
+              Thank you for RFI-0012 of 16 June 2025. We have reviewed the pile E3 boring log
+              against borehole BH-E3 in the ground investigation report, which recorded a soft
+              clay lens between -2.1 mAOD and -6.4 mAOD with mudstone at -9.8 mAOD.
+            - >
+              The east abutment piles are to be lengthened from 18.0 m to 24.0 m, with the pile
+              toe level lowered from -5.15 mAOD to -11.15 mAOD to found in the mudstone. The pile
+              cut-off level is unchanged at +12.85 mAOD.
+            - >
+              Temporary casing is to extend at least 1.0 m below the base of the soft clay.
+              Revised drawings KVL-ADM-410-DR-S-0102 and KVL-ADM-410-DR-S-0110 will be issued at
+              revision C02, with a new pile schedule. Brightwell Checking Services will re-check
+              the revised design.
+          signed_by: Priya Nair
+
+  - date: 2025-07-08
+    summary: BCS reissues the check certificate to cover the lengthened piles.
+    issue:
+      - doc: CERT
+        rev: P02
+        stage: CN
+        status: IS
+        description: Reissued for revised east abutment piles
+        content:
+          structure: River Kest Bridge - abutments and foundations
+          category: Category III
+          checked_documents:
+            - [KVL-ADM-410-DR-S-0102, C02]
+            - [KVL-ADM-410-DR-S-0110, C02]
+            - [KVL-ADM-410-SC-S-0003, C02]
+            - [KVL-ADM-410-LT-S-0031, P01]
+          statement: >
+            We certify that reasonable professional skill and care has been used in the
+            independent check of the revised east abutment pile design, including the
+            lengthened piles described in the designer's response to RFI-0012.
+          checker: Anne Kowalski
+          designer: Priya Nair
+
+  - date: 2025-07-10
+    summary: ADM issues C02 drawings and the new pile schedule (24 m piles); GA C02 also emailed.
+    issue:
+      - doc: GA
+        rev: C02
+        stage: CN
+        status: FC
+        description: Piles lengthened following RFI-0012
+        copies:
+          - location: KVL Project/01 Management/Correspondence/Email Attachments/2025-07
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -11.15}
+          notes:
+            - 8 No. 900 mm diameter bored cast-in-place piles, 24.0 m long.
+            - Pile toe level -11.15 mAOD. Pile cut-off level +12.85 mAOD.
+            - Piles lengthened following RFI-0012. See letter KVL-ADM-410-LT-S-0031.
+      - doc: PL
+        rev: C02
+        stage: CN
+        status: FC
+        description: Piles lengthened following RFI-0012
+        content:
+          scale: "1:50 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -11.15}
+          notes:
+            - Pile toe level -11.15 mAOD. Pile cut-off level +12.85 mAOD.
+            - Temporary casing to extend min. 1.0 m below base of soft clay.
+            - Pile cap soffit level +12.75 mAOD.
+      - doc: PS
+        rev: C02
+        stage: CN
+        status: FC
+        description: First issue with lengthened piles
+        content:
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -11.15}
+
+  - date: 2025-07-22
+    summary: CGC asks for clarification of the cut-off level on piling layout C02.
+    issue:
+      - doc: RFI15
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: Priya Nair
+          subject: East abutment pile cut-off level clarification
+          question:
+            - >
+              Piling layout KVL-ADM-410-DR-S-0110 C02 gives a pile cut-off level of +12.85 mAOD
+              and a pile cap soffit of +12.75 mAOD. Please confirm that the 100 mm projection of
+              the piles into the pile cap is intended.
+          references: [KVL-ADM-410-DR-S-0110]
+          response_required_by: 2025-07-29
+          programme_impact: None if answered before pile cap works
+
+  - date: 2025-07-25
+    summary: CGC submits the east abutment piling method statement for approval.
+    issue:
+      - doc: MS
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Ryan Doyle
+          for_review_by: Priya Nair
+          spec_clause: Series 1600 - Piling and embedded retaining walls
+          sections:
+            - heading: 1 Scope
+              paragraphs:
+                - >
+                  Construction of 8 No. 900 mm bored cast-in-place piles at the River Kest Bridge
+                  east abutment to drawings KVL-ADM-410-DR-S-0110 C02 and KVL-ADM-410-SC-S-0003 C02.
+            - heading: 2 Method
+              paragraphs:
+                - >
+                  Piles will be bored by rotary rig with temporary casing advanced through the
+                  alluvium and the soft clay lens. Casing will extend at least 1.0 m below the
+                  base of the soft clay, as confirmed on each boring log by the piling supervisor.
+                - >
+                  Concrete will be placed by tremie. Reinforcement cages will be fixed and
+                  inspected before placing.
+            - heading: 3 Testing
+              paragraphs:
+                - >
+                  Integrity testing on all piles. One static load test on a working pile
+                  nominated by the designer.
+
+  - date: 2025-07-29
+    summary: RFI-0015 answered and closed.
+    status_change:
+      - {doc: RFI15, rev: P01, status: CL, by: CGC, note: Answered by ADM email - 100 mm projection intended}
+
+  - date: 2025-08-05
+    summary: RFI-0012 closed once the C02 drawings and certificate are in place (no new revision).
+    status_change:
+      - {doc: RFI12, rev: P01, status: CL, by: CGC, note: Closed - answered by KVL-ADM-410-LT-S-0031}
+
+  - date: 2025-08-08
+    summary: ADM approves the method statement with comments (status change, no new revision).
+    status_change:
+      - {doc: MS, rev: P01, status: AN, by: ADM, note: Casing depth to be recorded on every boring log}
+
+  - date: 2025-08-14
+    summary: Progress meeting 10 records RFI-0012 as closed and piling resumed.
+    issue:
+      - doc: MM10
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 10
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Helen Marsh, Tom Reddy, Priya Nair, David Okafor]
+          apologies: [Ryan Doyle]
+          items:
+            - ref: "10.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "10.2"
+              title: Programme
+              discussion: Recovery programme accepted. Earthworks now one week behind.
+            - ref: "10.3"
+              title: River Kest Bridge - east abutment piling
+              discussion: >
+                RFI-0012 is closed. Revised drawings C02 and the pile schedule were issued on
+                10 July and the check certificate was reissued on 8 July. The piling method
+                statement was approved with comments on 8 August. Piling at the east abutment
+                resumed on 11 August with 24 m piles.
+            - ref: "10.4"
+              title: Mill Lane culvert
+              discussion: Response from Northvale Water on the water main level is still awaited.
+              action: Chase Northvale Water
+              owner: Tom Reddy
+              due: 2025-08-21
+
+  - date: 2025-10-02
+    summary: ADM issues GA P03 for comment after C02; its title block wrongly still says FC.
+    issue:
+      - doc: GA
+        rev: P03
+        stage: CN
+        status: RV
+        description: Proposed abutment drainage layer - for comment
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          titleblock_status: FC   # planted discrepancy: register says RV
+          geometry: {piles: 8, pile_diameter_mm: 900, cutoff_level: 12.85, toe_level: -11.15}
+          notes:
+            - Proposed change - weep holes replaced by a geocomposite drainage layer.
+            - Issued for comment only. Revision C02 remains the construction issue.
+            - Piles unchanged from revision C02.
+
+links:
+  - {from: RFI12, to: MM07, type: generated_from}
+  - {from: RFI12, to: GI, type: related_to}
+  - {from: LT31, to: RFI12, type: responds_to}
+  - {from: RFI12, to: GA@C02, type: affects}
+  - {from: RFI12, to: PL@C02, type: affects}
+  - {from: RFI12, to: PS@C02, type: affects}
+  - {from: PL@C02, to: RFI15, type: clarified_by}
+  - {from: MS, to: PL@C02, type: related_to}
+  - {from: CERT@P02, to: GA@C02, type: related_to}
+  - {from: MM10, to: RFI12, type: related_to}
+
+planted:
+  - {case: correct_not_latest, target: GA, note: "Latest revision P03 is for comment; C02 is the latest for construction"}
+  - {case: titleblock_discrepancy, target: GA@P03, note: "Title block status FC; register status RV"}
+  - {case: legacy_filename, target: LT31@P01, note: "Filename does not follow the convention"}
+  - {case: file_copy, target: GA@C02, note: "Also filed as an email attachment"}
+  - {case: near_duplicate, target: RFI11, note: "West abutment RFI with similar wording to RFI-0012"}
+  - {case: status_change_no_revision, target: MS@P01, note: "For approval, then approved with comments"}
+  - {case: status_change_no_revision, target: RFI12@P01, note: "Open, then closed"}
+  - {case: late_finding_in_appendix, target: GI@P01, note: "Soft clay lens reported only in Appendix C"}
