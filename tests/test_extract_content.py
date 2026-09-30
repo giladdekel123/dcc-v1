@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from app.ingest.extract_content import extract_all
-from app.ingest.load_register import load
 
 pytestmark = pytest.mark.db
 
@@ -27,9 +26,8 @@ def extracted_snapshot(conn):
 
 
 @pytest.fixture
-def loaded(conn):
-    load(conn, CORPUS)
-    return conn
+def loaded(data_conn):
+    return data_conn
 
 
 def test_every_file_extracted_and_registered_data_untouched(loaded):
@@ -46,14 +44,12 @@ def test_every_file_extracted_and_registered_data_untouched(loaded):
 
 
 def test_rerun_is_identical(loaded):
-    extract_all(loaded, CORPUS)
-    first = extracted_snapshot(loaded)
+    first = extracted_snapshot(loaded)  # from the session rebuild
     extract_all(loaded, CORPUS)
     assert extracted_snapshot(loaded) == first
 
 
 def test_extracted_status_can_disagree_with_registered_status(loaded):
-    extract_all(loaded, CORPUS)
     registered, extracted = loaded.execute("""
         select cs.status_code, e.extracted_fields ->> 'status_code'
         from dcc.document d

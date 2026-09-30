@@ -1,34 +1,27 @@
-"""Search smoke tests against the dev database. These prove the engine works end to end;
-they are not the evaluation set (M2). Every rebuild is rolled back."""
+"""Search smoke tests on the session-loaded dev data. These prove the engine works end to end;
+they are not the evaluation set. Any index rebuild here is rolled back."""
 
 import hashlib
 from datetime import date
-from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
 
 from app import db
 from app.ingest.build_index import build_index
-from app.ingest.extract_content import extract_all
-from app.ingest.load_register import load
 from app.main import app
 from app.retrieval.base import Filters
 from app.search import search
 
 pytestmark = pytest.mark.db
 
-CORPUS = Path(__file__).resolve().parent.parent / "corpus"
 ALLOWED_KINDS = {"metadata_match", "content_snippet", "revision_note", "status_note"}
 ALLOWED_SOURCES = {"registered", "extracted", "derived"}
 
 
 @pytest.fixture
-def indexed(conn):
-    load(conn, CORPUS)
-    extract_all(conn, CORPUS)
-    build_index(conn)
-    return conn
+def indexed(data_conn):
+    return data_conn
 
 
 def codes(response):
@@ -86,7 +79,7 @@ def test_response_shape(indexed):
     assert "score" in search(indexed, "piles", Filters(), debug=True).results[0].debug
 
 
-def test_api_search_and_file(conn):
+def test_api_search_and_file(data_conn):
     db.close_pool()
     client = TestClient(app)
     response = client.get("/api/search", params={"q": "east abutment general arrangement", "limit": 3})
@@ -98,7 +91,7 @@ def test_api_search_and_file(conn):
     result = body["results"][0]
     file = client.get(result["location"]["open_url"])
     assert file.status_code == 200 and file.headers["content-type"] == "application/pdf"
-    registered_sha = conn.execute(
+    registered_sha = data_conn.execute(
         "select sha256 from dcc.revision_file where revision_id = %s and copy_role = 'primary'",
         (result["revision"]["id"],)).fetchone()[0]
     assert hashlib.sha256(file.content).hexdigest() == registered_sha

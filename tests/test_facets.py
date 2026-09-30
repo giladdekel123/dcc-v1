@@ -14,9 +14,9 @@ def all_values(facets):
     return facets.doc_types + facets.disciplines + facets.stages + facets.organisations + facets.wbs
 
 
-def test_facet_counts_agree_with_the_register(conn):
-    facets = load_facets(conn)
-    documents = conn.execute("select count(*) from dcc.document").fetchone()[0]
+def test_facet_counts_agree_with_the_register(data_conn):
+    facets = load_facets(data_conn)
+    documents = data_conn.execute("select count(*) from dcc.document").fetchone()[0]
     assert sum(v.count for v in facets.doc_types) == documents
     assert sum(v.count for v in facets.disciplines) == documents
     assert sum(w.count for w in facets.wbs) == documents        # top-level counts include children
@@ -24,25 +24,25 @@ def test_facet_counts_agree_with_the_register(conn):
     assert all(k.count > 0 for w in facets.wbs for k in w.children)
 
 
-def test_facet_shape(conn):
-    facets = load_facets(conn)
-    order = [c for c, in conn.execute("select code from dcc.stage order by seq")]
+def test_facet_shape(data_conn):
+    facets = load_facets(data_conn)
+    order = [c for c, in data_conn.execute("select code from dcc.stage order by seq")]
     codes = [s.code for s in facets.stages]
     assert codes == [c for c in order if c in codes]           # lifecycle order
     structures = next(w for w in facets.wbs if w.code == "400")
     assert [k.code for k in structures.children] == ["410"]
-    low, high = conn.execute("select min(revision_date), max(revision_date) from dcc.revision").fetchone()
+    low, high = data_conn.execute("select min(revision_date), max(revision_date) from dcc.revision").fetchone()
     assert (facets.date_range.min, facets.date_range.max) == (low, high)
 
 
-def test_api_facets_and_filters(conn):
+def test_api_facets_and_filters(data_conn):
     db.close_pool()
     client = TestClient(app)
     body = client.get("/api/facets").json()
     assert {"doc_types", "disciplines", "stages", "organisations", "wbs", "date_range"} <= set(body)
 
     minutes = client.get("/api/search", params={"doc_type": "MM"}).json()["results"]
-    minutes_in_register = conn.execute("select count(*) from dcc.document where doc_type_code = 'MM'").fetchone()[0]
+    minutes_in_register = data_conn.execute("select count(*) from dcc.document where doc_type_code = 'MM'").fetchone()[0]
     assert len(minutes) == min(minutes_in_register, 10)
     assert {r["document"]["doc_type"]["code"] for r in minutes} == {"MM"}
 

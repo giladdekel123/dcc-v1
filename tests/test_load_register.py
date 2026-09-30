@@ -26,9 +26,8 @@ def snapshot(conn):
 
 
 @pytest.fixture
-def loaded(conn):
-    load(conn, CORPUS)
-    return conn
+def loaded(data_conn):
+    return data_conn
 
 
 @pytest.fixture

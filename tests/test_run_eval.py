@@ -71,14 +71,14 @@ def test_markdown_report_lists_misses():
 
 
 @pytest.mark.db
-def test_evaluate_against_dev_data(conn):
+def test_evaluate_against_dev_data(data_conn):
     queries = [
         Query("T1", "generated", "partial_name", "pile schedule", ["KVL-ADM-410-SC-S-0003"]),
         Query("T2", "generated", "old_revision", "east abutment general arrangement",
               ["KVL-ADM-410-DR-S-0102"], expected_rev="C02"),
         Query("T3", "generated", "vague_topic", "zzzz qqqq", ["KVL-ADM-410-SC-S-0003"]),
     ]
-    t1, t2, t3 = evaluate(conn, queries)
+    t1, t2, t3 = evaluate(data_conn, queries)
     assert t1.rank == 1 and t1.found == "KVL-ADM-410-SC-S-0003"
     assert t2.rank and t2.rev_named is True      # C02 is shown as latest for construction
     assert t3.rank is None and t3.rev_exact is None
