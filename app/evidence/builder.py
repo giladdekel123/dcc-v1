@@ -77,7 +77,7 @@ def filter_evidence(f: RevisionFacts, filters: Filters) -> list[EvidenceItem]:
     items = []
     for key, value in filters.active().items():
         if key in values and values[key]:
-            text = f"Matches filter {key.replace('_', ' ')}: {values[key][1]}"
+            text = f"Matches the filter: {values[key][1]}"
         elif key in ("date_from", "date_to"):
             text = f"Issued {fmt(f.revision_date)}, within the date filter"
         else:

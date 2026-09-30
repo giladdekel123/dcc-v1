@@ -17,6 +17,21 @@
                placeholder="Describe what you remember: subject, who sent it, what changed, roughly when">
         <button type="submit">Search</button>
       </form>
+      <details id="refine">
+        <summary>Refine <span id="refine-count"></span></summary>
+        <div class="filters">
+          <label>Document type <select data-filter="doc_type"></select></label>
+          <label>Discipline <select data-filter="discipline"></select></label>
+          <label>Stage <select data-filter="stage"></select></label>
+          <label>Organisation <select data-filter="org"></select></label>
+          <label>WBS <select data-filter="wbs"></select></label>
+          <label>Issued from <input type="date" data-filter="date_from"></label>
+          <label>to <input type="date" data-filter="date_to"></label>
+          <button type="button" id="clear-filters" class="secondary">Clear all</button>
+        </div>
+      </details>
+      <div id="chips" aria-label="Active filters"></div>
+      <p id="notice" class="notice" hidden></p>
       <p class="note">Candidates are ranked by how well they match, with the evidence for each. You decide which one is right.</p>
     </div>
   </header>

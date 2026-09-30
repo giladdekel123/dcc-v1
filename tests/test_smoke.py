@@ -18,7 +18,7 @@ def test_app_serves_health_and_index(monkeypatch):
 
     index = client.get("/")
     assert index.status_code == 200
-    assert "DCC V1" in index.text and 'id="search-form"' in index.text
+    assert "DCC V1" in index.text and 'id="search-form"' in index.text and 'id="refine"' in index.text
 
     for asset, content_type in (("/app.js", "javascript"), ("/styles.css", "text/css")):
         response = client.get(asset)
