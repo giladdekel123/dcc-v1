@@ -48,7 +48,8 @@ def add_revision(conn, document_id, rev_code, issued, stage="DD", statuses=()):
 
 
 @pytest.fixture
-def project(conn):
+def project(empty_conn):
+    conn = empty_conn
     conn.execute("insert into dcc.wbs_element (code, name) values ('410', 'Test bridge')")
     conn.execute("insert into dcc.organisation (code, name, role) values ('ADM', 'Test designer', 'designer')")
     return conn

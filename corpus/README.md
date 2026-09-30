@@ -7,7 +7,8 @@ documents and engineering values. Document codes follow the KVL project conventi
 inspired by ISO 19650 concepts but is not the ISO 19650 naming convention.
 
 - `KVL Project/` - the simulated project share (original file locations)
-- `register/` - registered metadata: documents, revisions, status history, files
+- `register/` - registered metadata: WBS, organisations, people, documents, revisions,
+  status history, files
 - `links.csv` - registered relationships between documents and revisions
 - `ground_truth/` - storyline membership and planted cases, for evaluation only;
   never loaded into the application database

@@ -19,6 +19,9 @@ DEFAULT_SEED = 1905
 GENERATED = ["KVL Project", "register", "ground_truth", "links.csv", "README.md"]
 
 TABLES = {
+    "register/wbs.csv": ["code", "name", "parent_code", "aliases"],
+    "register/organisations.csv": ["code", "name", "role", "aliases"],
+    "register/people.csv": ["name", "org_code", "title"],
     "register/documents.csv": ["doc_code", "title", "wbs_code", "discipline_code", "doc_type_code",
                                "originator_code", "owner_name"],
     "register/revisions.csv": ["doc_code", "rev_code", "revision_date", "stage_code", "sender_code", "description"],
@@ -39,7 +42,8 @@ documents and engineering values. Document codes follow the KVL project conventi
 inspired by ISO 19650 concepts but is not the ISO 19650 naming convention.
 
 - `KVL Project/` - the simulated project share (original file locations)
-- `register/` - registered metadata: documents, revisions, status history, files
+- `register/` - registered metadata: WBS, organisations, people, documents, revisions,
+  status history, files
 - `links.csv` - registered relationships between documents and revisions
 - `ground_truth/` - storyline membership and planted cases, for evaluation only;
   never loaded into the application database
@@ -64,6 +68,16 @@ def generate(out: Path, seed: int = DEFAULT_SEED) -> dict[str, list[dict]]:
     documents = timeline["documents"]
     tables = {name: [] for name in TABLES}
     history: dict[str, list] = {key: [] for key in documents}
+
+    # Reference data, so the register is self-contained; aliases are "|"-separated.
+    for w in project["wbs"]:
+        tables["register/wbs.csv"].append({"code": w["code"], "name": w["name"], "parent_code": w.get("parent", ""),
+                                           "aliases": "|".join(w.get("aliases", []))})
+    for o in project["organisations"]:
+        tables["register/organisations.csv"].append({"code": o["code"], "name": o["name"], "role": o["role"],
+                                                     "aliases": "|".join(o.get("aliases", []))})
+    for p in project["people"]:
+        tables["register/people.csv"].append({"name": p["name"], "org_code": p["org"], "title": p["title"]})
 
     for doc in documents.values():
         code = naming.parse_doc_code(doc["doc_code"])
