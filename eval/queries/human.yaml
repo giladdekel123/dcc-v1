@@ -1,0 +1,15 @@
+# Human-written evaluation queries (author: human).
+# Target: at least 18, so human queries are at least 30% of the evaluation set.
+# Follow eval/README.md: write each query from eval/briefing.md and memory FIRST,
+# then look up the expected document code in corpus/register/documents.csv.
+#
+# Example (copy, uncomment and edit; ids H001, H002, ...):
+#
+# - id: H001
+#   author: human
+#   category: vague_topic
+#   query: the letter where the designer told the contractor how long the piles should be
+#   expected: [KVL-ADM-410-LT-S-0031]
+#   notes: optional
+
+[]

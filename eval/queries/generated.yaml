@@ -1,0 +1,264 @@
+# Generated evaluation queries (author: generated).
+# Written from the corpus ground truth BEFORE any evaluation run, and frozen once committed:
+# do not edit them to fit results. See eval/README.md for the format.
+
+- id: G001
+  author: generated
+  category: vague_topic
+  query: the contractor's question about piles hitting soft clay at the east side of the bridge
+  expected: [KVL-CGC-410-RI-S-0012]
+
+- id: G002
+  author: generated
+  category: vague_topic
+  query: problem with the water pipe near the Mill Lane culvert
+  expected: [KVL-CGC-330-RI-S-0013, KVL-NCC-610-LT-U-0014]
+  notes: Either the RFI or the council's trial hole letter is an acceptable answer.
+
+- id: G003
+  author: generated
+  category: vague_topic
+  query: pond needs to hold more water because the council cut the discharge rate
+  expected: [KVL-ADM-300-RP-D-0021]
+
+- id: G004
+  author: generated
+  category: vague_topic
+  query: cheaper aggregate for the roundabout road surface
+  expected: [KVL-CGC-510-LT-C-0022, KVL-CGC-510-SB-C-0012]
+
+- id: G005
+  author: generated
+  category: vague_topic
+  query: overnight closures and traffic lights where the new road joins the existing road
+  expected: [KVL-CGC-200-LT-C-0019, KVL-NCC-200-LT-C-0016]
+
+- id: G006
+  author: generated
+  category: partial_name
+  query: piling layout east abutment
+  expected: [KVL-ADM-410-DR-S-0110]
+
+- id: G007
+  author: generated
+  category: partial_name
+  query: drainage layout sheet 2
+  expected: [KVL-ADM-300-DR-D-0302]
+  notes: Trap - sheet 3 C02 wrongly declares drawing number 0302 in its title block.
+
+- id: G008
+  author: generated
+  category: partial_name
+  query: variation 07
+  expected: [KVL-CGC-330-BQ-Q-0007]
+
+- id: G009
+  author: generated
+  category: partial_name
+  query: bill of quantities for the pavements
+  expected: [KVL-ADM-000-BQ-Q-0001]
+  notes: Latest revision P02 has a legacy filename and its sheet header wrongly says P03.
+
+- id: G010
+  author: generated
+  category: partial_name
+  query: check certificate for the culvert
+  expected: [KVL-BCS-330-CT-S-0002]
+
+- id: G011
+  author: generated
+  category: partial_name
+  query: Pond 1 GA
+  expected: [KVL-ADM-310-DR-D-0310]
+  notes: Legacy filename; near-duplicate of the Pond 2 East GA.
+
+- id: G012
+  author: generated
+  category: old_revision
+  query: the first construction issue of the east abutment general arrangement, before the piles were lengthened
+  expected: [KVL-ADM-410-DR-S-0102]
+  expected_rev: C01
+
+- id: G013
+  author: generated
+  category: old_revision
+  query: the preliminary drainage strategy from summer 2024
+  expected: [KVL-ADM-300-RP-D-0014]
+  expected_rev: P01
+
+- id: G014
+  author: generated
+  category: old_revision
+  query: baseline construction programme at contract award
+  expected: [KVL-CGC-100-SC-G-0002]
+  expected_rev: P01
+
+- id: G015
+  author: generated
+  category: old_revision
+  query: Mill Lane culvert drawing issued for construction with the original invert at 10.80
+  expected: [KVL-ADM-330-DR-S-0205]
+  expected_rev: C01
+
+- id: G016
+  author: generated
+  category: cross_type
+  query: the designer's reply to the RFI about soft clay under the piles
+  expected: [KVL-ADM-410-LT-S-0031]
+
+- id: G017
+  author: generated
+  category: cross_type
+  query: minutes of the meeting where the east abutment piling problem was first raised
+  expected: [KVL-CGC-100-MM-G-0007]
+
+- id: G018
+  author: generated
+  category: cross_type
+  query: Northvale Water's reply to the council's trial hole letter
+  expected: [KVL-NVW-610-LT-U-0003]
+
+- id: G019
+  author: generated
+  category: cross_type
+  query: the submittal that followed the contractor's letter about the roundabout surface course aggregate
+  expected: [KVL-CGC-510-SB-C-0012]
+
+- id: G020
+  author: generated
+  category: date_anchored
+  query: progress report for July 2025
+  expected: [KVL-CGC-100-RP-G-0007]
+  notes: Legacy filename; two near-identical monthly reports either side.
+
+- id: G021
+  author: generated
+  category: date_anchored
+  query: the monthly progress report issued at the start of September
+  expected: [KVL-CGC-100-RP-G-0008]
+  notes: The August report was issued on 4 September.
+
+- id: G022
+  author: generated
+  category: date_anchored
+  query: progress meeting in mid October 2025
+  expected: [KVL-CGC-100-MM-G-0012]
+
+- id: G023
+  author: generated
+  category: date_anchored
+  query: the council's letter about the pond from May 2025
+  expected: [KVL-NCC-320-LT-D-0011]
+
+- id: G024
+  author: generated
+  category: date_anchored
+  query: programme update from October
+  expected: [KVL-CGC-100-SC-G-0002]
+  expected_rev: P03
+
+- id: G025
+  author: generated
+  category: sender_anchored
+  query: letter from Northvale Water accepting the protection slab
+  expected: [KVL-NVW-610-LT-U-0004]
+  notes: Legacy filename; near-duplicate of Northvale Water's earlier letter.
+
+- id: G026
+  author: generated
+  category: sender_anchored
+  query: Arden Moss letter accepting the alternative roundabout surfacing
+  expected: [KVL-ADM-510-LT-C-0036]
+  notes: The contractor's letter and submittal on the same subject are near neighbours.
+
+- id: G027
+  author: generated
+  category: sender_anchored
+  query: Stratum's ground investigation report
+  expected: [KVL-SGI-410-RP-T-0001]
+
+- id: G028
+  author: generated
+  category: sender_anchored
+  query: letter from Castlegate about lane closures
+  expected: [KVL-CGC-200-LT-C-0019]
+
+- id: G029
+  author: generated
+  category: correct_not_latest
+  query: the east abutment GA drawing we should build from
+  expected: [KVL-ADM-410-DR-S-0102]
+  expected_rev: C02
+  notes: Latest revision P03 is for comment only.
+
+- id: G030
+  author: generated
+  category: correct_not_latest
+  query: the approved flow control device for Pond 2
+  expected: [KVL-CGC-320-SB-D-0009]
+  expected_rev: P01
+  notes: Latest revision P02 was rejected.
+
+- id: G031
+  author: generated
+  category: correct_not_latest
+  query: the current drainage strategy for the ponds
+  expected: [KVL-ADM-300-RP-D-0021]
+  notes: The older Drainage Strategy Report was superseded by a new document number.
+
+- id: G032
+  author: generated
+  category: related_chain
+  query: the drawing that changed after the contractor's question about soft clay
+  expected: [KVL-ADM-410-DR-S-0102, KVL-ADM-410-DR-S-0110]
+  expected_rev: C02
+
+- id: G033
+  author: generated
+  category: related_chain
+  query: the cost variation that came out of the Mill Lane water main clash
+  expected: [KVL-CGC-330-BQ-Q-0007]
+
+- id: G034
+  author: generated
+  category: related_chain
+  query: the report that responded to the council's reduced discharge limit
+  expected: [KVL-ADM-300-RP-D-0021]
+
+- id: G035
+  author: generated
+  category: related_chain
+  query: the follow-up question the contractor asked about the revised piling layout
+  expected: [KVL-CGC-410-RI-S-0015]
+
+- id: G036
+  author: generated
+  category: status_anchored
+  query: the rejected flow control submittal
+  expected: [KVL-CGC-320-SB-D-0009]
+  expected_rev: P02
+
+- id: G037
+  author: generated
+  category: status_anchored
+  query: closed RFI about the bearing plinths
+  expected: [KVL-CGC-410-RI-S-0011]
+
+- id: G038
+  author: generated
+  category: status_anchored
+  query: the surfacing submittal that was approved with comments
+  expected: [KVL-CGC-510-SB-C-0012]
+
+- id: G039
+  author: generated
+  category: status_anchored
+  query: abutment drawing issued for comment in October with a drainage layer
+  expected: [KVL-ADM-410-DR-S-0102]
+  expected_rev: P03
+
+- id: G040
+  author: generated
+  category: status_anchored
+  query: the variation the council accepted for about 48 thousand pounds
+  expected: [KVL-CGC-330-BQ-Q-0007]
