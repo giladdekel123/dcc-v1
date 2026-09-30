@@ -71,8 +71,7 @@ def test_planted_declared_values_differ_from_the_register():
 
 
 def test_programme_dates_read_as_iso_dates():
-    result = extract(KVL / "02 Design/100 Project management/Schedules/"
-                           "KVL-CGC-100-SC-G-0002_P03 - Construction Programme.xlsx", "xlsx")
+    result = extract(KVL / "01 Management/Programme/KVL-CGC-100-SC-G-0002_P03 - Construction Programme.xlsx", "xlsx")
     assert "Completion | 000 | 2026-06-26 | 2026-06-26" in text(result)
 
 
