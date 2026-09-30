@@ -184,7 +184,7 @@ PROJECT_ROOT = "KVL Project"
 DISPLAY_ROOT = r"\\kvl-fs01\Projects"
 SHARE_OWNER = "NCC"  # the project share is the client's; others' correspondence is "Incoming"
 SUPERSEDED = "99 Superseded"
-PROGRAMME_WBS = "100"  # schedules under project management are programmes, filed with management records
+MANAGEMENT_WBS = "100"  # project-management schedules (programmes) and reports (progress) sit with management records
 
 
 def standard_location(doc_type: str, wbs_folder: str, originator: str, issued: date) -> str:
@@ -198,9 +198,11 @@ def standard_location(doc_type: str, wbs_folder: str, originator: str, issued: d
             parts = ["01 Management", "Correspondence", "Incoming", originator]
         case "DR":
             parts = ["02 Design", wbs_folder, "Drawings"]
+        case "RP" if wbs_folder.startswith(f"{MANAGEMENT_WBS} "):
+            parts = ["01 Management", "Progress Reports"]
         case "RP":
             parts = ["02 Design", wbs_folder, "Reports"]
-        case "SC" if wbs_folder.startswith(f"{PROGRAMME_WBS} "):
+        case "SC" if wbs_folder.startswith(f"{MANAGEMENT_WBS} "):
             parts = ["01 Management", "Programme"]
         case "SC":
             parts = ["02 Design", wbs_folder, "Schedules"]
