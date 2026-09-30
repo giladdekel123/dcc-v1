@@ -4,28 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DCC V1</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; color: #1f2328; }
-    h1 { margin-bottom: 0.25rem; }
-    .muted { color: #59636e; }
-    code { background: #f2f4f6; padding: 0.1rem 0.3rem; border-radius: 3px; }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
-  <h1>DCC V1</h1>
-  <p class="muted">Project document retrieval from partial memory. Search is not available yet.</p>
-  <p>Backend health: <code id="health">checking…</code></p>
+  <header class="site">
+    <div class="wrap">
+      <h1><span class="brand">DCC</span> Find a project document from what you remember</h1>
+      <form id="search-form" role="search">
+        <label for="q" class="visually-hidden">What do you remember about the document?</label>
+        <input id="q" name="q" type="search" maxlength="500" autocomplete="off"
+               placeholder="Describe what you remember: subject, who sent it, what changed, roughly when">
+        <button type="submit">Search</button>
+      </form>
+      <p class="note">Candidates are ranked by how well they match, with the evidence for each. You decide which one is right.</p>
+    </div>
+  </header>
 
-  <script>
-    fetch("/api/health")
-      .then((r) => r.json())
-      .then((h) => {
-        document.getElementById("health").textContent =
-          `${h.status} · v${h.version} · database ${h.database}`;
-      })
-      .catch(() => {
-        document.getElementById("health").textContent = "unreachable";
-      });
-  </script>
+  <main class="wrap">
+    <h2 id="summary" tabindex="-1" aria-live="polite"></h2>
+    <ol id="results" class="results"></ol>
+  </main>
+
+  <footer class="wrap">
+    <span id="health">Checking the backend…</span>
+    <span>Kestrel Valley Link Road is a fictional project; all documents are synthetic.</span>
+  </footer>
 </body>
 </html>
