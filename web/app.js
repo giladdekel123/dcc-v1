@@ -133,6 +133,7 @@ async function runSearch(query, { updateHistory = true } = {}) {
   query = query.trim();
   input.value = query;
   list.replaceChildren();
+  const request = ++latestRequest;  // also invalidates any search still in flight
   if (!query) {
     summary.textContent = "Type something you remember about the document.";
     return;
@@ -141,7 +142,6 @@ async function runSearch(query, { updateHistory = true } = {}) {
   if (updateHistory && new URLSearchParams(location.search).get("q") !== query) {
     history.pushState({ q: query }, "", `?${params}`);
   }
-  const request = ++latestRequest;
   summary.textContent = "Searching…";
   try {
     const response = await fetch(`/api/search?${params}`);

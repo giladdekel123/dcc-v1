@@ -29,6 +29,9 @@ REGISTER_FILES = {
     "files": "register/revision_files.csv",
     "links": "links.csv",
 }
+# Must match the check constraints on dcc.information_link.
+LINK_TYPES = {"supersedes", "responds_to", "clarified_by", "generated_from", "affects", "related_to"}
+LINK_PROVENANCE = {"registered", "extracted"}
 # Every table holding project data. The convention vocabularies are not listed and never touched.
 PROJECT_TABLES = [
     "search_entry", "information_link", "content_segment", "extraction", "revision_file", "revision_status",
@@ -78,6 +81,14 @@ def validate(reg: Register, corpus: Path, vocab: dict[str, set[str]]) -> list[st
 
     problems += [f"WBS {w['code']}: unknown parent {w['parent_code']}"
                  for w in reg.wbs if w["parent_code"] and w["parent_code"] not in wbs]
+    parents = {w["code"]: w["parent_code"] for w in reg.wbs}
+    for code in parents:
+        seen, current = set(), code
+        while current and current in parents and current not in seen:
+            seen.add(current)
+            current = parents[current]
+        if current in seen:
+            problems.append(f"WBS {code}: parent chain loops back on itself")
     problems += [f"person {p['name']}: unknown organisation {p['org_code']}" for p in reg.people if p["org_code"] not in orgs]
 
     doc_types: dict[str, str] = {}
@@ -132,8 +143,11 @@ def validate(reg: Register, corpus: Path, vocab: dict[str, set[str]]) -> list[st
             problems.append(f"{label}: unknown status")
         elif not naming.status_allowed(doc_types.get(key[0], ""), s["status_code"]):
             problems.append(f"{label}: not allowed for document type {doc_types.get(key[0])}")
-        if date.fromisoformat(s["effective_date"]) < revision_dates[key]:
-            problems.append(f"{label}: dated before the revision was issued")
+        try:
+            if date.fromisoformat(s["effective_date"]) < revision_dates[key]:
+                problems.append(f"{label}: dated before the revision was issued")
+        except ValueError:
+            problems.append(f"{label}: invalid date {s['effective_date']!r}")
         if s["assigned_by_code"] and s["assigned_by_code"] not in orgs:
             problems.append(f"{label}: unknown organisation {s['assigned_by_code']}")
         status_keys[(key, s["effective_date"])] += 1
@@ -150,6 +164,8 @@ def validate(reg: Register, corpus: Path, vocab: dict[str, set[str]]) -> list[st
             problems.append(f"{label}: unknown revision")
         if f["copy_role"] == "primary":
             primaries[key] += 1
+        elif f["copy_role"] != "copy":
+            problems.append(f"{label}: copy role must be primary or copy")
         if f["storage_path"] != f"{f['original_location']}/{f['filename']}":
             problems.append(f"{label}: storage path does not match location and filename")
         if not f["filename"].endswith(f".{f['file_format']}"):
@@ -162,6 +178,8 @@ def validate(reg: Register, corpus: Path, vocab: dict[str, set[str]]) -> list[st
             problems.append(f"{label}: outside the corpus folder")
         elif not path.is_file():
             problems.append(f"{label}: file not found")
+        elif not f["size_bytes"].isdigit():
+            problems.append(f"{label}: invalid size {f['size_bytes']!r}")
         else:
             data = path.read_bytes()
             if len(data) != int(f["size_bytes"]) or hashlib.sha256(data).hexdigest() != f["sha256"]:
@@ -172,6 +190,10 @@ def validate(reg: Register, corpus: Path, vocab: dict[str, set[str]]) -> list[st
 
     for link in reg.links:
         label = f"link {link['from_doc_code']} {link['link_type']} {link['to_doc_code']}"
+        if link["link_type"] not in LINK_TYPES:
+            problems.append(f"{label}: unknown link type")
+        if link["provenance"] not in LINK_PROVENANCE:
+            problems.append(f"{label}: unknown provenance {link['provenance']!r}")
         for doc, rev in ((link["from_doc_code"], link["from_rev_code"]), (link["to_doc_code"], link["to_rev_code"])):
             if doc not in doc_types or (rev and (doc, rev) not in revision_dates):
                 problems.append(f"{label}: unresolved {doc} {rev}".rstrip())
@@ -193,6 +215,8 @@ def load(conn: psycopg.Connection, corpus: Path) -> dict[str, int]:
         while pending:  # parents before children
             inserted = {r[0] for r in conn.execute("select code from dcc.wbs_element")}
             ready = [w for w in pending if not w["parent_code"] or w["parent_code"] in inserted]
+            if not ready:  # validate() rejects cycles; never spin inside the transaction
+                raise RegisterError([f"WBS {w['code']}: parent cannot be resolved" for w in pending])
             cur.executemany(
                 "insert into dcc.wbs_element (code, name, parent_code, aliases) values (%s, %s, %s, %s)",
                 [(w["code"], w["name"], w["parent_code"] or None, _aliases(w)) for w in ready])

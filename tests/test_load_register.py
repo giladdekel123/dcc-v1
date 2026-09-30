@@ -107,6 +107,17 @@ def test_ground_truth_is_not_needed(conn, corpus_copy):
     assert scalar(conn, "select count(*) from dcc.document") == 12
 
 
+def test_unresolvable_wbs_raises_instead_of_looping(conn, corpus_copy, monkeypatch):
+    # validate() normally rejects cycles; bypass it to prove the insert loop itself cannot spin.
+    monkeypatch.setattr("app.ingest.load_register.validate", lambda *args: [])
+    edit_csv(corpus_copy / "register/wbs.csv",
+             lambda rows: [r.update(parent_code={"100": "200", "200": "100"}[r["code"]])
+                           for r in rows if r["code"] in ("100", "200")])
+    with pytest.raises(RegisterError) as error:
+        load(conn, corpus_copy)
+    assert any("parent cannot be resolved" in p for p in error.value.problems)
+
+
 @pytest.mark.parametrize("corrupt, expected", [
     (lambda c: edit_csv(c / "register/revision_files.csv", lambda rows: rows[0].update(sha256="0" * 64)),
      "SHA-256 does not match"),
