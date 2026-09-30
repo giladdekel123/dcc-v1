@@ -21,12 +21,13 @@ def test_spec_is_consistent(loaded):
 
 def test_corpus_shape(loaded):
     _, timeline = loaded
-    assert [s["code"] for s in timeline["storylines"]] == ["A", "B", "C", "D", "E"]
+    assert [s["code"] for s in timeline["storylines"]] == list("ABCDEFGHIJK")
     assert Counter(d["storyline"] for d in timeline["documents"].values()) == {
-        "A": 12, "B": 9, "C": 9, "D": 5, "E": 12}
+        "A": 12, "B": 9, "C": 9, "D": 5, "E": 12,
+        "F": 13, "G": 5, "H": 6, "I": 6, "J": 17, "K": 6}
     items = issues(timeline)
     files = len(items) + sum(len(i.get("copies", [])) for i in items)
-    assert (len(items), files) == (62, 64)
+    assert (len(timeline["documents"]), len(items), files) == (100, 120, 122)
     formats = {spec.TEMPLATE_FORMATS[timeline["documents"][i["doc"]]["template"]] for i in items}
     assert formats == {"pdf", "docx", "xlsx"}
 

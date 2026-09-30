@@ -33,8 +33,8 @@ def loaded(data_conn):
 def test_every_file_extracted_and_registered_data_untouched(loaded):
     before = registered_snapshot(loaded)
     results = extract_all(loaded, CORPUS)
-    assert len(results) == 64 and {r.outcome for r in results.values()} == {"ok"}
-    assert loaded.execute("select count(*) from dcc.extraction where outcome = 'ok'").fetchone()[0] == 64
+    assert len(results) == 122 and {r.outcome for r in results.values()} == {"ok"}
+    assert loaded.execute("select count(*) from dcc.extraction where outcome = 'ok'").fetchone()[0] == 122
     no_segments = loaded.execute("""
         select count(*) from dcc.extraction e
         where not exists (select 1 from dcc.content_segment s where s.revision_file_id = e.revision_file_id)
@@ -70,4 +70,4 @@ def test_changed_file_is_recorded_as_failed(loaded, tmp_path):
     results = extract_all(loaded, corpus)
     failed = {path: r for path, r in results.items() if r.outcome == "failed"}
     assert len(failed) == 1 and "SHA-256 mismatch" in next(iter(failed.values())).error
-    assert sum(r.outcome == "ok" for r in results.values()) == 63
+    assert sum(r.outcome == "ok" for r in results.values()) == 121

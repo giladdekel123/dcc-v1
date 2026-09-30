@@ -1,0 +1,569 @@
+# Storyline J: project administration (WBS 000 / 100) - early meetings, meeting 11, more monthly
+# progress reports, management plans and general correspondence.
+#
+# M2.5 expansion. Answer-safety: no minutes discuss the east abutment piling problem or the
+# recovery programme; no meeting in mid October; no other July progress report or report issued
+# in early September; no lane closures, signals or tie-in.
+
+storyline: J
+name: Project administration
+
+documents:
+  HSP:
+    doc_code: KVL-CGC-000-RP-G-0001
+    title: Construction Phase Health and Safety Plan
+    owner: Kate Sorensen
+    template: pdf_report
+  PQP:
+    doc_code: KVL-CGC-000-RP-G-0002
+    title: Project Quality Plan
+    owner: Lee Hartley
+    template: pdf_report
+  SWMP:
+    doc_code: KVL-CGC-000-RP-G-0025
+    title: Site Waste Management Plan
+    owner: Kate Sorensen
+    template: pdf_report
+  CEMP:
+    doc_code: KVL-CGC-000-RP-E-0026
+    title: Construction Environmental Management Plan
+    owner: Kate Sorensen
+    template: pdf_report
+  NCC13:
+    doc_code: KVL-NCC-000-LT-G-0013
+    title: Notice of Contract Award
+    owner: Helen Marsh
+    template: docx_letter
+  NCC12:
+    doc_code: KVL-NCC-100-LT-G-0012
+    title: Site Access and Working Hours
+    owner: Helen Marsh
+    template: docx_letter
+  EW20:
+    doc_code: KVL-CGC-100-LT-G-0020
+    title: Early Warning - Wet Weather Impact on Earthworks
+    owner: Mark Bellamy
+    template: docx_letter
+  EW21:
+    doc_code: KVL-CGC-100-LT-G-0021
+    title: Early Warning - Utility Diversion Delay
+    owner: Mark Bellamy
+    template: docx_letter
+  MM01:
+    doc_code: KVL-CGC-100-MM-G-0001
+    title: Progress Meeting No. 1 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+  MM02:
+    doc_code: KVL-CGC-100-MM-G-0002
+    title: Progress Meeting No. 2 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [H]
+  MM03:
+    doc_code: KVL-CGC-100-MM-G-0003
+    title: Progress Meeting No. 3 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [F, I]
+  MM04:
+    doc_code: KVL-CGC-100-MM-G-0004
+    title: Progress Meeting No. 4 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [I]
+  MM11:
+    doc_code: KVL-CGC-100-MM-G-0011
+    title: Progress Meeting No. 11 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [B, C, G]
+  PR03:
+    doc_code: KVL-CGC-100-RP-G-0003
+    title: Monthly Progress Report - March 2025
+    owner: Mark Bellamy
+    template: pdf_report
+  PR04:
+    doc_code: KVL-CGC-100-RP-G-0004
+    title: Monthly Progress Report - April 2025
+    owner: Mark Bellamy
+    template: pdf_report
+  PR05:
+    doc_code: KVL-CGC-100-RP-G-0005
+    title: Monthly Progress Report - May 2025
+    owner: Mark Bellamy
+    template: pdf_report
+  PR09:
+    doc_code: KVL-CGC-100-RP-G-0009
+    title: Monthly Progress Report - September 2025
+    owner: Mark Bellamy
+    template: pdf_report
+    also_in: [B, C, G]
+
+events:
+
+  - date: 2025-02-17
+    summary: NCC notifies Castlegate of the contract award.
+    issue:
+      - doc: NCC13
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          to: Mark Bellamy
+          cc: [David Okafor]
+          subject: Kestrel Valley Link Road - notice of contract award
+          paragraphs:
+            - >
+              Northvale County Council is pleased to confirm the award of the construction contract
+              for the Kestrel Valley Link Road to Castlegate Civils Ltd.
+            - >
+              The contract starting date is 3 March 2025 and the completion date is 30 April 2026.
+              Please submit your health and safety, quality and environmental plans before starting
+              on site.
+          signed_by: Helen Marsh
+
+  - date: 2025-02-28
+    summary: CGC issues the construction phase health and safety plan.
+    issue:
+      - doc: HSP
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        filed: superseded
+        content:
+          sections:
+            - heading: 1 Project and arrangements
+              paragraphs:
+                - >
+                  Construction phase plan for the Kestrel Valley Link Road, covering site set-up,
+                  welfare, induction and emergency arrangements.
+            - heading: 2 Significant risks
+              paragraphs:
+                - >
+                  Plant and vehicle movements on haul roads, working near overhead lines, work near
+                  the River Kest, and lifting operations at the bridge.
+
+  - date: 2025-03-03
+    summary: CGC issues the project quality plan.
+    issue:
+      - doc: PQP
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Quality management
+              paragraphs:
+                - >
+                  Inspection and test plans for each activity, hold points agreed with the designer,
+                  and a monthly quality report.
+            - heading: 2 Records
+              paragraphs:
+                - >
+                  Test results, inspection records and material certificates are held in the site
+                  quality file and summarised in the monthly progress report.
+
+  - date: 2025-03-05
+    summary: NCC sets site access and working hours; CGC issues its environmental management plan.
+    issue:
+      - doc: NCC12
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          to: Mark Bellamy
+          cc: [Tom Reddy]
+          subject: Kestrel Valley Link Road - site access and working hours
+          paragraphs:
+            - >
+              Site access for construction traffic is from Mill Lane only, via the agreed temporary
+              access. Normal working hours are 07:30 to 18:00 Monday to Friday and 08:00 to 13:00
+              on Saturdays.
+            - Any work outside these hours needs 10 working days' written notice and the council's approval.
+          signed_by: Helen Marsh
+      - doc: CEMP
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Purpose
+              paragraphs:
+                - >
+                  How environmental risks are controlled during construction: dust, noise, pollution
+                  of watercourses, and protected species.
+            - heading: 2 Key controls
+              paragraphs:
+                - >
+                  Silt fences and settlement lagoons for site runoff, spill kits at refuelling points,
+                  and compliance with the great crested newt licence conditions.
+
+  - date: 2025-03-06
+    summary: Progress meeting 1 - mobilisation.
+    issue:
+      - doc: MM01
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 1
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Kate Sorensen, Helen Marsh, Tom Reddy, David Okafor]
+          apologies: []
+          items:
+            - ref: "1.1"
+              title: Health and safety
+              discussion: Construction phase plan issued 28 February. Site induction in place.
+            - ref: "1.2"
+              title: Mobilisation
+              discussion: Site compound set up at Mill Lane. Welfare facilities complete.
+            - ref: "1.3"
+              title: Programme
+              discussion: Programme issued 1 March. Site clearance starts 10 March.
+              action: Confirm site clearance sequence
+              owner: Jo Kimani
+              due: 2025-03-20
+
+  - date: 2025-03-10
+    summary: CGC issues the site waste management plan.
+    issue:
+      - doc: SWMP
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Waste streams
+              paragraphs:
+                - >
+                  Forecast waste from site clearance, surplus excavated material, packaging and
+                  concrete washout, with targets to reuse surplus soils on site.
+            - heading: 2 Arrangements
+              paragraphs:
+                - Segregated skips at the compound. Waste transfer notes kept in the site office.
+
+  - date: 2025-03-20
+    summary: Progress meeting 2 - vegetation clearance and the newt licence.
+    issue:
+      - doc: MM02
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 2
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Helen Marsh, Tom Reddy, David Okafor, Rachel Ames]
+          apologies: [Kate Sorensen]
+          items:
+            - ref: "2.1"
+              title: Health and safety
+              discussion: No incidents.
+            - ref: "2.2"
+              title: Vegetation clearance
+              discussion: >
+                Method statement accepted on 12 March. Clearance to finish by 31 March, outside the
+                bird nesting season. Tree T31 on Mill Lane is retained.
+            - ref: "2.3"
+              title: Ecology
+              discussion: Amphibian fencing near field pond FP1 installed; trapping under way.
+              action: Confirm completion of newt trapping
+              owner: Rachel Ames
+              due: 2025-04-03
+
+  - date: 2025-04-03
+    summary: Progress meeting 3 - earthworks start, capping source, electricity diversion.
+    issue:
+      - doc: MM03
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 3
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Chris Moran, Helen Marsh, Tom Reddy, Nadia Hussain]
+          apologies: [David Okafor]
+          items:
+            - ref: "3.1"
+              title: Health and safety
+              discussion: One near miss with a dumper at the compound gate. Banksman now in place.
+            - ref: "3.2"
+              title: Earthworks
+              discussion: Topsoil strip starts 7 April. Capping source submittal to follow in May.
+            - ref: "3.3"
+              title: Utilities
+              discussion: Northgrid 11 kV cable diversion under way; energisation planned for May.
+              action: Confirm energisation date with Northgrid
+              owner: Tom Reddy
+              due: 2025-04-24
+
+  - date: 2025-04-04
+    summary: CGC issues the March progress report (filed under a legacy filename).
+    issue:
+      - doc: PR03
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        filename: Progress Report Mar-25.pdf
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  March 2025. Mobilisation and site set-up completed. Vegetation clearance finished on
+                  28 March. Newt trapping near field pond FP1 in progress.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Site clearance, Complete, None]
+                  - [Earthworks, Not started, Starts 7 April]
+                  - [Utilities, Northgrid diversion under way, None]
+            - heading: 3 Programme
+              paragraphs:
+                - On programme against the baseline. Completion 30 April 2026.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents.
+
+  - date: 2025-04-15
+    summary: CGC gives early warning of a possible utility diversion delay.
+    issue:
+      - doc: EW21
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Helen Marsh
+          cc: [Tom Reddy]
+          subject: Early warning - possible delay to the telecom duct diversion
+          paragraphs:
+            - >
+              OpenLine Telecom has scheduled its duct diversion between Ch 3+000 and Ch 3+200 for
+              June 2025, later than the May date in our programme.
+            - >
+              This may delay earthworks in that length by up to three weeks. We propose to resequence
+              the earthworks to work elsewhere first.
+          signed_by: Mark Bellamy
+
+  - date: 2025-04-24
+    summary: Progress meeting 4 - earthworks progress, telecom wayleave, west abutment piling plan.
+    issue:
+      - doc: MM04
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 4
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Ryan Doyle, Helen Marsh, Tom Reddy, Priya Nair]
+          apologies: [Chris Moran]
+          items:
+            - ref: "4.1"
+              title: Health and safety
+              discussion: No incidents.
+            - ref: "4.2"
+              title: Earthworks
+              discussion: Topsoil strip 40 per cent complete between Ch 0+000 and Ch 1+400.
+            - ref: "4.3"
+              title: Utilities
+              discussion: OpenLine Telecom wayleave agreed; duct diversion in June. Earthworks resequenced.
+            - ref: "4.4"
+              title: River Kest Bridge
+              discussion: West abutment piling rig arrives 9 May. Trial mix report for deck concrete received.
+
+  - date: 2025-05-06
+    summary: CGC issues the April progress report.
+    issue:
+      - doc: PR04
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  April 2025. Topsoil strip and the first cuttings started. Earthworks resequenced
+                  around the later telecom duct diversion.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, "15% of cut complete", Resequenced around telecom diversion]
+                  - [River Kest Bridge, Piling rig due 9 May, None]
+                  - [Utilities, Northgrid cable diversion near complete, Telecom diversion in June]
+            - heading: 3 Programme
+              paragraphs:
+                - On programme against the baseline. Completion 30 April 2026.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents. One near miss at the compound gate.
+
+  - date: 2025-06-04
+    summary: CGC issues the May progress report.
+    issue:
+      - doc: PR05
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  May 2025. West abutment piling completed. The Northgrid 11 kV cable diversion was
+                  energised on 12 May. The Pond 2 East design is under review after the council's
+                  flood model update.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, "38% of cut complete", None]
+                  - [River Kest Bridge, West abutment piles complete, None]
+                  - [Utilities, Northgrid diversion complete, Telecom diversion from 2 June]
+            - heading: 3 Programme
+              paragraphs:
+                - On programme against the baseline. Completion 30 April 2026.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents.
+
+  - date: 2025-06-10
+    summary: CGC gives early warning of wet weather affecting earthworks.
+    issue:
+      - doc: EW20
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Helen Marsh
+          cc: [Tom Reddy, Chris Moran]
+          subject: Early warning - wet weather impact on earthworks
+          paragraphs:
+            - >
+              Rainfall in late May and early June was well above average. Fill placement has been
+              suspended on 9 of the last 15 working days.
+            - >
+              Earthworks are about two weeks behind programme. We will set out the effect on
+              completion at the next progress meeting.
+          signed_by: Mark Bellamy
+
+  - date: 2025-06-20
+    summary: CGC updates the health and safety plan for deep excavations.
+    issue:
+      - doc: HSP
+        rev: P02
+        stage: CN
+        status: FI
+        description: Updated for deep excavations and work near live services
+        content:
+          sections:
+            - heading: 1 Project and arrangements
+              paragraphs:
+                - >
+                  Construction phase plan for the Kestrel Valley Link Road. This revision adds
+                  arrangements for deep excavations and work near live buried services.
+            - heading: 2 Significant risks
+              paragraphs:
+                - >
+                  Plant and vehicle movements, deep excavations with temporary support, work near
+                  live cables and ducts, work near the River Kest, and lifting operations.
+
+  - date: 2025-09-11
+    summary: Progress meeting 11 - no recovery programme item.
+    issue:
+      - doc: MM11
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 11
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Chris Moran, Helen Marsh, Tom Reddy, Priya Nair, Sam Whitfield]
+          apologies: [David Okafor]
+          items:
+            - ref: "11.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "11.2"
+              title: Earthworks
+              discussion: Cut substantially complete. Capping in progress between Ch 2+800 and Ch 4+200.
+            - ref: "11.3"
+              title: Mill Lane culvert
+              discussion: Base slab cast. Protection works completed with the Northvale Water inspector present.
+            - ref: "11.4"
+              title: Pond 2 East flow control
+              discussion: Flow control submittal received 29 August; ADM review in progress.
+            - ref: "11.5"
+              title: River Kest Bridge deck
+              discussion: Deck waterproofing submittal due 18 September.
+              action: Submit deck waterproofing system
+              owner: Ryan Doyle
+              due: 2025-09-18
+
+  - date: 2025-10-03
+    summary: CGC issues the September progress report.
+    issue:
+      - doc: PR09
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  September 2025. Earthworks cut complete and capping well advanced. The Mill Lane
+                  culvert base and protection works are complete. The Pond 2 East flow control device
+                  was approved with comments on 12 September. The deck waterproofing submittal was
+                  made on 18 September.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, Cut complete; capping 70%, None]
+                  - [Mill Lane culvert, Base and protection works complete, None]
+                  - [Pond 2 East, Awaiting revised drawings, Start planned late October]
+                  - [River Kest Bridge, Deck steelwork erected, Waterproofing submittal under review]
+            - heading: 3 Programme
+              paragraphs:
+                - A programme update will be issued on 1 October.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents.
+
+links:
+  - {from: MM02, to: VEG, type: related_to}
+  - {from: MM03, to: NGE01, type: related_to}
+  - {from: MM04, to: OLT01, type: related_to}
+  - {from: MM11, to: FCD@P01, type: related_to}
+  - {from: EW20, to: MM07, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: PR03@P01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: PR09, note: "Monthly progress report issued in early October, not September"}
+  - {case: near_duplicate, target: MM11, note: "September minutes with no recovery programme item"}
+  - {case: near_duplicate, target: MM04, note: "Early minutes that mention abutment piling without any problem"}

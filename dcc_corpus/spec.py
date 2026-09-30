@@ -21,6 +21,7 @@ TEMPLATE_FORMATS = {
     "xlsx_schedule": "xlsx",
     "xlsx_boq": "xlsx",
     "xlsx_programme": "xlsx",
+    "xlsx_table": "xlsx",     # generic schedule: columns and rows
 }
 # Drawing geometry kinds; a drawing without geometry.kind is a pile layout (Storyline A).
 DRAWING_KINDS = {"piles", "culvert", "pond", "layout", "roundabout", "generic"}

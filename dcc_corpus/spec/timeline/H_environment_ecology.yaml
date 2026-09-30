@@ -1,0 +1,188 @@
+# Storyline H: environment and ecology (WBS 700).
+#
+# M2.5 expansion. Answer-safety: the newt survey mentions the pond sites but says nothing about
+# discharge, storage or enlargement; the council letter is about ecology, not the ponds.
+
+storyline: H
+name: Environment and ecology
+
+documents:
+  PEA:
+    doc_code: KVL-ADM-700-RP-E-0005
+    title: Preliminary Ecological Appraisal
+    owner: Rachel Ames
+    template: pdf_report
+  GCN:
+    doc_code: KVL-ADM-700-RP-E-0006
+    title: Great Crested Newt Survey Report
+    owner: Rachel Ames
+    template: pdf_report
+  LMP:
+    doc_code: KVL-ADM-700-DR-E-0702
+    title: Landscape Masterplan
+    owner: Rachel Ames
+    template: pdf_drawing
+  TREE:
+    doc_code: KVL-ADM-700-SC-E-0005
+    title: Tree Removal Schedule
+    owner: Rachel Ames
+    template: xlsx_table
+  NCC09:
+    doc_code: KVL-NCC-700-LT-E-0009
+    title: Ecology Licence - Newt Mitigation
+    owner: Helen Marsh
+    template: docx_letter
+  VEG:
+    doc_code: KVL-CGC-700-SB-E-0014
+    title: Vegetation Clearance Method Statement
+    owner: Jo Kimani
+    template: docx_submittal
+
+events:
+
+  - date: 2024-04-19
+    summary: ADM issues the preliminary ecological appraisal.
+    issue:
+      - doc: PEA
+        rev: P01
+        stage: PD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  A preliminary ecological appraisal of the route corridor, based on a desk study and
+                  an extended Phase 1 habitat survey in March 2024.
+            - heading: 2 Findings
+              paragraphs:
+                - >
+                  The corridor is mainly improved grassland and arable land, with hedgerows, a
+                  woodland strip near the River Kest and two field ponds. The field ponds have
+                  potential for great crested newts, and further surveys are recommended.
+                - >
+                  Several mature trees near Mill Lane have bat roost potential.
+
+  - date: 2024-06-28
+    summary: ADM issues the great crested newt survey.
+    issue:
+      - doc: GCN
+        rev: P01
+        stage: PD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Survey
+              paragraphs:
+                - >
+                  Four presence and absence surveys of the field ponds within 250 m of the route,
+                  including those near the proposed Pond 1 West and Pond 2 East sites, between April
+                  and June 2024.
+            - heading: 2 Results
+              table:
+                columns: [Pond, Location, Peak count, Result]
+                rows:
+                  - [FP1, Field pond near Pond 1 West site, 4, Present - small population]
+                  - [FP2, Field pond near Pond 2 East site, 0, Absent]
+            - heading: 3 Recommendation
+              paragraphs:
+                - >
+                  A mitigation licence is required for works within 250 m of FP1, with amphibian
+                  fencing and a receptor area before construction starts.
+
+  - date: 2025-02-14
+    summary: ADM issues the tree removal schedule (filed under a legacy filename).
+    issue:
+      - doc: TREE
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filename: Tree schedule FINAL.xlsx
+        content:
+          sheet_title: Tree Removal Schedule
+          columns: [Tree, Species, Location, Category, Action]
+          rows:
+            - [T12, Oak, "Ch 0+420, north verge", B, Remove]
+            - [T15, Ash, "Ch 0+460, north verge", C, Remove]
+            - [T31, Oak, "Mill Lane, east side", A, "Retain - bat roost potential"]
+            - [T44, Willow, "River Kest, west bank", B, Remove]
+          notes: [Removal outside bird nesting season, March to August, unless checked by an ecologist.]
+
+  - date: 2025-02-27
+    summary: NCC confirms the newt mitigation licence conditions.
+    issue:
+      - doc: NCC09
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          to: Rachel Ames
+          cc: [Jo Kimani]
+          subject: Kestrel Valley Link Road - ecology licence - great crested newt mitigation
+          paragraphs:
+            - >
+              The mitigation licence for great crested newts near field pond FP1 has been granted.
+              Amphibian fencing must be installed and trapping completed before any ground works
+              within 250 m of FP1.
+            - >
+              A licensed ecologist must supervise vegetation clearance in the licence area.
+          signed_by: Helen Marsh
+
+  - date: 2025-03-04
+    summary: CGC submits the vegetation clearance method statement.
+    issue:
+      - doc: VEG
+        rev: P01
+        stage: DD
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Rachel Ames
+          spec_clause: Series 3000 - Landscape and ecology
+          sections:
+            - heading: 1 Scope
+              paragraphs:
+                - >
+                  Clearance of hedgerows, scrub and the trees listed for removal in the tree removal
+                  schedule, before 31 March 2025.
+            - heading: 2 Ecology controls
+              paragraphs:
+                - >
+                  Ecologist check for nesting birds before each section; clearance in the newt
+                  licence area under supervision, after the amphibian fencing is in place.
+
+  - date: 2025-03-12
+    summary: ADM accepts the method statement and issues the landscape masterplan.
+    status_change:
+      - {doc: VEG, rev: P01, status: AC, by: ADM, note: Accepted}
+    issue:
+      - doc: LMP
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:2500 @ A1"
+          drawn: RA
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["LANDSCAPE MASTERPLAN"]}
+          notes:
+            - Native hedgerow planting along both boundaries. Woodland planting at the River Kest crossing.
+            - Newt receptor area near field pond FP1. Detailed planting at the ponds on separate drawings.
+
+links:
+  - {from: GCN, to: PEA, type: related_to}
+  - {from: NCC09, to: GCN, type: related_to}
+  - {from: VEG, to: TREE, type: related_to}
+  - {from: LMP, to: PLANT, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: TREE@C01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: GCN, note: "Mentions the Pond 1 and Pond 2 sites but is an ecology survey"}
+  - {case: status_change_no_revision, target: VEG@P01, note: "For approval, then accepted"}

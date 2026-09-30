@@ -53,8 +53,8 @@ def test_counts(loaded):
         "wbs_element", "organisation", "person", "document", "revision",
         "revision_status", "revision_file", "information_link")}
     assert counts == {
-        "wbs_element": 14, "organisation": 6, "person": 14, "document": 47, "revision": 62,
-        "revision_status": 73, "revision_file": 64, "information_link": 36,
+        "wbs_element": 14, "organisation": 8, "person": 19, "document": 100, "revision": 120,
+        "revision_status": 140, "revision_file": 122, "information_link": 57,
     }
 
 
@@ -103,7 +103,7 @@ def test_reload_is_identical(loaded):
 def test_ground_truth_is_not_needed(conn, corpus_copy):
     shutil.rmtree(corpus_copy / "ground_truth")
     load(conn, corpus_copy)
-    assert scalar(conn, "select count(*) from dcc.document") == 47
+    assert scalar(conn, "select count(*) from dcc.document") == 100
 
 
 def test_unresolvable_wbs_raises_instead_of_looping(conn, corpus_copy, monkeypatch):

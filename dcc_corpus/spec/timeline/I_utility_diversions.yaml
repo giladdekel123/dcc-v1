@@ -1,0 +1,179 @@
+# Storyline I: electricity and telecom diversions (WBS 600).
+#
+# M2.5 expansion. Answer-safety: nothing from Northvale Water and nothing about the water main.
+# The Northgrid cable-protection letter is a deliberate distractor for the Northvale Water queries.
+
+storyline: I
+name: Other utility diversions
+
+documents:
+  NGE01:
+    doc_code: KVL-NGE-600-LT-U-0001
+    title: Overhead Line Diversion - Budget Estimate
+    owner: Owen Pritchard
+    template: docx_letter
+  NCC07:
+    doc_code: KVL-NCC-600-LT-U-0007
+    title: Instruction to Proceed - 11 kV Diversion
+    owner: Tom Reddy
+    template: docx_letter
+  UDL:
+    doc_code: KVL-ADM-600-DR-U-0601
+    title: Utility Diversions Layout - Electricity and Telecom
+    owner: David Okafor
+    template: pdf_drawing
+  OLT01:
+    doc_code: KVL-OLT-600-LT-U-0001
+    title: Telecom Duct Diversion - Wayleave and Programme
+    owner: Sian Evans
+    template: docx_letter
+  NGE02:
+    doc_code: KVL-NGE-600-LT-U-0002
+    title: 11 kV Cable Diversion - Protection Requirements
+    owner: Owen Pritchard
+    template: docx_letter
+  RFI17:
+    doc_code: KVL-CGC-600-RI-U-0017
+    title: RFI-0017 Telecom Duct Depth at Ch 3+100
+    owner: Jo Kimani
+    template: docx_rfi
+
+events:
+
+  - date: 2024-08-30
+    summary: Northgrid provides a budget estimate for undergrounding the 11 kV overhead line.
+    issue:
+      - doc: NGE01
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          to: Tom Reddy
+          cc: [David Okafor]
+          subject: Kestrel Valley Link Road - 11 kV overhead line at Ch 2+300 - budget estimate
+          paragraphs:
+            - >
+              Our 11 kV overhead line crosses the route of the new road at about Ch 2+300 and cannot
+              stay in place over the new carriageway.
+            - >
+              We propose to replace the crossing with an underground cable in ducts. Our budget
+              estimate for the diversion is GBP 86,000, with a lead time of 20 weeks from your
+              instruction.
+          signed_by: Owen Pritchard
+
+  - date: 2024-10-15
+    summary: NCC instructs Northgrid to proceed with the diversion.
+    issue:
+      - doc: NCC07
+        rev: P01
+        stage: DD
+        status: IS
+        description: Issued
+        content:
+          to: Owen Pritchard
+          cc: [David Okafor]
+          subject: Kestrel Valley Link Road - 11 kV diversion - instruction to proceed
+          paragraphs:
+            - >
+              Further to your estimate of 30 August 2024, please proceed with the design and
+              construction of the 11 kV cable diversion at Ch 2+300.
+            - The diversion must be complete before earthworks reach this area in May 2025.
+          signed_by: Tom Reddy
+
+  - date: 2025-03-20
+    summary: ADM issues the electricity and telecom diversions layout for construction.
+    issue:
+      - doc: UDL
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:500 @ A1"
+          drawn: LC
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["UTILITY DIVERSIONS LAYOUT", "11 KV CABLE AND TELECOM DUCTS"]}
+          notes:
+            - Northgrid 11 kV cable diversion at Ch 2+300, in twin 150 mm ducts at 1.0 m minimum cover.
+            - OpenLine Telecom duct diversion between Ch 3+000 and Ch 3+200.
+            - Existing telecom duct depths from utility records; to be confirmed on site.
+
+  - date: 2025-04-09
+    summary: OpenLine Telecom confirms the wayleave and programme for its duct diversion.
+    issue:
+      - doc: OLT01
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Tom Reddy
+          cc: [Mark Bellamy]
+          subject: Kestrel Valley Link Road - telecom duct diversion Ch 3+000 to 3+200
+          paragraphs:
+            - >
+              The wayleave for our diverted duct route is agreed. Our contractor will install the new
+              ducts and transfer the cables between 2 and 20 June 2025.
+            - Castlegate Civils must not excavate within 1 m of our existing ducts without our supervision.
+          signed_by: Sian Evans
+
+  - date: 2025-05-16
+    summary: Northgrid sets out cable protection requirements (filed under a legacy filename).
+    issue:
+      - doc: NGE02
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        filename: Northgrid letter May 2025.docx
+        content:
+          to: Tom Reddy
+          cc: [Mark Bellamy, David Okafor]
+          subject: 11 kV cable diversion - completion and protection requirements
+          paragraphs:
+            - >
+              The 11 kV cable diversion at Ch 2+300 was energised on 12 May 2025. The old overhead
+              line will be removed by 30 May.
+            - >
+              To protect the new cable during road construction, keep a minimum cover of 1.0 m, lay
+              concrete cable tiles and warning tape over the ducts, and give us notice before any
+              excavation within 3 m.
+          signed_by: Owen Pritchard
+
+  - date: 2025-06-05
+    summary: CGC raises RFI-0017 on the telecom duct depth.
+    issue:
+      - doc: RFI17
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: David Okafor
+          subject: Telecom duct depth at Ch 3+100
+          question:
+            - >
+              At Ch 3+100 the existing OpenLine telecom duct was found at 0.45 m depth, shallower
+              than the 0.75 m shown on drawing KVL-ADM-600-DR-U-0601 C01.
+            - Please confirm whether the diverted duct route or the formation level is to be adjusted.
+          references: [KVL-ADM-600-DR-U-0601]
+          response_required_by: 2025-06-12
+          programme_impact: Minor - earthworks at Ch 3+100 resequenced
+
+  - date: 2025-06-13
+    summary: RFI-0017 answered by email and closed.
+    status_change:
+      - {doc: RFI17, rev: P01, status: CL, by: CGC, note: Answered by ADM email - diverted duct laid at 0.9 m; formation unchanged}
+
+links:
+  - {from: NCC07, to: NGE01, type: responds_to}
+  - {from: NGE02, to: UDL, type: related_to}
+  - {from: RFI17, to: UDL, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: NGE02@P01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: NGE02, note: "Northgrid (not Northvale Water) letter about protecting a service"}
+  - {case: status_change_no_revision, target: RFI17@P01, note: "Open, then closed"}

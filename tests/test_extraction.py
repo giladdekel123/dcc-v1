@@ -70,6 +70,13 @@ def test_planted_declared_values_differ_from_the_register():
     assert (boq.fields["doc_code"], boq.fields["rev_code"]) == ("KVL-ADM-000-BQ-Q-0001", "P03")
 
 
+def test_generic_schedule_declares_its_planted_revision():
+    result = extract(KVL / "02 Design/410 River Kest Bridge/Schedules/"
+                           "KVL-ADM-410-SC-S-0004_C01 - River Kest Bridge Bearing Schedule.xlsx", "xlsx")
+    assert (result.fields["doc_code"], result.fields["rev_code"]) == ("KVL-ADM-410-SC-S-0004", "C02")
+    assert "650 x 650" in text(result)
+
+
 def test_programme_dates_read_as_iso_dates():
     result = extract(KVL / "01 Management/Programme/KVL-CGC-100-SC-G-0002_P03 - Construction Programme.xlsx", "xlsx")
     assert "Completion | 000 | 2026-06-26 | 2026-06-26" in text(result)

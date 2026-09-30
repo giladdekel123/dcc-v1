@@ -1,0 +1,437 @@
+# Storyline F: earthworks and mainline pavement (WBS 200).
+#
+# M2.5 expansion. Answer-safety: nothing here concerns the east abutment piles, the roundabout
+# surfacing or Variation 07; the RFI is about a cutting, and the BoQ is for earthworks.
+
+storyline: F
+name: Earthworks and pavement
+
+documents:
+  EW1:
+    doc_code: KVL-ADM-200-DR-C-0201
+    title: Earthworks Layout Sheet 1 of 3 - Ch 0+000 to 1+400
+    owner: Nadia Hussain
+    template: pdf_drawing
+  EW2:
+    doc_code: KVL-ADM-200-DR-C-0202
+    title: Earthworks Layout Sheet 2 of 3 - Ch 1+400 to 2+800
+    owner: Nadia Hussain
+    template: pdf_drawing
+  EW3:
+    doc_code: KVL-ADM-200-DR-C-0203
+    title: Earthworks Layout Sheet 3 of 3 - Ch 2+800 to 4+200
+    owner: Nadia Hussain
+    template: pdf_drawing
+  PDR:
+    doc_code: KVL-ADM-200-RP-C-0017
+    title: Pavement Design Report
+    owner: Nadia Hussain
+    template: pdf_report
+  CT05:
+    doc_code: KVL-CGC-200-RP-C-0020
+    title: Earthworks Compaction Test Report - May 2025
+    owner: Lee Hartley
+    template: pdf_report
+  CT06:
+    doc_code: KVL-CGC-200-RP-C-0021
+    title: Earthworks Compaction Test Report - June 2025
+    owner: Lee Hartley
+    template: pdf_report
+  CT07:
+    doc_code: KVL-CGC-200-RP-C-0022
+    title: Earthworks Compaction Test Report - July 2025
+    owner: Lee Hartley
+    template: pdf_report
+  CT08:
+    doc_code: KVL-CGC-200-RP-C-0023
+    title: Earthworks Compaction Test Report - August 2025
+    owner: Lee Hartley
+    template: pdf_report
+  RFI16:
+    doc_code: KVL-CGC-200-RI-C-0016
+    title: RFI-0016 Wet Unsuitable Material in Cutting Ch 1+900
+    owner: Jo Kimani
+    template: docx_rfi
+  LT38:
+    doc_code: KVL-ADM-200-LT-C-0038
+    title: Response to RFI-0016 Cutting Ch 1+900
+    owner: Nadia Hussain
+    template: docx_letter
+  BOQ600:
+    doc_code: KVL-ADM-000-BQ-Q-0002
+    title: Bill of Quantities - Series 600 Earthworks
+    owner: David Okafor
+    template: xlsx_boq
+  CAP:
+    doc_code: KVL-CGC-200-SB-C-0015
+    title: Imported Capping Material Class 6F2 - Source Approval
+    owner: Jo Kimani
+    template: docx_submittal
+  VAR03:
+    doc_code: KVL-CGC-200-BQ-Q-0003
+    title: Variation 03 - Additional Topsoil Import
+    owner: Chris Moran
+    template: xlsx_boq
+
+events:
+
+  - date: 2024-09-20
+    summary: ADM issues the mainline pavement design for review.
+    issue:
+      - doc: PDR
+        rev: P01
+        stage: DD
+        status: RV
+        description: Issued for review
+        filed: superseded
+        content:
+          sections:
+            - heading: 1 Scope
+              paragraphs:
+                - >
+                  This report sets out the pavement construction for the Kestrel Valley Link Road
+                  mainline carriageway. It does not cover junction layouts, which are designed
+                  separately.
+            - heading: 2 Design traffic
+              paragraphs:
+                - >
+                  Design traffic is 12 million standard axles over a 40-year design life, based on
+                  the council's traffic forecast for the opening year.
+            - heading: 3 Pavement construction
+              table:
+                columns: [Layer, Material, Thickness (mm)]
+                rows:
+                  - [Surface course, "SMA 10, PSV 68 aggregate", 40]
+                  - [Binder course, AC 20 dense binder, 60]
+                  - [Base, AC 32 dense base, 150]
+                  - [Subbase, Type 1 unbound mixture, 225]
+            - heading: 4 Foundation
+              paragraphs:
+                - >
+                  A capping layer of Class 6F2 material is required where the subgrade CBR is below
+                  5 per cent. Capping thickness is set per cutting from the earthworks testing.
+
+  - date: 2024-12-06
+    summary: ADM updates the pavement design and submits it for approval.
+    issue:
+      - doc: PDR
+        rev: P02
+        stage: DD
+        status: AP
+        description: Updated subgrade assessment - submitted for approval
+        content:
+          sections:
+            - heading: 1 Scope
+              paragraphs:
+                - >
+                  This revision updates the subgrade assessment for the mainline carriageway. Junction
+                  layouts remain outside its scope.
+            - heading: 2 Design traffic
+              paragraphs:
+                - Design traffic is unchanged at 12 million standard axles.
+            - heading: 3 Pavement construction
+              table:
+                columns: [Layer, Material, Thickness (mm)]
+                rows:
+                  - [Surface course, "SMA 10, PSV 68 aggregate", 40]
+                  - [Binder course, AC 20 dense binder, 60]
+                  - [Base, AC 32 dense base, 150]
+                  - [Subbase, Type 1 unbound mixture, 225]
+            - heading: 4 Foundation
+              paragraphs:
+                - >
+                  Capping of 350 mm Class 6F2 is required between Ch 1+600 and Ch 2+200, where the
+                  subgrade CBR is 3 per cent. Elsewhere 150 mm of capping is sufficient.
+
+  - date: 2025-01-15
+    summary: ADM issues the tender Bill of Quantities for earthworks.
+    issue:
+      - doc: BOQ600
+        rev: P01
+        stage: DD
+        status: FI
+        description: Tender issue
+        content:
+          heading: Series 600 - Earthworks
+          currency: GBP
+          items:
+            - ["6/1", "Excavation of acceptable material, cutting", m3, 145000, 3.10]
+            - ["6/2", "Deposition of fill in embankments", m3, 118000, 2.40]
+            - ["6/3", "Imported capping, Class 6F2", m3, 9600, 21.50]
+            - ["6/4", "Topsoil strip and stockpile", m2, 96000, 0.65]
+            - ["6/5", "Disposal of unacceptable material off site", m3, 6500, 14.80]
+
+  - date: 2025-01-24
+    summary: NCC accepts the pavement design (status change, no new revision).
+    status_change:
+      - {doc: PDR, rev: P02, status: AC, by: NCC, note: Accepted for the mainline carriageway}
+
+  - date: 2025-03-10
+    summary: ADM issues the earthworks layout drawings for construction.
+    issue:
+      - doc: EW1
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:1000 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["EARTHWORKS LAYOUT - SHEET 1 OF 3", "CUT AND FILL EXTENTS"]}
+          notes:
+            - Cut and fill extents between Ch 0+000 and Ch 1+400. Topsoil strip 300 mm average.
+            - Embankment side slopes 1 in 2.5. Cutting side slopes 1 in 2.
+      - doc: EW2
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:1000 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["EARTHWORKS LAYOUT - SHEET 2 OF 3", "CUT AND FILL EXTENTS"]}
+          notes:
+            - Cut and fill extents between Ch 1+400 and Ch 2+800, including the cutting at Ch 1+900.
+            - Cutting side slopes 1 in 2. Capping 350 mm between Ch 1+600 and Ch 2+200.
+      - doc: EW3
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:1000 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["EARTHWORKS LAYOUT - SHEET 3 OF 3", "CUT AND FILL EXTENTS"]}
+          notes:
+            - Cut and fill extents between Ch 2+800 and Ch 4+200.
+            - Embankment side slopes 1 in 2.5.
+
+  - date: 2025-05-08
+    summary: CGC submits the imported capping source for approval.
+    issue:
+      - doc: CAP
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Nadia Hussain
+          spec_clause: Series 600 - Earthworks
+          sections:
+            - heading: 1 Source
+              paragraphs:
+                - >
+                  Class 6F2 capping material from Hollins Edge Quarry, crushed limestone, for the
+                  mainline capping layer.
+            - heading: 2 Compliance
+              paragraphs:
+                - >
+                  Grading, plasticity and moisture content certificates are attached. The material
+                  complies with the specified grading envelope.
+
+  - date: 2025-05-20
+    summary: ADM accepts the capping source (status change, no new revision).
+    status_change:
+      - {doc: CAP, rev: P01, status: AC, by: ADM, note: Accepted}
+
+  - date: 2025-06-06
+    summary: CGC issues the May compaction test report.
+    issue:
+      - doc: CT05
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  Compaction testing of embankment fill in May 2025 by nuclear density gauge. All
+                  results meet the specified 95 per cent of maximum dry density.
+            - heading: 2 Results
+              table:
+                columns: [Chainage, Layer, Relative compaction (%), Result]
+                rows:
+                  - ["0+350", Fill layer 4, 97.1, Pass]
+                  - ["0+620", Fill layer 5, 96.4, Pass]
+                  - ["0+880", Fill layer 3, 95.8, Pass]
+
+  - date: 2025-06-18
+    summary: CGC raises RFI-0016 on wet unsuitable material in the cutting at Ch 1+900.
+    issue:
+      - doc: RFI16
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: Nadia Hussain
+          subject: Wet unsuitable material in cutting Ch 1+900
+          question:
+            - >
+              Excavation of the cutting at Ch 1+900 has exposed wet silty material that fails the
+              moisture content limit for acceptable fill, over a length of about 80 m.
+            - >
+              Please advise the treatment of the cutting face and formation, and whether the cutting
+              slope on drawing KVL-ADM-200-DR-C-0202 C01 should be revised.
+          references: [KVL-ADM-200-DR-C-0202]
+          response_required_by: 2025-07-02
+          programme_impact: Moderate - cutting excavation paused between Ch 1+860 and Ch 1+940
+
+  - date: 2025-06-27
+    summary: CGC prices Variation 03 for additional topsoil.
+    issue:
+      - doc: VAR03
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          heading: Variation 03 - Additional topsoil import
+          currency: GBP
+          items:
+            - [V03.1, Imported topsoil to verges, m3, 520, 18.50]
+            - [V03.2, Spreading and grading topsoil, m2, 3400, 0.80]
+
+  - date: 2025-07-02
+    summary: ADM answers RFI-0016 - replace the wet material and flatten the slope.
+    issue:
+      - doc: LT38
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Mark Bellamy
+          cc: [Tom Reddy]
+          subject: Cutting Ch 1+900 - response to RFI-0016
+          paragraphs:
+            - >
+              Thank you for RFI-0016. The wet silty material between Ch 1+860 and Ch 1+940 is to be
+              removed to formation and replaced with Class 1A granular fill.
+            - >
+              The cutting slope in this length is to be flattened from 1 in 2 to 1 in 3. Drawing
+              KVL-ADM-200-DR-C-0202 will be revised to C02.
+          signed_by: Nadia Hussain
+
+  - date: 2025-07-04
+    summary: CGC issues the June compaction test report.
+    issue:
+      - doc: CT06
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  Compaction testing of embankment fill in June 2025 by nuclear density gauge. One
+                  result below 95 per cent was re-rolled and re-tested successfully.
+            - heading: 2 Results
+              table:
+                columns: [Chainage, Layer, Relative compaction (%), Result]
+                rows:
+                  - ["1+050", Fill layer 2, 96.2, Pass]
+                  - ["1+240", Fill layer 3, 94.1, Fail - re-rolled]
+                  - ["1+240", Fill layer 3, 96.0, Pass on re-test]
+
+  - date: 2025-07-10
+    summary: RFI-0016 closed.
+    status_change:
+      - {doc: RFI16, rev: P01, status: CL, by: CGC, note: Closed - answered by KVL-ADM-200-LT-C-0038}
+
+  - date: 2025-07-18
+    summary: NCC accepts Variation 03 (status change, no new revision).
+    status_change:
+      - {doc: VAR03, rev: P01, status: AC, by: NCC, note: Accepted at GBP 12340}
+
+  - date: 2025-07-21
+    summary: ADM issues earthworks sheet 2 at C02 with the flattened cutting.
+    issue:
+      - doc: EW2
+        rev: C02
+        stage: CN
+        status: FC
+        description: Cutting Ch 1+860 to 1+940 flattened following RFI-0016
+        content:
+          scale: "1:1000 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["EARTHWORKS LAYOUT - SHEET 2 OF 3", "CUT AND FILL EXTENTS"]}
+          notes:
+            - Cutting slope between Ch 1+860 and Ch 1+940 flattened to 1 in 3 following RFI-0016.
+            - Wet material replaced with Class 1A granular fill to formation. See KVL-ADM-200-LT-C-0038.
+
+  - date: 2025-08-06
+    summary: CGC issues the July compaction test report (filed under a legacy filename).
+    issue:
+      - doc: CT07
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        filename: Compaction results July.pdf
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  Compaction testing of embankment fill and the Class 1A replacement at the
+                  Ch 1+900 cutting in July 2025. All results meet the specification.
+            - heading: 2 Results
+              table:
+                columns: [Chainage, Layer, Relative compaction (%), Result]
+                rows:
+                  - ["1+880", Class 1A replacement, 97.4, Pass]
+                  - ["2+450", Fill layer 6, 95.9, Pass]
+                  - ["2+610", Fill layer 4, 96.7, Pass]
+
+  - date: 2025-09-05
+    summary: CGC issues the August compaction test report.
+    issue:
+      - doc: CT08
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  Compaction testing of embankment fill and capping in August 2025. All results meet
+                  the specification. Earthworks cut is substantially complete.
+            - heading: 2 Results
+              table:
+                columns: [Chainage, Layer, Relative compaction (%), Result]
+                rows:
+                  - ["3+120", Fill layer 5, 96.3, Pass]
+                  - ["3+480", Capping, 97.8, Pass]
+                  - ["3+900", Fill layer 2, 95.4, Pass]
+
+links:
+  - {from: RFI16, to: EW2@C02, type: affects}
+  - {from: LT38, to: RFI16, type: responds_to}
+  - {from: CAP, to: PDR, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: CT07@P01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: CT07, note: "Four monthly compaction test reports with the same structure"}
+  - {case: near_duplicate, target: BOQ600, note: "A second bill of quantities, for earthworks rather than pavements"}
+  - {case: status_change_no_revision, target: RFI16@P01, note: "Open, then closed"}
+  - {case: status_change_no_revision, target: CAP@P01, note: "For approval, then accepted"}
+  - {case: status_change_no_revision, target: VAR03@P01, note: "For approval, then accepted"}
+  - {case: status_change_no_revision, target: PDR@P02, note: "For approval, then accepted"}

@@ -1,0 +1,169 @@
+# Storyline G: River Kest Bridge deck, parapets and bearings (WBS 410).
+#
+# M2.5 expansion. Answer-safety: no "general arrangement" titles, no WBS 410 drawing issued after
+# 30 June 2025, and nothing about the east abutment piles or an RFI.
+
+storyline: G
+name: River Kest Bridge deck and bearings
+
+documents:
+  DECK:
+    doc_code: KVL-ADM-410-DR-S-0120
+    title: River Kest Bridge Deck Plan and Sections
+    owner: Priya Nair
+    template: pdf_drawing
+  PARA:
+    doc_code: KVL-ADM-410-DR-S-0125
+    title: River Kest Bridge Parapet Details
+    owner: Priya Nair
+    template: pdf_drawing
+  BRG:
+    doc_code: KVL-ADM-410-SC-S-0004
+    title: River Kest Bridge Bearing Schedule
+    owner: David Okafor
+    template: xlsx_table
+  WPF:
+    doc_code: KVL-CGC-410-SB-S-0017
+    title: River Kest Bridge Deck Waterproofing System
+    owner: Ryan Doyle
+    template: docx_submittal
+  MIX:
+    doc_code: KVL-CGC-410-RP-S-0024
+    title: River Kest Bridge Deck Concrete Trial Mix Report
+    owner: Lee Hartley
+    template: pdf_report
+
+events:
+
+  - date: 2024-12-10
+    summary: ADM issues the deck plan and sections for review.
+    issue:
+      - doc: DECK
+        rev: P01
+        stage: DD
+        status: RV
+        description: Issued for review
+        filed: superseded
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: generic, labels: ["DECK PLAN", "TYPICAL CROSS SECTION"]}
+          notes:
+            - Three-span composite deck, spans 24 m - 32 m - 24 m.
+            - Steel plate girders at 3.2 m centres with a 250 mm reinforced concrete deck slab.
+            - For review and comment.
+
+  - date: 2025-03-01
+    summary: ADM issues the deck, parapet and bearing information for construction.
+    issue:
+      - doc: DECK
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:100 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: generic, labels: ["DECK PLAN", "TYPICAL CROSS SECTION"]}
+          notes:
+            - Three-span composite deck, spans 24 m - 32 m - 24 m.
+            - Steel plate girders at 3.2 m centres with a 250 mm C40/50 deck slab.
+            - Bearings to schedule KVL-ADM-410-SC-S-0004.
+      - doc: PARA
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:20 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: generic, labels: ["PARAPET ELEVATION", "PARAPET SECTION"]}
+          notes:
+            - Steel N2 containment parapet, 1.25 m high, on a reinforced concrete edge beam.
+            - Parapet posts at 2.0 m centres, anchored with cast-in bolt assemblies.
+      - doc: BRG
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          sheet_title: Bearing Schedule
+          header_rev: C02   # planted discrepancy: register says C01
+          columns: [Bearing, Location, Type, Vertical capacity (kN), Plinth (mm)]
+          rows:
+            - [B1, West abutment, Guided elastomeric, 2400, "650 x 650"]
+            - [B2, West abutment, Fixed pot, 2400, "650 x 650"]
+            - [B3, Pier 1, Free pot, 4100, "750 x 750"]
+            - [B4, Pier 2, Free pot, 4100, "750 x 750"]
+            - [B5, East abutment, Guided elastomeric, 2400, "650 x 650"]
+            - [B6, East abutment, Free elastomeric, 2400, "650 x 650"]
+          notes: [Plinth dimensions govern over any conflicting dimension on other drawings.]
+
+  - date: 2025-04-22
+    summary: CGC issues the deck concrete trial mix report.
+    issue:
+      - doc: MIX
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Purpose
+              paragraphs:
+                - >
+                  Trial mixes for the C40/50 deck slab concrete, to confirm workability, strength
+                  development and pumpability before the deck pours.
+            - heading: 2 Results
+              table:
+                columns: [Mix, Slump (mm), 7-day strength (N/mm2), 28-day strength (N/mm2)]
+                rows:
+                  - [TM1, 120, 34.5, 52.0]
+                  - [TM2, 150, 33.0, 50.5]
+            - heading: 3 Recommendation
+              paragraphs:
+                - Mix TM1 is proposed for the deck slab pours.
+
+  - date: 2025-09-18
+    summary: CGC submits the deck waterproofing system.
+    issue:
+      - doc: WPF
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Ryan Doyle
+          for_review_by: Priya Nair
+          spec_clause: Series 2000 - Waterproofing for concrete structures
+          sections:
+            - heading: 1 Product
+              paragraphs:
+                - >
+                  Spray-applied methyl methacrylate waterproofing membrane for the River Kest Bridge
+                  deck slab, with a primer and a bonding coat.
+            - heading: 2 Application
+              paragraphs:
+                - >
+                  Applied to the cured deck slab at a minimum dry film thickness of 2.0 mm, with
+                  adhesion testing at 50 m2 intervals.
+
+  - date: 2025-10-01
+    summary: ADM approves the waterproofing system with comments.
+    status_change:
+      - {doc: WPF, rev: P01, status: AN, by: ADM, note: Approved with comments - adhesion test records to be submitted}
+
+links:
+  - {from: BRG, to: RFI11, type: related_to}
+  - {from: WPF, to: DECK@C01, type: related_to}
+
+planted:
+  - {case: titleblock_discrepancy, target: BRG@C01, note: "Sheet header revision C02; register C01"}
+  - {case: near_duplicate, target: DECK, note: "Earlier WBS 410 drawing that is not a general arrangement"}
+  - {case: status_change_no_revision, target: WPF@P01, note: "For approval, then approved with comments"}

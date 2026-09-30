@@ -46,3 +46,56 @@ KVL-CGC-100-RP-G-0008,Monthly Progress Report - August 2025,100,G,RP,CGC,Mark Be
 KVL-CGC-200-LT-C-0019,Lane Closure Notice - Kestrel Road Tie-in,200,C,LT,CGC,Jo Kimani
 KVL-NCC-200-LT-C-0016,Traffic Management Approval - Kestrel Road Tie-in,200,C,LT,NCC,Tom Reddy
 KVL-ADM-700-DR-E-0701,Pond 2 East Planting Plan,700,E,DR,ADM,David Okafor
+KVL-ADM-200-DR-C-0201,Earthworks Layout Sheet 1 of 3 - Ch 0+000 to 1+400,200,C,DR,ADM,Nadia Hussain
+KVL-ADM-200-DR-C-0202,Earthworks Layout Sheet 2 of 3 - Ch 1+400 to 2+800,200,C,DR,ADM,Nadia Hussain
+KVL-ADM-200-DR-C-0203,Earthworks Layout Sheet 3 of 3 - Ch 2+800 to 4+200,200,C,DR,ADM,Nadia Hussain
+KVL-ADM-200-RP-C-0017,Pavement Design Report,200,C,RP,ADM,Nadia Hussain
+KVL-CGC-200-RP-C-0020,Earthworks Compaction Test Report - May 2025,200,C,RP,CGC,Lee Hartley
+KVL-CGC-200-RP-C-0021,Earthworks Compaction Test Report - June 2025,200,C,RP,CGC,Lee Hartley
+KVL-CGC-200-RP-C-0022,Earthworks Compaction Test Report - July 2025,200,C,RP,CGC,Lee Hartley
+KVL-CGC-200-RP-C-0023,Earthworks Compaction Test Report - August 2025,200,C,RP,CGC,Lee Hartley
+KVL-CGC-200-RI-C-0016,RFI-0016 Wet Unsuitable Material in Cutting Ch 1+900,200,C,RI,CGC,Jo Kimani
+KVL-ADM-200-LT-C-0038,Response to RFI-0016 Cutting Ch 1+900,200,C,LT,ADM,Nadia Hussain
+KVL-ADM-000-BQ-Q-0002,Bill of Quantities - Series 600 Earthworks,000,Q,BQ,ADM,David Okafor
+KVL-CGC-200-SB-C-0015,Imported Capping Material Class 6F2 - Source Approval,200,C,SB,CGC,Jo Kimani
+KVL-CGC-200-BQ-Q-0003,Variation 03 - Additional Topsoil Import,200,Q,BQ,CGC,Chris Moran
+KVL-ADM-410-DR-S-0120,River Kest Bridge Deck Plan and Sections,410,S,DR,ADM,Priya Nair
+KVL-ADM-410-DR-S-0125,River Kest Bridge Parapet Details,410,S,DR,ADM,Priya Nair
+KVL-ADM-410-SC-S-0004,River Kest Bridge Bearing Schedule,410,S,SC,ADM,David Okafor
+KVL-CGC-410-SB-S-0017,River Kest Bridge Deck Waterproofing System,410,S,SB,CGC,Ryan Doyle
+KVL-CGC-410-RP-S-0024,River Kest Bridge Deck Concrete Trial Mix Report,410,S,RP,CGC,Lee Hartley
+KVL-ADM-700-RP-E-0005,Preliminary Ecological Appraisal,700,E,RP,ADM,Rachel Ames
+KVL-ADM-700-RP-E-0006,Great Crested Newt Survey Report,700,E,RP,ADM,Rachel Ames
+KVL-ADM-700-DR-E-0702,Landscape Masterplan,700,E,DR,ADM,Rachel Ames
+KVL-ADM-700-SC-E-0005,Tree Removal Schedule,700,E,SC,ADM,Rachel Ames
+KVL-NCC-700-LT-E-0009,Ecology Licence - Newt Mitigation,700,E,LT,NCC,Helen Marsh
+KVL-CGC-700-SB-E-0014,Vegetation Clearance Method Statement,700,E,SB,CGC,Jo Kimani
+KVL-NGE-600-LT-U-0001,Overhead Line Diversion - Budget Estimate,600,U,LT,NGE,Owen Pritchard
+KVL-NCC-600-LT-U-0007,Instruction to Proceed - 11 kV Diversion,600,U,LT,NCC,Tom Reddy
+KVL-ADM-600-DR-U-0601,Utility Diversions Layout - Electricity and Telecom,600,U,DR,ADM,David Okafor
+KVL-OLT-600-LT-U-0001,Telecom Duct Diversion - Wayleave and Programme,600,U,LT,OLT,Sian Evans
+KVL-NGE-600-LT-U-0002,11 kV Cable Diversion - Protection Requirements,600,U,LT,NGE,Owen Pritchard
+KVL-CGC-600-RI-U-0017,RFI-0017 Telecom Duct Depth at Ch 3+100,600,U,RI,CGC,Jo Kimani
+KVL-CGC-000-RP-G-0001,Construction Phase Health and Safety Plan,000,G,RP,CGC,Kate Sorensen
+KVL-CGC-000-RP-G-0002,Project Quality Plan,000,G,RP,CGC,Lee Hartley
+KVL-CGC-000-RP-G-0025,Site Waste Management Plan,000,G,RP,CGC,Kate Sorensen
+KVL-CGC-000-RP-E-0026,Construction Environmental Management Plan,000,E,RP,CGC,Kate Sorensen
+KVL-NCC-000-LT-G-0013,Notice of Contract Award,000,G,LT,NCC,Helen Marsh
+KVL-NCC-100-LT-G-0012,Site Access and Working Hours,100,G,LT,NCC,Helen Marsh
+KVL-CGC-100-LT-G-0020,Early Warning - Wet Weather Impact on Earthworks,100,G,LT,CGC,Mark Bellamy
+KVL-CGC-100-LT-G-0021,Early Warning - Utility Diversion Delay,100,G,LT,CGC,Mark Bellamy
+KVL-CGC-100-MM-G-0001,Progress Meeting No. 1 Minutes,100,G,MM,CGC,Mark Bellamy
+KVL-CGC-100-MM-G-0002,Progress Meeting No. 2 Minutes,100,G,MM,CGC,Mark Bellamy
+KVL-CGC-100-MM-G-0003,Progress Meeting No. 3 Minutes,100,G,MM,CGC,Mark Bellamy
+KVL-CGC-100-MM-G-0004,Progress Meeting No. 4 Minutes,100,G,MM,CGC,Mark Bellamy
+KVL-CGC-100-MM-G-0011,Progress Meeting No. 11 Minutes,100,G,MM,CGC,Mark Bellamy
+KVL-CGC-100-RP-G-0003,Monthly Progress Report - March 2025,100,G,RP,CGC,Mark Bellamy
+KVL-CGC-100-RP-G-0004,Monthly Progress Report - April 2025,100,G,RP,CGC,Mark Bellamy
+KVL-CGC-100-RP-G-0005,Monthly Progress Report - May 2025,100,G,RP,CGC,Mark Bellamy
+KVL-CGC-100-RP-G-0009,Monthly Progress Report - September 2025,100,G,RP,CGC,Mark Bellamy
+KVL-CGC-310-SB-D-0018,Pond 1 Flow Control Chamber - Vortex Flow Control Device,310,D,SB,CGC,Jo Kimani
+KVL-ADM-310-DR-D-0311,Pond 1 West Outfall Headwall Details,310,D,DR,ADM,Sam Whitfield
+KVL-ADM-510-DR-C-0502,Eastern Roundabout Street Lighting Layout,510,C,DR,ADM,Nadia Hussain
+KVL-ADM-510-DR-C-0503,Eastern Roundabout Signs and Road Markings,510,C,DR,ADM,Nadia Hussain
+KVL-ADM-510-RP-C-0019,Eastern Roundabout Road Safety Audit Response,510,C,RP,ADM,Nadia Hussain
+KVL-CGC-000-BQ-Q-0005,Variation 05 - Additional Boundary Fencing,000,Q,BQ,CGC,Chris Moran

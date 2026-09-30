@@ -46,7 +46,7 @@ def test_committed_corpus_matches_fresh_generation(fresh):
 
 def test_files_exist_with_matching_hashes(fresh):
     files = read_csv(fresh, "register/revision_files.csv")
-    assert len(files) == 64
+    assert len(files) == 122
     for row in files:
         data = (fresh / row["storage_path"]).read_bytes()
         assert row["storage_path"] == f"{row['original_location']}/{row['filename']}"
@@ -93,7 +93,7 @@ def test_links_and_planted_cases_resolve(fresh):
         return code in documents and (not rev or (code, rev) in revisions)
 
     links = read_csv(fresh, "links.csv")
-    assert len(links) == 36
+    assert len(links) == 57
     assert all(resolves(l["from_doc_code"], l["from_rev_code"]) and resolves(l["to_doc_code"], l["to_rev_code"])
                for l in links)
     cases = read_csv(fresh, "ground_truth/planted_cases.csv")
@@ -115,6 +115,9 @@ def test_superseded_files_are_filed_under_99_superseded(fresh):
         ("KVL-ADM-320-DR-D-0320", "C01"), ("KVL-ADM-300-DR-D-0303", "C01"),
         ("KVL-ADM-000-BQ-Q-0001", "P01"), ("KVL-ADM-510-DR-C-0501", "C01"),
         ("KVL-CGC-100-SC-G-0002", "P01"), ("KVL-CGC-100-SC-G-0002", "P02"),
+        ("KVL-ADM-200-DR-C-0202", "C01"), ("KVL-ADM-200-RP-C-0017", "P01"),
+        ("KVL-ADM-410-DR-S-0120", "P01"), ("KVL-ADM-510-DR-C-0503", "C01"),
+        ("KVL-CGC-000-RP-G-0001", "P01"),
     }
 
 
@@ -123,7 +126,7 @@ def test_documents_can_belong_to_several_storylines(fresh):
     minutes_7 = {t["storyline"] for t in threads if t["doc_code"] == "KVL-CGC-100-MM-G-0007"}
     assert minutes_7 == {"A", "B", "C", "E"}
     homes = [t["doc_code"] for t in threads if t["membership"] == "home"]
-    assert len(homes) == len(set(homes)) == 47
+    assert len(homes) == len(set(homes)) == 100
 
 
 def test_rendered_content_is_readable(fresh):
