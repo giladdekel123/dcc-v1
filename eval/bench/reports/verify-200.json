@@ -1,0 +1,80 @@
+{
+  "label": "verify-200",
+  "engine": "baseline-fts-v1",
+  "created": "2026-10-01",
+  "scale": 200,
+  "database_region": "eu-west-1",
+  "corpus": {
+    "documents": 200,
+    "revisions": 247,
+    "files": 249
+  },
+  "round_trip_ms": 80.8,
+  "load": {
+    "load_real_corpus_s": 34.04,
+    "generate_s": 0.02,
+    "insert_synthetic_s": 1.76,
+    "full_index_build_s": 0.45,
+    "index_rows": 247
+  },
+  "storage": {
+    "database_mb": 15.6,
+    "dcc_total_mb": 4.1,
+    "tables_mb": {
+      "search_entry": 1.5,
+      "content_segment": 1.31,
+      "revision_file": 0.24,
+      "document": 0.17,
+      "revision": 0.16,
+      "revision_status": 0.12
+    },
+    "indexes_mb": 2.3
+  },
+  "workload": {
+    "reps": 1,
+    "text": 98,
+    "text_plus_filters": 30,
+    "filters_only": 20
+  },
+  "latency": {
+    "text_only": {
+      "queries": 98,
+      "p50_ms": 2138.2,
+      "p95_ms": 2328.2,
+      "max_ms": 3332.1
+    },
+    "text_plus_filters": {
+      "queries": 30,
+      "p50_ms": 2094.0,
+      "p95_ms": 2146.5,
+      "max_ms": 2159.1
+    },
+    "filters_only": {
+      "queries": 20,
+      "p50_ms": 468.0,
+      "p95_ms": 513.2,
+      "max_ms": 575.0
+    }
+  },
+  "ranking_explain": {
+    "queries": 14,
+    "p50_ms": 25.2,
+    "p95_ms": 32.8,
+    "search_entry_access": {
+      "Seq Scan": 12,
+      "Index Scan (search_entry_document_idx)": 2
+    }
+  },
+  "known_items": {
+    "hit@1": 0.707,
+    "hit@10": 0.966
+  },
+  "incremental": {
+    "batch": 100,
+    "add_documents_insert_s": 1.73,
+    "add_documents_index_s": 0.42,
+    "add_revisions_insert_s": 15.35,
+    "add_revisions_index_s": 0.33
+  },
+  "reconnects": 1
+}
