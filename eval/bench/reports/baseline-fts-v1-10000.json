@@ -1,0 +1,155 @@
+{
+  "label": "baseline-fts-v1-10000",
+  "engine": "baseline-fts-v1",
+  "created": "2026-10-01",
+  "scale": 10000,
+  "database_region": "eu-west-1",
+  "stall_timeout_s": 60.0,
+  "corpus": {
+    "documents": 10000,
+    "revisions": 13088,
+    "files": 13090
+  },
+  "round_trip_ms": 79.6,
+  "load": {
+    "load_real_corpus_s": 35.08,
+    "generate_s": 3.4,
+    "insert_synthetic_s": 33.41,
+    "full_index_build_s": 13.38,
+    "index_rows": 13088
+  },
+  "storage": {
+    "database_mb": 108.0,
+    "dcc_total_mb": 96.2,
+    "tables_mb": {
+      "content_segment": 41.35,
+      "search_entry": 36.96,
+      "revision_file": 6.77,
+      "extraction": 2.73,
+      "revision": 2.55,
+      "revision_status": 2.52
+    },
+    "indexes_mb": 32.8
+  },
+  "workload": {
+    "reps": 2,
+    "text": 98,
+    "text_plus_filters": 30,
+    "filters_only": 20
+  },
+  "latency": {
+    "excluded_samples": [
+      {
+        "workload": "text_only",
+        "query": "minutes of the meeting where the east abutment piling problem was first raised",
+        "filters": {},
+        "ms": 780455.1
+      },
+      {
+        "workload": "text_only",
+        "query": "WBS 330 Mill Lane Culvert. Something from around the time of the trial hole about the water main being deeper than expected.",
+        "filters": {},
+        "ms": 40296.8
+      },
+      {
+        "workload": "text_plus_filters",
+        "query": "inspection report defects gantry",
+        "filters": {
+          "wbs": "400"
+        },
+        "ms": 12445819.6
+      }
+    ],
+    "text_only": {
+      "queries": 98,
+      "p50_ms": 1449.8,
+      "p95_ms": 2615.9,
+      "max_ms": 3455.3,
+      "complete": true
+    },
+    "text_plus_filters": {
+      "queries": 30,
+      "p50_ms": 632.0,
+      "p95_ms": 973.3,
+      "max_ms": 1072.6,
+      "complete": true
+    },
+    "filters_only": {
+      "queries": 20,
+      "p50_ms": 400.7,
+      "p95_ms": 462.8,
+      "max_ms": 486.4,
+      "complete": true
+    }
+  },
+  "reconnects": 4,
+  "stalls": 0,
+  "connection_events": [
+    {
+      "time": "19:35:42",
+      "kind": "error",
+      "call": "search",
+      "detail": "consuming input failed: server closed the connection unexpectedly (attempt 1 of 3); reconnecting"
+    },
+    {
+      "time": "19:39:34",
+      "kind": "error",
+      "call": "search",
+      "detail": "consuming input failed: server closed the connection unexpectedly (attempt 1 of 3); reconnecting"
+    },
+    {
+      "time": "19:48:42",
+      "kind": "error",
+      "call": "search",
+      "detail": "consuming input failed: server closed the connection unexpectedly (attempt 1 of 3); reconnecting"
+    },
+    {
+      "time": "19:48:42",
+      "kind": "connect-failed",
+      "call": "connect",
+      "detail": "failed to resolve host 'aws-1-eu-west-1.pooler.supabase.com': [Errno 11001] getaddrinfo failed; retrying in 5 s"
+    },
+    {
+      "time": "21:38:15",
+      "kind": "connect-failed",
+      "call": "connect",
+      "detail": "failed to resolve host 'aws-1-eu-west-1.pooler.supabase.com': [Errno 11001] getaddrinfo failed; retrying in 10 s"
+    },
+    {
+      "time": "22:30:51",
+      "kind": "connect-failed",
+      "call": "connect",
+      "detail": "failed to resolve host 'aws-1-eu-west-1.pooler.supabase.com': [Errno 11001] getaddrinfo failed; retrying in 20 s"
+    },
+    {
+      "time": "01:58:45",
+      "kind": "error",
+      "call": "search",
+      "detail": "consuming input failed: server closed the connection unexpectedly (attempt 1 of 3); reconnecting"
+    }
+  ],
+  "ranking_explain": {
+    "queries": 14,
+    "p50_ms": 889.3,
+    "p95_ms": 1427.9,
+    "search_entry_access": {
+      "Bitmap Heap Scan": 13,
+      "Bitmap Index Scan (search_entry_tsv_idx)": 13,
+      "Bitmap Index Scan (search_entry_trgm_idx)": 13,
+      "Index Scan (search_entry_document_idx)": 1
+    }
+  },
+  "known_items": {
+    "hit@1": 0.707,
+    "hit@10": 0.948
+  },
+  "incremental": {
+    "batch": 100,
+    "add_documents_insert_s": 1.87,
+    "add_documents_index_s": 0.49,
+    "add_documents_indexed": 135,
+    "add_revisions_insert_s": 0.64,
+    "add_revisions_index_s": 0.43,
+    "add_revisions_indexed": 100
+  }
+}
