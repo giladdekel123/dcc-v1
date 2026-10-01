@@ -98,3 +98,14 @@ def test_api_search_and_file(data_conn):
     assert hashlib.sha256(file.content).hexdigest() == registered_sha
     assert client.get("/api/revisions/999999/file").status_code == 404
     assert client.get("/api/search", params={"limit": 11}).status_code == 422
+
+
+def test_incremental_index_update_matches_a_full_rebuild(indexed):
+    snapshot = "select revision_id, document_id, tsv::text, trgm_text from dcc.search_entry order by 1"
+    full = indexed.execute(snapshot).fetchall()
+    some = [row[0] for row in full[::7]]
+    indexed.execute("delete from dcc.search_entry where revision_id = any(%s)", (some,))
+    assert build_index(indexed, revision_ids=some) == len(some)
+    assert indexed.execute(snapshot).fetchall() == full
+    assert build_index(indexed, revision_ids=[]) == 0   # nothing to do, nothing removed
+    assert indexed.execute(snapshot).fetchall() == full
