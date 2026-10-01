@@ -330,14 +330,10 @@ def explain_sample() -> list[tuple[str, Filters]]:
 
 def explain_one(conn: psycopg.Connection, text: str, f: Filters) -> tuple[float, list[str]]:
     """Server-side execution time and search_entry access nodes of the ranking query for one query.
-    Builds the same SQL and parameters as the baseline retriever (read-only reuse of its constants)."""
-    lexemes = conn.execute("select tsvector_to_array(to_tsvector('english', %s))", (text,)).fetchone()[0] if text else []
-    terms = [baseline_fts._quote(x) for x in lexemes]
-    active = f.active()
-    sql = baseline_fts.RANK_SQL.format(filters=" and ".join(baseline_fts.FILTER_SQL[k] for k in active) or "true")
-    plan = conn.execute("explain (analyze, format json) " + sql, {
-        **active, "terms": terms, "tsq": " | ".join(terms) or None, "q": text, "browse": not text,
-        "trigram_min": baseline_fts.TRIGRAM_MIN, "limit": 10}).fetchone()[0][0]
+    Uses the retriever's own SQL, parameters and trigram threshold, so the plan is the search's plan."""
+    sql, params = baseline_fts.ranking_query(text, f, 10)
+    conn.execute(baseline_fts.SET_TRIGRAM_THRESHOLD_SQL, (str(baseline_fts.TRIGRAM_CANDIDATE_MIN),))
+    plan = conn.execute("explain (analyze, format json) " + sql, params).fetchone()[0][0]
     scans = []
 
     def walk(node):

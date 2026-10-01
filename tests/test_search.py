@@ -1,6 +1,7 @@
 """Search smoke tests on the session-loaded dev data. These prove the engine works end to end;
 they are not the evaluation set. Any index rebuild here is rolled back."""
 
+import contextlib
 import hashlib
 from datetime import date
 
@@ -109,3 +110,43 @@ def test_incremental_index_update_matches_a_full_rebuild(indexed):
     assert indexed.execute(snapshot).fetchall() == full
     assert build_index(indexed, revision_ids=[]) == 0   # nothing to do, nothing removed
     assert indexed.execute(snapshot).fetchall() == full
+
+
+class RoundTripCounter:
+    """Wraps a connection and counts round trips: each execute outside a pipeline, and each pipeline."""
+
+    def __init__(self, conn):
+        self.conn, self.trips, self._in_pipeline = conn, 0, False
+
+    def execute(self, *args, **kwargs):
+        self.trips += not self._in_pipeline
+        return self.conn.execute(*args, **kwargs)
+
+    @contextlib.contextmanager
+    def pipeline(self):
+        self.trips += 1
+        self._in_pipeline = True
+        try:
+            with self.conn.pipeline():
+                yield
+        finally:
+            self._in_pipeline = False
+
+
+def test_search_uses_a_fixed_number_of_round_trips(indexed):
+    text = RoundTripCounter(indexed)
+    assert len(search(text, "soft clay east abutment piles", Filters()).results) == 10
+    assert text.trips == 3                     # ranking, evidence for all results, registered facts
+
+    browse = RoundTripCounter(indexed)
+    assert search(browse, "", Filters(doc_type="DR")).results
+    assert browse.trips == 2                   # ranking, registered facts
+
+    nothing = RoundTripCounter(indexed)
+    assert search(nothing, "zzqxj", Filters()).results == []
+    assert nothing.trips == 1
+
+
+def test_trigram_candidates_cannot_miss_a_row_the_exact_condition_keeps():
+    from app.retrieval import baseline_fts
+    assert baseline_fts.TRIGRAM_CANDIDATE_MIN < baseline_fts.TRIGRAM_MIN
