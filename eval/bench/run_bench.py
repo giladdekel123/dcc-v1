@@ -523,6 +523,7 @@ def main() -> None:
     parser.add_argument("--stall-timeout", type=float, default=60.0,
                         help="seconds before a database call (one search) is abandoned as stalled and retried")
     args = parser.parse_args()
+    keep_awake()
 
     label = args.label or f"{RETRIEVER.name}-{args.scale}"
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)

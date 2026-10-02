@@ -1,0 +1,92 @@
+{
+  "label": "baseline-fts-v1-10000-cs3",
+  "engine": "baseline-fts-v1",
+  "created": "2026-10-02",
+  "scale": 10000,
+  "database_region": "eu-west-1",
+  "stall_timeout_s": 60.0,
+  "corpus": {
+    "documents": 10000,
+    "revisions": 13088,
+    "files": 13090
+  },
+  "round_trip_ms": 74.6,
+  "load": {
+    "load_real_corpus_s": 32.84,
+    "generate_s": 4.26,
+    "insert_synthetic_s": 13.29,
+    "full_index_build_s": 11.51,
+    "index_rows": 13088
+  },
+  "storage": {
+    "database_mb": 107.9,
+    "dcc_total_mb": 96.0,
+    "tables_mb": {
+      "content_segment": 41.35,
+      "search_entry": 36.96,
+      "revision_file": 6.77,
+      "extraction": 2.73,
+      "revision_status": 2.52,
+      "document": 2.44
+    },
+    "indexes_mb": 32.8
+  },
+  "workload": {
+    "reps": 2,
+    "text": 98,
+    "text_plus_filters": 30,
+    "filters_only": 20
+  },
+  "latency": {
+    "excluded_samples": [],
+    "text_only": {
+      "queries": 98,
+      "p50_ms": 686.9,
+      "p95_ms": 827.7,
+      "max_ms": 1095.1,
+      "complete": true
+    },
+    "text_plus_filters": {
+      "queries": 30,
+      "p50_ms": 576.7,
+      "p95_ms": 683.3,
+      "max_ms": 696.4,
+      "complete": true
+    },
+    "filters_only": {
+      "queries": 20,
+      "p50_ms": 417.6,
+      "p95_ms": 667.4,
+      "max_ms": 669.5,
+      "complete": true
+    }
+  },
+  "reconnects": 0,
+  "stalls": 0,
+  "connection_events": [],
+  "ranking_explain": {
+    "queries": 14,
+    "p50_ms": 198.0,
+    "p95_ms": 234.5,
+    "search_entry_access": {
+      "Bitmap Heap Scan": 27,
+      "Bitmap Index Scan (search_entry_tsv_idx)": 14,
+      "Bitmap Index Scan (search_entry_trgm_idx)": 13,
+      "Index Scan (search_entry_pkey)": 14,
+      "Index Scan (search_entry_document_idx)": 2
+    }
+  },
+  "known_items": {
+    "hit@1": 0.707,
+    "hit@10": 0.948
+  },
+  "incremental": {
+    "batch": 100,
+    "add_documents_insert_s": 1.82,
+    "add_documents_index_s": 0.42,
+    "add_documents_indexed": 135,
+    "add_revisions_insert_s": 0.55,
+    "add_revisions_index_s": 0.38,
+    "add_revisions_indexed": 100
+  }
+}
