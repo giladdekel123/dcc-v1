@@ -2,7 +2,9 @@
 
     python -m eval.experiments.two_stage profile --load-scale 10000      # phase 0: cost profile
     python -m eval.experiments.two_stage check-dev                       # every arm == current on dev
-    python -m eval.experiments.two_stage run --stage1 term_count --label two-stage-10k
+    python -m eval.experiments.two_stage run --stage1 ts_rank --label two-stage-10k
+    python -m eval.experiments.two_stage run --stage1 cov_ts_rank,cov_rank_cd --limits 1000,2000,4000 \
+        --label two-stage-v2-40k                                       # 2C-v2
 
 Two-stage ranking (experimental, not used by the app): stage 1 keeps the top N full-text matches
 by a cheap score; every trigram (spelling) candidate is kept as well; stage 2 is today's exact
@@ -39,13 +41,23 @@ from eval.bench.run_bench import Session, bench_database_url, load_scale, percen
 from eval.check_equivalence import cases as equivalence_cases
 
 REPORTS = REPO_ROOT / "eval" / "experiments" / "reports"
-LIMITS = [250, 500, 1000, 2000]
-ARMS = ["current"] + [f"N={n}" for n in LIMITS]
+LIMITS = [250, 500, 1000, 2000]                    # 2C-v1; 2C-v2 uses --limits 1000,2000,4000
 WEIGHTS = "'{{0.1, 0.2, 0.4, 1.0}}'"               # doubled braces: the SQL goes through str.format
-STAGE1 = {                                         # fixed shortlist; chosen by cost alone (phase 0)
-    "ts_rank": f"ts_rank({WEIGHTS}, e.tsv, (select tsq from q))",
-    "term_count": "(select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)",
+# The final score's own coverage and full-text rank expressions (as in RANK_SQL).
+_COVERAGE = ("coalesce((select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)::float"
+             " / nullif(cardinality((select terms from q)), 0), 0)")
+_RANK_CD = f"coalesce(ts_rank_cd({WEIGHTS}, e.tsv, (select tsq from q), 32), 0)"
+STAGE1 = {                                         # stage-1 ORDER BY (ties: revision id)
+    # 2C-v1 shortlist, chosen by cost alone in phase 0
+    "ts_rank": f"ts_rank({WEIGHTS}, e.tsv, (select tsq from q)) desc",
+    "term_count": "(select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t) desc",
+    # 2C-v2: aligned with the final score, which coverage dominates
+    "cov_ts_rank": f"{_COVERAGE} desc, ts_rank({WEIGHTS}, e.tsv, (select tsq from q)) desc",   # A
+    "cov_rank_cd": f"{_COVERAGE} + {_RANK_CD} desc",                                           # B
 }
+ARMS: list[str] = []                               # set by set_arms()
+ARM_SPEC: dict[str, tuple[str, int]] = {}          # arm -> (stage 1, limit)
+ARM_SQLS: dict[str, str] = {}                      # stage 1 -> SQL
 TIMING_RUNS = 3
 
 RANK_SQL = baseline_fts.RANK_SQL
@@ -71,7 +83,7 @@ def two_stage_sql(stage1: str) -> str:
   select e.revision_id
   {_JOINS}
   where {{filters}} and e.tsv @@ (select tsq from q)
-  order by {STAGE1[stage1]} desc, e.revision_id
+  order by {STAGE1[stage1]}, e.revision_id
   limit %(stage1_limit)s
 ),
 candidates as (
@@ -112,6 +124,19 @@ for _name, _expr in STAGE1.items():
 
 # ---------------------------------------------------------------------------------------------
 
+def set_arms(stage1s: list[str], limits: list[int]) -> None:
+    """Arms: current, then every stage 1 x limit ("N=1000" when there is a single stage 1)."""
+    ARMS[:] = ["current"]
+    ARM_SPEC.clear()
+    ARM_SQLS.clear()
+    for stage1 in stage1s:
+        ARM_SQLS[stage1] = two_stage_sql(stage1)
+        for n in limits:
+            arm = f"N={n}" if len(stage1s) == 1 else f"{stage1} N={n}"
+            ARMS.append(arm)
+            ARM_SPEC[arm] = (stage1, n)
+
+
 def keep_awake() -> None:
     """Ask Windows not to sleep while this process runs (lapses when it exits)."""
     if sys.platform == "win32":
@@ -125,7 +150,8 @@ def params(text: str, f: Filters, arm: str) -> tuple[str, dict]:
         return sql, p
     active = f.active()
     where = " and ".join(baseline_fts.FILTER_SQL[k] for k in active) or "true"
-    return ARM_SQL.format(filters=where), {**p, "stage1_limit": int(arm.split("=")[1])}
+    stage1, n = ARM_SPEC[arm]
+    return ARM_SQLS[stage1].format(filters=where), {**p, "stage1_limit": n}
 
 
 def rank(conn, text: str, f: Filters, arm: str) -> list[tuple]:
@@ -199,15 +225,15 @@ def _sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
-def run(session: Session, stage1: str, checkpoint: Path, scale_info: str) -> dict:
+def run(session: Session, stage1s: list[str], limits: list[int], checkpoint: Path, scale_info: str) -> dict:
     """The comparison, saved to `checkpoint` after each quality arm and every 5 cases. A rerun with
     the same data, stage 1, limits and SQL resumes from the checkpoint instead of starting over."""
-    global ARM_SQL
-    ARM_SQL = two_stage_sql(stage1)
+    set_arms(stage1s, limits)
     cases = text_cases()
     frozen, _ = run_eval.load_queries()
-    meta = {"scale": scale_info, "stage1": stage1, "limits": LIMITS, "timing_runs": TIMING_RUNS,
-            "rank_sql": _sha(RANK_SQL), "two_stage_sql": _sha(ARM_SQL), "cases": len(cases)}
+    meta = {"scale": scale_info, "stage1": stage1s, "limits": limits, "timing_runs": TIMING_RUNS,
+            "rank_sql": _sha(RANK_SQL), "two_stage_sql": {k: _sha(v) for k, v in ARM_SQLS.items()},
+            "cases": len(cases)}
     state = json.loads(checkpoint.read_text(encoding="utf-8")) if checkpoint.exists() else {}
     if state.get("meta") != meta:
         if state:
@@ -252,9 +278,15 @@ def run(session: Session, stage1: str, checkpoint: Path, scale_info: str) -> dic
         if n % 10 == 0 or n == len(cases):
             progress(f"agreement and timing: {n}/{len(cases)} cases")
 
-    return {"stage1": stage1, "cases": len(cases), "frozen": len(frozen), "meta": meta,
-            "quality": state["quality"], "outcomes": state["outcomes"],
-            "tops": state["tops"], "times_ms": state["times_ms"]}
+    if "real_document_ids" not in state:                     # which returned documents are real KVL ones
+        returned = sorted({d for arm in ARMS for top in state["tops"][arm].values() for d in top})
+        state["real_document_ids"] = [row[0] for row in session.call(lambda c: c.execute(
+            "select id from dcc.document where id = any(%s) and doc_code like 'KVL-%%'", (returned,)).fetchall())]
+        save()
+    return {"stage1": ", ".join(stage1s), "arms": list(ARMS), "cases": len(cases), "frozen": len(frozen),
+            "meta": meta, "quality": state["quality"], "outcomes": state["outcomes"],
+            "tops": state["tops"], "times_ms": state["times_ms"],
+            "real_document_ids": state["real_document_ids"]}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -266,7 +298,8 @@ def evaluate_criteria(r: dict) -> dict:
     cur_t = list(r["times_ms"]["current"].values())
     cur_p50, cur_p95 = percentile(cur_t, 50), percentile(cur_t, 95)
     verdicts = {}
-    for arm in ARMS[1:]:
+    real = set(r.get("real_document_ids", []))
+    for arm in r.get("arms", ARMS)[1:]:
         q = r["quality"][arm]["overall"]
         out = r["outcomes"][arm]
         lost = [k for k, o in cur_out.items() if o["rank"] and o["rank"] <= 10 and not (out[k]["rank"])]
@@ -277,6 +310,13 @@ def evaluate_criteria(r: dict) -> dict:
         t = list(r["times_ms"][arm].values())
         p50, p95 = percentile(t, 50), percentile(t, 95)
         hit1_drop = round((cur_q["hit@1"] - q["hit@1"]) * r["frozen"])
+        first_diff, dropped = [], []
+        for c, base in r["tops"]["current"].items():
+            other = r["tops"][arm][c]
+            if other != base:
+                first_diff.append(next(i for i, (x, y) in enumerate(zip(base + [None] * 10, other + [None] * 10), 1)
+                                       if x != y))
+                dropped += [d for d in base if d not in other]
         checks = {
             "Q1 no frozen query leaves the top 10": not lost,
             "Q2 MRR >= current - 0.01 and hit@1 down <= 1 query": q["mrr"] >= cur_q["mrr"] - 0.01 and hit1_drop <= 1,
@@ -286,8 +326,11 @@ def evaluate_criteria(r: dict) -> dict:
         verdicts[arm] = {"checks": checks, "passes": all(checks.values()), "lost_from_top10": lost,
                          "rank_changes": moved, "identical_top10": same, "mean_overlap": round(overlap, 3),
                          "p50_ms": round(p50, 1), "p95_ms": round(p95, 1), "max_ms": round(max(t), 1),
-                         "p50_change": round(p50 / cur_p50 - 1, 3), "p95_change": round(p95 / cur_p95 - 1, 3)}
-    chosen = next((arm for arm in ARMS[1:] if verdicts[arm]["passes"]), None)
+                         "p50_change": round(p50 / cur_p50 - 1, 3), "p95_change": round(p95 / cur_p95 - 1, 3),
+                         "first_diff_positions": sorted(first_diff), "dropped": len(dropped),
+                         "dropped_real": sum(d in real for d in dropped)}
+    passing = [arm for arm in verdicts if verdicts[arm]["passes"]]
+    chosen = min(passing, key=lambda arm: verdicts[arm]["p50_ms"]) if passing else None   # cheapest passing
     return {"current": {"p50_ms": round(cur_p50, 1), "p95_ms": round(cur_p95, 1), "max_ms": round(max(cur_t), 1)},
             "arms": verdicts, "chosen": chosen}
 
@@ -301,7 +344,7 @@ def markdown(label: str, scale_info: dict, profile_summary: dict | None, r: dict
              f"(median of {TIMING_RUNS} runs, EXPLAIN ANALYZE, timing off)", "",
              "## Quality on the frozen set", "",
              "| Arm | hit@1 | hit@3 | hit@5 | hit@10 | MRR | rev exact/found |", "|---|---|---|---|---|---|---|"]
-    for arm in ARMS:
+    for arm in r.get("arms", ARMS):
         o = r["quality"][arm]["overall"]
         lines.append(f"| {arm} | {o['hit@1']} | {o['hit@3']} | {o['hit@5']} | {o['hit@10']} | {o['mrr']} | "
                      f"{o['rev']['exact']}/{o['rev']['found']} |")
@@ -319,7 +362,15 @@ def markdown(label: str, scale_info: dict, profile_summary: dict | None, r: dict
     for arm, a in v["arms"].items():
         lines.append(f"| {arm} | " + " | ".join("yes" if ok else "**no**" for ok in a["checks"].values())
                      + f" | {'**yes**' if a['passes'] else 'no'} |")
-    lines += ["", f"Smallest passing limit: **{v['chosen'] or 'none'}**", "", "## Frozen-query rank changes", ""]
+    lines += ["", f"Cheapest passing arm (by p50): **{v['chosen'] or 'none'}**", "",
+              "## Where the top 10s differ (reported, not a criterion)", "",
+              "| Arm | changed top 10s | first differing position (min / median) | documents dropped | of which real KVL |",
+              "|---|---|---|---|---|"]
+    for arm, a in v["arms"].items():
+        fd = a.get("first_diff_positions", [])
+        lines.append(f"| {arm} | {len(fd)} | {min(fd) if fd else '-'} / {statistics.median(fd) if fd else '-'} | "
+                     f"{a.get('dropped', '-')} | {a.get('dropped_real', '-')} |")
+    lines += ["", "## Frozen-query rank changes", ""]
     for arm, a in v["arms"].items():
         changes = ", ".join(f"{k} {c}→{n}" for k, (c, n) in sorted(a["rank_changes"].items())) or "none"
         lines.append(f"- {arm}: {changes}")
@@ -339,18 +390,23 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Experiment 2C: two-stage ranking (evaluation only)")
     parser.add_argument("action", choices=["profile", "check-dev", "run"])
     parser.add_argument("--load-scale", type=int, help="reload the benchmark database at this scale first")
-    parser.add_argument("--stage1", choices=sorted(STAGE1))
+    parser.add_argument("--stage1", default="ts_rank", help=f"comma-separated, from {sorted(STAGE1)}")
+    parser.add_argument("--limits", default=",".join(map(str, LIMITS)), help="comma-separated stage-1 limits")
     parser.add_argument("--label")
     args = parser.parse_args()
+    stage1s = args.stage1.split(",")
+    limits = [int(n) for n in args.limits.split(",")]
+    unknown = set(stage1s) - set(STAGE1)
+    if unknown:
+        raise SystemExit(f"unknown stage 1: {sorted(unknown)}")
     keep_awake()
     REPORTS.mkdir(parents=True, exist_ok=True)
 
     if args.action == "check-dev":
-        global ARM_SQL
         session = Session(get_settings().database_url, stall_timeout=120)
         try:
-            for stage1 in STAGE1:
-                ARM_SQL = two_stage_sql(stage1)
+            for stage1 in stage1s:
+                set_arms([stage1], limits)
                 different = [(c[0], arm) for c in text_cases() for arm in ARMS[1:]
                              if session.call(rank, c[1], c[2], arm) != session.call(rank, c[1], c[2], "current")]
                 print(f"dev, stage 1 {stage1}: {len(text_cases())} cases x {len(ARMS) - 1} limits; "
@@ -375,7 +431,7 @@ def main() -> None:
             print(json.dumps(summary, indent=2))
             return
         checkpoint = REPORTS / f"{label}.partial.json"
-        r = run(session, args.stage1, checkpoint, scale_info)
+        r = run(session, stage1s, limits, checkpoint, scale_info)
     finally:
         session.close()
     r["code"] = subprocess.run(["git", "-C", str(REPO_ROOT), "rev-parse", "--short", "HEAD"],
@@ -390,7 +446,6 @@ def main() -> None:
     print(markdown(label, scale_info, profile_summary, r, v))
 
 
-ARM_SQL = ""
 run_eval._original_search = run_eval.search
 
 if __name__ == "__main__":
