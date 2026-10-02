@@ -15,12 +15,15 @@ Frozen queries and ground truth are used unchanged; nothing is tuned on the resu
 
 import argparse
 import ctypes
+import hashlib
 import json
 import re
 import statistics
+import subprocess
 import sys
 import time
 from datetime import date
+from pathlib import Path
 
 import psycopg
 
@@ -46,6 +49,7 @@ STAGE1 = {                                         # fixed shortlist; chosen by 
 TIMING_RUNS = 3
 
 RANK_SQL = baseline_fts.RANK_SQL
+_Q_END = RANK_SQL.index("),\nscored as") + 3       # end of the `q` CTE
 _JOINS = """from dcc.search_entry e
   join dcc.revision r on r.id = e.revision_id
   join dcc.document d on d.id = e.document_id"""
@@ -62,7 +66,7 @@ def _replace_once(text: str, old: str, new: str) -> str:
 
 def two_stage_sql(stage1: str) -> str:
     """RANK_SQL with scoring restricted to stage-1 candidates (top N matches + all trigram candidates)."""
-    q_end = RANK_SQL.index("),\nscored as (") + 3
+    q_end = _Q_END
     stages = f"""first_stage as (
   select e.revision_id
   {_JOINS}
@@ -97,7 +101,7 @@ PROFILE_VARIANTS = {
     "no_fts_rank": _between(RANK_SQL, "as coverage,\n", " as fts_rank", "         0::float"),
     "no_trigram": _between(RANK_SQL, "as fts_rank,\n", " as trigram", "         0::real"),
     "no_collapse": _between(RANK_SQL, "as score,\n", " as pos_in_document", "         1"),
-    "matches_only": RANK_SQL[:RANK_SQL.index("),\nscored as (") + 3]
+    "matches_only": RANK_SQL[:_Q_END]
     + f"m as (select e.revision_id\n  {_JOINS}\n{_CANDIDATE_WHERE})\nselect count(*) from m",
 }
 for _name, _expr in STAGE1.items():
@@ -191,43 +195,66 @@ def profile(session: Session) -> dict:
     return summary
 
 
-def run(session: Session, stage1: str) -> dict:
+def _sha(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
+
+def run(session: Session, stage1: str, checkpoint: Path, scale_info: str) -> dict:
+    """The comparison, saved to `checkpoint` after each quality arm and every 5 cases. A rerun with
+    the same data, stage 1, limits and SQL resumes from the checkpoint instead of starting over."""
     global ARM_SQL
     ARM_SQL = two_stage_sql(stage1)
     cases = text_cases()
     frozen, _ = run_eval.load_queries()
+    meta = {"scale": scale_info, "stage1": stage1, "limits": LIMITS, "timing_runs": TIMING_RUNS,
+            "rank_sql": _sha(RANK_SQL), "two_stage_sql": _sha(ARM_SQL), "cases": len(cases)}
+    state = json.loads(checkpoint.read_text(encoding="utf-8")) if checkpoint.exists() else {}
+    if state.get("meta") != meta:
+        if state:
+            progress("checkpoint is for different data or SQL; starting over")
+        state = {"meta": meta, "quality": {}, "outcomes": {},
+                 "tops": {arm: {} for arm in ARMS}, "times_ms": {arm: {} for arm in ARMS}}
+    else:
+        progress(f"resuming: {len(state['quality'])} quality arms and "
+                 f"{len(state['times_ms']['current'])} timing cases already done")
+
+    def save():
+        checkpoint.write_text(json.dumps(state, indent=1, default=str) + "\n", encoding="utf-8")
 
     # Quality on the frozen set, through run_eval's own evaluate() with each arm's search.
-    quality, outcomes_by_arm = {}, {}
     for arm in ARMS:
+        if arm in state["quality"]:
+            continue
         run_eval.search = search_with(arm)
         try:
             outcomes = []
             for q in frozen:
                 outcomes += session.call(run_eval.evaluate, [q])
         finally:
-            run_eval.search = run_eval.__dict__.get("_original_search", run_eval.search)
-        outcomes_by_arm[arm] = {o.id: o for o in outcomes}
-        quality[arm] = run_eval.summarise(outcomes)
+            run_eval.search = run_eval._original_search
+        state["quality"][arm] = run_eval.summarise(outcomes)
+        state["outcomes"][arm] = {o.id: {"rank": o.rank, "found": o.found} for o in outcomes}
+        save()
         progress(f"quality: {arm} done")
 
     # Agreement and server time on all text cases; arms interleaved per case.
-    tops = {arm: {} for arm in ARMS}
-    times = {arm: {} for arm in ARMS}
     for n, (case_id, text, f) in enumerate(cases, 1):
+        if all(case_id in state["times_ms"][arm] for arm in ARMS):
+            continue
         for arm in ARMS:
-            tops[arm][case_id] = [row[1] for row in session.call(rank, text, f, arm)]
+            state["tops"][arm][case_id] = [row[1] for row in session.call(rank, text, f, arm)]
         session.call(server_ms, *params(text, f, "current"))   # warm-up
         for arm in ARMS:
-            times[arm][case_id] = statistics.median(
+            state["times_ms"][arm][case_id] = statistics.median(
                 session.call(server_ms, *params(text, f, arm)) for _ in range(TIMING_RUNS))
+        if n % 5 == 0 or n == len(cases):
+            save()
         if n % 10 == 0 or n == len(cases):
             progress(f"agreement and timing: {n}/{len(cases)} cases")
 
-    return {"stage1": stage1, "cases": len(cases), "frozen": len(frozen), "quality": quality,
-            "outcomes": {arm: {k: {"rank": o.rank, "found": o.found} for k, o in v.items()}
-                         for arm, v in outcomes_by_arm.items()},
-            "tops": tops, "times_ms": times}
+    return {"stage1": stage1, "cases": len(cases), "frozen": len(frozen), "meta": meta,
+            "quality": state["quality"], "outcomes": state["outcomes"],
+            "tops": state["tops"], "times_ms": state["times_ms"]}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -268,7 +295,8 @@ def evaluate_criteria(r: dict) -> dict:
 def markdown(label: str, scale_info: dict, profile_summary: dict | None, r: dict, v: dict) -> str:
     lines = [f"# Experiment 2C: two-stage ranking ({label})", "",
              f"- Date {date.today().isoformat()}; benchmark database: {scale_info}",
-             f"- Stage 1 score: `{r['stage1']}` (chosen by cost in phase 0); trigram candidates always kept",
+             f"- Code {r.get('code', '?')}; ranking SQL {r['meta']['rank_sql']}; stage 1 score: `{r['stage1']}` "
+             "(chosen by cost in phase 0); trigram candidates always kept",
              f"- {r['frozen']} frozen queries for quality; {r['cases']} text cases for agreement and server time "
              f"(median of {TIMING_RUNS} runs, EXPLAIN ANALYZE, timing off)", "",
              "## Quality on the frozen set", "",
@@ -346,15 +374,19 @@ def main() -> None:
             (REPORTS / f"{label}.profile.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
             print(json.dumps(summary, indent=2))
             return
-        r = run(session, args.stage1)
+        checkpoint = REPORTS / f"{label}.partial.json"
+        r = run(session, args.stage1, checkpoint, scale_info)
     finally:
         session.close()
+    r["code"] = subprocess.run(["git", "-C", str(REPO_ROOT), "rev-parse", "--short", "HEAD"],
+                               capture_output=True, text=True).stdout.strip()
     v = evaluate_criteria(r)
     profile_path = REPORTS / f"{label}.profile.json"
     profile_summary = json.loads(profile_path.read_text(encoding="utf-8")) if profile_path.exists() else None
     (REPORTS / f"{label}.json").write_text(json.dumps({"scale": scale_info, "result": r, "verdicts": v},
                                                       indent=1, default=str) + "\n", encoding="utf-8")
     (REPORTS / f"{label}.md").write_text(markdown(label, scale_info, profile_summary, r, v), encoding="utf-8")
+    checkpoint.unlink(missing_ok=True)
     print(markdown(label, scale_info, profile_summary, r, v))
 
 
