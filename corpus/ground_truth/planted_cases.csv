@@ -7,3 +7,46 @@ near_duplicate,KVL-CGC-410-RI-S-0011,,West abutment RFI with similar wording to 
 status_change_no_revision,KVL-CGC-410-SB-S-0004,P01,"For approval, then approved with comments"
 status_change_no_revision,KVL-CGC-410-RI-S-0012,P01,"Open, then closed"
 late_finding_in_appendix,KVL-SGI-410-RP-T-0001,P01,Soft clay lens reported only in Appendix C
+legacy_filename,KVL-NVW-610-LT-U-0004,P01,Filename does not follow the convention
+near_duplicate,KVL-NVW-610-LT-U-0004,,Same sender and similar subject as KVL-NVW-610-LT-U-0003
+status_change_no_revision,KVL-CGC-330-RI-S-0013,P01,"Open, then closed"
+status_change_no_revision,KVL-CGC-330-BQ-Q-0007,P01,"For approval, then accepted"
+correct_not_latest,KVL-CGC-320-SB-D-0009,,Latest revision P02 was rejected; P01 remains approved with comments
+superseded_by_new_number,KVL-ADM-300-RP-D-0014,,Superseded by KVL-ADM-300-RP-D-0021
+titleblock_discrepancy,KVL-ADM-300-DR-D-0303,C02,Title block drawing number 0302; register 0303
+legacy_filename,KVL-ADM-310-DR-D-0310,C01,Filename does not follow the convention
+near_duplicate,KVL-ADM-310-DR-D-0310,,Pond 1 West vs Pond 2 East
+near_duplicate,KVL-ADM-300-RP-D-0021,,Similar title to the Drainage Strategy Report it supersedes
+file_copy,KVL-ADM-300-RP-D-0021,P01,Also filed as an email attachment
+status_change_no_revision,KVL-CGC-320-SB-D-0009,P01,"For approval, then approved with comments"
+status_change_no_revision,KVL-ADM-300-RP-D-0014,P02,"For approval, then accepted"
+legacy_filename,KVL-ADM-000-BQ-Q-0001,P02,Filename does not follow the convention
+titleblock_discrepancy,KVL-ADM-000-BQ-Q-0001,P02,Sheet header revision P03; register P02
+status_change_no_revision,KVL-CGC-510-SB-C-0012,P01,"For approval, then approved with comments"
+legacy_filename,KVL-CGC-100-RP-G-0007,P01,Filename does not follow the convention
+near_duplicate,KVL-CGC-100-RP-G-0007,,Three monthly progress reports with the same structure
+near_duplicate,KVL-ADM-700-DR-E-0701,,Mentions Pond 2 East but is a landscaping drawing
+legacy_filename,KVL-CGC-200-RP-C-0022,P01,Filename does not follow the convention
+near_duplicate,KVL-CGC-200-RP-C-0022,,Four monthly compaction test reports with the same structure
+near_duplicate,KVL-ADM-000-BQ-Q-0002,,"A second bill of quantities, for earthworks rather than pavements"
+status_change_no_revision,KVL-CGC-200-RI-C-0016,P01,"Open, then closed"
+status_change_no_revision,KVL-CGC-200-SB-C-0015,P01,"For approval, then accepted"
+status_change_no_revision,KVL-CGC-200-BQ-Q-0003,P01,"For approval, then accepted"
+status_change_no_revision,KVL-ADM-200-RP-C-0017,P02,"For approval, then accepted"
+titleblock_discrepancy,KVL-ADM-410-SC-S-0004,C01,Sheet header revision C02; register C01
+near_duplicate,KVL-ADM-410-DR-S-0120,,Earlier WBS 410 drawing that is not a general arrangement
+status_change_no_revision,KVL-CGC-410-SB-S-0017,P01,"For approval, then approved with comments"
+legacy_filename,KVL-ADM-700-SC-E-0005,C01,Filename does not follow the convention
+near_duplicate,KVL-ADM-700-RP-E-0006,,Mentions the Pond 1 and Pond 2 sites but is an ecology survey
+status_change_no_revision,KVL-CGC-700-SB-E-0014,P01,"For approval, then accepted"
+legacy_filename,KVL-NGE-600-LT-U-0002,P01,Filename does not follow the convention
+near_duplicate,KVL-NGE-600-LT-U-0002,,Northgrid (not Northvale Water) letter about protecting a service
+status_change_no_revision,KVL-CGC-600-RI-U-0017,P01,"Open, then closed"
+legacy_filename,KVL-CGC-100-RP-G-0003,P01,Filename does not follow the convention
+near_duplicate,KVL-CGC-100-RP-G-0009,,"Monthly progress report issued in early October, not September"
+near_duplicate,KVL-CGC-100-MM-G-0011,,September minutes with no recovery programme item
+near_duplicate,KVL-CGC-100-MM-G-0004,,Early minutes that mention abutment piling without any problem
+near_duplicate,KVL-CGC-310-SB-D-0018,,"Pond 1 flow control submittal, almost the same title as Pond 2's"
+near_duplicate,KVL-ADM-310-DR-D-0311,,Pond 1 drawing that is not the general arrangement
+status_change_no_revision,KVL-CGC-310-SB-D-0018,P01,"For approval, then accepted"
+status_change_no_revision,KVL-CGC-000-BQ-Q-0005,P01,"For approval, then accepted"

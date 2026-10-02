@@ -1,0 +1,1762 @@
+{
+  "engine": "baseline-fts-v1",
+  "created": "2026-09-30",
+  "commit": "09d640f",
+  "query_files": {
+    "generated.yaml": "f41998658911512fc769afd0dd19e58399d73bae428f15faee6bcca7513f2238",
+    "human.yaml": "5d2f35983b375f723ebe7c99070252ee14769db81a08efcfc3a01744dba92710"
+  },
+  "corpus": {
+    "documents": 47,
+    "revisions": 62,
+    "files": 64,
+    "fingerprint": "3717ff5170342c0fd33530bc8cd98587091da4af689fc357ecaa584d9f46c339",
+    "note": "recorded after the run, from eval/frozen/corpus-v1 (the register this run used)"
+  },
+  "summary": {
+    "overall": {
+      "n": 58,
+      "hit@1": 0.759,
+      "hit@3": 0.966,
+      "hit@5": 0.966,
+      "hit@10": 1.0,
+      "mrr": 0.858,
+      "rev": {
+        "queries": 15,
+        "found": 15,
+        "exact": 11,
+        "named": 12
+      }
+    },
+    "by_author": {
+      "generated": {
+        "n": 40,
+        "hit@1": 0.8,
+        "hit@3": 0.975,
+        "hit@5": 0.975,
+        "hit@10": 1.0,
+        "mrr": 0.883,
+        "rev": {
+          "queries": 10,
+          "found": 10,
+          "exact": 7,
+          "named": 8
+        }
+      },
+      "human": {
+        "n": 18,
+        "hit@1": 0.667,
+        "hit@3": 0.944,
+        "hit@5": 0.944,
+        "hit@10": 1.0,
+        "mrr": 0.804,
+        "rev": {
+          "queries": 5,
+          "found": 5,
+          "exact": 4,
+          "named": 4
+        }
+      }
+    },
+    "by_category": {
+      "vague_topic": {
+        "n": 9,
+        "hit@1": 0.556,
+        "hit@3": 0.889,
+        "hit@5": 0.889,
+        "hit@10": 1.0,
+        "mrr": 0.72,
+        "rev": {
+          "queries": 0,
+          "found": 0,
+          "exact": 0,
+          "named": 0
+        }
+      },
+      "partial_name": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 1.0,
+        "rev": {
+          "queries": 0,
+          "found": 0,
+          "exact": 0,
+          "named": 0
+        }
+      },
+      "old_revision": {
+        "n": 5,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 1.0,
+        "rev": {
+          "queries": 5,
+          "found": 5,
+          "exact": 2,
+          "named": 2
+        }
+      },
+      "cross_type": {
+        "n": 5,
+        "hit@1": 0.4,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.7,
+        "rev": {
+          "queries": 0,
+          "found": 0,
+          "exact": 0,
+          "named": 0
+        }
+      },
+      "date_anchored": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 1.0,
+        "rev": {
+          "queries": 1,
+          "found": 1,
+          "exact": 1,
+          "named": 1
+        }
+      },
+      "sender_anchored": {
+        "n": 6,
+        "hit@1": 0.667,
+        "hit@3": 0.833,
+        "hit@5": 0.833,
+        "hit@10": 1.0,
+        "mrr": 0.774,
+        "rev": {
+          "queries": 0,
+          "found": 0,
+          "exact": 0,
+          "named": 0
+        }
+      },
+      "correct_not_latest": {
+        "n": 5,
+        "hit@1": 0.6,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.8,
+        "rev": {
+          "queries": 4,
+          "found": 4,
+          "exact": 3,
+          "named": 4
+        }
+      },
+      "related_chain": {
+        "n": 7,
+        "hit@1": 0.571,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.738,
+        "rev": {
+          "queries": 2,
+          "found": 2,
+          "exact": 2,
+          "named": 2
+        }
+      },
+      "status_anchored": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 1.0,
+        "rev": {
+          "queries": 3,
+          "found": 3,
+          "exact": 3,
+          "named": 3
+        }
+      }
+    }
+  },
+  "outcomes": [
+    {
+      "id": "G001",
+      "author": "generated",
+      "category": "vague_topic",
+      "query": "the contractor's question about piles hitting soft clay at the east side of the bridge",
+      "expected": [
+        "KVL-CGC-410-RI-S-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-410-RI-S-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-ADM-410-DR-S-0102"
+      ]
+    },
+    {
+      "id": "G002",
+      "author": "generated",
+      "category": "vague_topic",
+      "query": "problem with the water pipe near the Mill Lane culvert",
+      "expected": [
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-NCC-610-LT-U-0014"
+      ],
+      "expected_rev": null,
+      "rank": 3,
+      "found": "KVL-CGC-330-RI-S-0013",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "G003",
+      "author": "generated",
+      "category": "vague_topic",
+      "query": "pond needs to hold more water because the council cut the discharge rate",
+      "expected": [
+        "KVL-ADM-300-RP-D-0021"
+      ],
+      "expected_rev": null,
+      "rank": 7,
+      "found": "KVL-ADM-300-RP-D-0021",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-CGC-330-BQ-Q-0007"
+      ]
+    },
+    {
+      "id": "G004",
+      "author": "generated",
+      "category": "vague_topic",
+      "query": "cheaper aggregate for the roundabout road surface",
+      "expected": [
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-CGC-510-SB-C-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-510-SB-C-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-200-LT-C-0019"
+      ]
+    },
+    {
+      "id": "G005",
+      "author": "generated",
+      "category": "vague_topic",
+      "query": "overnight closures and traffic lights where the new road joins the existing road",
+      "expected": [
+        "KVL-CGC-200-LT-C-0019",
+        "KVL-NCC-200-LT-C-0016"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-200-LT-C-0019",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-200-LT-C-0019",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-LT-C-0022"
+      ]
+    },
+    {
+      "id": "G006",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "piling layout east abutment",
+      "expected": [
+        "KVL-ADM-410-DR-S-0110"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0110",
+      "matched_rev": "C02",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-ADM-300-DR-D-0303"
+      ]
+    },
+    {
+      "id": "G007",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "drainage layout sheet 2",
+      "expected": [
+        "KVL-ADM-300-DR-D-0302"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-ADM-300-DR-D-0302",
+      "matched_rev": "C01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-ADM-310-DR-D-0310"
+      ]
+    },
+    {
+      "id": "G008",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "variation 07",
+      "expected": [
+        "KVL-CGC-330-BQ-Q-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-330-BQ-Q-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-SGI-410-RP-T-0001"
+      ]
+    },
+    {
+      "id": "G009",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "bill of quantities for the pavements",
+      "expected": [
+        "KVL-ADM-000-BQ-Q-0001"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-ADM-000-BQ-Q-0001",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-CGC-200-LT-C-0019",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-LT-C-0022"
+      ]
+    },
+    {
+      "id": "G010",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "check certificate for the culvert",
+      "expected": [
+        "KVL-BCS-330-CT-S-0002"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-BCS-330-CT-S-0002",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-300-DR-D-0303"
+      ]
+    },
+    {
+      "id": "G011",
+      "author": "generated",
+      "category": "partial_name",
+      "query": "Pond 1 GA",
+      "expected": [
+        "KVL-ADM-310-DR-D-0310"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-ADM-310-DR-D-0310",
+      "matched_rev": "C01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021"
+      ]
+    },
+    {
+      "id": "G012",
+      "author": "generated",
+      "category": "old_revision",
+      "query": "the first construction issue of the east abutment general arrangement, before the piles were lengthened",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102"
+      ],
+      "expected_rev": "C01",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0102",
+      "matched_rev": "C02",
+      "rev_exact": false,
+      "rev_named": false,
+      "top": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-CGC-100-MM-G-0007"
+      ]
+    },
+    {
+      "id": "G013",
+      "author": "generated",
+      "category": "old_revision",
+      "query": "the preliminary drainage strategy from summer 2024",
+      "expected": [
+        "KVL-ADM-300-RP-D-0014"
+      ],
+      "expected_rev": "P01",
+      "rank": 1,
+      "found": "KVL-ADM-300-RP-D-0014",
+      "matched_rev": "P01",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-310-DR-D-0310"
+      ]
+    },
+    {
+      "id": "G014",
+      "author": "generated",
+      "category": "old_revision",
+      "query": "baseline construction programme at contract award",
+      "expected": [
+        "KVL-CGC-100-SC-G-0002"
+      ],
+      "expected_rev": "P01",
+      "rank": 1,
+      "found": "KVL-CGC-100-SC-G-0002",
+      "matched_rev": "P01",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-CGC-100-MM-G-0007"
+      ]
+    },
+    {
+      "id": "G015",
+      "author": "generated",
+      "category": "old_revision",
+      "query": "Mill Lane culvert drawing issued for construction with the original invert at 10.80",
+      "expected": [
+        "KVL-ADM-330-DR-S-0205"
+      ],
+      "expected_rev": "C01",
+      "rank": 1,
+      "found": "KVL-ADM-330-DR-S-0205",
+      "matched_rev": "C02",
+      "rev_exact": false,
+      "rev_named": false,
+      "top": [
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-MM-G-0010"
+      ]
+    },
+    {
+      "id": "G016",
+      "author": "generated",
+      "category": "cross_type",
+      "query": "the designer's reply to the RFI about soft clay under the piles",
+      "expected": [
+        "KVL-ADM-410-LT-S-0031"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-ADM-410-LT-S-0031",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "G017",
+      "author": "generated",
+      "category": "cross_type",
+      "query": "minutes of the meeting where the east abutment piling problem was first raised",
+      "expected": [
+        "KVL-CGC-100-MM-G-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-100-MM-G-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-SB-S-0004"
+      ]
+    },
+    {
+      "id": "G018",
+      "author": "generated",
+      "category": "cross_type",
+      "query": "Northvale Water's reply to the council's trial hole letter",
+      "expected": [
+        "KVL-NVW-610-LT-U-0003"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-NVW-610-LT-U-0003",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-NCC-200-LT-C-0016"
+      ]
+    },
+    {
+      "id": "G019",
+      "author": "generated",
+      "category": "cross_type",
+      "query": "the submittal that followed the contractor's letter about the roundabout surface course aggregate",
+      "expected": [
+        "KVL-CGC-510-SB-C-0012"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-CGC-510-SB-C-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-320-SB-D-0009"
+      ]
+    },
+    {
+      "id": "G020",
+      "author": "generated",
+      "category": "date_anchored",
+      "query": "progress report for July 2025",
+      "expected": [
+        "KVL-CGC-100-RP-G-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-100-RP-G-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-CGC-100-MM-G-0008"
+      ]
+    },
+    {
+      "id": "G021",
+      "author": "generated",
+      "category": "date_anchored",
+      "query": "the monthly progress report issued at the start of September",
+      "expected": [
+        "KVL-CGC-100-RP-G-0008"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-100-RP-G-0008",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0008"
+      ]
+    },
+    {
+      "id": "G022",
+      "author": "generated",
+      "category": "date_anchored",
+      "query": "progress meeting in mid October 2025",
+      "expected": [
+        "KVL-CGC-100-MM-G-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-100-MM-G-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "G023",
+      "author": "generated",
+      "category": "date_anchored",
+      "query": "the council's letter about the pond from May 2025",
+      "expected": [
+        "KVL-NCC-320-LT-D-0011"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-NCC-320-LT-D-0011",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-NCC-610-LT-U-0014"
+      ]
+    },
+    {
+      "id": "G024",
+      "author": "generated",
+      "category": "date_anchored",
+      "query": "programme update from October",
+      "expected": [
+        "KVL-CGC-100-SC-G-0002"
+      ],
+      "expected_rev": "P03",
+      "rank": 1,
+      "found": "KVL-CGC-100-SC-G-0002",
+      "matched_rev": "P03",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-CGC-100-MM-G-0008"
+      ]
+    },
+    {
+      "id": "G025",
+      "author": "generated",
+      "category": "sender_anchored",
+      "query": "letter from Northvale Water accepting the protection slab",
+      "expected": [
+        "KVL-NVW-610-LT-U-0004"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-NVW-610-LT-U-0004",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-RP-G-0008"
+      ]
+    },
+    {
+      "id": "G026",
+      "author": "generated",
+      "category": "sender_anchored",
+      "query": "Arden Moss letter accepting the alternative roundabout surfacing",
+      "expected": [
+        "KVL-ADM-510-LT-C-0036"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-ADM-510-LT-C-0036",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-NVW-610-LT-U-0003"
+      ]
+    },
+    {
+      "id": "G027",
+      "author": "generated",
+      "category": "sender_anchored",
+      "query": "Stratum's ground investigation report",
+      "expected": [
+        "KVL-SGI-410-RP-T-0001"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-SGI-410-RP-T-0001",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-ADM-410-SC-S-0003"
+      ]
+    },
+    {
+      "id": "G028",
+      "author": "generated",
+      "category": "sender_anchored",
+      "query": "letter from Castlegate about lane closures",
+      "expected": [
+        "KVL-CGC-200-LT-C-0019"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-200-LT-C-0019",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-200-LT-C-0019",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-NCC-320-LT-D-0011"
+      ]
+    },
+    {
+      "id": "G029",
+      "author": "generated",
+      "category": "correct_not_latest",
+      "query": "the east abutment GA drawing we should build from",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102"
+      ],
+      "expected_rev": "C02",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0102",
+      "matched_rev": "P03",
+      "rev_exact": false,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-410-RI-S-0015"
+      ]
+    },
+    {
+      "id": "G030",
+      "author": "generated",
+      "category": "correct_not_latest",
+      "query": "the approved flow control device for Pond 2",
+      "expected": [
+        "KVL-CGC-320-SB-D-0009"
+      ],
+      "expected_rev": "P01",
+      "rank": 1,
+      "found": "KVL-CGC-320-SB-D-0009",
+      "matched_rev": "P01",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-NCC-320-LT-D-0011"
+      ]
+    },
+    {
+      "id": "G031",
+      "author": "generated",
+      "category": "correct_not_latest",
+      "query": "the current drainage strategy for the ponds",
+      "expected": [
+        "KVL-ADM-300-RP-D-0021"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-ADM-300-RP-D-0021",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-700-DR-E-0701"
+      ]
+    },
+    {
+      "id": "G032",
+      "author": "generated",
+      "category": "related_chain",
+      "query": "the drawing that changed after the contractor's question about soft clay",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110"
+      ],
+      "expected_rev": "C02",
+      "rank": 3,
+      "found": "KVL-ADM-410-DR-S-0110",
+      "matched_rev": "C02",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-410-RI-S-0015"
+      ]
+    },
+    {
+      "id": "G033",
+      "author": "generated",
+      "category": "related_chain",
+      "query": "the cost variation that came out of the Mill Lane water main clash",
+      "expected": [
+        "KVL-CGC-330-BQ-Q-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-330-BQ-Q-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "G034",
+      "author": "generated",
+      "category": "related_chain",
+      "query": "the report that responded to the council's reduced discharge limit",
+      "expected": [
+        "KVL-ADM-300-RP-D-0021"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-ADM-300-RP-D-0021",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-SGI-410-RP-T-0001"
+      ]
+    },
+    {
+      "id": "G035",
+      "author": "generated",
+      "category": "related_chain",
+      "query": "the follow-up question the contractor asked about the revised piling layout",
+      "expected": [
+        "KVL-CGC-410-RI-S-0015"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-410-RI-S-0015",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-ADM-410-DR-S-0102"
+      ]
+    },
+    {
+      "id": "G036",
+      "author": "generated",
+      "category": "status_anchored",
+      "query": "the rejected flow control submittal",
+      "expected": [
+        "KVL-CGC-320-SB-D-0009"
+      ],
+      "expected_rev": "P02",
+      "rank": 1,
+      "found": "KVL-CGC-320-SB-D-0009",
+      "matched_rev": "P02",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-CGC-100-MM-G-0009"
+      ]
+    },
+    {
+      "id": "G037",
+      "author": "generated",
+      "category": "status_anchored",
+      "query": "closed RFI about the bearing plinths",
+      "expected": [
+        "KVL-CGC-410-RI-S-0011"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-410-RI-S-0011",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-410-RI-S-0011",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-ADM-410-DR-S-0102"
+      ]
+    },
+    {
+      "id": "G038",
+      "author": "generated",
+      "category": "status_anchored",
+      "query": "the surfacing submittal that was approved with comments",
+      "expected": [
+        "KVL-CGC-510-SB-C-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-510-SB-C-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-330-DR-S-0205"
+      ]
+    },
+    {
+      "id": "G039",
+      "author": "generated",
+      "category": "status_anchored",
+      "query": "abutment drawing issued for comment in October with a drainage layer",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102"
+      ],
+      "expected_rev": "P03",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0102",
+      "matched_rev": "P03",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-410-DR-S-0110"
+      ]
+    },
+    {
+      "id": "G040",
+      "author": "generated",
+      "category": "status_anchored",
+      "query": "the variation the council accepted for about 48 thousand pounds",
+      "expected": [
+        "KVL-CGC-330-BQ-Q-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-330-BQ-Q-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-CGC-100-MM-G-0009"
+      ]
+    },
+    {
+      "id": "H001",
+      "author": "human",
+      "category": "partial_name",
+      "query": "WBS 330 \u2013 culvert clash with existing water main",
+      "expected": [
+        "KVL-CGC-330-RI-S-0013"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-330-RI-S-0013",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "H002",
+      "author": "human",
+      "category": "vague_topic",
+      "query": "WBS 300 drainage. Change in allowable discharge for Pond 2. Pond 2 infrastructure.",
+      "expected": [
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-300-RP-D-0021"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-ADM-300-RP-D-0021",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-700-DR-E-0701"
+      ]
+    },
+    {
+      "id": "H003",
+      "author": "human",
+      "category": "cross_type",
+      "query": "WBS 410 River Kest Bridge. Soft clay found below the east abutment piles. RFI and response.",
+      "expected": [
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-LT-S-0031"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-410-RI-S-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-410-RI-S-0011"
+      ]
+    },
+    {
+      "id": "H004",
+      "author": "human",
+      "category": "status_anchored",
+      "query": "WBS 510 Eastern Roundabout. Document approving the alternative pavement material for construction.",
+      "expected": [
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-SB-C-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-510-SB-C-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-NCC-200-LT-C-0016",
+        "KVL-CGC-320-SB-D-0009"
+      ]
+    },
+    {
+      "id": "H005",
+      "author": "human",
+      "category": "vague_topic",
+      "query": "WBS 320 Pond 2 East. Somewhere the allowable discharge was changed from 8 to 5 litres per second.",
+      "expected": [
+        "KVL-NCC-320-LT-D-0011"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-NCC-320-LT-D-0011",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-310-DR-D-0310"
+      ]
+    },
+    {
+      "id": "H006",
+      "author": "human",
+      "category": "sender_anchored",
+      "query": "WBS 330 Mill Lane Culvert. Document from Northvale Water about protecting the existing water main.",
+      "expected": [
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NVW-610-LT-U-0003"
+      ],
+      "expected_rev": null,
+      "rank": 7,
+      "found": "KVL-NVW-610-LT-U-0004",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-CGC-100-MM-G-0010"
+      ]
+    },
+    {
+      "id": "H007",
+      "author": "human",
+      "category": "date_anchored",
+      "query": "WBS 100 Project Management. Meeting minutes from around July or August where the recovery programme was discussed.",
+      "expected": [
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0008"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-100-MM-G-0010",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-100-MM-G-0010",
+        "KVL-CGC-100-MM-G-0007",
+        "KVL-CGC-100-MM-G-0008",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-MM-G-0005",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "H008",
+      "author": "human",
+      "category": "old_revision",
+      "query": "WBS 410 River Kest Bridge. I need the earlier general arrangement drawing, before the construction revision.",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102"
+      ],
+      "expected_rev": "P02",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0102",
+      "matched_rev": "C02",
+      "rev_exact": false,
+      "rev_named": false,
+      "top": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-330-DR-S-0205"
+      ]
+    },
+    {
+      "id": "H009",
+      "author": "human",
+      "category": "status_anchored",
+      "query": "WBS 320 Pond 2 East. Flow-control submittal that was rejected.",
+      "expected": [
+        "KVL-CGC-320-SB-D-0009"
+      ],
+      "expected_rev": "P02",
+      "rank": 1,
+      "found": "KVL-CGC-320-SB-D-0009",
+      "matched_rev": "P02",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-CGC-410-SB-S-0004"
+      ]
+    },
+    {
+      "id": "H010",
+      "author": "human",
+      "category": "related_chain",
+      "query": "WBS 410 River Kest Bridge. Drawing issued after the RFI about the soft clay below the piles was resolved.",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110"
+      ],
+      "expected_rev": "C02",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0110",
+      "matched_rev": "C02",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-SGI-410-RP-T-0001",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-CGC-410-RI-S-0015",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-410-RI-S-0011"
+      ]
+    },
+    {
+      "id": "H011",
+      "author": "human",
+      "category": "sender_anchored",
+      "query": "WBS 510 Eastern Roundabout. I think there was a letter from the contractor about changing the asphalt aggregate to PSV 60 or 65.",
+      "expected": [
+        "KVL-CGC-510-LT-C-0022"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-510-LT-C-0022",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-MM-G-0009",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-100-RP-G-0008"
+      ]
+    },
+    {
+      "id": "H012",
+      "author": "human",
+      "category": "related_chain",
+      "query": "WBS 320 Pond 2 East. What document caused us to enlarge Pond 2?",
+      "expected": [
+        "KVL-NCC-320-LT-D-0011"
+      ],
+      "expected_rev": null,
+      "rank": 3,
+      "found": "KVL-NCC-320-LT-D-0011",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-CGC-100-MM-G-0012",
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-CGC-410-SB-S-0004"
+      ]
+    },
+    {
+      "id": "H013",
+      "author": "human",
+      "category": "correct_not_latest",
+      "query": "WBS 320 Pond 2 East. I need the drawing that was approved for the flow control arrangement.",
+      "expected": [
+        "KVL-CGC-320-SB-D-0009"
+      ],
+      "expected_rev": "P01",
+      "rank": 2,
+      "found": "KVL-CGC-320-SB-D-0009",
+      "matched_rev": "P01",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-CGC-320-SB-D-0009",
+        "KVL-ADM-700-DR-E-0701",
+        "KVL-ADM-310-DR-D-0310",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-NCC-320-LT-D-0011",
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-RP-D-0014"
+      ]
+    },
+    {
+      "id": "H014",
+      "author": "human",
+      "category": "date_anchored",
+      "query": "WBS 330 Mill Lane Culvert. Something from around the time of the trial hole about the water main being deeper than expected.",
+      "expected": [
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-CGC-100-MM-G-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-NCC-610-LT-U-0014",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-CGC-100-RP-G-0006"
+      ]
+    },
+    {
+      "id": "H015",
+      "author": "human",
+      "category": "correct_not_latest",
+      "query": "WBS 410 River Kest Bridge. Which general arrangement drawing were we supposed to use for construction?",
+      "expected": [
+        "KVL-ADM-410-DR-S-0102"
+      ],
+      "expected_rev": "C02",
+      "rank": 1,
+      "found": "KVL-ADM-410-DR-S-0102",
+      "matched_rev": "C02",
+      "rev_exact": true,
+      "rev_named": true,
+      "top": [
+        "KVL-ADM-410-DR-S-0102",
+        "KVL-ADM-410-DR-S-0110",
+        "KVL-CGC-410-SB-S-0004",
+        "KVL-BCS-410-CT-S-0001",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-410-SC-S-0003",
+        "KVL-CGC-410-RI-S-0012",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-410-LT-S-0031",
+        "KVL-ADM-330-DR-S-0205"
+      ]
+    },
+    {
+      "id": "H016",
+      "author": "human",
+      "category": "vague_topic",
+      "query": "WBS 330 Mill Lane Culvert. What was the cost of the variation for protecting the water main?",
+      "expected": [
+        "KVL-CGC-330-BQ-Q-0007"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-330-BQ-Q-0007",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-330-BQ-Q-0007",
+        "KVL-ADM-330-DR-S-0206",
+        "KVL-BCS-330-CT-S-0002",
+        "KVL-ADM-330-LT-S-0034",
+        "KVL-ADM-330-DR-S-0205",
+        "KVL-CGC-330-RI-S-0013",
+        "KVL-NVW-610-LT-U-0004",
+        "KVL-NCC-610-LT-U-0014",
+        "KVL-NVW-610-LT-U-0003",
+        "KVL-CGC-100-MM-G-0010"
+      ]
+    },
+    {
+      "id": "H017",
+      "author": "human",
+      "category": "related_chain",
+      "query": "WBS 300 Drainage. What replaced the earlier drainage strategy report?",
+      "expected": [
+        "KVL-ADM-300-RP-D-0021"
+      ],
+      "expected_rev": null,
+      "rank": 2,
+      "found": "KVL-ADM-300-RP-D-0021",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-ADM-300-RP-D-0014",
+        "KVL-ADM-300-RP-D-0021",
+        "KVL-ADM-300-DR-D-0301",
+        "KVL-ADM-300-DR-D-0302",
+        "KVL-ADM-300-DR-D-0303",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-100-RP-G-0006",
+        "KVL-ADM-320-DR-D-0320",
+        "KVL-SGI-410-RP-T-0001"
+      ]
+    },
+    {
+      "id": "H018",
+      "author": "human",
+      "category": "vague_topic",
+      "query": "WBS 510 Eastern Roundabout. Where's the document where we finally agreed what surfacing to use?",
+      "expected": [
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-510-SB-C-0012"
+      ],
+      "expected_rev": null,
+      "rank": 1,
+      "found": "KVL-CGC-510-SB-C-0012",
+      "matched_rev": "P01",
+      "rev_exact": null,
+      "rev_named": null,
+      "top": [
+        "KVL-CGC-510-SB-C-0012",
+        "KVL-CGC-510-LT-C-0022",
+        "KVL-ADM-510-DR-C-0501",
+        "KVL-ADM-510-LT-C-0036",
+        "KVL-CGC-100-SC-G-0002",
+        "KVL-ADM-000-BQ-Q-0001",
+        "KVL-CGC-100-MM-G-0006",
+        "KVL-CGC-100-RP-G-0008",
+        "KVL-CGC-100-RP-G-0007",
+        "KVL-CGC-320-SB-D-0009"
+      ]
+    }
+  ]
+}

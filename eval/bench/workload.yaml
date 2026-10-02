@@ -1,0 +1,67 @@
+# Benchmark workload (speed only, not quality). The 58 frozen evaluation query texts are added
+# automatically; these generic queries reflect how people search a large multi-project register.
+
+generic_queries:
+  - monthly progress report July 2025
+  - progress meeting minutes
+  - RFI clash with gas main
+  - clash between the water main and the culvert
+  - retaining wall reinforcement details
+  - wing wall general arrangement
+  - abutment setting out drawing
+  - layout sheet 2 of 3
+  - variation remeasurement
+  - variation additional works pond
+  - parapet check certificate
+  - notice of delay junction
+  - request for access to underpass
+  - kerbs method statement
+  - geotextile substitution
+  - waterproofing membrane product data
+  - capping material source approval
+  - level discrepancy at chainage
+  - drainage connection
+  - temporary works for embankment
+  - inspection report defects gantry
+  - survey report cutting
+  - construction programme
+  - drawing register
+  - noise barrier elevation
+  - lighting columns delivery
+  - trial hole located the telecom duct
+  - response to query footway
+  - design report headwall
+  - roundabout reinforcement
+  - retaning wal reinforcment      # typos
+  - abutmnet setting out
+  - BRL-ADM-200-DR-C-0003          # exact document code
+  - RFI-0005
+  - Brackmoor Link Road
+  - Fellgate Design drawings
+  - letter from Northgrid
+  - approved with comments method statement
+  - rejected submittal
+  - pier elevation C02
+
+# Applied to a subset of the text queries (text + filters) and on their own (filters only).
+filters:
+  - {doc_type: DR}
+  - {doc_type: LT}
+  - {doc_type: RI}
+  - {doc_type: MM}
+  - {wbs: "400"}
+  - {wbs: "300"}
+  - {stage: CN}
+  - {org: CGC}
+  - {discipline: S}
+  - {date_from: "2025-01-01"}
+  - {date_from: "2024-01-01", date_to: "2024-12-31"}
+  - {doc_type: DR, wbs: "400"}
+  - {doc_type: RP, stage: CN}
+  - {org: ADM, doc_type: DR}
+  - {wbs: "410"}
+  - {doc_type: SB, date_from: "2025-06-01"}
+  - {discipline: D, doc_type: DR}
+  - {org: NVW}
+  - {stage: DD, doc_type: RI}
+  - {doc_type: BQ}

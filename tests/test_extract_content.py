@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from app.ingest.extract_content import extract_all
-from app.ingest.load_register import load
 
 pytestmark = pytest.mark.db
 
@@ -27,16 +26,15 @@ def extracted_snapshot(conn):
 
 
 @pytest.fixture
-def loaded(conn):
-    load(conn, CORPUS)
-    return conn
+def loaded(data_conn):
+    return data_conn
 
 
 def test_every_file_extracted_and_registered_data_untouched(loaded):
     before = registered_snapshot(loaded)
     results = extract_all(loaded, CORPUS)
-    assert len(results) == 18 and {r.outcome for r in results.values()} == {"ok"}
-    assert loaded.execute("select count(*) from dcc.extraction where outcome = 'ok'").fetchone()[0] == 18
+    assert len(results) == 122 and {r.outcome for r in results.values()} == {"ok"}
+    assert loaded.execute("select count(*) from dcc.extraction where outcome = 'ok'").fetchone()[0] == 122
     no_segments = loaded.execute("""
         select count(*) from dcc.extraction e
         where not exists (select 1 from dcc.content_segment s where s.revision_file_id = e.revision_file_id)
@@ -46,14 +44,12 @@ def test_every_file_extracted_and_registered_data_untouched(loaded):
 
 
 def test_rerun_is_identical(loaded):
-    extract_all(loaded, CORPUS)
-    first = extracted_snapshot(loaded)
+    first = extracted_snapshot(loaded)  # from the session rebuild
     extract_all(loaded, CORPUS)
     assert extracted_snapshot(loaded) == first
 
 
 def test_extracted_status_can_disagree_with_registered_status(loaded):
-    extract_all(loaded, CORPUS)
     registered, extracted = loaded.execute("""
         select cs.status_code, e.extracted_fields ->> 'status_code'
         from dcc.document d
@@ -74,4 +70,4 @@ def test_changed_file_is_recorded_as_failed(loaded, tmp_path):
     results = extract_all(loaded, corpus)
     failed = {path: r for path, r in results.items() if r.outcome == "failed"}
     assert len(failed) == 1 and "SHA-256 mismatch" in next(iter(failed.values())).error
-    assert sum(r.outcome == "ok" for r in results.values()) == 17
+    assert sum(r.outcome == "ok" for r in results.values()) == 121

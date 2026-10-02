@@ -77,3 +77,27 @@ class SearchResponse(BaseModel):
     filters: dict[str, str]
     engine: str
     results: list[ResultItem]
+
+
+class FacetValue(BaseModel):
+    code: str
+    label: str
+    count: int                          # documents matching this filter on its own
+
+
+class WbsFacet(FacetValue):
+    children: list["WbsFacet"] = []     # count includes children
+
+
+class DateRange(BaseModel):
+    min: date | None
+    max: date | None
+
+
+class FacetsResponse(BaseModel):
+    doc_types: list[FacetValue]
+    disciplines: list[FacetValue]
+    stages: list[FacetValue]            # lifecycle order
+    organisations: list[FacetValue]     # originator or sender
+    wbs: list[WbsFacet]
+    date_range: DateRange

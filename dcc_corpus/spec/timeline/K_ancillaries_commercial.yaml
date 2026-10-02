@@ -1,0 +1,193 @@
+# Storyline K: drainage and roundabout ancillaries, and another variation.
+#
+# M2.5 expansion. Answer-safety: the Pond 1 flow control submittal is accepted (not approved with
+# comments, not rejected) and is Pond 1, not Pond 2; the roundabout documents don't decide the
+# surfacing; Variation 05 is fencing at about GBP 22k.
+
+storyline: K
+name: Drainage and roundabout ancillaries, commercial
+
+documents:
+  P1FCD:
+    doc_code: KVL-CGC-310-SB-D-0018
+    title: Pond 1 Flow Control Chamber - Vortex Flow Control Device
+    owner: Jo Kimani
+    template: docx_submittal
+  HW1:
+    doc_code: KVL-ADM-310-DR-D-0311
+    title: Pond 1 West Outfall Headwall Details
+    owner: Sam Whitfield
+    template: pdf_drawing
+  RLT:
+    doc_code: KVL-ADM-510-DR-C-0502
+    title: Eastern Roundabout Street Lighting Layout
+    owner: Nadia Hussain
+    template: pdf_drawing
+  RSM:
+    doc_code: KVL-ADM-510-DR-C-0503
+    title: Eastern Roundabout Signs and Road Markings
+    owner: Nadia Hussain
+    template: pdf_drawing
+  RSA:
+    doc_code: KVL-ADM-510-RP-C-0019
+    title: Eastern Roundabout Road Safety Audit Response
+    owner: Nadia Hussain
+    template: pdf_report
+  VAR05:
+    doc_code: KVL-CGC-000-BQ-Q-0005
+    title: Variation 05 - Additional Boundary Fencing
+    owner: Chris Moran
+    template: xlsx_boq
+
+events:
+
+  - date: 2025-02-10
+    summary: ADM responds to the stage 2 road safety audit of the Eastern Roundabout.
+    issue:
+      - doc: RSA
+        rev: P01
+        stage: DD
+        status: FI
+        description: First issue
+        content:
+          sections:
+            - heading: 1 Introduction
+              paragraphs:
+                - >
+                  The designer's response to the stage 2 road safety audit of the Eastern Roundabout
+                  detailed design.
+            - heading: 2 Audit problems and responses
+              table:
+                columns: [Problem, Audit comment, Designer response]
+                rows:
+                  - ["2.1", Forward visibility on the north arm limited by planting, Planting set back 3 m]
+                  - ["2.2", Uncontrolled crossing on the east arm too close to the give-way line, Crossing moved 5 m back]
+                  - ["2.3", Skid resistance on the approaches, "Adequate - PSV 68 surface course specified on all arms"]
+
+  - date: 2025-03-10
+    summary: ADM issues the Pond 1 West outfall headwall details.
+    issue:
+      - doc: HW1
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:20 @ A1"
+          drawn: SW
+          checked: DO
+          approved: PN
+          geometry: {kind: generic, labels: ["OUTFALL HEADWALL ELEVATION", "SECTION THROUGH HEADWALL"]}
+          notes:
+            - Precast concrete headwall at the Pond 1 West outfall to the Kest tributary.
+            - 450 mm outlet pipe with a flap valve. Rock armour apron 3 m long.
+
+  - date: 2025-03-12
+    summary: ADM issues the roundabout lighting and signs drawings for construction.
+    issue:
+      - doc: RLT
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:250 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: roundabout, icd_m: 40, arms: 4, hfs: false}
+          notes:
+            - 12 No. 10 m lighting columns with LED lanterns around the circulatory carriageway.
+            - Feeder pillar on the south-west verge. Cable ducts under each arm.
+      - doc: RSM
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:250 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: roundabout, icd_m: 40, arms: 4, hfs: false}
+          notes:
+            - Advance direction signs on all four arms. Give-way markings and chevron signs.
+            - Road markings in thermoplastic with retroreflective beads.
+
+  - date: 2025-06-20
+    summary: CGC submits the Pond 1 flow control device.
+    issue:
+      - doc: P1FCD
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Sam Whitfield
+          spec_clause: Series 500 - Drainage and service ducts
+          sections:
+            - heading: 1 Product
+              paragraphs:
+                - >
+                  Aqualine VFC-150 vortex flow control device in a 1500 mm precast chamber at the
+                  Pond 1 West outlet, set to pass 6.0 l/s at a design head of 1.5 m.
+            - heading: 2 Performance
+              paragraphs:
+                - The manufacturer's head-flow curve is attached. Flow at 1.5 m head is 5.9 l/s.
+
+  - date: 2025-07-03
+    summary: ADM accepts the Pond 1 flow control device (status change, no new revision).
+    status_change:
+      - {doc: P1FCD, rev: P01, status: AC, by: ADM, note: Accepted}
+
+  - date: 2025-08-20
+    summary: ADM revises the roundabout signs and markings to suit the approach surfacing.
+    issue:
+      - doc: RSM
+        rev: C02
+        stage: CN
+        status: FC
+        description: Markings adjusted to suit approach surfacing extents
+        content:
+          scale: "1:250 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: roundabout, icd_m: 40, arms: 4, hfs: true}
+          notes:
+            - Give-way and hatched markings moved to suit the high friction surfacing extents on each approach.
+            - Signs unchanged from C01.
+
+  - date: 2025-09-19
+    summary: CGC prices Variation 05 for additional boundary fencing.
+    issue:
+      - doc: VAR05
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          heading: Variation 05 - Additional boundary fencing
+          currency: GBP
+          items:
+            - [V05.1, Post and wire boundary fencing, m, 1600, 11.20]
+            - [V05.2, Field gates, nr, 4, 960.00]
+
+  - date: 2025-10-03
+    summary: NCC accepts Variation 05 (status change, no new revision).
+    status_change:
+      - {doc: VAR05, rev: P01, status: AC, by: NCC, note: Accepted at GBP 21760}
+
+links:
+  - {from: P1FCD, to: DSAR, type: related_to}
+  - {from: HW1, to: P1GA, type: related_to}
+  - {from: RSM@C02, to: LT36, type: related_to}
+  - {from: RSA, to: RAB, type: related_to}
+
+planted:
+  - {case: near_duplicate, target: P1FCD, note: "Pond 1 flow control submittal, almost the same title as Pond 2's"}
+  - {case: near_duplicate, target: HW1, note: "Pond 1 drawing that is not the general arrangement"}
+  - {case: status_change_no_revision, target: P1FCD@P01, note: "For approval, then accepted"}
+  - {case: status_change_no_revision, target: VAR05@P01, note: "For approval, then accepted"}

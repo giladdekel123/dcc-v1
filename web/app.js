@@ -129,30 +129,164 @@ function renderResult(result) {
   return card;
 }
 
-async function runSearch(query, { updateHistory = true } = {}) {
+// ---------------------------------------------------------------------------
+// Filters: the controls in the Refine panel are the single source of truth.
+// ---------------------------------------------------------------------------
+
+const FILTER_NAMES = {
+  doc_type: "Document type", discipline: "Discipline", stage: "Stage", org: "Organisation",
+  wbs: "WBS", date_from: "Issued from", date_to: "Issued to",
+};
+const refine = document.getElementById("refine");
+const refineCount = document.getElementById("refine-count");
+const chips = document.getElementById("chips");
+const notice = document.getElementById("notice");
+const controls = Object.fromEntries(
+  [...document.querySelectorAll("[data-filter]")].map((control) => [control.dataset.filter, control]));
+const facetLabels = {};  // filter key -> { code: label }
+let facetsLoaded = false;
+
+function populate(key, values, withCode = false) {
+  const select = controls[key];
+  select.replaceChildren(new Option("Any", ""));
+  facetLabels[key] = {};
+  const add = (value, depth) => {
+    const label = withCode ? `${value.code} ${value.label}` : value.label;
+    select.append(new Option(`${" ".repeat(depth)}${label} (${value.count})`, value.code));
+    facetLabels[key][value.code] = label;
+    (value.children ?? []).forEach((child) => add(child, depth + 1));
+  };
+  values.forEach((value) => add(value, 0));
+}
+
+async function loadFacets() {
+  try {
+    const response = await fetch("/api/facets");
+    if (!response.ok) throw new Error(`facets ${response.status}`);
+    const facets = await response.json();
+    populate("doc_type", facets.doc_types);
+    populate("discipline", facets.disciplines);
+    populate("stage", facets.stages);
+    populate("org", facets.organisations);
+    populate("wbs", facets.wbs, true);
+    for (const key of ["date_from", "date_to"]) {
+      controls[key].min = facets.date_range.min ?? "";
+      controls[key].max = facets.date_range.max ?? "";
+    }
+    facetsLoaded = true;
+  } catch {
+    refine.hidden = true;  // searching without filters still works
+  }
+}
+
+function currentFilters() {
+  return Object.fromEntries(
+    Object.entries(controls).map(([key, control]) => [key, control.value]).filter(([, value]) => value));
+}
+
+// Set the controls from a filters object; returns descriptions of values that aren't valid choices.
+function setFilters(filters) {
+  const rejected = [];
+  for (const [key, control] of Object.entries(controls)) {
+    const value = filters[key] ?? "";
+    const valid = !value || (control.tagName === "SELECT"
+      ? [...control.options].some((option) => option.value === value)
+      : /^\d{4}-\d{2}-\d{2}$/.test(value));
+    control.value = valid ? value : "";
+    if (!valid) rejected.push(`${FILTER_NAMES[key]} “${value}”`);
+  }
+  return rejected;
+}
+
+function filterText(key, value) {
+  return `${FILTER_NAMES[key]}: ${facetLabels[key]?.[value] ?? formatDate(value)}`;
+}
+
+function renderChips(filters) {
+  const entries = Object.entries(filters);
+  refineCount.textContent = entries.length ? `(${entries.length} active)` : "";
+  chips.replaceChildren(...entries.map(([key, value]) => {
+    const chip = el("span", "chip", filterText(key, value));
+    const remove = el("button", "chip-remove", "✕");
+    remove.type = "button";
+    remove.setAttribute("aria-label", `Remove filter ${filterText(key, value)}`);
+    remove.addEventListener("click", () => {
+      controls[key].value = "";
+      runSearch(input.value, currentFilters());
+    });
+    chip.append(remove);
+    return chip;
+  }));
+}
+
+function readUrl() {
+  const params = new URLSearchParams(location.search);
+  const filters = {};
+  for (const key of Object.keys(FILTER_NAMES)) {
+    if (params.get(key)) filters[key] = params.get(key);
+  }
+  return { query: params.get("q") ?? "", filters };
+}
+
+function urlFor(query, filters) {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  for (const [key, value] of Object.entries(filters)) params.set(key, value);
+  return params.size ? `${location.pathname}?${params}` : location.pathname;
+}
+
+function showNotice(text) {
+  notice.textContent = text;
+  notice.hidden = !text;
+}
+
+// ---------------------------------------------------------------------------
+// Search
+// ---------------------------------------------------------------------------
+
+async function runSearch(query, filters = {}, { updateHistory = true } = {}) {
   query = query.trim();
   input.value = query;
+  renderChips(filters);
   list.replaceChildren();
   const request = ++latestRequest;  // also invalidates any search still in flight
-  if (!query) {
-    summary.textContent = "Type something you remember about the document.";
+  const active = Object.keys(filters).length;
+
+  const url = urlFor(query, filters);
+  if (updateHistory) {
+    showNotice("");  // a notice about the loaded URL no longer applies after the user acts
+    if (url !== `${location.pathname}${location.search}`) history.pushState(null, "", url);
+  }
+
+  if (!query && !active) {
+    summary.textContent = "Type something you remember about the document, or choose filters under Refine.";
     return;
   }
-  const params = new URLSearchParams({ q: query });
-  if (updateHistory && new URLSearchParams(location.search).get("q") !== query) {
-    history.pushState({ q: query }, "", `?${params}`);
+  if (filters.date_from && filters.date_to && filters.date_from > filters.date_to) {
+    summary.textContent = "The “Issued from” date is later than the “to” date.";
+    return;
   }
+
   summary.textContent = "Searching…";
   try {
+    const params = new URLSearchParams({ ...(query ? { q: query } : {}), ...filters });
     const response = await fetch(`/api/search?${params}`);
     if (response.status === 503) throw new Error("The document database is not available right now.");
     if (!response.ok) throw new Error(`The search failed (error ${response.status}).`);
     const data = await response.json();
     if (request !== latestRequest) return;  // a newer search has started
     const count = data.results.length;
-    summary.textContent = count
-      ? `${count} candidate${count === 1 ? "" : "s"} for “${query}”`
-      : `No documents matched “${query}”. Try fewer or different words.`;
+    const plural = count === 1 ? "" : "s";
+    if (query) {
+      const withFilters = active ? ` with ${active} filter${active === 1 ? "" : "s"}` : "";
+      summary.textContent = count
+        ? `${count} candidate${plural} for “${query}”${withFilters}`
+        : `No documents matched “${query}”${withFilters}. Try fewer or different words${active ? ", or remove a filter" : ""}.`;
+    } else {
+      summary.textContent = count
+        ? `${count} document${plural} matching the filters, newest first${count === 10 ? " (showing the 10 newest)" : ""}`
+        : "No documents match these filters.";
+    }
     list.replaceChildren(...data.results.map(renderResult));
   } catch (error) {
     if (request !== latestRequest) return;
@@ -163,11 +297,22 @@ async function runSearch(query, { updateHistory = true } = {}) {
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  runSearch(input.value);
+  runSearch(input.value, currentFilters());
+});
+
+for (const control of Object.values(controls)) {
+  control.addEventListener("change", () => runSearch(input.value, currentFilters()));
+}
+
+document.getElementById("clear-filters").addEventListener("click", () => {
+  setFilters({});
+  runSearch(input.value, {});
 });
 
 window.addEventListener("popstate", () => {
-  runSearch(new URLSearchParams(location.search).get("q") ?? "", { updateHistory: false });
+  const { query, filters } = readUrl();
+  if (facetsLoaded) setFilters(filters);
+  runSearch(query, facetsLoaded ? currentFilters() : filters, { updateHistory: false });
 });
 
 fetch("/api/health")
@@ -178,6 +323,19 @@ fetch("/api/health")
   })
   .catch(() => { document.getElementById("health").textContent = "Backend unreachable"; });
 
-const initialQuery = new URLSearchParams(location.search).get("q");
-if (initialQuery) runSearch(initialQuery, { updateHistory: false });
-else input.focus();
+loadFacets().then(() => {
+  const { query, filters } = readUrl();
+  let active = filters;
+  if (facetsLoaded) {
+    const rejected = setFilters(filters);
+    if (rejected.length) showNotice(`Ignored unknown filter values: ${rejected.join(", ")}.`);
+    active = currentFilters();
+  }
+  if (Object.keys(active).length) refine.open = true;
+  if (query || Object.keys(active).length) {
+    history.replaceState(null, "", urlFor(query, active));  // drop any rejected values from the URL
+    runSearch(query, active, { updateHistory: false });
+  } else {
+    input.focus();
+  }
+});

@@ -49,11 +49,18 @@ left join dcc.person p         on p.id = d.owner_person_id
 """
 
 
-def build_index(conn: psycopg.Connection) -> int:
-    """Replace the whole search index. Does not commit; the caller owns the transaction."""
+def build_index(conn: psycopg.Connection, revision_ids: list[int] | None = None) -> int:
+    """Rebuild the search index. Does not commit; the caller owns the transaction.
+
+    With `revision_ids`, only those revisions' entries are replaced (incremental update after new or
+    changed documents); every other entry is left untouched. Without it, the whole index is rebuilt.
+    """
     with conn.transaction():
-        conn.execute("delete from dcc.search_entry")
-        return conn.execute(BUILD_SQL).rowcount
+        if revision_ids is None:
+            conn.execute("delete from dcc.search_entry")
+            return conn.execute(BUILD_SQL).rowcount
+        conn.execute("delete from dcc.search_entry where revision_id = any(%s)", (revision_ids,))
+        return conn.execute(BUILD_SQL + "where r.id = any(%s)", (revision_ids,)).rowcount
 
 
 def main() -> None:

@@ -23,11 +23,15 @@ def render(path: Path, ctx: RenderContext) -> None:
     c.rect(10 * mm, 10 * mm, PAGE_W - 20 * mm, PAGE_H - 20 * mm)
 
     geometry = ctx.content["geometry"]
-    piles = pile_layout(ctx.seed, geometry["piles"])
-    if "Piling Layout" in ctx.doc["title"]:
-        _piling_layout(c, piles, geometry)
+    kind = geometry.get("kind", "piles")
+    if kind == "piles":
+        piles = pile_layout(ctx.seed, geometry["piles"])
+        if "Piling Layout" in ctx.doc["title"]:
+            _piling_layout(c, piles, geometry)
+        else:
+            _general_arrangement(c, piles, geometry)
     else:
-        _general_arrangement(c, piles, geometry)
+        GEOMETRY[kind](c, geometry)
 
     _notes(c, ctx.content.get("notes", []))
     _revision_table(c, ctx)
@@ -88,6 +92,102 @@ def _piling_layout(c, piles, g):
                               f"{g['cutoff_level']:+.2f}", f"{g['toe_level']:+.2f}"], widths)
 
 
+def _heading(c, x_mm, text):
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(x_mm * mm, PAGE_H - 22 * mm, text)
+
+
+def _level_label(c, x, y, text):
+    c.setFont("Helvetica", 8)
+    c.line(x, y, x + 8 * mm, y)
+    c.drawString(x + 10 * mm, y - 1 * mm, text)
+
+
+def _culvert(c, g):
+    """Section through the box culvert with the water main above it."""
+    _heading(c, 20, "SECTION THROUGH MILL LANE CULVERT")
+    top = PAGE_H - 40 * mm
+    level_to_y = lambda lvl: top - (15.2 - lvl) * 22 * mm
+    x0, width = 60 * mm, g["width_m"] * 22 * mm
+    wall, roof = 0.25 * 22 * mm, 0.30 * 22 * mm
+    invert, soffit = g["invert_level"], g["invert_level"] + g["height_m"]
+    c.rect(x0 - wall, level_to_y(invert) - wall, width + 2 * wall, level_to_y(soffit) - level_to_y(invert) + wall + roof)
+    c.rect(x0, level_to_y(invert), width, level_to_y(soffit) - level_to_y(invert))
+    c.setDash(4, 3)
+    c.line(20 * mm, level_to_y(g["road_level"]), 200 * mm, level_to_y(g["road_level"]))
+    c.setDash()
+    c.circle(x0 + width / 2, level_to_y(g["main_level"]) + 3.3 * mm, 3.3 * mm)
+    x_labels = 210 * mm
+    _level_label(c, x_labels, level_to_y(g["road_level"]), f"Road level {g['road_level']:+.2f} mAOD")
+    _level_label(c, x_labels, level_to_y(g["main_level"]), f"300 mm water main invert {g['main_level']:+.2f} mAOD")
+    _level_label(c, x_labels, level_to_y(soffit + 0.30), f"Culvert roof {soffit + 0.30:+.2f} mAOD")
+    _level_label(c, x_labels, level_to_y(invert), f"Culvert invert {invert:+.2f} mAOD")
+    c.drawString(x0, level_to_y(invert) - 12 * mm,
+                 f"Box culvert {g['width_m']:.1f} m x {g['height_m']:.1f} m internal")
+
+
+def _pond(c, g):
+    """Plan of an attenuation pond with its outlet chamber."""
+    _heading(c, 20, "POND PLAN")
+    x, y, w, h = 40 * mm, PAGE_H - 150 * mm, 160 * mm, 90 * mm
+    c.roundRect(x, y, w, h, 25 * mm)
+    c.roundRect(x + 12 * mm, y + 12 * mm, w - 24 * mm, h - 24 * mm, 18 * mm)
+    c.rect(x + w + 10 * mm, y + h / 2 - 6 * mm, 12 * mm, 12 * mm)
+    c.line(x + w, y + h / 2, x + w + 10 * mm, y + h / 2)
+    c.setFont("Helvetica", 9)
+    c.drawString(x + 30 * mm, y + h / 2 + 4 * mm, f"Attenuation storage {g['volume_m3']:,} m3")
+    c.drawString(x + 30 * mm, y + h / 2 - 3 * mm,
+                 f"TWL {g['top_water_level']:+.2f} mAOD   Base {g['base_level']:+.2f} mAOD")
+    c.drawString(x + w + 25 * mm, y + h / 2 - 1 * mm, f"Flow control chamber - {g['outlet_lps']:.1f} l/s")
+
+
+def _layout(c, g):
+    """Strip plan of the carriageway with the carrier drain and chainage ticks."""
+    _heading(c, 20, f"DRAINAGE LAYOUT - SHEET {g['sheet']} OF {g['of']}")
+    y, x0, x1 = PAGE_H - 90 * mm, 25 * mm, PAGE_W - 30 * mm
+    c.line(x0, y + 8 * mm, x1, y + 8 * mm)
+    c.line(x0, y - 8 * mm, x1, y - 8 * mm)
+    c.setDash(5, 3)
+    c.line(x0, y - 14 * mm, x1, y - 14 * mm)
+    c.setDash()
+    c.setFont("Helvetica", 8)
+    c.drawString(x0, y - 20 * mm, "Carrier drain")
+    c.drawString(x0, y + 12 * mm, f"Ch {g['chainage_from']}")
+    c.drawRightString(x1, y + 12 * mm, f"Ch {g['chainage_to']}")
+    for i in range(1, 7):
+        tx = x0 + (x1 - x0) * i / 7
+        c.line(tx, y + 8 * mm, tx, y + 11 * mm)
+
+
+def _roundabout(c, g):
+    """Roundabout plan; high friction surfacing shown hatched on the approaches."""
+    _heading(c, 20, "EASTERN ROUNDABOUT PLAN")
+    cx, cy, r = 120 * mm, PAGE_H - 110 * mm, 40 * mm
+    c.circle(cx, cy, r)
+    c.circle(cx, cy, r * 0.45)
+    c.setFont("Helvetica", 8)
+    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        c.line(cx + dx * r, cy + dy * r, cx + dx * (r + 45 * mm), cy + dy * (r + 45 * mm))
+        if g["hfs"]:
+            c.setLineWidth(4)
+            c.line(cx + dx * r, cy + dy * r, cx + dx * (r + 20 * mm), cy + dy * (r + 20 * mm))
+            c.setLineWidth(0.8)
+    c.drawString(cx - 20 * mm, cy - 2 * mm, f"ICD {g['icd_m']} m")
+    if g["hfs"]:
+        c.drawString(cx + r + 50 * mm, cy + 5 * mm, "Heavy line: high friction surfacing, final 50 m of each approach")
+
+
+def _generic(c, g):
+    """Labelled views for detail drawings."""
+    for i, label in enumerate(g["labels"]):
+        x = 20 * mm + i * 125 * mm
+        _heading(c, 20 + i * 125, label)
+        c.rect(x, PAGE_H - 140 * mm, 110 * mm, 110 * mm)
+
+
+GEOMETRY = {"culvert": _culvert, "pond": _pond, "layout": _layout, "roundabout": _roundabout, "generic": _generic}
+
+
 def _pile_circles(c, piles, ox, oy, s, diameter_mm, label=False):
     r = diameter_mm / 1000 / 2 * s
     c.setFont("Helvetica", 7)
@@ -140,7 +240,7 @@ def _title_block(c, ctx):
         ("Helvetica", 7, f"Designer: {ctx.org_name(ctx.code.originator)}"),
         ("Helvetica-Bold", 9, ctx.project["project"]["name"]),
         *[("Helvetica-Bold", 10, t) for t in wrap(ctx.doc["title"], 48)],
-        ("Helvetica", 8, f"Drawing number: {ctx.doc['doc_code']}"),
+        ("Helvetica", 8, f"Drawing number: {content.get('titleblock_doc_code', ctx.doc['doc_code'])}"),
         ("Helvetica-Bold", 9, f"Revision: {ctx.rev}     Status: {ctx.status_text(status_code)}"),
         ("Helvetica", 7, f"Scale: {content['scale']}     Date: {fmt_date(ctx.issued)}"),
         ("Helvetica", 7, f"Drawn: {content['drawn']}   Checked: {content['checked']}   Approved: {content['approved']}"),

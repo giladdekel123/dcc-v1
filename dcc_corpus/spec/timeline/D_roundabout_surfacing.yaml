@@ -1,0 +1,191 @@
+# Storyline D: Eastern Roundabout surface course - an alternative aggregate (PSV 65 instead of
+# the specified PSV 68), accepted provided high friction surfacing is laid on the approaches.
+
+storyline: D
+name: Eastern Roundabout surfacing substitution
+
+documents:
+  BOQ:
+    doc_code: KVL-ADM-000-BQ-Q-0001
+    title: Bill of Quantities - Series 700 Pavements
+    owner: David Okafor
+    template: xlsx_boq
+  RAB:
+    doc_code: KVL-ADM-510-DR-C-0501
+    title: Eastern Roundabout General Arrangement
+    owner: Nadia Hussain
+    template: pdf_drawing
+  LT22:
+    doc_code: KVL-CGC-510-LT-C-0022
+    title: Eastern Roundabout - Proposed Alternative Surface Course
+    owner: Mark Bellamy
+    template: docx_letter
+  SURF:
+    doc_code: KVL-CGC-510-SB-C-0012
+    title: Eastern Roundabout Surface Course - Alternative Aggregate PSV 65
+    owner: Jo Kimani
+    template: docx_submittal
+  LT36:
+    doc_code: KVL-ADM-510-LT-C-0036
+    title: Response to Proposed Alternative Surface Course
+    owner: Nadia Hussain
+    template: docx_letter
+
+events:
+
+  - date: 2025-01-15
+    summary: ADM issues the tender Bill of Quantities for pavements.
+    issue:
+      - doc: BOQ
+        rev: P01
+        stage: DD
+        status: FI
+        description: Tender issue
+        filed: superseded
+        content:
+          heading: Series 700 - Pavements
+          currency: GBP
+          items:
+            - ["7/1", "Surface course SMA 10, 40 mm, PSV 68 aggregate", m2, 18500, 14.20]
+            - ["7/2", "Binder course AC 20, 60 mm", m2, 18500, 11.80]
+            - ["7/3", "Base AC 32, 150 mm", m2, 18500, 16.40]
+            - ["7/4", "Eastern Roundabout surface course SMA 10, PSV 68", m2, 2400, 15.10]
+            - ["7/5", "Road markings, thermoplastic", item, 1, 8600.00]
+
+  - date: 2025-03-12
+    summary: ADM issues the roundabout GA for construction.
+    issue:
+      - doc: RAB
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:250 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: roundabout, icd_m: 40, arms: 4, hfs: false}
+          notes:
+            - Four-arm roundabout, inscribed circle diameter 40 m.
+            - Surface course SMA 10 with PSV 68 aggregate throughout.
+
+  - date: 2025-07-02
+    summary: CGC proposes an alternative surface course aggregate because of a supply shortage.
+    issue:
+      - doc: LT22
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Nadia Hussain
+          cc: [Helen Marsh, Chris Moran]
+          subject: Eastern Roundabout - proposed alternative surface course
+          paragraphs:
+            - >
+              Our aggregate supplier has advised that PSV 68 aggregate for the Eastern Roundabout
+              surface course cannot be delivered before November 2025.
+            - >
+              We propose SMA 10 using PSV 65 aggregate from Ridgeway Quarry, which is available now.
+              A formal submittal will follow. Please advise whether this is acceptable in principle.
+          signed_by: Mark Bellamy
+
+  - date: 2025-07-10
+    summary: CGC submits the alternative aggregate for approval.
+    issue:
+      - doc: SURF
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          submitted_by: Jo Kimani
+          for_review_by: Nadia Hussain
+          spec_clause: Series 900 - Road pavements, bituminous bound materials
+          sections:
+            - heading: 1 Proposal
+              paragraphs:
+                - >
+                  Replace the specified PSV 68 aggregate in the Eastern Roundabout SMA 10 surface
+                  course with PSV 65 aggregate from Ridgeway Quarry.
+            - heading: 2 Test data
+              paragraphs:
+                - >
+                  Polished stone value 65, aggregate abrasion value 12, mix design and test
+                  certificates attached.
+
+  - date: 2025-07-28
+    summary: ADM accepts the alternative, provided high friction surfacing is laid on the approaches.
+    issue:
+      - doc: LT36
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Mark Bellamy
+          cc: [Helen Marsh]
+          subject: Eastern Roundabout - response to proposed alternative surface course
+          paragraphs:
+            - >
+              We have reviewed your letter KVL-CGC-510-LT-C-0022 and submittal KVL-CGC-510-SB-C-0012.
+              PSV 65 aggregate is acceptable on the circulatory carriageway.
+            - >
+              On the approaches, where skid resistance demand is highest, high friction surfacing is
+              to be laid over the final 50 m of each arm. The roundabout GA will be revised to C02 to
+              show the extents.
+          signed_by: Nadia Hussain
+
+  - date: 2025-07-31
+    summary: ADM approves the alternative aggregate submittal with comments.
+    status_change:
+      - {doc: SURF, rev: P01, status: AN, by: ADM, note: Approved with comments - high friction surfacing on approaches}
+
+  - date: 2025-08-12
+    summary: ADM revises the BoQ and the roundabout GA (BoQ saved under a legacy name, header says P03).
+    issue:
+      - doc: BOQ
+        rev: P02
+        stage: CN
+        status: FI
+        description: Revised for alternative surface course and high friction surfacing
+        filename: Copy of BoQ rev2 FINAL.xlsx
+        content:
+          heading: Series 700 - Pavements
+          currency: GBP
+          header_rev: P03   # planted discrepancy: register says P02
+          items:
+            - ["7/1", "Surface course SMA 10, 40 mm, PSV 68 aggregate", m2, 18500, 14.20]
+            - ["7/2", "Binder course AC 20, 60 mm", m2, 18500, 11.80]
+            - ["7/3", "Base AC 32, 150 mm", m2, 18500, 16.40]
+            - ["7/4", "Eastern Roundabout surface course SMA 10, PSV 65 (alternative)", m2, 2400, 14.60]
+            - ["7/5", "Road markings, thermoplastic", item, 1, 8600.00]
+            - ["7/6", "High friction surfacing, roundabout approaches", m2, 1150, 32.50]
+      - doc: RAB
+        rev: C02
+        stage: CN
+        status: FC
+        description: High friction surfacing added on approaches
+        content:
+          scale: "1:250 @ A1"
+          drawn: NH
+          checked: DO
+          approved: PN
+          geometry: {kind: roundabout, icd_m: 40, arms: 4, hfs: true}
+          notes:
+            - Circulatory carriageway surface course SMA 10 with PSV 65 aggregate (alternative accepted).
+            - High friction surfacing on the final 50 m of each approach. See KVL-ADM-510-LT-C-0036.
+
+links:
+  - {from: SURF, to: LT22, type: generated_from}
+  - {from: LT36, to: LT22, type: responds_to}
+  - {from: LT36, to: SURF, type: related_to}
+  - {from: BOQ@P02, to: SURF, type: related_to}
+  - {from: RAB@C02, to: LT36, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: BOQ@P02, note: "Filename does not follow the convention"}
+  - {case: titleblock_discrepancy, target: BOQ@P02, note: "Sheet header revision P03; register P02"}
+  - {case: status_change_no_revision, target: SURF@P01, note: "For approval, then approved with comments"}

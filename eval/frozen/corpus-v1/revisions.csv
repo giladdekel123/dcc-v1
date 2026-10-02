@@ -1,0 +1,63 @@
+doc_code,rev_code,revision_date,stage_code,sender_code,description
+KVL-ADM-300-RP-D-0014,P01,2024-06-14,PD,,Issued for review
+KVL-SGI-410-RP-T-0001,P01,2024-10-18,DD,,First issue
+KVL-ADM-330-DR-S-0205,P01,2024-11-20,DD,,Issued for review
+KVL-ADM-300-RP-D-0014,P02,2024-11-29,DD,,Detailed design update - submitted for approval
+KVL-ADM-410-DR-S-0102,P02,2024-12-10,DD,,Issued for review
+KVL-ADM-000-BQ-Q-0001,P01,2025-01-15,DD,,Tender issue
+KVL-BCS-410-CT-S-0001,P01,2025-02-20,DD,,First issue
+KVL-ADM-410-DR-S-0102,C01,2025-03-01,DD,,Issued for construction
+KVL-ADM-410-DR-S-0110,C01,2025-03-01,DD,,Issued for construction
+KVL-CGC-100-SC-G-0002,P01,2025-03-01,DD,,Baseline programme
+KVL-ADM-330-DR-S-0205,C01,2025-03-05,DD,,Issued for construction
+KVL-ADM-310-DR-D-0310,C01,2025-03-10,DD,,Issued for construction
+KVL-ADM-320-DR-D-0320,C01,2025-03-10,DD,,Issued for construction
+KVL-ADM-300-DR-D-0301,C01,2025-03-10,DD,,Issued for construction
+KVL-ADM-300-DR-D-0302,C01,2025-03-10,DD,,Issued for construction
+KVL-ADM-300-DR-D-0303,C01,2025-03-10,DD,,Issued for construction
+KVL-ADM-510-DR-C-0501,C01,2025-03-12,DD,,Issued for construction
+KVL-CGC-100-MM-G-0005,P01,2025-05-15,CN,,Issued
+KVL-NCC-320-LT-D-0011,P01,2025-05-22,CN,,Issued
+KVL-CGC-100-MM-G-0006,P01,2025-05-29,CN,,Issued
+KVL-CGC-410-RI-S-0011,P01,2025-06-03,CN,,Raised
+KVL-CGC-100-MM-G-0007,P01,2025-06-12,CN,,Issued
+KVL-CGC-410-RI-S-0012,P01,2025-06-16,CN,,Raised
+KVL-NCC-610-LT-U-0014,P01,2025-06-19,CN,,Issued
+KVL-CGC-330-RI-S-0013,P01,2025-06-24,CN,,Raised
+KVL-CGC-100-MM-G-0008,P01,2025-06-26,CN,,Issued
+KVL-CGC-100-SC-G-0002,P02,2025-06-26,CN,,Recovery programme
+KVL-ADM-410-LT-S-0031,P01,2025-06-30,CN,,Issued
+KVL-CGC-510-LT-C-0022,P01,2025-07-02,CN,,Issued
+KVL-CGC-100-RP-G-0006,P01,2025-07-04,CN,,Issued
+KVL-BCS-410-CT-S-0001,P02,2025-07-08,CN,,Reissued for revised east abutment piles
+KVL-NVW-610-LT-U-0003,P01,2025-07-08,CN,,Issued
+KVL-ADM-410-DR-S-0102,C02,2025-07-10,CN,,Piles lengthened following RFI-0012
+KVL-ADM-410-DR-S-0110,C02,2025-07-10,CN,,Piles lengthened following RFI-0012
+KVL-ADM-410-SC-S-0003,C02,2025-07-10,CN,,First issue with lengthened piles
+KVL-CGC-510-SB-C-0012,P01,2025-07-10,CN,,Submitted for approval
+KVL-ADM-330-LT-S-0034,P01,2025-07-15,CN,,Issued
+KVL-CGC-100-MM-G-0009,P01,2025-07-17,CN,,Issued
+KVL-CGC-410-RI-S-0015,P01,2025-07-22,CN,,Raised
+KVL-CGC-410-SB-S-0004,P01,2025-07-25,CN,,Submitted for approval
+KVL-ADM-510-LT-C-0036,P01,2025-07-28,CN,,Issued
+KVL-ADM-300-RP-D-0021,P01,2025-07-30,CN,,Submitted for approval - supersedes KVL-ADM-300-RP-D-0014
+KVL-CGC-200-LT-C-0019,P01,2025-08-04,CN,,Issued
+KVL-CGC-100-RP-G-0007,P01,2025-08-05,CN,,Issued
+KVL-ADM-000-BQ-Q-0001,P02,2025-08-12,CN,,Revised for alternative surface course and high friction surfacing
+KVL-ADM-510-DR-C-0501,C02,2025-08-12,CN,,High friction surfacing added on approaches
+KVL-NCC-200-LT-C-0016,P01,2025-08-12,CN,,Issued
+KVL-CGC-100-MM-G-0010,P01,2025-08-14,CN,,Issued
+KVL-BCS-330-CT-S-0002,P01,2025-08-18,CN,,First issue
+KVL-ADM-330-DR-S-0205,C02,2025-08-20,CN,,Invert lowered 450 mm following RFI-0013
+KVL-ADM-330-DR-S-0206,C01,2025-08-20,CN,,Issued for construction
+KVL-CGC-330-BQ-Q-0007,P01,2025-08-28,CN,,Submitted for approval
+KVL-CGC-320-SB-D-0009,P01,2025-08-29,CN,,Submitted for approval
+KVL-CGC-100-RP-G-0008,P01,2025-09-04,CN,,Issued
+KVL-NVW-610-LT-U-0004,P01,2025-09-05,CN,,Issued
+KVL-ADM-700-DR-E-0701,C01,2025-09-05,CN,,Issued for construction
+KVL-CGC-100-SC-G-0002,P03,2025-10-01,CN,,Programme update
+KVL-ADM-410-DR-S-0102,P03,2025-10-02,CN,,Proposed abutment drainage layer - for comment
+KVL-CGC-320-SB-D-0009,P02,2025-10-06,CN,,Resubmitted with substitute device
+KVL-CGC-100-MM-G-0012,P01,2025-10-16,CN,,Issued
+KVL-ADM-320-DR-D-0320,C02,2025-10-20,CN,,Pond enlarged for 5.0 l/s discharge limit
+KVL-ADM-300-DR-D-0303,C02,2025-10-20,CN,,Pond 2 outfall revised for enlarged pond

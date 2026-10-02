@@ -1,0 +1,320 @@
+# Storyline B: Mill Lane culvert clash with the existing water main.
+#
+# Levels (mAOD): road at the crossing +14.60. Culvert 3.0 m wide x 2.0 m high internally with a
+# 0.30 m roof slab. C01 invert +10.80, roof top +13.10. Water main (300 mm ductile iron) recorded at
+# invert +14.00 but found by trial holes at +13.40, i.e. 0.6 m deeper, leaving 0.30 m above the
+# culvert roof against the 0.60 m Northvale Water requires. C02 lowers the invert by 450 mm to
+# +10.35 (roof top +12.65, clearance 0.75 m) and adds a protection slab because the main's cover
+# under the carriageway is only 0.9 m.
+
+storyline: B
+name: Mill Lane culvert and water main
+
+documents:
+  CUL:
+    doc_code: KVL-ADM-330-DR-S-0205
+    title: Mill Lane Culvert General Arrangement
+    owner: Priya Nair
+    template: pdf_drawing
+  SLAB:
+    doc_code: KVL-ADM-330-DR-S-0206
+    title: Mill Lane Culvert Water Main Protection Slab Details
+    owner: Priya Nair
+    template: pdf_drawing
+  NCC14:
+    doc_code: KVL-NCC-610-LT-U-0014
+    title: Mill Lane Water Main - Trial Hole Results
+    owner: Tom Reddy
+    template: docx_letter
+  RFI13:
+    doc_code: KVL-CGC-330-RI-S-0013
+    title: RFI-0013 Mill Lane Culvert - Clash with Existing Water Main
+    owner: Jo Kimani
+    template: docx_rfi
+  NVW03:
+    doc_code: KVL-NVW-610-LT-U-0003
+    title: Mill Lane Water Main - Response to Trial Hole Results
+    owner: Gareth Lloyd
+    template: docx_letter
+  LT34:
+    doc_code: KVL-ADM-330-LT-S-0034
+    title: Response to RFI-0013 Mill Lane Culvert
+    owner: Priya Nair
+    template: docx_letter
+  CERT2:
+    doc_code: KVL-BCS-330-CT-S-0002
+    title: Mill Lane Culvert Check Certificate
+    owner: Anne Kowalski
+    template: pdf_certificate
+  VAR07:
+    doc_code: KVL-CGC-330-BQ-Q-0007
+    title: Variation 07 - Mill Lane Culvert Water Main Protection
+    owner: Chris Moran
+    template: xlsx_boq
+  NVW04:
+    doc_code: KVL-NVW-610-LT-U-0004
+    title: Mill Lane Water Main - Acceptance of Protection Slab
+    owner: Gareth Lloyd
+    template: docx_letter
+
+events:
+
+  - date: 2024-11-20
+    summary: ADM issues the Mill Lane culvert GA for review.
+    issue:
+      - doc: CUL
+        rev: P01
+        stage: DD
+        status: RV
+        description: Issued for review
+        filed: superseded
+        content:
+          scale: "1:50 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: culvert, width_m: 3.0, height_m: 2.0, invert_level: 10.80, road_level: 14.60, main_level: 14.00}
+          notes:
+            - Precast concrete box culvert, 3.0 m x 2.0 m internal, carrying Mill Brook under the link road.
+            - Invert level +10.80 mAOD. Roof slab 300 mm.
+            - Existing 300 mm water main shown from utility records at +14.00 mAOD - to be confirmed by trial holes.
+
+  - date: 2025-03-05
+    summary: The culvert GA is issued for construction.
+    issue:
+      - doc: CUL
+        rev: C01
+        stage: DD
+        status: FC
+        description: Issued for construction
+        filed: superseded
+        content:
+          scale: "1:50 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: culvert, width_m: 3.0, height_m: 2.0, invert_level: 10.80, road_level: 14.60, main_level: 14.00}
+          notes:
+            - Precast concrete box culvert, 3.0 m x 2.0 m internal.
+            - Invert level +10.80 mAOD. Roof slab top +13.10 mAOD.
+            - Contractor to locate the existing water main by trial holes before excavation.
+
+  - date: 2025-06-19
+    summary: NCC writes to Northvale Water with the trial hole results (meeting 7, action 7.4).
+    issue:
+      - doc: NCC14
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Gareth Lloyd
+          cc: [Priya Nair, Mark Bellamy]
+          subject: Kestrel Valley Link Road - Mill Lane water main - trial hole results
+          paragraphs:
+            - >
+              Castlegate Civils excavated three trial holes (TH1 to TH3) over your 300 mm ductile
+              iron water main at Mill Lane between 9 and 11 June 2025. The main was found at an
+              invert level of about +13.40 mAOD, some 0.6 m deeper than your records show (+14.00).
+            - >
+              At this level the main is only 0.30 m above the roof of the new Mill Lane box culvert,
+              and its cover below the new carriageway will be about 0.9 m.
+            - >
+              Please confirm your clearance and cover requirements, and whether you would accept a
+              protection slab or require the main to be diverted.
+          signed_by: Tom Reddy
+
+  - date: 2025-06-24
+    summary: CGC raises RFI-0013 on the clash between the culvert and the water main.
+    issue:
+      - doc: RFI13
+        rev: P01
+        stage: CN
+        status: OP
+        description: Raised
+        content:
+          raised_by: Jo Kimani
+          addressed_to: Priya Nair
+          subject: Mill Lane culvert - clash with existing water main
+          question:
+            - >
+              Trial holes TH1 to TH3 show the existing 300 mm water main at +13.40 mAOD, 0.30 m above
+              the culvert roof shown on KVL-ADM-330-DR-S-0205 C01. The culvert excavation cannot
+              proceed without undermining the main.
+            - >
+              Please advise whether the culvert level is to be revised or the main diverted.
+          references: [KVL-ADM-330-DR-S-0205, KVL-NCC-610-LT-U-0014]
+          response_required_by: 2025-07-08
+          programme_impact: Significant - culvert excavation on hold
+
+  - date: 2025-07-08
+    summary: Northvale Water sets out its requirements.
+    issue:
+      - doc: NVW03
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Tom Reddy
+          cc: [Priya Nair]
+          subject: Mill Lane water main - response to your letter KVL-NCC-610-LT-U-0014
+          paragraphs:
+            - >
+              Thank you for the trial hole results. We require a minimum clearance of 600 mm between
+              our main and any new structure, and a minimum cover of 1.2 m under a carriageway.
+            - >
+              A diversion of the main would need a 16-week lead time. Alternatively, a reinforced
+              concrete protection slab over the main is acceptable in principle, subject to our
+              approval of the details before construction.
+          signed_by: Gareth Lloyd
+
+  - date: 2025-07-15
+    summary: ADM answers RFI-0013 - lower the culvert and add a protection slab.
+    issue:
+      - doc: LT34
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Mark Bellamy
+          cc: [Tom Reddy, Gareth Lloyd]
+          subject: Mill Lane culvert - response to RFI-0013
+          paragraphs:
+            - >
+              Further to RFI-0013 and Northvale Water's letter KVL-NVW-610-LT-U-0003, the culvert
+              invert is to be lowered by 450 mm from +10.80 mAOD to +10.35 mAOD. This gives 0.75 m
+              clearance between the culvert roof and the water main.
+            - >
+              Because the main's cover under the carriageway is only 0.9 m, a 250 mm reinforced
+              concrete protection slab, 6.0 m long, is to be provided over the main.
+            - >
+              Revised culvert drawing KVL-ADM-330-DR-S-0205 C02 and slab details KVL-ADM-330-DR-S-0206
+              will be issued by 20 August 2025, after re-check by Brightwell Checking Services.
+          signed_by: Priya Nair
+
+  - date: 2025-08-18
+    summary: BCS issues the culvert check certificate for the revised design.
+    issue:
+      - doc: CERT2
+        rev: P01
+        stage: CN
+        status: IS
+        description: First issue
+        content:
+          structure: Mill Lane Culvert and water main protection slab
+          category: Category II
+          checked_documents:
+            - [KVL-ADM-330-DR-S-0205, C02]
+            - [KVL-ADM-330-DR-S-0206, C01]
+            - [KVL-ADM-330-LT-S-0034, P01]
+          statement: >
+            We certify that reasonable professional skill and care has been used in the check of
+            the lowered Mill Lane culvert and the water main protection slab.
+          checker: Anne Kowalski
+          designer: Priya Nair
+
+  - date: 2025-08-20
+    summary: ADM issues culvert GA C02 and the protection slab details.
+    issue:
+      - doc: CUL
+        rev: C02
+        stage: CN
+        status: FC
+        description: Invert lowered 450 mm following RFI-0013
+        content:
+          scale: "1:50 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: culvert, width_m: 3.0, height_m: 2.0, invert_level: 10.35, road_level: 14.60, main_level: 13.40}
+          notes:
+            - Invert lowered from +10.80 to +10.35 mAOD following RFI-0013. Roof slab top +12.65 mAOD.
+            - Existing water main at +13.40 mAOD (trial holes TH1 to TH3). Clearance 0.75 m.
+            - Water main protection slab to KVL-ADM-330-DR-S-0206.
+      - doc: SLAB
+        rev: C01
+        stage: CN
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:20 @ A1"
+          drawn: LC
+          checked: PN
+          approved: DO
+          geometry: {kind: generic, labels: [PROTECTION SLAB PLAN, SECTION THROUGH WATER MAIN]}
+          notes:
+            - 250 mm thick C32/40 reinforced concrete slab, 6.0 m long, spanning over the 300 mm water main.
+            - Slab bears on compacted granular fill, minimum 300 mm clear of the main on each side.
+            - Northvale Water to inspect the main before the slab is cast.
+
+  - date: 2025-08-22
+    summary: RFI-0013 closed once C02 is issued.
+    status_change:
+      - {doc: RFI13, rev: P01, status: CL, by: CGC, note: Closed - answered by KVL-ADM-330-LT-S-0034 and C02}
+
+  - date: 2025-08-28
+    summary: CGC prices Variation 07 for the lowered culvert and protection slab.
+    issue:
+      - doc: VAR07
+        rev: P01
+        stage: CN
+        status: AP
+        description: Submitted for approval
+        content:
+          heading: Variation 07 - Mill Lane culvert water main protection
+          currency: GBP
+          items:
+            - [V07.1, Extra excavation for lowered culvert, m3, 310, 18.50]
+            - [V07.2, Additional base concrete for lowered invert, m3, 38, 165.00]
+            - [V07.3, Protection slab concrete C32/40, m3, 24, 185.00]
+            - [V07.4, Protection slab reinforcement, t, 2.4, 1450.00]
+            - [V07.5, Protection slab formwork, m2, 60, 42.00]
+            - [V07.6, Temporary support of water main, item, 1, 9800.00]
+            - [V07.7, Dewatering of deeper excavation, item, 1, 9905.00]
+            - [V07.8, Northvale Water supervision charges, item, 1, 6500.00]
+
+  - date: 2025-09-05
+    summary: Northvale Water accepts the protection slab (filed under a legacy filename).
+    issue:
+      - doc: NVW04
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        filename: NVW acceptance letter.docx
+        content:
+          to: Tom Reddy
+          cc: [Priya Nair, Mark Bellamy]
+          subject: Mill Lane water main - acceptance of protection slab
+          paragraphs:
+            - >
+              We have reviewed drawing KVL-ADM-330-DR-S-0206 C01. The 250 mm protection slab over
+              our main at Mill Lane is accepted, and a diversion is no longer required.
+            - >
+              Our inspector must be present when the main is exposed and before the slab is cast.
+              Please give us five working days' notice.
+          signed_by: Gareth Lloyd
+
+  - date: 2025-09-12
+    summary: NCC accepts Variation 07 (status change, no new revision).
+    status_change:
+      - {doc: VAR07, rev: P01, status: AC, by: NCC, note: Accepted at GBP 48650}
+
+links:
+  - {from: NCC14, to: MM07, type: generated_from}
+  - {from: RFI13, to: MM07, type: generated_from}
+  - {from: NVW03, to: NCC14, type: responds_to}
+  - {from: LT34, to: RFI13, type: responds_to}
+  - {from: RFI13, to: CUL@C02, type: affects}
+  - {from: SLAB, to: CUL@C02, type: related_to}
+  - {from: VAR07, to: LT34, type: related_to}
+  - {from: NVW04, to: SLAB@C01, type: related_to}
+  - {from: CERT2, to: CUL@C02, type: related_to}
+
+planted:
+  - {case: legacy_filename, target: NVW04@P01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: NVW04, note: "Same sender and similar subject as KVL-NVW-610-LT-U-0003"}
+  - {case: status_change_no_revision, target: RFI13@P01, note: "Open, then closed"}
+  - {case: status_change_no_revision, target: VAR07@P01, note: "For approval, then accepted"}

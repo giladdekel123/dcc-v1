@@ -61,7 +61,7 @@ def test_build_result_shape():
     assert kinds == ["metadata_match", "metadata_match", "metadata_match", "content_snippet",
                      "revision_note", "status_note"]
     assert result.evidence[1].text == "Drawing (matched alias 'GA')"
-    assert result.evidence[2].text == "Matches filter doc type: Drawing"
+    assert result.evidence[2].text == "Matches the filter: Drawing"
     assert result.evidence[3].locator == "page 1" and result.evidence[3].source == "extracted"
     assert result.location.open_url == "/api/revisions/11/file"
     assert result.location.other_locations == [

@@ -8,7 +8,8 @@ from pydantic import BaseModel
 from app import __version__
 from app.config import get_settings
 from app.db import DatabaseState, check_database, get_pool
-from app.models import SearchResponse
+from app.facets import load_facets
+from app.models import FacetsResponse, SearchResponse
 from app.retrieval.base import Filters
 from app.search import MAX_RESULTS, search
 
@@ -58,9 +59,17 @@ def search_documents(
     limit: int = Query(MAX_RESULTS, ge=1, le=MAX_RESULTS),
     debug: bool = Query(False, description="Include score breakdown (evaluation only)"),
 ) -> SearchResponse:
+    if date_from and date_to and date_from > date_to:
+        raise HTTPException(422, "date_from is later than date_to")
     filters = Filters(discipline, doc_type, stage, org, wbs, date_from, date_to)
     with _pool().connection() as conn:
         return search(conn, q, filters, limit, debug)
+
+
+@router.get("/facets", response_model=FacetsResponse)
+def facets() -> FacetsResponse:
+    with _pool().connection() as conn:
+        return load_facets(conn)
 
 
 @router.get("/revisions/{revision_id}/file")

@@ -64,6 +64,13 @@ def test_locations():
     assert naming.standard_location("LT", "", "ADM", issued) == "KVL Project/01 Management/Correspondence/Incoming/ADM"
     assert naming.standard_location("LT", "", "NCC", issued) == "KVL Project/01 Management/Correspondence/Outgoing"
     assert naming.standard_location("MM", "", "CGC", issued) == "KVL Project/01 Management/Meetings/2025"
+    assert naming.standard_location("SC", "100 Project management", "CGC", issued) == "KVL Project/01 Management/Programme"
+    assert naming.standard_location("RP", "100 Project management", "CGC", issued) == \
+        "KVL Project/01 Management/Progress Reports"
+    assert naming.standard_location("RP", "300 Drainage", "ADM", issued) == "KVL Project/02 Design/300 Drainage/Reports"
+    assert naming.standard_location("RP", "000 Project-wide", "CGC", issued) == "KVL Project/01 Management/Plans"
+    assert naming.standard_location("SC", "410 River Kest Bridge", "ADM", issued) == \
+        "KVL Project/02 Design/410 River Kest Bridge/Schedules"
     assert naming.display_path(loc, "x.pdf") == r"\\kvl-fs01\Projects\KVL Project\02 Design\410 River Kest Bridge\Drawings\x.pdf"
 
 

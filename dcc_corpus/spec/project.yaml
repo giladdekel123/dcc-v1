@@ -38,16 +38,26 @@ organisations:
   - {code: SGI, name: Stratum Ground Investigations, role: geotechnical subconsultant, aliases: [Stratum, GI contractor]}
   - {code: NVW, name: Northvale Water, role: utility owner, aliases: [water company, utility]}
   - {code: BCS, name: Brightwell Checking Services, role: independent checker, aliases: [Brightwell, checker, Cat III checker]}
+  - {code: NGE, name: Northgrid Electricity, role: utility owner, aliases: [Northgrid, electricity company, power company]}
+  - {code: OLT, name: OpenLine Telecom, role: utility owner, aliases: [OpenLine, telecom company, telecoms]}
 
 people:
   - {name: Helen Marsh,    org: NCC, title: Project Manager}
   - {name: Tom Reddy,      org: NCC, title: Highways Engineer}
   - {name: Priya Nair,     org: ADM, title: Lead Bridge Engineer}
   - {name: David Okafor,   org: ADM, title: Project Engineer}
+  - {name: Sam Whitfield,  org: ADM, title: Drainage Engineer}
+  - {name: Nadia Hussain,  org: ADM, title: Highways Engineer}
+  - {name: Rachel Ames,    org: ADM, title: Senior Ecologist}
   - {name: Laura Chen,     org: ADM, title: Document Controller}
   - {name: Mark Bellamy,   org: CGC, title: Project Manager}
   - {name: Jo Kimani,      org: CGC, title: Site Engineer}
   - {name: Ryan Doyle,     org: CGC, title: Piling Supervisor}
+  - {name: Chris Moran,    org: CGC, title: Commercial Manager}
+  - {name: Lee Hartley,    org: CGC, title: Quality Manager}
+  - {name: Kate Sorensen,  org: CGC, title: Health and Safety Advisor}
   - {name: Emma Price,     org: SGI, title: Principal Geotechnical Engineer}
   - {name: Gareth Lloyd,   org: NVW, title: Asset Engineer}
   - {name: Anne Kowalski,  org: BCS, title: Checking Engineer}
+  - {name: Owen Pritchard, org: NGE, title: Network Engineer}
+  - {name: Sian Evans,     org: OLT, title: Wayleave Officer}

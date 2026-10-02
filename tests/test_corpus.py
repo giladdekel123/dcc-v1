@@ -46,7 +46,7 @@ def test_committed_corpus_matches_fresh_generation(fresh):
 
 def test_files_exist_with_matching_hashes(fresh):
     files = read_csv(fresh, "register/revision_files.csv")
-    assert len(files) == 18
+    assert len(files) == 122
     for row in files:
         data = (fresh / row["storage_path"]).read_bytes()
         assert row["storage_path"] == f"{row['original_location']}/{row['filename']}"
@@ -93,12 +93,15 @@ def test_links_and_planted_cases_resolve(fresh):
         return code in documents and (not rev or (code, rev) in revisions)
 
     links = read_csv(fresh, "links.csv")
-    assert len(links) == 10
+    assert len(links) == 57
     assert all(resolves(l["from_doc_code"], l["from_rev_code"]) and resolves(l["to_doc_code"], l["to_rev_code"])
                for l in links)
     cases = read_csv(fresh, "ground_truth/planted_cases.csv")
     assert all(resolves(c["doc_code"], c["rev_code"]) for c in cases)
-    assert {c["case"] for c in cases} >= {"correct_not_latest", "titleblock_discrepancy", "legacy_filename", "file_copy"}
+    assert {c["case"] for c in cases} >= {"correct_not_latest", "titleblock_discrepancy", "legacy_filename",
+                                          "file_copy", "superseded_by_new_number"}
+    supersedes = [(l["from_doc_code"], l["to_doc_code"]) for l in links if l["link_type"] == "supersedes"]
+    assert supersedes == [("KVL-ADM-300-RP-D-0021", "KVL-ADM-300-RP-D-0014")]
 
 
 def test_superseded_files_are_filed_under_99_superseded(fresh):
@@ -107,7 +110,23 @@ def test_superseded_files_are_filed_under_99_superseded(fresh):
     assert superseded == {
         ("KVL-ADM-410-DR-S-0102", "P02"), ("KVL-ADM-410-DR-S-0102", "C01"),
         ("KVL-ADM-410-DR-S-0110", "C01"), ("KVL-BCS-410-CT-S-0001", "P01"),
+        ("KVL-ADM-330-DR-S-0205", "P01"), ("KVL-ADM-330-DR-S-0205", "C01"),
+        ("KVL-ADM-300-RP-D-0014", "P01"), ("KVL-ADM-300-RP-D-0014", "P02"),
+        ("KVL-ADM-320-DR-D-0320", "C01"), ("KVL-ADM-300-DR-D-0303", "C01"),
+        ("KVL-ADM-000-BQ-Q-0001", "P01"), ("KVL-ADM-510-DR-C-0501", "C01"),
+        ("KVL-CGC-100-SC-G-0002", "P01"), ("KVL-CGC-100-SC-G-0002", "P02"),
+        ("KVL-ADM-200-DR-C-0202", "C01"), ("KVL-ADM-200-RP-C-0017", "P01"),
+        ("KVL-ADM-410-DR-S-0120", "P01"), ("KVL-ADM-510-DR-C-0503", "C01"),
+        ("KVL-CGC-000-RP-G-0001", "P01"),
     }
+
+
+def test_documents_can_belong_to_several_storylines(fresh):
+    threads = read_csv(fresh, "ground_truth/threads.csv")
+    minutes_7 = {t["storyline"] for t in threads if t["doc_code"] == "KVL-CGC-100-MM-G-0007"}
+    assert minutes_7 == {"A", "B", "C", "E"}
+    homes = [t["doc_code"] for t in threads if t["membership"] == "home"]
+    assert len(homes) == len(set(homes)) == 100
 
 
 def test_rendered_content_is_readable(fresh):
@@ -124,3 +143,10 @@ def test_rendered_content_is_readable(fresh):
 
     primary = files[("KVL-ADM-410-DR-S-0102", "C02", "primary")].read_bytes()
     assert files[("KVL-ADM-410-DR-S-0102", "C02", "copy")].read_bytes() == primary
+
+    variation = openpyxl.load_workbook(files[("KVL-CGC-330-BQ-Q-0007", "P01", "primary")])["BoQ"]
+    assert [r[5] for r in variation.iter_rows(values_only=True) if r[1] == "Total"] == [48650]
+
+    programme = openpyxl.load_workbook(files[("KVL-CGC-100-SC-G-0002", "P03", "primary")])["Programme"]
+    completion = [r for r in programme.iter_rows(values_only=True) if r[1] == "Completion"]
+    assert completion[0][4].date().isoformat() == "2026-06-26"

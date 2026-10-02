@@ -1,0 +1,488 @@
+# Storyline E: routine project history - fortnightly progress meetings (#7 and #10 are in
+# Storyline A), the construction programme, monthly progress reports, general correspondence
+# and a landscaping distractor. Many documents here also belong to other storylines.
+
+storyline: E
+name: Routine project history
+
+documents:
+  MM05:
+    doc_code: KVL-CGC-100-MM-G-0005
+    title: Progress Meeting No. 5 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [C]
+  MM06:
+    doc_code: KVL-CGC-100-MM-G-0006
+    title: Progress Meeting No. 6 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [C, D]
+  MM08:
+    doc_code: KVL-CGC-100-MM-G-0008
+    title: Progress Meeting No. 8 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [A, B]
+  MM09:
+    doc_code: KVL-CGC-100-MM-G-0009
+    title: Progress Meeting No. 9 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [A, B, D]
+  MM12:
+    doc_code: KVL-CGC-100-MM-G-0012
+    title: Progress Meeting No. 12 Minutes
+    owner: Mark Bellamy
+    template: docx_minutes
+    also_in: [A, C]
+  PRG:
+    doc_code: KVL-CGC-100-SC-G-0002
+    title: Construction Programme
+    owner: Mark Bellamy
+    template: xlsx_programme
+    also_in: [A, B]
+  PR06:
+    doc_code: KVL-CGC-100-RP-G-0006
+    title: Monthly Progress Report - June 2025
+    owner: Mark Bellamy
+    template: pdf_report
+    also_in: [A, B, C]
+  PR07:
+    doc_code: KVL-CGC-100-RP-G-0007
+    title: Monthly Progress Report - July 2025
+    owner: Mark Bellamy
+    template: pdf_report
+    also_in: [A, B, D]
+  PR08:
+    doc_code: KVL-CGC-100-RP-G-0008
+    title: Monthly Progress Report - August 2025
+    owner: Mark Bellamy
+    template: pdf_report
+    also_in: [A, B, D]
+  LT19:
+    doc_code: KVL-CGC-200-LT-C-0019
+    title: Lane Closure Notice - Kestrel Road Tie-in
+    owner: Jo Kimani
+    template: docx_letter
+  NCC16:
+    doc_code: KVL-NCC-200-LT-C-0016
+    title: Traffic Management Approval - Kestrel Road Tie-in
+    owner: Tom Reddy
+    template: docx_letter
+  PLANT:
+    doc_code: KVL-ADM-700-DR-E-0701
+    title: Pond 2 East Planting Plan
+    owner: David Okafor
+    template: pdf_drawing
+
+events:
+
+  - date: 2025-03-01
+    summary: CGC issues the baseline construction programme.
+    issue:
+      - doc: PRG
+        rev: P01
+        stage: DD
+        status: FI
+        description: Baseline programme
+        filed: superseded
+        content:
+          notes: [Baseline programme at contract award. Completion 30 April 2026.]
+          activities:
+            - [A10, Site clearance, "000", 2025-03-10, 2025-04-04]
+            - [A20, "Earthworks Ch 0+000 to 2+100", "200", 2025-04-07, 2025-07-25]
+            - [A30, "Earthworks Ch 2+100 to 4+200", "200", 2025-05-05, 2025-08-29]
+            - [A40, River Kest Bridge west abutment piling, "410", 2025-05-12, 2025-06-06]
+            - [A50, River Kest Bridge east abutment piling, "410", 2025-06-09, 2025-07-04]
+            - [A60, River Kest Bridge deck, "410", 2025-08-04, 2025-10-31]
+            - [A70, Mill Lane culvert, "330", 2025-06-16, 2025-08-08]
+            - [A80, Pond 1 West, "310", 2025-05-19, 2025-07-11]
+            - [A90, Pond 2 East, "320", 2025-07-14, 2025-09-05]
+            - [A100, Eastern Roundabout, "510", 2025-08-04, 2025-10-24]
+            - [A110, Surfacing, "200", 2025-11-03, 2026-02-27]
+            - [A120, Completion, "000", 2026-04-30, 2026-04-30]
+
+  - date: 2025-05-15
+    summary: Progress meeting 5 - earthworks under way, Pond 2 discharge limit expected.
+    issue:
+      - doc: MM05
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 5
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Helen Marsh, Tom Reddy, David Okafor, Sam Whitfield]
+          apologies: [Priya Nair]
+          items:
+            - ref: "5.1"
+              title: Health and safety
+              discussion: One minor hand injury reported. Glove policy re-briefed.
+            - ref: "5.2"
+              title: Earthworks
+              discussion: Earthworks between chainage 0+000 and 2+100 started on 7 April and are on programme.
+            - ref: "5.3"
+              title: Pond 2 East
+              discussion: >
+                NCC advised that the updated Mill Brook flood model may reduce the Pond 2 East
+                discharge limit. A formal letter is expected before the next meeting.
+              action: Issue letter confirming the Pond 2 East discharge limit
+              owner: Helen Marsh
+              due: 2025-05-29
+
+  - date: 2025-05-29
+    summary: Progress meeting 6 - Pond 2 letter received, roundabout aggregate supply risk flagged.
+    issue:
+      - doc: MM06
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 6
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Chris Moran, Helen Marsh, David Okafor, Sam Whitfield, Nadia Hussain]
+          apologies: [Tom Reddy]
+          items:
+            - ref: "6.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "6.2"
+              title: Pond 2 East
+              discussion: >
+                NCC letter of 22 May received - Pond 2 East discharge limit reduced from 8.0 l/s to
+                5.0 l/s. ADM to assess the extra storage needed. Pond 2 construction to be held.
+              action: Revise Pond 2 attenuation design
+              owner: Sam Whitfield
+              due: 2025-07-31
+            - ref: "6.3"
+              title: Eastern Roundabout surfacing
+              discussion: >
+                CM flagged a national shortage of high PSV aggregate. Supply of PSV 68 for the
+                roundabout surface course is at risk.
+              action: Confirm aggregate supply dates
+              owner: Chris Moran
+              due: 2025-06-12
+
+  - date: 2025-06-26
+    summary: Progress meeting 8 and the recovery programme.
+    issue:
+      - doc: MM08
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 8
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Ryan Doyle, Helen Marsh, Tom Reddy, Priya Nair]
+          apologies: [David Okafor]
+          items:
+            - ref: "8.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "8.2"
+              title: Programme
+              discussion: Recovery programme issued today (revision P02). Completion now forecast 29 May 2026.
+            - ref: "8.3"
+              title: River Kest Bridge - east abutment piling
+              discussion: RFI-0012 on the soft clay remains open. ADM response due 30 June. Piling paused.
+            - ref: "8.4"
+              title: Mill Lane culvert
+              discussion: RFI-0013 raised on 24 June for the clash with the water main. Awaiting Northvale Water's requirements.
+              action: Respond to RFI-0013 once Northvale Water has replied
+              owner: Priya Nair
+              due: 2025-07-15
+      - doc: PRG
+        rev: P02
+        stage: CN
+        status: FI
+        description: Recovery programme
+        filed: superseded
+        content:
+          notes:
+            - Recovery programme following progress meeting 7, action 7.2.
+            - East abutment piling paused pending RFI-0012. Mill Lane culvert on hold pending RFI-0013.
+            - Completion forecast 29 May 2026.
+          activities:
+            - [A10, Site clearance, "000", 2025-03-10, 2025-04-04]
+            - [A20, "Earthworks Ch 0+000 to 2+100", "200", 2025-04-07, 2025-08-08]
+            - [A30, "Earthworks Ch 2+100 to 4+200", "200", 2025-05-05, 2025-09-12]
+            - [A40, River Kest Bridge west abutment piling, "410", 2025-05-12, 2025-06-06]
+            - [A50, River Kest Bridge east abutment piling, "410", 2025-08-11, 2025-09-05]
+            - [A60, River Kest Bridge deck, "410", 2025-09-22, 2026-01-16]
+            - [A70, Mill Lane culvert, "330", 2025-08-25, 2025-10-17]
+            - [A80, Pond 1 West, "310", 2025-05-19, 2025-07-11]
+            - [A90, Pond 2 East, "320", 2025-09-08, 2025-11-14]
+            - [A100, Eastern Roundabout, "510", 2025-08-04, 2025-10-24]
+            - [A110, Surfacing, "200", 2025-11-17, 2026-03-20]
+            - [A120, Completion, "000", 2026-05-29, 2026-05-29]
+
+  - date: 2025-07-04
+    summary: CGC issues the June progress report.
+    issue:
+      - doc: PR06
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  June 2025. Earthworks continued on both halves of the route. East abutment piling
+                  at the River Kest Bridge stopped on 11 June after soft clay was found at pile E3.
+                  The Mill Lane culvert is on hold after trial holes found the water main 0.6 m
+                  deeper than recorded.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, "62% of cut complete", Two weeks behind after wet weather]
+                  - [River Kest Bridge, West abutment piles complete, "East abutment piling stopped - RFI-0012"]
+                  - [Mill Lane culvert, Not started, "Clash with water main - RFI-0013"]
+                  - [Pond 2 East, Not started, Discharge limit reduced to 5.0 l/s - redesign]
+            - heading: 3 Programme
+              paragraphs:
+                - Recovery programme P02 issued on 26 June. Completion forecast 29 May 2026.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents. One near miss at the haul road crossing.
+
+  - date: 2025-07-17
+    summary: Progress meeting 9 - responses on RFI-0012 and the water main, surfacing alternative submitted.
+    issue:
+      - doc: MM09
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 9
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Chris Moran, Helen Marsh, Tom Reddy, Priya Nair, Nadia Hussain]
+          apologies: [Ryan Doyle]
+          items:
+            - ref: "9.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "9.2"
+              title: River Kest Bridge - east abutment piling
+              discussion: ADM response to RFI-0012 issued 30 June - piles lengthened to 24 m. C02 drawings issued 10 July.
+            - ref: "9.3"
+              title: Mill Lane culvert
+              discussion: >
+                Northvale Water replied on 8 July - 600 mm clearance required; a protection slab is
+                acceptable in principle. ADM response to RFI-0013 issued 15 July.
+            - ref: "9.4"
+              title: Eastern Roundabout surfacing
+              discussion: >
+                CGC letter of 2 July proposed PSV 65 aggregate. Submittal issued 10 July, awaiting ADM
+                review.
+              action: Review alternative aggregate submittal
+              owner: Nadia Hussain
+              due: 2025-07-31
+
+  - date: 2025-08-04
+    summary: CGC gives notice of lane closures for the Kestrel Road tie-in.
+    issue:
+      - doc: LT19
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Tom Reddy
+          cc: [Helen Marsh]
+          subject: Kestrel Road tie-in - notice of temporary lane closures
+          paragraphs:
+            - >
+              We give notice of temporary lane closures on Kestrel Road at the eastern tie-in
+              (chainage 4+200) from 1 September to 10 October 2025, overnight between 20:00 and
+              06:00, with two-way signals.
+            - Our traffic management plan is enclosed for your approval.
+          signed_by: Jo Kimani
+
+  - date: 2025-08-05
+    summary: CGC issues the July progress report (filed under a legacy filename).
+    issue:
+      - doc: PR07
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        filename: KVL progress report July 2025 v2.pdf
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  July 2025. Revised east abutment pile design issued (24 m piles). Northvale Water
+                  set its requirements for the Mill Lane water main and ADM answered RFI-0013. An
+                  alternative surface course aggregate was proposed for the Eastern Roundabout.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, "78% of cut complete", One week behind]
+                  - [River Kest Bridge, "C02 drawings issued 10 July", East abutment piling to resume 11 August]
+                  - [Mill Lane culvert, Not started, Protection slab details due 20 August]
+                  - [Eastern Roundabout, Kerbing started, "PSV 65 aggregate proposed - submittal under review"]
+            - heading: 3 Programme
+              paragraphs:
+                - No change to the recovery programme P02. Completion forecast 29 May 2026.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents.
+
+  - date: 2025-08-12
+    summary: NCC approves the traffic management for the Kestrel Road tie-in.
+    issue:
+      - doc: NCC16
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          to: Jo Kimani
+          cc: [Mark Bellamy]
+          subject: Kestrel Road tie-in - traffic management approval
+          paragraphs:
+            - >
+              Thank you for your notice KVL-CGC-200-LT-C-0019. The overnight lane closures on
+              Kestrel Road from 1 September to 10 October 2025 are approved, subject to no closures
+              on the nights of 19 and 20 September because of the Kestrel Valley show.
+          signed_by: Tom Reddy
+
+  - date: 2025-09-04
+    summary: CGC issues the August progress report.
+    issue:
+      - doc: PR08
+        rev: P01
+        stage: CN
+        status: FI
+        description: Issued
+        content:
+          sections:
+            - heading: 1 Summary
+              paragraphs:
+                - >
+                  August 2025. East abutment piling resumed on 11 August with 24 m piles. Revised
+                  Mill Lane culvert drawings and protection slab details were issued on 20 August and
+                  RFI-0013 was closed. The Eastern Roundabout alternative aggregate was approved with
+                  comments.
+            - heading: 2 Progress by area
+              table:
+                columns: [Area, Progress, Issues]
+                rows:
+                  - [Earthworks, "91% of cut complete", On programme]
+                  - [River Kest Bridge, "East abutment piling 5 of 8 piles complete", None]
+                  - [Mill Lane culvert, Excavation started, Northvale Water acceptance of slab awaited]
+                  - [Eastern Roundabout, Binder course complete, High friction surfacing added to approaches]
+            - heading: 3 Programme
+              paragraphs:
+                - Pond 2 East start depends on the enlarged pond drawings. A programme update will follow.
+            - heading: 4 Health and safety
+              paragraphs:
+                - No reportable incidents.
+
+  - date: 2025-09-05
+    summary: ADM issues the Pond 2 East planting plan (a landscaping distractor, based on the original pond outline).
+    issue:
+      - doc: PLANT
+        rev: C01
+        stage: CN
+        status: FC
+        description: Issued for construction
+        content:
+          scale: "1:200 @ A1"
+          drawn: DO
+          checked: SW
+          approved: PN
+          geometry: {kind: generic, labels: [POND 2 EAST PLANTING PLAN, WET GRASSLAND MARGIN, REED BED AT INLET]}
+          notes:
+            - Native wet grassland seed mix on pond margins and banks.
+            - Reed bed planting at the Pond 2 East inlet, 120 m2.
+            - Based on the Pond 2 East outline on KVL-ADM-320-DR-D-0320 C01.
+
+  - date: 2025-10-01
+    summary: CGC updates the programme for the enlarged Pond 2 and the surfacing.
+    issue:
+      - doc: PRG
+        rev: P03
+        stage: CN
+        status: FI
+        description: Programme update
+        content:
+          notes:
+            - Pond 2 East rescheduled for the enlarged pond (5.0 l/s discharge limit).
+            - Surfacing moved to follow the Eastern Roundabout. Completion forecast 26 June 2026.
+          activities:
+            - [A10, Site clearance, "000", 2025-03-10, 2025-04-04]
+            - [A20, "Earthworks Ch 0+000 to 2+100", "200", 2025-04-07, 2025-08-08]
+            - [A30, "Earthworks Ch 2+100 to 4+200", "200", 2025-05-05, 2025-09-19]
+            - [A40, River Kest Bridge west abutment piling, "410", 2025-05-12, 2025-06-06]
+            - [A50, River Kest Bridge east abutment piling, "410", 2025-08-11, 2025-09-12]
+            - [A60, River Kest Bridge deck, "410", 2025-09-29, 2026-01-23]
+            - [A70, Mill Lane culvert, "330", 2025-08-25, 2025-10-24]
+            - [A80, Pond 1 West, "310", 2025-05-19, 2025-07-11]
+            - [A90, Pond 2 East, "320", 2025-10-27, 2026-01-23]
+            - [A100, Eastern Roundabout, "510", 2025-08-04, 2025-11-07]
+            - [A110, Surfacing, "200", 2025-11-10, 2026-03-27]
+            - [A120, Completion, "000", 2026-06-26, 2026-06-26]
+
+  - date: 2025-10-16
+    summary: Progress meeting 12 - flow control substitute rejected, Pond 2 drawings due, GA P03 out for comment.
+    issue:
+      - doc: MM12
+        rev: P01
+        stage: CN
+        status: IS
+        description: Issued
+        content:
+          meeting_no: 12
+          location: Castlegate site office, Kestrel Valley
+          chair: Mark Bellamy
+          attendees: [Mark Bellamy, Jo Kimani, Chris Moran, Helen Marsh, Tom Reddy, Priya Nair, Sam Whitfield]
+          apologies: [Nadia Hussain]
+          items:
+            - ref: "12.1"
+              title: Health and safety
+              discussion: No incidents this period.
+            - ref: "12.2"
+              title: Pond 2 East flow control
+              discussion: >
+                The substitute Streamflow SV-100 device (submittal P02) was rejected on 14 October as
+                it passes 6.3 l/s. The Aqualine VFC-150 approved at P01 is to be installed.
+            - ref: "12.3"
+              title: Pond 2 East enlargement
+              discussion: Enlarged pond drawings (C02) due 20 October. Pond 2 construction to start 27 October.
+              action: Issue Pond 2 East C02 drawings
+              owner: Sam Whitfield
+              due: 2025-10-20
+            - ref: "12.4"
+              title: River Kest Bridge - east abutment
+              discussion: >
+                GA revision P03 (abutment drainage layer) issued for comment on 2 October. CGC to
+                build to C02 until any change is issued for construction.
+
+links:
+  - {from: PRG@P02, to: MM07, type: generated_from}
+  - {from: MM05, to: NCC11, type: related_to}
+  - {from: MM06, to: NCC11, type: related_to}
+  - {from: MM08, to: RFI13, type: related_to}
+  - {from: MM09, to: LT22, type: related_to}
+  - {from: MM12, to: FCD@P02, type: related_to}
+  - {from: NCC16, to: LT19, type: responds_to}
+
+planted:
+  - {case: legacy_filename, target: PR07@P01, note: "Filename does not follow the convention"}
+  - {case: near_duplicate, target: PR07, note: "Three monthly progress reports with the same structure"}
+  - {case: near_duplicate, target: PLANT, note: "Mentions Pond 2 East but is a landscaping drawing"}
