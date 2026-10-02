@@ -13,6 +13,7 @@ import json
 import os
 import re
 import statistics
+import sys
 import threading
 import time
 from datetime import date
@@ -66,6 +67,15 @@ KEEPALIVES = {"keepalives": 1, "keepalives_idle": 10, "keepalives_interval": 5, 
 
 def progress(message: str) -> None:
     print(f"[{time.strftime('%H:%M:%S')}] {message}", flush=True)
+
+
+def keep_awake() -> None:
+    """Ask Windows not to sleep while this process runs (lapses when it exits). On mains power this
+    laptop otherwise sleeps after 3 idle minutes, freezing long runs and dropping their connections."""
+    if sys.platform == "win32":
+        import ctypes
+        es_continuous, es_system_required, es_display_required = 0x80000000, 0x00000001, 0x00000002
+        ctypes.windll.kernel32.SetThreadExecutionState(es_continuous | es_system_required | es_display_required)
 
 
 class Stalled(psycopg.OperationalError):

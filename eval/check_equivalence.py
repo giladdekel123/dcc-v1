@@ -25,7 +25,7 @@ import yaml
 from app.config import get_settings
 from app.retrieval.base import Filters
 from app.search import search
-from eval.bench.run_bench import BENCH_DIR, Session, bench_database_url, load_scale, progress, spread
+from eval.bench.run_bench import BENCH_DIR, Session, bench_database_url, keep_awake, load_scale, progress, spread
 from eval.run_eval import load_queries
 
 EDGE_CASES = [
@@ -95,6 +95,7 @@ def main() -> None:
     parser.add_argument("--golden", type=Path, help="compare: the golden file to compare against")
     parser.add_argument("--load-scale", type=int, help="bench only: reload the benchmark database at this scale first")
     args = parser.parse_args()
+    keep_awake()
 
     if args.db == "dev":
         if args.load_scale:
