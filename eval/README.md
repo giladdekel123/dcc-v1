@@ -71,3 +71,8 @@ python -m eval.run_eval --compare eval/reports/a.json eval/reports/b.json
 
 Results are broken down by author (generated vs human) and by category. There are no scores
 in the report, because ranking scores aren't comparable between engines.
+
+## Scalability evidence
+
+The evaluation set measures quality on the 100-document corpus. How search time grows with
+corpus size, and the changes made for it, are summarised in [bench/SCALABILITY.md](bench/SCALABILITY.md).
