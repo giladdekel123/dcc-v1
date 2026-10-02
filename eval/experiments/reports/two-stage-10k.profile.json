@@ -1,0 +1,52 @@
+{
+  "full": {
+    "p50_ms": 887.6,
+    "p95_ms": 2035.9,
+    "mean_ms": 929.7
+  },
+  "no_coverage": {
+    "p50_ms": 291.6,
+    "p95_ms": 496.0,
+    "mean_ms": 288.6
+  },
+  "no_fts_rank": {
+    "p50_ms": 665.6,
+    "p95_ms": 1280.9,
+    "mean_ms": 656.5
+  },
+  "no_trigram": {
+    "p50_ms": 349.4,
+    "p95_ms": 1014.5,
+    "mean_ms": 418.2
+  },
+  "no_collapse": {
+    "p50_ms": 696.8,
+    "p95_ms": 1645.9,
+    "mean_ms": 750.1
+  },
+  "matches_only": {
+    "p50_ms": 34.4,
+    "p95_ms": 56.4,
+    "mean_ms": 35.3
+  },
+  "stage1_ts_rank_1000": {
+    "p50_ms": 37.6,
+    "p95_ms": 63.8,
+    "mean_ms": 35.8
+  },
+  "stage1_term_count_1000": {
+    "p50_ms": 43.5,
+    "p95_ms": 72.3,
+    "mean_ms": 40.6
+  },
+  "matches": {
+    "p50": 9137,
+    "p95": 12852,
+    "max": 12940,
+    "over_250": 98,
+    "over_500": 98,
+    "over_1000": 97,
+    "over_2000": 89,
+    "queries": 98
+  }
+}

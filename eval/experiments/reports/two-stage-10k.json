@@ -1,0 +1,12258 @@
+{
+ "scale": "10000 documents, 13088 index rows",
+ "result": {
+  "stage1": "ts_rank",
+  "cases": 158,
+  "frozen": 58,
+  "quality": {
+   "current": {
+    "overall": {
+     "n": 58,
+     "hit@1": 0.707,
+     "hit@3": 0.931,
+     "hit@5": 0.931,
+     "hit@10": 0.948,
+     "mrr": 0.816,
+     "rev": {
+      "queries": 15,
+      "found": 14,
+      "exact": 10,
+      "named": 11
+     }
+    },
+    "by_author": {
+     "generated": {
+      "n": 40,
+      "hit@1": 0.725,
+      "hit@3": 0.925,
+      "hit@5": 0.925,
+      "hit@10": 0.925,
+      "mrr": 0.821,
+      "rev": {
+       "queries": 10,
+       "found": 9,
+       "exact": 6,
+       "named": 7
+      }
+     },
+     "human": {
+      "n": 18,
+      "hit@1": 0.667,
+      "hit@3": 0.944,
+      "hit@5": 0.944,
+      "hit@10": 1.0,
+      "mrr": 0.804,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 4,
+       "named": 4
+      }
+     }
+    },
+    "by_category": {
+     "vague_topic": {
+      "n": 9,
+      "hit@1": 0.556,
+      "hit@3": 0.889,
+      "hit@5": 0.889,
+      "hit@10": 0.889,
+      "mrr": 0.704,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "partial_name": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "old_revision": {
+      "n": 5,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 1.0,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 2,
+       "named": 2
+      }
+     },
+     "cross_type": {
+      "n": 5,
+      "hit@1": 0.4,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.7,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "date_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 1,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "sender_anchored": {
+      "n": 6,
+      "hit@1": 0.667,
+      "hit@3": 0.833,
+      "hit@5": 0.833,
+      "hit@10": 1.0,
+      "mrr": 0.774,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "correct_not_latest": {
+      "n": 5,
+      "hit@1": 0.6,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.8,
+      "rev": {
+       "queries": 4,
+       "found": 4,
+       "exact": 3,
+       "named": 4
+      }
+     },
+     "related_chain": {
+      "n": 7,
+      "hit@1": 0.571,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.69,
+      "rev": {
+       "queries": 2,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "status_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.857,
+      "rev": {
+       "queries": 3,
+       "found": 3,
+       "exact": 3,
+       "named": 3
+      }
+     }
+    }
+   },
+   "N=250": {
+    "overall": {
+     "n": 58,
+     "hit@1": 0.707,
+     "hit@3": 0.931,
+     "hit@5": 0.931,
+     "hit@10": 0.948,
+     "mrr": 0.816,
+     "rev": {
+      "queries": 15,
+      "found": 14,
+      "exact": 10,
+      "named": 11
+     }
+    },
+    "by_author": {
+     "generated": {
+      "n": 40,
+      "hit@1": 0.725,
+      "hit@3": 0.925,
+      "hit@5": 0.925,
+      "hit@10": 0.925,
+      "mrr": 0.821,
+      "rev": {
+       "queries": 10,
+       "found": 9,
+       "exact": 6,
+       "named": 7
+      }
+     },
+     "human": {
+      "n": 18,
+      "hit@1": 0.667,
+      "hit@3": 0.944,
+      "hit@5": 0.944,
+      "hit@10": 1.0,
+      "mrr": 0.804,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 4,
+       "named": 4
+      }
+     }
+    },
+    "by_category": {
+     "vague_topic": {
+      "n": 9,
+      "hit@1": 0.556,
+      "hit@3": 0.889,
+      "hit@5": 0.889,
+      "hit@10": 0.889,
+      "mrr": 0.704,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "partial_name": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "old_revision": {
+      "n": 5,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 1.0,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 2,
+       "named": 2
+      }
+     },
+     "cross_type": {
+      "n": 5,
+      "hit@1": 0.4,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.7,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "date_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 1,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "sender_anchored": {
+      "n": 6,
+      "hit@1": 0.667,
+      "hit@3": 0.833,
+      "hit@5": 0.833,
+      "hit@10": 1.0,
+      "mrr": 0.774,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "correct_not_latest": {
+      "n": 5,
+      "hit@1": 0.6,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.8,
+      "rev": {
+       "queries": 4,
+       "found": 4,
+       "exact": 3,
+       "named": 4
+      }
+     },
+     "related_chain": {
+      "n": 7,
+      "hit@1": 0.571,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.69,
+      "rev": {
+       "queries": 2,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "status_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.857,
+      "rev": {
+       "queries": 3,
+       "found": 3,
+       "exact": 3,
+       "named": 3
+      }
+     }
+    }
+   },
+   "N=500": {
+    "overall": {
+     "n": 58,
+     "hit@1": 0.707,
+     "hit@3": 0.931,
+     "hit@5": 0.931,
+     "hit@10": 0.948,
+     "mrr": 0.816,
+     "rev": {
+      "queries": 15,
+      "found": 14,
+      "exact": 10,
+      "named": 11
+     }
+    },
+    "by_author": {
+     "generated": {
+      "n": 40,
+      "hit@1": 0.725,
+      "hit@3": 0.925,
+      "hit@5": 0.925,
+      "hit@10": 0.925,
+      "mrr": 0.821,
+      "rev": {
+       "queries": 10,
+       "found": 9,
+       "exact": 6,
+       "named": 7
+      }
+     },
+     "human": {
+      "n": 18,
+      "hit@1": 0.667,
+      "hit@3": 0.944,
+      "hit@5": 0.944,
+      "hit@10": 1.0,
+      "mrr": 0.804,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 4,
+       "named": 4
+      }
+     }
+    },
+    "by_category": {
+     "vague_topic": {
+      "n": 9,
+      "hit@1": 0.556,
+      "hit@3": 0.889,
+      "hit@5": 0.889,
+      "hit@10": 0.889,
+      "mrr": 0.704,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "partial_name": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "old_revision": {
+      "n": 5,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 1.0,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 2,
+       "named": 2
+      }
+     },
+     "cross_type": {
+      "n": 5,
+      "hit@1": 0.4,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.7,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "date_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 1,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "sender_anchored": {
+      "n": 6,
+      "hit@1": 0.667,
+      "hit@3": 0.833,
+      "hit@5": 0.833,
+      "hit@10": 1.0,
+      "mrr": 0.774,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "correct_not_latest": {
+      "n": 5,
+      "hit@1": 0.6,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.8,
+      "rev": {
+       "queries": 4,
+       "found": 4,
+       "exact": 3,
+       "named": 4
+      }
+     },
+     "related_chain": {
+      "n": 7,
+      "hit@1": 0.571,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.69,
+      "rev": {
+       "queries": 2,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "status_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.857,
+      "rev": {
+       "queries": 3,
+       "found": 3,
+       "exact": 3,
+       "named": 3
+      }
+     }
+    }
+   },
+   "N=1000": {
+    "overall": {
+     "n": 58,
+     "hit@1": 0.707,
+     "hit@3": 0.931,
+     "hit@5": 0.931,
+     "hit@10": 0.948,
+     "mrr": 0.816,
+     "rev": {
+      "queries": 15,
+      "found": 14,
+      "exact": 10,
+      "named": 11
+     }
+    },
+    "by_author": {
+     "generated": {
+      "n": 40,
+      "hit@1": 0.725,
+      "hit@3": 0.925,
+      "hit@5": 0.925,
+      "hit@10": 0.925,
+      "mrr": 0.821,
+      "rev": {
+       "queries": 10,
+       "found": 9,
+       "exact": 6,
+       "named": 7
+      }
+     },
+     "human": {
+      "n": 18,
+      "hit@1": 0.667,
+      "hit@3": 0.944,
+      "hit@5": 0.944,
+      "hit@10": 1.0,
+      "mrr": 0.804,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 4,
+       "named": 4
+      }
+     }
+    },
+    "by_category": {
+     "vague_topic": {
+      "n": 9,
+      "hit@1": 0.556,
+      "hit@3": 0.889,
+      "hit@5": 0.889,
+      "hit@10": 0.889,
+      "mrr": 0.704,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "partial_name": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "old_revision": {
+      "n": 5,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 1.0,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 2,
+       "named": 2
+      }
+     },
+     "cross_type": {
+      "n": 5,
+      "hit@1": 0.4,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.7,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "date_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 1,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "sender_anchored": {
+      "n": 6,
+      "hit@1": 0.667,
+      "hit@3": 0.833,
+      "hit@5": 0.833,
+      "hit@10": 1.0,
+      "mrr": 0.774,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "correct_not_latest": {
+      "n": 5,
+      "hit@1": 0.6,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.8,
+      "rev": {
+       "queries": 4,
+       "found": 4,
+       "exact": 3,
+       "named": 4
+      }
+     },
+     "related_chain": {
+      "n": 7,
+      "hit@1": 0.571,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.69,
+      "rev": {
+       "queries": 2,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "status_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.857,
+      "rev": {
+       "queries": 3,
+       "found": 3,
+       "exact": 3,
+       "named": 3
+      }
+     }
+    }
+   },
+   "N=2000": {
+    "overall": {
+     "n": 58,
+     "hit@1": 0.707,
+     "hit@3": 0.931,
+     "hit@5": 0.931,
+     "hit@10": 0.948,
+     "mrr": 0.816,
+     "rev": {
+      "queries": 15,
+      "found": 14,
+      "exact": 10,
+      "named": 11
+     }
+    },
+    "by_author": {
+     "generated": {
+      "n": 40,
+      "hit@1": 0.725,
+      "hit@3": 0.925,
+      "hit@5": 0.925,
+      "hit@10": 0.925,
+      "mrr": 0.821,
+      "rev": {
+       "queries": 10,
+       "found": 9,
+       "exact": 6,
+       "named": 7
+      }
+     },
+     "human": {
+      "n": 18,
+      "hit@1": 0.667,
+      "hit@3": 0.944,
+      "hit@5": 0.944,
+      "hit@10": 1.0,
+      "mrr": 0.804,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 4,
+       "named": 4
+      }
+     }
+    },
+    "by_category": {
+     "vague_topic": {
+      "n": 9,
+      "hit@1": 0.556,
+      "hit@3": 0.889,
+      "hit@5": 0.889,
+      "hit@10": 0.889,
+      "mrr": 0.704,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "partial_name": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "old_revision": {
+      "n": 5,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 1.0,
+      "rev": {
+       "queries": 5,
+       "found": 5,
+       "exact": 2,
+       "named": 2
+      }
+     },
+     "cross_type": {
+      "n": 5,
+      "hit@1": 0.4,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.7,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "date_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.929,
+      "rev": {
+       "queries": 1,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "sender_anchored": {
+      "n": 6,
+      "hit@1": 0.667,
+      "hit@3": 0.833,
+      "hit@5": 0.833,
+      "hit@10": 1.0,
+      "mrr": 0.774,
+      "rev": {
+       "queries": 0,
+       "found": 0,
+       "exact": 0,
+       "named": 0
+      }
+     },
+     "correct_not_latest": {
+      "n": 5,
+      "hit@1": 0.6,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "hit@10": 1.0,
+      "mrr": 0.8,
+      "rev": {
+       "queries": 4,
+       "found": 4,
+       "exact": 3,
+       "named": 4
+      }
+     },
+     "related_chain": {
+      "n": 7,
+      "hit@1": 0.571,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.69,
+      "rev": {
+       "queries": 2,
+       "found": 1,
+       "exact": 1,
+       "named": 1
+      }
+     },
+     "status_anchored": {
+      "n": 7,
+      "hit@1": 0.857,
+      "hit@3": 0.857,
+      "hit@5": 0.857,
+      "hit@10": 0.857,
+      "mrr": 0.857,
+      "rev": {
+       "queries": 3,
+       "found": 3,
+       "exact": 3,
+       "named": 3
+      }
+     }
+    }
+   }
+  },
+  "outcomes": {
+   "current": {
+    "G001": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "G002": {
+     "rank": 3,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "G003": {
+     "rank": null,
+     "found": null
+    },
+    "G004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G005": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G006": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "G007": {
+     "rank": 1,
+     "found": "KVL-ADM-300-DR-D-0302"
+    },
+    "G008": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G009": {
+     "rank": 1,
+     "found": "KVL-ADM-000-BQ-Q-0001"
+    },
+    "G010": {
+     "rank": 1,
+     "found": "KVL-BCS-330-CT-S-0002"
+    },
+    "G011": {
+     "rank": 2,
+     "found": "KVL-ADM-310-DR-D-0310"
+    },
+    "G012": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G013": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0014"
+    },
+    "G014": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G015": {
+     "rank": 1,
+     "found": "KVL-ADM-330-DR-S-0205"
+    },
+    "G016": {
+     "rank": 2,
+     "found": "KVL-ADM-410-LT-S-0031"
+    },
+    "G017": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0007"
+    },
+    "G018": {
+     "rank": 2,
+     "found": "KVL-NVW-610-LT-U-0003"
+    },
+    "G019": {
+     "rank": 2,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G020": {
+     "rank": 1,
+     "found": "KVL-CGC-100-RP-G-0007"
+    },
+    "G021": {
+     "rank": 2,
+     "found": "KVL-CGC-100-RP-G-0008"
+    },
+    "G022": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0012"
+    },
+    "G023": {
+     "rank": 1,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "G024": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G025": {
+     "rank": 1,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "G026": {
+     "rank": 2,
+     "found": "KVL-ADM-510-LT-C-0036"
+    },
+    "G027": {
+     "rank": 1,
+     "found": "KVL-SGI-410-RP-T-0001"
+    },
+    "G028": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G029": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G030": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G031": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G032": {
+     "rank": null,
+     "found": null
+    },
+    "G033": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G034": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G035": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0015"
+    },
+    "G036": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G037": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0011"
+    },
+    "G038": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G039": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G040": {
+     "rank": null,
+     "found": null
+    },
+    "H001": {
+     "rank": 1,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "H002": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H003": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "H004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "H005": {
+     "rank": 2,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H006": {
+     "rank": 7,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "H007": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0010"
+    },
+    "H008": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H009": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H010": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "H011": {
+     "rank": 1,
+     "found": "KVL-CGC-510-LT-C-0022"
+    },
+    "H012": {
+     "rank": 3,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H013": {
+     "rank": 2,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H014": {
+     "rank": 1,
+     "found": "KVL-NCC-610-LT-U-0014"
+    },
+    "H015": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H016": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "H017": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H018": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    }
+   },
+   "N=250": {
+    "G001": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "G002": {
+     "rank": 3,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "G003": {
+     "rank": null,
+     "found": null
+    },
+    "G004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G005": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G006": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "G007": {
+     "rank": 1,
+     "found": "KVL-ADM-300-DR-D-0302"
+    },
+    "G008": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G009": {
+     "rank": 1,
+     "found": "KVL-ADM-000-BQ-Q-0001"
+    },
+    "G010": {
+     "rank": 1,
+     "found": "KVL-BCS-330-CT-S-0002"
+    },
+    "G011": {
+     "rank": 2,
+     "found": "KVL-ADM-310-DR-D-0310"
+    },
+    "G012": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G013": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0014"
+    },
+    "G014": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G015": {
+     "rank": 1,
+     "found": "KVL-ADM-330-DR-S-0205"
+    },
+    "G016": {
+     "rank": 2,
+     "found": "KVL-ADM-410-LT-S-0031"
+    },
+    "G017": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0007"
+    },
+    "G018": {
+     "rank": 2,
+     "found": "KVL-NVW-610-LT-U-0003"
+    },
+    "G019": {
+     "rank": 2,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G020": {
+     "rank": 1,
+     "found": "KVL-CGC-100-RP-G-0007"
+    },
+    "G021": {
+     "rank": 2,
+     "found": "KVL-CGC-100-RP-G-0008"
+    },
+    "G022": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0012"
+    },
+    "G023": {
+     "rank": 1,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "G024": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G025": {
+     "rank": 1,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "G026": {
+     "rank": 2,
+     "found": "KVL-ADM-510-LT-C-0036"
+    },
+    "G027": {
+     "rank": 1,
+     "found": "KVL-SGI-410-RP-T-0001"
+    },
+    "G028": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G029": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G030": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G031": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G032": {
+     "rank": null,
+     "found": null
+    },
+    "G033": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G034": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G035": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0015"
+    },
+    "G036": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G037": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0011"
+    },
+    "G038": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G039": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G040": {
+     "rank": null,
+     "found": null
+    },
+    "H001": {
+     "rank": 1,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "H002": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H003": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "H004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "H005": {
+     "rank": 2,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H006": {
+     "rank": 7,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "H007": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0010"
+    },
+    "H008": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H009": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H010": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "H011": {
+     "rank": 1,
+     "found": "KVL-CGC-510-LT-C-0022"
+    },
+    "H012": {
+     "rank": 3,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H013": {
+     "rank": 2,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H014": {
+     "rank": 1,
+     "found": "KVL-NCC-610-LT-U-0014"
+    },
+    "H015": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H016": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "H017": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H018": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    }
+   },
+   "N=500": {
+    "G001": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "G002": {
+     "rank": 3,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "G003": {
+     "rank": null,
+     "found": null
+    },
+    "G004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G005": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G006": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "G007": {
+     "rank": 1,
+     "found": "KVL-ADM-300-DR-D-0302"
+    },
+    "G008": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G009": {
+     "rank": 1,
+     "found": "KVL-ADM-000-BQ-Q-0001"
+    },
+    "G010": {
+     "rank": 1,
+     "found": "KVL-BCS-330-CT-S-0002"
+    },
+    "G011": {
+     "rank": 2,
+     "found": "KVL-ADM-310-DR-D-0310"
+    },
+    "G012": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G013": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0014"
+    },
+    "G014": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G015": {
+     "rank": 1,
+     "found": "KVL-ADM-330-DR-S-0205"
+    },
+    "G016": {
+     "rank": 2,
+     "found": "KVL-ADM-410-LT-S-0031"
+    },
+    "G017": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0007"
+    },
+    "G018": {
+     "rank": 2,
+     "found": "KVL-NVW-610-LT-U-0003"
+    },
+    "G019": {
+     "rank": 2,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G020": {
+     "rank": 1,
+     "found": "KVL-CGC-100-RP-G-0007"
+    },
+    "G021": {
+     "rank": 2,
+     "found": "KVL-CGC-100-RP-G-0008"
+    },
+    "G022": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0012"
+    },
+    "G023": {
+     "rank": 1,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "G024": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G025": {
+     "rank": 1,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "G026": {
+     "rank": 2,
+     "found": "KVL-ADM-510-LT-C-0036"
+    },
+    "G027": {
+     "rank": 1,
+     "found": "KVL-SGI-410-RP-T-0001"
+    },
+    "G028": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G029": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G030": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G031": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G032": {
+     "rank": null,
+     "found": null
+    },
+    "G033": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G034": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G035": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0015"
+    },
+    "G036": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G037": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0011"
+    },
+    "G038": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G039": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G040": {
+     "rank": null,
+     "found": null
+    },
+    "H001": {
+     "rank": 1,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "H002": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H003": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "H004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "H005": {
+     "rank": 2,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H006": {
+     "rank": 7,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "H007": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0010"
+    },
+    "H008": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H009": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H010": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "H011": {
+     "rank": 1,
+     "found": "KVL-CGC-510-LT-C-0022"
+    },
+    "H012": {
+     "rank": 3,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H013": {
+     "rank": 2,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H014": {
+     "rank": 1,
+     "found": "KVL-NCC-610-LT-U-0014"
+    },
+    "H015": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H016": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "H017": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H018": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    }
+   },
+   "N=1000": {
+    "G001": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "G002": {
+     "rank": 3,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "G003": {
+     "rank": null,
+     "found": null
+    },
+    "G004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G005": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G006": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "G007": {
+     "rank": 1,
+     "found": "KVL-ADM-300-DR-D-0302"
+    },
+    "G008": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G009": {
+     "rank": 1,
+     "found": "KVL-ADM-000-BQ-Q-0001"
+    },
+    "G010": {
+     "rank": 1,
+     "found": "KVL-BCS-330-CT-S-0002"
+    },
+    "G011": {
+     "rank": 2,
+     "found": "KVL-ADM-310-DR-D-0310"
+    },
+    "G012": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G013": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0014"
+    },
+    "G014": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G015": {
+     "rank": 1,
+     "found": "KVL-ADM-330-DR-S-0205"
+    },
+    "G016": {
+     "rank": 2,
+     "found": "KVL-ADM-410-LT-S-0031"
+    },
+    "G017": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0007"
+    },
+    "G018": {
+     "rank": 2,
+     "found": "KVL-NVW-610-LT-U-0003"
+    },
+    "G019": {
+     "rank": 2,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G020": {
+     "rank": 1,
+     "found": "KVL-CGC-100-RP-G-0007"
+    },
+    "G021": {
+     "rank": 2,
+     "found": "KVL-CGC-100-RP-G-0008"
+    },
+    "G022": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0012"
+    },
+    "G023": {
+     "rank": 1,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "G024": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G025": {
+     "rank": 1,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "G026": {
+     "rank": 2,
+     "found": "KVL-ADM-510-LT-C-0036"
+    },
+    "G027": {
+     "rank": 1,
+     "found": "KVL-SGI-410-RP-T-0001"
+    },
+    "G028": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G029": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G030": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G031": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G032": {
+     "rank": null,
+     "found": null
+    },
+    "G033": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G034": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G035": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0015"
+    },
+    "G036": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G037": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0011"
+    },
+    "G038": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G039": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G040": {
+     "rank": null,
+     "found": null
+    },
+    "H001": {
+     "rank": 1,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "H002": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H003": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "H004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "H005": {
+     "rank": 2,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H006": {
+     "rank": 7,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "H007": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0010"
+    },
+    "H008": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H009": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H010": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "H011": {
+     "rank": 1,
+     "found": "KVL-CGC-510-LT-C-0022"
+    },
+    "H012": {
+     "rank": 3,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H013": {
+     "rank": 2,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H014": {
+     "rank": 1,
+     "found": "KVL-NCC-610-LT-U-0014"
+    },
+    "H015": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H016": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "H017": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H018": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    }
+   },
+   "N=2000": {
+    "G001": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "G002": {
+     "rank": 3,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "G003": {
+     "rank": null,
+     "found": null
+    },
+    "G004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G005": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G006": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "G007": {
+     "rank": 1,
+     "found": "KVL-ADM-300-DR-D-0302"
+    },
+    "G008": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G009": {
+     "rank": 1,
+     "found": "KVL-ADM-000-BQ-Q-0001"
+    },
+    "G010": {
+     "rank": 1,
+     "found": "KVL-BCS-330-CT-S-0002"
+    },
+    "G011": {
+     "rank": 2,
+     "found": "KVL-ADM-310-DR-D-0310"
+    },
+    "G012": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G013": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0014"
+    },
+    "G014": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G015": {
+     "rank": 1,
+     "found": "KVL-ADM-330-DR-S-0205"
+    },
+    "G016": {
+     "rank": 2,
+     "found": "KVL-ADM-410-LT-S-0031"
+    },
+    "G017": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0007"
+    },
+    "G018": {
+     "rank": 2,
+     "found": "KVL-NVW-610-LT-U-0003"
+    },
+    "G019": {
+     "rank": 2,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G020": {
+     "rank": 1,
+     "found": "KVL-CGC-100-RP-G-0007"
+    },
+    "G021": {
+     "rank": 2,
+     "found": "KVL-CGC-100-RP-G-0008"
+    },
+    "G022": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0012"
+    },
+    "G023": {
+     "rank": 1,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "G024": {
+     "rank": 1,
+     "found": "KVL-CGC-100-SC-G-0002"
+    },
+    "G025": {
+     "rank": 1,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "G026": {
+     "rank": 2,
+     "found": "KVL-ADM-510-LT-C-0036"
+    },
+    "G027": {
+     "rank": 1,
+     "found": "KVL-SGI-410-RP-T-0001"
+    },
+    "G028": {
+     "rank": 1,
+     "found": "KVL-CGC-200-LT-C-0019"
+    },
+    "G029": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G030": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G031": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G032": {
+     "rank": null,
+     "found": null
+    },
+    "G033": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "G034": {
+     "rank": 1,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "G035": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0015"
+    },
+    "G036": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "G037": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0011"
+    },
+    "G038": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "G039": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "G040": {
+     "rank": null,
+     "found": null
+    },
+    "H001": {
+     "rank": 1,
+     "found": "KVL-CGC-330-RI-S-0013"
+    },
+    "H002": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H003": {
+     "rank": 1,
+     "found": "KVL-CGC-410-RI-S-0012"
+    },
+    "H004": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    },
+    "H005": {
+     "rank": 2,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H006": {
+     "rank": 7,
+     "found": "KVL-NVW-610-LT-U-0004"
+    },
+    "H007": {
+     "rank": 1,
+     "found": "KVL-CGC-100-MM-G-0010"
+    },
+    "H008": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H009": {
+     "rank": 1,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H010": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0110"
+    },
+    "H011": {
+     "rank": 1,
+     "found": "KVL-CGC-510-LT-C-0022"
+    },
+    "H012": {
+     "rank": 3,
+     "found": "KVL-NCC-320-LT-D-0011"
+    },
+    "H013": {
+     "rank": 2,
+     "found": "KVL-CGC-320-SB-D-0009"
+    },
+    "H014": {
+     "rank": 1,
+     "found": "KVL-NCC-610-LT-U-0014"
+    },
+    "H015": {
+     "rank": 1,
+     "found": "KVL-ADM-410-DR-S-0102"
+    },
+    "H016": {
+     "rank": 1,
+     "found": "KVL-CGC-330-BQ-Q-0007"
+    },
+    "H017": {
+     "rank": 2,
+     "found": "KVL-ADM-300-RP-D-0021"
+    },
+    "H018": {
+     "rank": 1,
+     "found": "KVL-CGC-510-SB-C-0012"
+    }
+   }
+  },
+  "tops": {
+   "current": {
+    "frozen G001": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2
+    ],
+    "frozen G002": [
+     20,
+     14,
+     16,
+     13,
+     19,
+     18,
+     15,
+     17,
+     21,
+     825
+    ],
+    "frozen G003": [
+     6179,
+     7044,
+     587,
+     28,
+     571,
+     1114,
+     1969,
+     1404,
+     7129,
+     4971
+    ],
+    "frozen G004": [
+     34,
+     33,
+     32,
+     35,
+     99,
+     98,
+     8243,
+     8446,
+     9871,
+     4939
+    ],
+    "frozen G005": [
+     45,
+     46,
+     935,
+     7565,
+     7289,
+     3534,
+     265,
+     9800,
+     8766,
+     8093
+    ],
+    "frozen G006": [
+     3,
+     8,
+     7,
+     4,
+     10,
+     9,
+     2,
+     1423,
+     8711,
+     2512
+    ],
+    "frozen G007": [
+     26,
+     27,
+     25,
+     5619,
+     1410,
+     5422,
+     6773,
+     7409,
+     8296,
+     2708
+    ],
+    "frozen G008": [
+     20,
+     6762,
+     5111,
+     3896,
+     348,
+     2123,
+     3553,
+     8318,
+     9910,
+     6713
+    ],
+    "frozen G009": [
+     31,
+     7152,
+     6750,
+     7315,
+     9454,
+     8252,
+     5464,
+     5351,
+     3756,
+     8200
+    ],
+    "frozen G010": [
+     19,
+     8051,
+     6795,
+     6163,
+     6905,
+     9965,
+     4272,
+     8375,
+     9089,
+     958
+    ],
+    "frozen G011": [
+     96,
+     23,
+     3430,
+     8551,
+     1933,
+     6946,
+     9002,
+     2029,
+     24,
+     5820
+    ],
+    "frozen G012": [
+     2,
+     3,
+     4,
+     9,
+     24,
+     5,
+     3263,
+     2506,
+     3465,
+     9807
+    ],
+    "frozen G013": [
+     22,
+     29,
+     5101,
+     7119,
+     3867,
+     3709,
+     66,
+     8618,
+     7773,
+     9550
+    ],
+    "frozen G014": [
+     41,
+     712,
+     3545,
+     1355,
+     1202,
+     715,
+     4916,
+     4993,
+     2915,
+     324
+    ],
+    "frozen G015": [
+     13,
+     18,
+     14,
+     19,
+     15,
+     20,
+     16,
+     44,
+     94,
+     43
+    ],
+    "frozen G016": [
+     7,
+     9,
+     3,
+     10,
+     8,
+     11,
+     1,
+     38,
+     4717,
+     3299
+    ],
+    "frozen G017": [
+     11,
+     38,
+     12,
+     39,
+     7,
+     8,
+     4,
+     40,
+     89,
+     3
+    ],
+    "frozen G018": [
+     15,
+     17,
+     5222,
+     5920,
+     571,
+     5955,
+     1334,
+     328,
+     1296,
+     406
+    ],
+    "frozen G019": [
+     33,
+     34,
+     35,
+     32,
+     37,
+     365,
+     43,
+     39,
+     44,
+     6456
+    ],
+    "frozen G020": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "frozen G021": [
+     94,
+     44,
+     92,
+     42,
+     43,
+     91,
+     942,
+     6745,
+     5977,
+     9125
+    ],
+    "frozen G022": [
+     40,
+     3592,
+     3648,
+     90,
+     36,
+     87,
+     12,
+     39,
+     38,
+     11
+    ],
+    "frozen G023": [
+     28,
+     76,
+     93,
+     37,
+     36,
+     70,
+     1576,
+     24,
+     5236,
+     73
+    ],
+    "frozen G024": [
+     41,
+     642,
+     9681,
+     1490,
+     952,
+     3458,
+     6761,
+     4475,
+     9159,
+     3890
+    ],
+    "frozen G025": [
+     21,
+     17,
+     15,
+     20,
+     14,
+     76,
+     8177,
+     1436,
+     3186,
+     2186
+    ],
+    "frozen G026": [
+     33,
+     35,
+     34,
+     671,
+     32,
+     5803,
+     162,
+     5990,
+     1553,
+     5692
+    ],
+    "frozen G027": [
+     1,
+     55,
+     53,
+     52,
+     94,
+     6347,
+     9642,
+     5977,
+     1387,
+     9125
+    ],
+    "frozen G028": [
+     45,
+     18,
+     15,
+     46,
+     21,
+     39,
+     20,
+     16,
+     17,
+     83
+    ],
+    "frozen G029": [
+     2,
+     3,
+     7,
+     10,
+     40,
+     318,
+     1460,
+     6552,
+     1423,
+     6410
+    ],
+    "frozen G030": [
+     30,
+     95,
+     24,
+     29,
+     23,
+     27,
+     22,
+     40,
+     94,
+     47
+    ],
+    "frozen G031": [
+     22,
+     29,
+     27,
+     24,
+     7417,
+     7119,
+     25,
+     26,
+     30,
+     95
+    ],
+    "frozen G032": [
+     7,
+     10,
+     737,
+     5216,
+     4982,
+     215,
+     382,
+     6389,
+     1073,
+     5397
+    ],
+    "frozen G033": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     3299
+    ],
+    "frozen G034": [
+     29,
+     28,
+     42,
+     22,
+     36,
+     93,
+     51,
+     37,
+     24,
+     94
+    ],
+    "frozen G035": [
+     8,
+     3,
+     7,
+     10,
+     11,
+     49,
+     44,
+     41,
+     5216,
+     737
+    ],
+    "frozen G036": [
+     30,
+     95,
+     40,
+     8755,
+     9457,
+     8894,
+     8602,
+     9614,
+     7075,
+     2294
+    ],
+    "frozen G037": [
+     6,
+     6097,
+     8409,
+     7081,
+     352,
+     6094,
+     5482,
+     2633,
+     4041,
+     1243
+    ],
+    "frozen G038": [
+     34,
+     2034,
+     4537,
+     3657,
+     518,
+     721,
+     4232,
+     4199,
+     4783,
+     572
+    ],
+    "frozen G039": [
+     2,
+     4336,
+     7291,
+     6067,
+     40,
+     4453,
+     284,
+     5642,
+     3768,
+     9372
+    ],
+    "frozen G040": [
+     6620,
+     7071,
+     9729,
+     9621,
+     7040,
+     6970,
+     285,
+     212,
+     3235,
+     100
+    ],
+    "frozen H001": [
+     16,
+     20,
+     14,
+     13,
+     825,
+     5746,
+     5477,
+     5677,
+     4862,
+     8931
+    ],
+    "frozen H002": [
+     22,
+     29,
+     24,
+     28,
+     26,
+     27,
+     3554,
+     30,
+     1331,
+     2111
+    ],
+    "frozen H003": [
+     7,
+     9,
+     3,
+     10,
+     1,
+     8,
+     5,
+     2,
+     4,
+     6
+    ],
+    "frozen H004": [
+     34,
+     32,
+     33,
+     98,
+     97,
+     35,
+     99,
+     59,
+     8967,
+     41
+    ],
+    "frozen H005": [
+     24,
+     28,
+     30,
+     47,
+     3832,
+     9565,
+     9250,
+     5228,
+     7486,
+     3184
+    ],
+    "frozen H006": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     21,
+     15,
+     17,
+     12
+    ],
+    "frozen H007": [
+     12,
+     4080,
+     3551,
+     4138,
+     7708,
+     2063,
+     9388,
+     7750,
+     6084,
+     2669
+    ],
+    "frozen H008": [
+     2,
+     3,
+     61,
+     62,
+     10,
+     63,
+     41,
+     4,
+     5,
+     65
+    ],
+    "frozen H009": [
+     30,
+     24,
+     95,
+     28,
+     47,
+     29,
+     40,
+     27,
+     23,
+     22
+    ],
+    "frozen H010": [
+     3,
+     7,
+     9,
+     2,
+     10,
+     1,
+     5,
+     8,
+     4,
+     62
+    ],
+    "frozen H011": [
+     33,
+     34,
+     32,
+     35,
+     99,
+     97,
+     98,
+     43,
+     39,
+     37
+    ],
+    "frozen H012": [
+     24,
+     30,
+     28,
+     47,
+     41,
+     27,
+     29,
+     40,
+     95,
+     4631
+    ],
+    "frozen H013": [
+     24,
+     30,
+     47,
+     23,
+     27,
+     29,
+     95,
+     28,
+     2,
+     96
+    ],
+    "frozen H014": [
+     15,
+     16,
+     13,
+     20,
+     17,
+     14,
+     19,
+     18,
+     21,
+     825
+    ],
+    "frozen H015": [
+     2,
+     61,
+     3,
+     62,
+     10,
+     5,
+     63,
+     41,
+     4,
+     65
+    ],
+    "frozen H016": [
+     20,
+     14,
+     19,
+     18,
+     13,
+     16,
+     21,
+     15,
+     17,
+     9118
+    ],
+    "frozen H017": [
+     22,
+     29,
+     5165,
+     9291,
+     8451,
+     6593,
+     6506,
+     2228,
+     410,
+     7843
+    ],
+    "frozen H018": [
+     34,
+     33,
+     32,
+     98,
+     99,
+     35,
+     97,
+     7898,
+     419,
+     4939
+    ],
+    "generic 0": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "generic 1": [
+     9723,
+     36,
+     39,
+     38,
+     11,
+     37,
+     89,
+     88,
+     87,
+     86
+    ],
+    "generic 2": [
+     681,
+     1422,
+     7969,
+     9338,
+     6165,
+     703,
+     566,
+     1468,
+     2809,
+     8109
+    ],
+    "generic 3": [
+     825,
+     5677,
+     5746,
+     8931,
+     4749,
+     3495,
+     5477,
+     5146,
+     6389,
+     7828
+    ],
+    "generic 4": [
+     1453,
+     279,
+     8861,
+     993,
+     9508,
+     3801,
+     1767,
+     7551,
+     9674,
+     7757
+    ],
+    "generic 5": [
+     9299,
+     582,
+     9371,
+     1449,
+     3116,
+     198,
+     4975,
+     3441,
+     1862,
+     1286
+    ],
+    "generic 6": [
+     4248,
+     318,
+     1460,
+     6552,
+     9607,
+     7825,
+     446,
+     585,
+     2968,
+     292
+    ],
+    "generic 7": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "generic 8": [
+     6762,
+     7683,
+     9684,
+     771,
+     4416,
+     5240,
+     125,
+     7111,
+     5699,
+     8144
+    ],
+    "generic 9": [
+     8886,
+     110,
+     2729,
+     5378,
+     3548,
+     5894,
+     4310,
+     1585,
+     4913,
+     7793
+    ],
+    "generic 10": [
+     5436,
+     5337,
+     8473,
+     7284,
+     1813,
+     1830,
+     787,
+     3273,
+     4558,
+     7377
+    ],
+    "generic 11": [
+     3917,
+     5843,
+     990,
+     2457,
+     116,
+     3957,
+     4074,
+     775,
+     8988,
+     4147
+    ],
+    "generic 12": [
+     1989,
+     9865,
+     6931,
+     7922,
+     5680,
+     4134,
+     2182,
+     8993,
+     9001,
+     5829
+    ],
+    "generic 13": [
+     8613,
+     8749,
+     4044,
+     6914,
+     2079,
+     5633,
+     560,
+     7542,
+     2565,
+     5156
+    ],
+    "generic 14": [
+     1418,
+     3807,
+     4313,
+     7625,
+     307,
+     708,
+     3496,
+     6478,
+     1669,
+     7394
+    ],
+    "generic 15": [
+     6992,
+     4243,
+     3129,
+     7605,
+     7798,
+     5743,
+     4564,
+     6596,
+     1883,
+     7592
+    ],
+    "generic 16": [
+     9934,
+     8042,
+     7411,
+     4895,
+     3004,
+     8062,
+     9833,
+     8967,
+     4711,
+     4338
+    ],
+    "generic 17": [
+     3274,
+     3524,
+     7782,
+     3607,
+     4167,
+     9032,
+     4852,
+     2422,
+     9891,
+     8322
+    ],
+    "generic 18": [
+     6818,
+     653,
+     3554,
+     224,
+     505,
+     5007,
+     1980,
+     7417,
+     5101,
+     7119
+    ],
+    "generic 19": [
+     5416,
+     103,
+     9972,
+     6473,
+     4239,
+     9436,
+     552,
+     9979,
+     5682,
+     1180
+    ],
+    "generic 20": [
+     3819,
+     4350,
+     8527,
+     7933,
+     6585,
+     6629,
+     8940,
+     5403,
+     663,
+     1692
+    ],
+    "generic 21": [
+     115,
+     4621,
+     1938,
+     5824,
+     683,
+     7180,
+     7852,
+     8052,
+     5205,
+     3071
+    ],
+    "generic 22": [
+     41,
+     3545,
+     6514,
+     5114,
+     4916,
+     4423,
+     4993,
+     2915,
+     4715,
+     8592
+    ],
+    "generic 23": [
+     382,
+     8111,
+     1073,
+     3150,
+     4299,
+     9578,
+     6665,
+     5818,
+     4398,
+     2949
+    ],
+    "generic 24": [
+     5379,
+     5250,
+     3485,
+     7331,
+     1740,
+     2482,
+     8617,
+     3123,
+     1184,
+     4114
+    ],
+    "generic 25": [
+     2517,
+     9627,
+     4521,
+     5444,
+     2710,
+     9013,
+     2589,
+     935,
+     7648,
+     6518
+    ],
+    "generic 26": [
+     6799,
+     1556,
+     7487,
+     2801,
+     1561,
+     3760,
+     1733,
+     3942,
+     3980,
+     6469
+    ],
+    "generic 27": [
+     1334,
+     4541,
+     9564,
+     2607,
+     8472,
+     2865,
+     624,
+     9663,
+     2846,
+     3523
+    ],
+    "generic 28": [
+     7095,
+     9704,
+     1885,
+     8415,
+     3714,
+     7971,
+     832,
+     4166,
+     8640,
+     6539
+    ],
+    "generic 29": [
+     7396,
+     1750,
+     7342,
+     9204,
+     5406,
+     4532,
+     7500,
+     2179,
+     7866,
+     1234
+    ],
+    "generic 30": [
+     8373,
+     9674,
+     7757,
+     7551,
+     279,
+     1453,
+     1767,
+     8554,
+     3410,
+     7493
+    ],
+    "generic 31": [
+     7024,
+     3730,
+     1768,
+     3877,
+     1584,
+     8187,
+     318,
+     4996,
+     2968,
+     6552
+    ],
+    "generic 32": [
+     109,
+     211,
+     205,
+     106,
+     207,
+     159,
+     330,
+     248,
+     387,
+     164
+    ],
+    "generic 33": [
+     8139,
+     1722,
+     131,
+     4940,
+     9735,
+     6551,
+     3330,
+     9711,
+     9756,
+     8729
+    ],
+    "generic 34": [
+     98,
+     99,
+     46,
+     45,
+     9458,
+     6021,
+     9471,
+     8766,
+     5088,
+     3194
+    ],
+    "generic 35": [
+     7148,
+     8083,
+     7892,
+     6916,
+     2551,
+     6943,
+     3246,
+     6871,
+     2883,
+     2935
+    ],
+    "generic 36": [
+     76,
+     7532,
+     4702,
+     581,
+     3990,
+     72,
+     7694,
+     6962,
+     7570,
+     6712
+    ],
+    "generic 37": [
+     1918,
+     2263,
+     10,
+     2191,
+     1469,
+     2373,
+     6969,
+     6132,
+     2818,
+     2596
+    ],
+    "generic 38": [
+     7339,
+     9815,
+     4262,
+     7075,
+     5972,
+     9343,
+     2458,
+     7035,
+     5805,
+     8214
+    ],
+    "generic 39": [
+     8220,
+     5940,
+     7103,
+     3886,
+     2276,
+     2916,
+     2349,
+     9451,
+     5951,
+     7326
+    ],
+    "filter 0 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 0 + text 1": [
+     14,
+     13,
+     2562,
+     2125,
+     9249,
+     2241,
+     5462,
+     1429,
+     2967,
+     3309
+    ],
+    "filter 0 + text 2": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "filter 1 + text 0": [
+     9,
+     28,
+     1036,
+     5937,
+     334,
+     33,
+     5830,
+     5029,
+     5924,
+     5829
+    ],
+    "filter 1 + text 1": [
+     15,
+     17,
+     21,
+     18,
+     45,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761
+    ],
+    "filter 1 + text 2": [
+     2692,
+     3379,
+     2438,
+     3335,
+     3308,
+     503,
+     5059,
+     3933,
+     8155,
+     1723
+    ],
+    "filter 2 + text 0": [
+     7,
+     8,
+     6,
+     209,
+     1009,
+     1603,
+     393,
+     1257,
+     1306,
+     5607
+    ],
+    "filter 2 + text 1": [
+     16,
+     3299,
+     5677,
+     257,
+     8476,
+     8931,
+     5746,
+     9736,
+     4749,
+     5574
+    ],
+    "filter 2 + text 2": [
+     1350,
+     5490,
+     2026,
+     8790,
+     8378,
+     3432,
+     1056,
+     6239,
+     3632,
+     8002
+    ],
+    "filter 3 + text 0": [
+     11,
+     38,
+     12,
+     39,
+     40,
+     36,
+     89,
+     90,
+     37,
+     1161
+    ],
+    "filter 3 + text 1": [
+     38,
+     12,
+     11,
+     90,
+     39,
+     87,
+     86,
+     6012,
+     5860,
+     5009
+    ],
+    "filter 3 + text 2": [
+     9723,
+     8122,
+     8121,
+     6513,
+     3373,
+     6519,
+     1716,
+     88,
+     3393,
+     87
+    ],
+    "filter 4 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 4 + text 1": [
+     9736,
+     979,
+     7163,
+     2054,
+     1909,
+     6238,
+     7241,
+     9650,
+     6612,
+     3380
+    ],
+    "filter 4 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 5 + text 0": [
+     24,
+     16,
+     28,
+     30,
+     836,
+     472,
+     711,
+     6494,
+     5301,
+     653
+    ],
+    "filter 5 + text 1": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     5746,
+     4749,
+     3495,
+     5750
+    ],
+    "filter 5 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 6 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 6 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     5677
+    ],
+    "filter 6 + text 2": [
+     49,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083,
+     8897
+    ],
+    "filter 7 + text 0": [
+     7,
+     10,
+     8,
+     11,
+     42,
+     38,
+     64,
+     6,
+     65,
+     41
+    ],
+    "filter 7 + text 1": [
+     20,
+     16,
+     5677,
+     257,
+     5746,
+     9736,
+     5574,
+     215,
+     6389,
+     5958
+    ],
+    "filter 7 + text 2": [
+     6456,
+     390,
+     1350,
+     5490,
+     459,
+     1056,
+     9723,
+     6239,
+     5266,
+     5377
+    ],
+    "filter 8 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64,
+     6
+    ],
+    "filter 8 + text 1": [
+     16,
+     14,
+     13,
+     19,
+     18,
+     9736,
+     979,
+     7163,
+     2054,
+     1909
+    ],
+    "filter 8 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 9 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 9 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     100
+    ],
+    "filter 9 + text 2": [
+     49,
+     26,
+     27,
+     50,
+     48,
+     25,
+     74,
+     3,
+     24,
+     47
+    ],
+    "filter 10 + text 0": [
+     1,
+     2,
+     61,
+     13,
+     22,
+     67
+    ],
+    "filter 10 + text 1": [
+     13,
+     22,
+     73,
+     72,
+     66
+    ],
+    "filter 10 + text 2": [
+     51,
+     22,
+     67,
+     1,
+     13,
+     2,
+     61,
+     72,
+     73,
+     66
+    ],
+    "filter 11 + text 0": [
+     3,
+     2,
+     61,
+     62,
+     553,
+     1550,
+     4335,
+     2095,
+     605,
+     1337
+    ],
+    "filter 11 + text 1": [
+     8775,
+     7242,
+     852,
+     2783,
+     8585,
+     589,
+     1972,
+     1618,
+     6453,
+     1168
+    ],
+    "filter 11 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 12 + text 0": [
+     42,
+     65,
+     44,
+     43,
+     93,
+     94,
+     92,
+     5497,
+     1602,
+     5483
+    ],
+    "filter 12 + text 1": [
+     42,
+     43,
+     44,
+     5954,
+     6489,
+     728,
+     9887,
+     5386,
+     94,
+     6081
+    ],
+    "filter 12 + text 2": [
+     29,
+     3058,
+     6918,
+     6845,
+     3295,
+     7609,
+     1772,
+     94,
+     8774,
+     5687
+    ],
+    "filter 13 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 13 + text 1": [
+     14,
+     13,
+     5462,
+     1429,
+     5590,
+     5823,
+     584,
+     9853,
+     9766,
+     154
+    ],
+    "filter 13 + text 2": [
+     49,
+     26,
+     5215,
+     1650,
+     5975,
+     557,
+     548,
+     9769,
+     5581,
+     6129
+    ],
+    "filter 14 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 14 + text 1": [
+     8,
+     64,
+     65,
+     7,
+     6,
+     10
+    ],
+    "filter 14 + text 2": [
+     3,
+     2,
+     1,
+     10,
+     65,
+     61,
+     8,
+     64,
+     6,
+     62
+    ],
+    "filter 15 + text 0": [
+     10,
+     64,
+     30,
+     34,
+     95
+    ],
+    "filter 15 + text 1": [
+     30,
+     95,
+     64,
+     34,
+     10
+    ],
+    "filter 15 + text 2": [
+     30,
+     10,
+     34,
+     95,
+     64
+    ],
+    "filter 16 + text 0": [
+     24,
+     27,
+     26,
+     23
+    ],
+    "filter 16 + text 1": [
+     2086,
+     7382,
+     7577,
+     4133,
+     537,
+     4248,
+     7899,
+     4123,
+     8485,
+     819
+    ],
+    "filter 16 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 17 + text 0": [
+     5349,
+     7796,
+     5778,
+     764,
+     562,
+     1001,
+     8838,
+     2487,
+     6055,
+     8225
+    ],
+    "filter 17 + text 1": [
+     17,
+     21,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761,
+     2186,
+     4960,
+     9849
+    ],
+    "filter 17 + text 2": [
+     3992,
+     9581,
+     4074,
+     4204,
+     1481,
+     2362,
+     8991,
+     6510,
+     7264,
+     5220
+    ],
+    "filter 18 + text 0": [
+     5332,
+     979,
+     6308,
+     9994,
+     9765,
+     5967,
+     6094,
+     6284,
+     253,
+     1547
+    ],
+    "filter 18 + text 1": [
+     3299,
+     5746,
+     979,
+     5477,
+     180,
+     825,
+     2054,
+     8570,
+     2277,
+     2998
+    ],
+    "filter 18 + text 2": [
+     1056,
+     5494,
+     7147,
+     2724,
+     5003,
+     2639,
+     2272,
+     9032,
+     6461,
+     4065
+    ],
+    "filter 19 + text 0": [
+     6348,
+     1447,
+     1516,
+     5125,
+     9873,
+     212,
+     9729,
+     9861,
+     514,
+     6085
+    ],
+    "filter 19 + text 1": [
+     20,
+     5750,
+     6238,
+     5019,
+     8545,
+     9729,
+     4472,
+     5996,
+     5881,
+     9863
+    ],
+    "filter 19 + text 2": [
+     3206,
+     6638,
+     4307,
+     9460,
+     6074,
+     6238,
+     4253,
+     8545,
+     4577,
+     8504
+    ]
+   },
+   "N=250": {
+    "frozen G001": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2
+    ],
+    "frozen G002": [
+     20,
+     14,
+     16,
+     13,
+     19,
+     18,
+     15,
+     17,
+     21,
+     825
+    ],
+    "frozen G003": [
+     6179,
+     7044,
+     587,
+     28,
+     571,
+     1114,
+     1969,
+     1404,
+     7129,
+     4971
+    ],
+    "frozen G004": [
+     34,
+     33,
+     32,
+     35,
+     99,
+     98,
+     8243,
+     8446,
+     9871,
+     4939
+    ],
+    "frozen G005": [
+     45,
+     46,
+     935,
+     7565,
+     7289,
+     3534,
+     265,
+     9800,
+     8766,
+     8093
+    ],
+    "frozen G006": [
+     3,
+     8,
+     7,
+     4,
+     10,
+     9,
+     2,
+     1423,
+     8711,
+     2512
+    ],
+    "frozen G007": [
+     26,
+     27,
+     25,
+     5619,
+     1410,
+     5422,
+     6773,
+     7409,
+     8296,
+     2708
+    ],
+    "frozen G008": [
+     20,
+     6762,
+     5111,
+     3896,
+     348,
+     2123,
+     3553,
+     8318,
+     9910,
+     6713
+    ],
+    "frozen G009": [
+     31,
+     7152,
+     6750,
+     7315,
+     9454,
+     8252,
+     5464,
+     5351,
+     3756,
+     8200
+    ],
+    "frozen G010": [
+     19,
+     8051,
+     6795,
+     6163,
+     6905,
+     9965,
+     4272,
+     8375,
+     9089,
+     958
+    ],
+    "frozen G011": [
+     96,
+     23,
+     3430,
+     8551,
+     1933,
+     6946,
+     9002,
+     2029,
+     24,
+     5820
+    ],
+    "frozen G012": [
+     2,
+     3,
+     4,
+     9,
+     24,
+     3263,
+     2506,
+     3465,
+     9807,
+     6742
+    ],
+    "frozen G013": [
+     22,
+     29,
+     5101,
+     7119,
+     3867,
+     3709,
+     66,
+     8618,
+     7773,
+     9550
+    ],
+    "frozen G014": [
+     41,
+     712,
+     3545,
+     1355,
+     1202,
+     715,
+     4916,
+     4993,
+     2915,
+     324
+    ],
+    "frozen G015": [
+     13,
+     18,
+     14,
+     19,
+     15,
+     20,
+     16,
+     21,
+     7880,
+     8364
+    ],
+    "frozen G016": [
+     7,
+     9,
+     3,
+     8,
+     3299,
+     6752,
+     1314,
+     2054,
+     7217,
+     4100
+    ],
+    "frozen G017": [
+     11,
+     38,
+     12,
+     39,
+     7,
+     8,
+     4,
+     40,
+     89,
+     3
+    ],
+    "frozen G018": [
+     15,
+     17,
+     5222,
+     5920,
+     571,
+     5955,
+     1334,
+     328,
+     1296,
+     406
+    ],
+    "frozen G019": [
+     33,
+     34,
+     35,
+     32,
+     365,
+     6456,
+     1270,
+     99,
+     1036,
+     5842
+    ],
+    "frozen G020": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "frozen G021": [
+     94,
+     44,
+     92,
+     42,
+     43,
+     91,
+     942,
+     6745,
+     5977,
+     9125
+    ],
+    "frozen G022": [
+     40,
+     3592,
+     3648,
+     90,
+     36,
+     87,
+     12,
+     39,
+     38,
+     11
+    ],
+    "frozen G023": [
+     28,
+     76,
+     93,
+     70,
+     1576,
+     24,
+     96,
+     3157,
+     5423,
+     575
+    ],
+    "frozen G024": [
+     41,
+     642,
+     9681,
+     1490,
+     952,
+     3458,
+     6761,
+     4475,
+     9159,
+     3890
+    ],
+    "frozen G025": [
+     21,
+     17,
+     15,
+     20,
+     14,
+     76,
+     8177,
+     1436,
+     3186,
+     2186
+    ],
+    "frozen G026": [
+     33,
+     35,
+     34,
+     671,
+     32,
+     5803,
+     162,
+     5990,
+     1553,
+     5692
+    ],
+    "frozen G027": [
+     1,
+     55,
+     53,
+     52,
+     94,
+     6347,
+     9642,
+     5977,
+     1387,
+     9125
+    ],
+    "frozen G028": [
+     45,
+     18,
+     15,
+     46,
+     21,
+     39,
+     20,
+     16,
+     17,
+     83
+    ],
+    "frozen G029": [
+     2,
+     3,
+     7,
+     10,
+     318,
+     1460,
+     6552,
+     1423,
+     6410,
+     733
+    ],
+    "frozen G030": [
+     30,
+     95,
+     24,
+     23,
+     27,
+     47,
+     96,
+     26,
+     4595,
+     9652
+    ],
+    "frozen G031": [
+     22,
+     29,
+     27,
+     24,
+     7417,
+     7119,
+     25,
+     26,
+     30,
+     95
+    ],
+    "frozen G032": [
+     7,
+     737,
+     5216,
+     4982,
+     215,
+     382,
+     1073,
+     5397,
+     4932,
+     1112
+    ],
+    "frozen G033": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     3299
+    ],
+    "frozen G034": [
+     29,
+     28,
+     42,
+     22,
+     93,
+     51,
+     94,
+     92,
+     44,
+     43
+    ],
+    "frozen G035": [
+     8,
+     3,
+     7,
+     10,
+     49,
+     2062,
+     5614,
+     1754,
+     27,
+     4476
+    ],
+    "frozen G036": [
+     30,
+     95,
+     8755,
+     9457,
+     8894,
+     8602,
+     9614,
+     7075,
+     2294,
+     7912
+    ],
+    "frozen G037": [
+     6,
+     6097,
+     8409,
+     7081,
+     352,
+     6094,
+     5482,
+     2633,
+     4041,
+     1243
+    ],
+    "frozen G038": [
+     34,
+     2034,
+     4537,
+     3657,
+     518,
+     721,
+     4232,
+     4199,
+     4783,
+     572
+    ],
+    "frozen G039": [
+     2,
+     4336,
+     7291,
+     6067,
+     292,
+     2127,
+     4120,
+     5725,
+     1904,
+     540
+    ],
+    "frozen G040": [
+     6620,
+     7071,
+     7040,
+     6970,
+     285,
+     212,
+     3235,
+     100,
+     110,
+     4310
+    ],
+    "frozen H001": [
+     16,
+     20,
+     14,
+     13,
+     825,
+     5746,
+     5477,
+     5677,
+     4862,
+     8931
+    ],
+    "frozen H002": [
+     22,
+     29,
+     24,
+     28,
+     26,
+     27,
+     3554,
+     30,
+     1331,
+     2111
+    ],
+    "frozen H003": [
+     7,
+     9,
+     3,
+     10,
+     1,
+     8,
+     5,
+     2,
+     4,
+     6
+    ],
+    "frozen H004": [
+     34,
+     32,
+     33,
+     98,
+     97,
+     35,
+     99,
+     59,
+     8967,
+     3375
+    ],
+    "frozen H005": [
+     24,
+     28,
+     30,
+     47,
+     3832,
+     9565,
+     9250,
+     5228,
+     7486,
+     3184
+    ],
+    "frozen H006": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     21,
+     15,
+     17,
+     825
+    ],
+    "frozen H007": [
+     12,
+     4080,
+     3551,
+     4138,
+     7708,
+     2063,
+     9388,
+     7750,
+     6084,
+     2669
+    ],
+    "frozen H008": [
+     2,
+     3,
+     61,
+     62,
+     10,
+     63,
+     4,
+     5,
+     65,
+     64
+    ],
+    "frozen H009": [
+     30,
+     24,
+     95,
+     28,
+     47,
+     27,
+     23,
+     8663,
+     7174,
+     6416
+    ],
+    "frozen H010": [
+     3,
+     7,
+     9,
+     2,
+     10,
+     1,
+     5,
+     8,
+     4,
+     62
+    ],
+    "frozen H011": [
+     33,
+     34,
+     32,
+     35,
+     99,
+     97,
+     98,
+     1270,
+     6456,
+     365
+    ],
+    "frozen H012": [
+     24,
+     30,
+     28,
+     47,
+     27,
+     95,
+     4631,
+     9250,
+     10,
+     370
+    ],
+    "frozen H013": [
+     24,
+     30,
+     47,
+     23,
+     27,
+     95,
+     28,
+     2,
+     96,
+     26
+    ],
+    "frozen H014": [
+     15,
+     16,
+     13,
+     20,
+     17,
+     14,
+     19,
+     18,
+     21,
+     825
+    ],
+    "frozen H015": [
+     2,
+     61,
+     3,
+     62,
+     10,
+     5,
+     63,
+     4,
+     65,
+     64
+    ],
+    "frozen H016": [
+     20,
+     14,
+     19,
+     18,
+     13,
+     16,
+     21,
+     15,
+     17,
+     9118
+    ],
+    "frozen H017": [
+     22,
+     29,
+     5165,
+     9291,
+     8451,
+     6593,
+     6506,
+     2228,
+     410,
+     7843
+    ],
+    "frozen H018": [
+     34,
+     33,
+     32,
+     98,
+     99,
+     35,
+     97,
+     7898,
+     419,
+     4939
+    ],
+    "generic 0": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "generic 1": [
+     9723,
+     36,
+     39,
+     38,
+     11,
+     37,
+     89,
+     88,
+     87,
+     86
+    ],
+    "generic 2": [
+     681,
+     1422,
+     7969,
+     9338,
+     6165,
+     703,
+     566,
+     1468,
+     2809,
+     8109
+    ],
+    "generic 3": [
+     825,
+     5677,
+     5746,
+     8931,
+     4749,
+     3495,
+     5477,
+     5146,
+     6389,
+     7828
+    ],
+    "generic 4": [
+     1453,
+     279,
+     8861,
+     993,
+     9508,
+     3801,
+     1767,
+     7551,
+     9674,
+     7757
+    ],
+    "generic 5": [
+     9299,
+     582,
+     9371,
+     1449,
+     3116,
+     198,
+     4975,
+     3441,
+     1862,
+     1286
+    ],
+    "generic 6": [
+     4248,
+     318,
+     1460,
+     6552,
+     9607,
+     7825,
+     446,
+     585,
+     2968,
+     292
+    ],
+    "generic 7": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "generic 8": [
+     6762,
+     7683,
+     9684,
+     771,
+     4416,
+     5240,
+     125,
+     7111,
+     5699,
+     8144
+    ],
+    "generic 9": [
+     8886,
+     110,
+     2729,
+     5378,
+     3548,
+     5894,
+     4310,
+     1585,
+     4913,
+     7793
+    ],
+    "generic 10": [
+     5436,
+     5337,
+     8473,
+     7284,
+     1813,
+     1830,
+     787,
+     3273,
+     4558,
+     7377
+    ],
+    "generic 11": [
+     3917,
+     5843,
+     990,
+     2457,
+     116,
+     3957,
+     4074,
+     775,
+     8988,
+     4147
+    ],
+    "generic 12": [
+     1989,
+     9865,
+     6931,
+     7922,
+     5680,
+     4134,
+     2182,
+     8993,
+     9001,
+     5829
+    ],
+    "generic 13": [
+     8613,
+     8749,
+     4044,
+     6914,
+     2079,
+     5633,
+     560,
+     7542,
+     2565,
+     5156
+    ],
+    "generic 14": [
+     1418,
+     3807,
+     4313,
+     7625,
+     307,
+     708,
+     3496,
+     6478,
+     1669,
+     7394
+    ],
+    "generic 15": [
+     6992,
+     4243,
+     3129,
+     7605,
+     7798,
+     5743,
+     4564,
+     6596,
+     1883,
+     7592
+    ],
+    "generic 16": [
+     9934,
+     8042,
+     7411,
+     4895,
+     3004,
+     8062,
+     9833,
+     8967,
+     4711,
+     4338
+    ],
+    "generic 17": [
+     3274,
+     3524,
+     7782,
+     3607,
+     4167,
+     9032,
+     4852,
+     2422,
+     9891,
+     8322
+    ],
+    "generic 18": [
+     6818,
+     653,
+     3554,
+     224,
+     505,
+     5007,
+     1980,
+     7417,
+     5101,
+     7119
+    ],
+    "generic 19": [
+     5416,
+     103,
+     9972,
+     6473,
+     4239,
+     9436,
+     552,
+     9979,
+     5682,
+     1180
+    ],
+    "generic 20": [
+     3819,
+     4350,
+     8527,
+     7933,
+     6585,
+     6629,
+     8940,
+     5403,
+     663,
+     1692
+    ],
+    "generic 21": [
+     115,
+     4621,
+     1938,
+     5824,
+     683,
+     7180,
+     7852,
+     8052,
+     5205,
+     3071
+    ],
+    "generic 22": [
+     41,
+     3545,
+     6514,
+     5114,
+     4916,
+     4423,
+     4993,
+     2915,
+     4715,
+     8592
+    ],
+    "generic 23": [
+     382,
+     8111,
+     1073,
+     3150,
+     4299,
+     9578,
+     6665,
+     5818,
+     4398,
+     2949
+    ],
+    "generic 24": [
+     5379,
+     5250,
+     3485,
+     7331,
+     1740,
+     2482,
+     8617,
+     3123,
+     1184,
+     4114
+    ],
+    "generic 25": [
+     2517,
+     9627,
+     4521,
+     5444,
+     2710,
+     9013,
+     2589,
+     935,
+     7648,
+     6518
+    ],
+    "generic 26": [
+     6799,
+     1556,
+     7487,
+     2801,
+     1561,
+     3760,
+     1733,
+     3942,
+     3980,
+     6469
+    ],
+    "generic 27": [
+     1334,
+     4541,
+     9564,
+     2607,
+     8472,
+     2865,
+     624,
+     9663,
+     2846,
+     3523
+    ],
+    "generic 28": [
+     7095,
+     9704,
+     1885,
+     8415,
+     3714,
+     7971,
+     832,
+     4166,
+     8640,
+     6539
+    ],
+    "generic 29": [
+     7396,
+     1750,
+     7342,
+     9204,
+     5406,
+     4532,
+     7500,
+     2179,
+     7866,
+     1234
+    ],
+    "generic 30": [
+     8373,
+     9674,
+     7757,
+     7551,
+     279,
+     1453,
+     1767,
+     8554,
+     3410,
+     7493
+    ],
+    "generic 31": [
+     7024,
+     3730,
+     1768,
+     3877,
+     1584,
+     8187,
+     318,
+     4996,
+     2968,
+     6552
+    ],
+    "generic 32": [
+     109,
+     211,
+     205,
+     106,
+     207,
+     159,
+     330,
+     248,
+     387,
+     164
+    ],
+    "generic 33": [
+     8139,
+     1722,
+     131,
+     4940,
+     9735,
+     6551,
+     3330,
+     9711,
+     9756,
+     8729
+    ],
+    "generic 34": [
+     98,
+     99,
+     46,
+     45,
+     9458,
+     6021,
+     9471,
+     8766,
+     5088,
+     3194
+    ],
+    "generic 35": [
+     7148,
+     8083,
+     7892,
+     6916,
+     2551,
+     6943,
+     3246,
+     6871,
+     2883,
+     2935
+    ],
+    "generic 36": [
+     76,
+     7532,
+     4702,
+     581,
+     3990,
+     72,
+     7694,
+     6962,
+     7570,
+     6712
+    ],
+    "generic 37": [
+     1918,
+     2263,
+     10,
+     2191,
+     1469,
+     2373,
+     6969,
+     6132,
+     2818,
+     2596
+    ],
+    "generic 38": [
+     7339,
+     4262,
+     7075,
+     5972,
+     9343,
+     2458,
+     7035,
+     5805,
+     8214,
+     1518
+    ],
+    "generic 39": [
+     8220,
+     5940,
+     7103,
+     3886,
+     2276,
+     2916,
+     2349,
+     9451,
+     5951,
+     7326
+    ],
+    "filter 0 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 0 + text 1": [
+     14,
+     13,
+     2562,
+     2125,
+     9249,
+     2241,
+     5462,
+     1429,
+     2967,
+     3309
+    ],
+    "filter 0 + text 2": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "filter 1 + text 0": [
+     9,
+     28,
+     1036,
+     5937,
+     334,
+     33,
+     5830,
+     5029,
+     5924,
+     5829
+    ],
+    "filter 1 + text 1": [
+     15,
+     17,
+     21,
+     18,
+     45,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761
+    ],
+    "filter 1 + text 2": [
+     2692,
+     3379,
+     2438,
+     3335,
+     3308,
+     503,
+     5059,
+     3933,
+     8155,
+     1723
+    ],
+    "filter 2 + text 0": [
+     7,
+     8,
+     6,
+     209,
+     1009,
+     1603,
+     393,
+     1257,
+     1306,
+     5607
+    ],
+    "filter 2 + text 1": [
+     16,
+     3299,
+     5677,
+     257,
+     8476,
+     8931,
+     5746,
+     9736,
+     4749,
+     5574
+    ],
+    "filter 2 + text 2": [
+     1350,
+     5490,
+     2026,
+     8790,
+     8378,
+     3432,
+     1056,
+     6239,
+     3632,
+     8002
+    ],
+    "filter 3 + text 0": [
+     11,
+     38,
+     12,
+     39,
+     40,
+     36,
+     89,
+     90,
+     37,
+     1161
+    ],
+    "filter 3 + text 1": [
+     38,
+     12,
+     11,
+     90,
+     39,
+     87,
+     86,
+     6012,
+     5860,
+     5009
+    ],
+    "filter 3 + text 2": [
+     9723,
+     8122,
+     8121,
+     6513,
+     3373,
+     6519,
+     1716,
+     88,
+     3393,
+     87
+    ],
+    "filter 4 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 4 + text 1": [
+     9736,
+     979,
+     7163,
+     2054,
+     1909,
+     6238,
+     7241,
+     9650,
+     6612,
+     3380
+    ],
+    "filter 4 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 5 + text 0": [
+     24,
+     16,
+     28,
+     30,
+     836,
+     472,
+     711,
+     6494,
+     5301,
+     653
+    ],
+    "filter 5 + text 1": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     5746,
+     4749,
+     3495,
+     5750
+    ],
+    "filter 5 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 6 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 6 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     5677
+    ],
+    "filter 6 + text 2": [
+     49,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083,
+     8897
+    ],
+    "filter 7 + text 0": [
+     7,
+     10,
+     8,
+     11,
+     42,
+     38,
+     64,
+     6,
+     65,
+     41
+    ],
+    "filter 7 + text 1": [
+     20,
+     16,
+     5677,
+     257,
+     5746,
+     9736,
+     5574,
+     215,
+     6389,
+     5958
+    ],
+    "filter 7 + text 2": [
+     6456,
+     390,
+     1350,
+     5490,
+     459,
+     1056,
+     9723,
+     6239,
+     5266,
+     5377
+    ],
+    "filter 8 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64,
+     6
+    ],
+    "filter 8 + text 1": [
+     16,
+     14,
+     13,
+     19,
+     18,
+     9736,
+     979,
+     7163,
+     2054,
+     1909
+    ],
+    "filter 8 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 9 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 9 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     100
+    ],
+    "filter 9 + text 2": [
+     49,
+     26,
+     27,
+     50,
+     48,
+     25,
+     74,
+     3,
+     24,
+     47
+    ],
+    "filter 10 + text 0": [
+     1,
+     2,
+     61,
+     13,
+     22,
+     67
+    ],
+    "filter 10 + text 1": [
+     13,
+     22,
+     73,
+     72,
+     66
+    ],
+    "filter 10 + text 2": [
+     51,
+     22,
+     67,
+     1,
+     13,
+     2,
+     61,
+     72,
+     73,
+     66
+    ],
+    "filter 11 + text 0": [
+     3,
+     2,
+     61,
+     62,
+     553,
+     1550,
+     2095,
+     605,
+     1337,
+     318
+    ],
+    "filter 11 + text 1": [
+     8775,
+     7242,
+     852,
+     2783,
+     8585,
+     589,
+     1972,
+     1618,
+     6453,
+     1168
+    ],
+    "filter 11 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 12 + text 0": [
+     42,
+     65,
+     44,
+     43,
+     93,
+     94,
+     92,
+     5497,
+     1602,
+     5483
+    ],
+    "filter 12 + text 1": [
+     42,
+     43,
+     44,
+     5954,
+     6489,
+     728,
+     9887,
+     5386,
+     94,
+     6081
+    ],
+    "filter 12 + text 2": [
+     29,
+     3058,
+     6918,
+     6845,
+     3295,
+     7609,
+     1772,
+     94,
+     8774,
+     5687
+    ],
+    "filter 13 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 13 + text 1": [
+     14,
+     13,
+     5462,
+     1429,
+     5590,
+     5823,
+     584,
+     9853,
+     9766,
+     154
+    ],
+    "filter 13 + text 2": [
+     49,
+     26,
+     5215,
+     1650,
+     5975,
+     557,
+     548,
+     9769,
+     5581,
+     6129
+    ],
+    "filter 14 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 14 + text 1": [
+     8,
+     64,
+     65,
+     7,
+     6,
+     10
+    ],
+    "filter 14 + text 2": [
+     3,
+     2,
+     1,
+     10,
+     65,
+     61,
+     8,
+     64,
+     6,
+     62
+    ],
+    "filter 15 + text 0": [
+     10,
+     64,
+     30,
+     34,
+     95
+    ],
+    "filter 15 + text 1": [
+     30,
+     95,
+     64,
+     34,
+     10
+    ],
+    "filter 15 + text 2": [
+     30,
+     10,
+     34,
+     95,
+     64
+    ],
+    "filter 16 + text 0": [
+     24,
+     27,
+     26,
+     23
+    ],
+    "filter 16 + text 1": [
+     2086,
+     7382,
+     7577,
+     4133,
+     537,
+     4248,
+     7899,
+     4123,
+     8485,
+     819
+    ],
+    "filter 16 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 17 + text 0": [
+     5349,
+     7796,
+     5778,
+     764,
+     562,
+     1001,
+     8838,
+     2487,
+     6055,
+     8225
+    ],
+    "filter 17 + text 1": [
+     17,
+     21,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761,
+     2186,
+     4960,
+     9849
+    ],
+    "filter 17 + text 2": [
+     3992,
+     9581,
+     4074,
+     4204,
+     1481,
+     2362,
+     8991,
+     6510,
+     7264,
+     5220
+    ],
+    "filter 18 + text 0": [
+     5332,
+     979,
+     6308,
+     9994,
+     9765,
+     5967,
+     6094,
+     6284,
+     253,
+     1547
+    ],
+    "filter 18 + text 1": [
+     3299,
+     5746,
+     979,
+     5477,
+     180,
+     825,
+     2054,
+     8570,
+     2277,
+     2998
+    ],
+    "filter 18 + text 2": [
+     1056,
+     5494,
+     7147,
+     2724,
+     5003,
+     2639,
+     2272,
+     9032,
+     6461,
+     4065
+    ],
+    "filter 19 + text 0": [
+     6348,
+     1447,
+     1516,
+     5125,
+     9873,
+     212,
+     9729,
+     9861,
+     514,
+     6085
+    ],
+    "filter 19 + text 1": [
+     20,
+     5750,
+     6238,
+     5019,
+     8545,
+     9729,
+     4472,
+     5996,
+     5881,
+     9863
+    ],
+    "filter 19 + text 2": [
+     3206,
+     6638,
+     4307,
+     9460,
+     6074,
+     6238,
+     4253,
+     8545,
+     4577,
+     8504
+    ]
+   },
+   "N=500": {
+    "frozen G001": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2
+    ],
+    "frozen G002": [
+     20,
+     14,
+     16,
+     13,
+     19,
+     18,
+     15,
+     17,
+     21,
+     825
+    ],
+    "frozen G003": [
+     6179,
+     7044,
+     587,
+     28,
+     571,
+     1114,
+     1969,
+     1404,
+     7129,
+     4971
+    ],
+    "frozen G004": [
+     34,
+     33,
+     32,
+     35,
+     99,
+     98,
+     8243,
+     8446,
+     9871,
+     4939
+    ],
+    "frozen G005": [
+     45,
+     46,
+     935,
+     7565,
+     7289,
+     3534,
+     265,
+     9800,
+     8766,
+     8093
+    ],
+    "frozen G006": [
+     3,
+     8,
+     7,
+     4,
+     10,
+     9,
+     2,
+     1423,
+     8711,
+     2512
+    ],
+    "frozen G007": [
+     26,
+     27,
+     25,
+     5619,
+     1410,
+     5422,
+     6773,
+     7409,
+     8296,
+     2708
+    ],
+    "frozen G008": [
+     20,
+     6762,
+     5111,
+     3896,
+     348,
+     2123,
+     3553,
+     8318,
+     9910,
+     6713
+    ],
+    "frozen G009": [
+     31,
+     7152,
+     6750,
+     7315,
+     9454,
+     8252,
+     5464,
+     5351,
+     3756,
+     8200
+    ],
+    "frozen G010": [
+     19,
+     8051,
+     6795,
+     6163,
+     6905,
+     9965,
+     4272,
+     8375,
+     9089,
+     958
+    ],
+    "frozen G011": [
+     96,
+     23,
+     3430,
+     8551,
+     1933,
+     6946,
+     9002,
+     2029,
+     24,
+     5820
+    ],
+    "frozen G012": [
+     2,
+     3,
+     4,
+     9,
+     24,
+     3263,
+     2506,
+     3465,
+     9807,
+     6742
+    ],
+    "frozen G013": [
+     22,
+     29,
+     5101,
+     7119,
+     3867,
+     3709,
+     66,
+     8618,
+     7773,
+     9550
+    ],
+    "frozen G014": [
+     41,
+     712,
+     3545,
+     1355,
+     1202,
+     715,
+     4916,
+     4993,
+     2915,
+     324
+    ],
+    "frozen G015": [
+     13,
+     18,
+     14,
+     19,
+     15,
+     20,
+     16,
+     21,
+     27,
+     7880
+    ],
+    "frozen G016": [
+     7,
+     9,
+     3,
+     10,
+     8,
+     4717,
+     3299,
+     6752,
+     1314,
+     2054
+    ],
+    "frozen G017": [
+     11,
+     38,
+     12,
+     39,
+     7,
+     8,
+     4,
+     40,
+     89,
+     3
+    ],
+    "frozen G018": [
+     15,
+     17,
+     5222,
+     5920,
+     571,
+     5955,
+     1334,
+     328,
+     1296,
+     406
+    ],
+    "frozen G019": [
+     33,
+     34,
+     35,
+     32,
+     365,
+     6456,
+     1270,
+     99,
+     1036,
+     5842
+    ],
+    "frozen G020": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "frozen G021": [
+     94,
+     44,
+     92,
+     42,
+     43,
+     91,
+     942,
+     6745,
+     5977,
+     9125
+    ],
+    "frozen G022": [
+     40,
+     3592,
+     3648,
+     90,
+     36,
+     87,
+     12,
+     39,
+     38,
+     11
+    ],
+    "frozen G023": [
+     28,
+     76,
+     93,
+     70,
+     1576,
+     24,
+     96,
+     3157,
+     5423,
+     575
+    ],
+    "frozen G024": [
+     41,
+     642,
+     9681,
+     1490,
+     952,
+     3458,
+     6761,
+     4475,
+     9159,
+     3890
+    ],
+    "frozen G025": [
+     21,
+     17,
+     15,
+     20,
+     14,
+     76,
+     8177,
+     1436,
+     3186,
+     2186
+    ],
+    "frozen G026": [
+     33,
+     35,
+     34,
+     671,
+     32,
+     5803,
+     162,
+     5990,
+     1553,
+     5692
+    ],
+    "frozen G027": [
+     1,
+     55,
+     53,
+     52,
+     94,
+     6347,
+     9642,
+     5977,
+     1387,
+     9125
+    ],
+    "frozen G028": [
+     45,
+     18,
+     15,
+     46,
+     21,
+     39,
+     20,
+     16,
+     17,
+     83
+    ],
+    "frozen G029": [
+     2,
+     3,
+     7,
+     10,
+     318,
+     1460,
+     6552,
+     1423,
+     6410,
+     733
+    ],
+    "frozen G030": [
+     30,
+     95,
+     24,
+     29,
+     23,
+     27,
+     47,
+     96,
+     26,
+     4595
+    ],
+    "frozen G031": [
+     22,
+     29,
+     27,
+     24,
+     7417,
+     7119,
+     25,
+     26,
+     30,
+     95
+    ],
+    "frozen G032": [
+     7,
+     737,
+     5216,
+     4982,
+     215,
+     382,
+     6389,
+     1073,
+     5397,
+     4932
+    ],
+    "frozen G033": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     3299
+    ],
+    "frozen G034": [
+     29,
+     28,
+     42,
+     22,
+     93,
+     51,
+     94,
+     92,
+     44,
+     43
+    ],
+    "frozen G035": [
+     8,
+     3,
+     7,
+     10,
+     49,
+     2062,
+     5614,
+     1754,
+     27,
+     4476
+    ],
+    "frozen G036": [
+     30,
+     95,
+     8755,
+     9457,
+     8894,
+     8602,
+     9614,
+     7075,
+     2294,
+     7912
+    ],
+    "frozen G037": [
+     6,
+     6097,
+     8409,
+     7081,
+     352,
+     6094,
+     5482,
+     2633,
+     4041,
+     1243
+    ],
+    "frozen G038": [
+     34,
+     2034,
+     4537,
+     3657,
+     518,
+     721,
+     4232,
+     4199,
+     4783,
+     572
+    ],
+    "frozen G039": [
+     2,
+     4336,
+     7291,
+     6067,
+     4453,
+     284,
+     3768,
+     9372,
+     3184,
+     2336
+    ],
+    "frozen G040": [
+     6620,
+     7071,
+     9729,
+     9621,
+     7040,
+     6970,
+     285,
+     212,
+     3235,
+     100
+    ],
+    "frozen H001": [
+     16,
+     20,
+     14,
+     13,
+     825,
+     5746,
+     5477,
+     5677,
+     4862,
+     8931
+    ],
+    "frozen H002": [
+     22,
+     29,
+     24,
+     28,
+     26,
+     27,
+     3554,
+     30,
+     1331,
+     2111
+    ],
+    "frozen H003": [
+     7,
+     9,
+     3,
+     10,
+     1,
+     8,
+     5,
+     2,
+     4,
+     6
+    ],
+    "frozen H004": [
+     34,
+     32,
+     33,
+     98,
+     97,
+     35,
+     99,
+     59,
+     8967,
+     3375
+    ],
+    "frozen H005": [
+     24,
+     28,
+     30,
+     47,
+     3832,
+     9565,
+     9250,
+     5228,
+     7486,
+     3184
+    ],
+    "frozen H006": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     21,
+     15,
+     17,
+     12
+    ],
+    "frozen H007": [
+     12,
+     4080,
+     3551,
+     4138,
+     7708,
+     2063,
+     9388,
+     7750,
+     6084,
+     2669
+    ],
+    "frozen H008": [
+     2,
+     3,
+     61,
+     62,
+     10,
+     63,
+     4,
+     5,
+     65,
+     64
+    ],
+    "frozen H009": [
+     30,
+     24,
+     95,
+     28,
+     47,
+     27,
+     23,
+     8663,
+     7174,
+     6416
+    ],
+    "frozen H010": [
+     3,
+     7,
+     9,
+     2,
+     10,
+     1,
+     5,
+     8,
+     4,
+     62
+    ],
+    "frozen H011": [
+     33,
+     34,
+     32,
+     35,
+     99,
+     97,
+     98,
+     1270,
+     6456,
+     365
+    ],
+    "frozen H012": [
+     24,
+     30,
+     28,
+     47,
+     27,
+     95,
+     4631,
+     9250,
+     10,
+     370
+    ],
+    "frozen H013": [
+     24,
+     30,
+     47,
+     23,
+     27,
+     95,
+     28,
+     2,
+     96,
+     26
+    ],
+    "frozen H014": [
+     15,
+     16,
+     13,
+     20,
+     17,
+     14,
+     19,
+     18,
+     21,
+     825
+    ],
+    "frozen H015": [
+     2,
+     61,
+     3,
+     62,
+     10,
+     5,
+     63,
+     4,
+     65,
+     64
+    ],
+    "frozen H016": [
+     20,
+     14,
+     19,
+     18,
+     13,
+     16,
+     21,
+     15,
+     17,
+     9118
+    ],
+    "frozen H017": [
+     22,
+     29,
+     5165,
+     9291,
+     8451,
+     6593,
+     6506,
+     2228,
+     410,
+     7843
+    ],
+    "frozen H018": [
+     34,
+     33,
+     32,
+     98,
+     99,
+     35,
+     97,
+     7898,
+     419,
+     4939
+    ],
+    "generic 0": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "generic 1": [
+     9723,
+     36,
+     39,
+     38,
+     11,
+     37,
+     89,
+     88,
+     87,
+     86
+    ],
+    "generic 2": [
+     681,
+     1422,
+     7969,
+     9338,
+     6165,
+     703,
+     566,
+     1468,
+     2809,
+     8109
+    ],
+    "generic 3": [
+     825,
+     5677,
+     5746,
+     8931,
+     4749,
+     3495,
+     5477,
+     5146,
+     6389,
+     7828
+    ],
+    "generic 4": [
+     1453,
+     279,
+     8861,
+     993,
+     9508,
+     3801,
+     1767,
+     7551,
+     9674,
+     7757
+    ],
+    "generic 5": [
+     9299,
+     582,
+     9371,
+     1449,
+     3116,
+     198,
+     4975,
+     3441,
+     1862,
+     1286
+    ],
+    "generic 6": [
+     4248,
+     318,
+     1460,
+     6552,
+     9607,
+     7825,
+     446,
+     585,
+     2968,
+     292
+    ],
+    "generic 7": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "generic 8": [
+     6762,
+     7683,
+     9684,
+     771,
+     4416,
+     5240,
+     125,
+     7111,
+     5699,
+     8144
+    ],
+    "generic 9": [
+     8886,
+     110,
+     2729,
+     5378,
+     3548,
+     5894,
+     4310,
+     1585,
+     4913,
+     7793
+    ],
+    "generic 10": [
+     5436,
+     5337,
+     8473,
+     7284,
+     1813,
+     1830,
+     787,
+     3273,
+     4558,
+     7377
+    ],
+    "generic 11": [
+     3917,
+     5843,
+     990,
+     2457,
+     116,
+     3957,
+     4074,
+     775,
+     8988,
+     4147
+    ],
+    "generic 12": [
+     1989,
+     9865,
+     6931,
+     7922,
+     5680,
+     4134,
+     2182,
+     8993,
+     9001,
+     5829
+    ],
+    "generic 13": [
+     8613,
+     8749,
+     4044,
+     6914,
+     2079,
+     5633,
+     560,
+     7542,
+     2565,
+     5156
+    ],
+    "generic 14": [
+     1418,
+     3807,
+     4313,
+     7625,
+     307,
+     708,
+     3496,
+     6478,
+     1669,
+     7394
+    ],
+    "generic 15": [
+     6992,
+     4243,
+     3129,
+     7605,
+     7798,
+     5743,
+     4564,
+     6596,
+     1883,
+     7592
+    ],
+    "generic 16": [
+     9934,
+     8042,
+     7411,
+     4895,
+     3004,
+     8062,
+     9833,
+     8967,
+     4711,
+     4338
+    ],
+    "generic 17": [
+     3274,
+     3524,
+     7782,
+     3607,
+     4167,
+     9032,
+     4852,
+     2422,
+     9891,
+     8322
+    ],
+    "generic 18": [
+     6818,
+     653,
+     3554,
+     224,
+     505,
+     5007,
+     1980,
+     7417,
+     5101,
+     7119
+    ],
+    "generic 19": [
+     5416,
+     103,
+     9972,
+     6473,
+     4239,
+     9436,
+     552,
+     9979,
+     5682,
+     1180
+    ],
+    "generic 20": [
+     3819,
+     4350,
+     8527,
+     7933,
+     6585,
+     6629,
+     8940,
+     5403,
+     663,
+     1692
+    ],
+    "generic 21": [
+     115,
+     4621,
+     1938,
+     5824,
+     683,
+     7180,
+     7852,
+     8052,
+     5205,
+     3071
+    ],
+    "generic 22": [
+     41,
+     3545,
+     6514,
+     5114,
+     4916,
+     4423,
+     4993,
+     2915,
+     4715,
+     8592
+    ],
+    "generic 23": [
+     382,
+     8111,
+     1073,
+     3150,
+     4299,
+     9578,
+     6665,
+     5818,
+     4398,
+     2949
+    ],
+    "generic 24": [
+     5379,
+     5250,
+     3485,
+     7331,
+     1740,
+     2482,
+     8617,
+     3123,
+     1184,
+     4114
+    ],
+    "generic 25": [
+     2517,
+     9627,
+     4521,
+     5444,
+     2710,
+     9013,
+     2589,
+     935,
+     7648,
+     6518
+    ],
+    "generic 26": [
+     6799,
+     1556,
+     7487,
+     2801,
+     1561,
+     3760,
+     1733,
+     3942,
+     3980,
+     6469
+    ],
+    "generic 27": [
+     1334,
+     4541,
+     9564,
+     2607,
+     8472,
+     2865,
+     624,
+     9663,
+     2846,
+     3523
+    ],
+    "generic 28": [
+     7095,
+     9704,
+     1885,
+     8415,
+     3714,
+     7971,
+     832,
+     4166,
+     8640,
+     6539
+    ],
+    "generic 29": [
+     7396,
+     1750,
+     7342,
+     9204,
+     5406,
+     4532,
+     7500,
+     2179,
+     7866,
+     1234
+    ],
+    "generic 30": [
+     8373,
+     9674,
+     7757,
+     7551,
+     279,
+     1453,
+     1767,
+     8554,
+     3410,
+     7493
+    ],
+    "generic 31": [
+     7024,
+     3730,
+     1768,
+     3877,
+     1584,
+     8187,
+     318,
+     4996,
+     2968,
+     6552
+    ],
+    "generic 32": [
+     109,
+     211,
+     205,
+     106,
+     207,
+     159,
+     330,
+     248,
+     387,
+     164
+    ],
+    "generic 33": [
+     8139,
+     1722,
+     131,
+     4940,
+     9735,
+     6551,
+     3330,
+     9711,
+     9756,
+     8729
+    ],
+    "generic 34": [
+     98,
+     99,
+     46,
+     45,
+     9458,
+     6021,
+     9471,
+     8766,
+     5088,
+     3194
+    ],
+    "generic 35": [
+     7148,
+     8083,
+     7892,
+     6916,
+     2551,
+     6943,
+     3246,
+     6871,
+     2883,
+     2935
+    ],
+    "generic 36": [
+     76,
+     7532,
+     4702,
+     581,
+     3990,
+     72,
+     7694,
+     6962,
+     7570,
+     6712
+    ],
+    "generic 37": [
+     1918,
+     2263,
+     10,
+     2191,
+     1469,
+     2373,
+     6969,
+     6132,
+     2818,
+     2596
+    ],
+    "generic 38": [
+     7339,
+     9815,
+     4262,
+     7075,
+     5972,
+     9343,
+     2458,
+     7035,
+     5805,
+     8214
+    ],
+    "generic 39": [
+     8220,
+     5940,
+     7103,
+     3886,
+     2276,
+     2916,
+     2349,
+     9451,
+     5951,
+     7326
+    ],
+    "filter 0 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 0 + text 1": [
+     14,
+     13,
+     2562,
+     2125,
+     9249,
+     2241,
+     5462,
+     1429,
+     2967,
+     3309
+    ],
+    "filter 0 + text 2": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "filter 1 + text 0": [
+     9,
+     28,
+     1036,
+     5937,
+     334,
+     33,
+     5830,
+     5029,
+     5924,
+     5829
+    ],
+    "filter 1 + text 1": [
+     15,
+     17,
+     21,
+     18,
+     45,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761
+    ],
+    "filter 1 + text 2": [
+     2692,
+     3379,
+     2438,
+     3335,
+     3308,
+     503,
+     5059,
+     3933,
+     8155,
+     1723
+    ],
+    "filter 2 + text 0": [
+     7,
+     8,
+     6,
+     209,
+     1009,
+     1603,
+     393,
+     1257,
+     1306,
+     5607
+    ],
+    "filter 2 + text 1": [
+     16,
+     3299,
+     5677,
+     257,
+     8476,
+     8931,
+     5746,
+     9736,
+     4749,
+     5574
+    ],
+    "filter 2 + text 2": [
+     1350,
+     5490,
+     2026,
+     8790,
+     8378,
+     3432,
+     1056,
+     6239,
+     3632,
+     8002
+    ],
+    "filter 3 + text 0": [
+     11,
+     38,
+     12,
+     39,
+     40,
+     36,
+     89,
+     90,
+     37,
+     1161
+    ],
+    "filter 3 + text 1": [
+     38,
+     12,
+     11,
+     90,
+     39,
+     87,
+     86,
+     6012,
+     5860,
+     5009
+    ],
+    "filter 3 + text 2": [
+     9723,
+     8122,
+     8121,
+     6513,
+     3373,
+     6519,
+     1716,
+     88,
+     3393,
+     87
+    ],
+    "filter 4 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 4 + text 1": [
+     9736,
+     979,
+     7163,
+     2054,
+     1909,
+     6238,
+     7241,
+     9650,
+     6612,
+     3380
+    ],
+    "filter 4 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 5 + text 0": [
+     24,
+     16,
+     28,
+     30,
+     836,
+     472,
+     711,
+     6494,
+     5301,
+     653
+    ],
+    "filter 5 + text 1": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     5746,
+     4749,
+     3495,
+     5750
+    ],
+    "filter 5 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 6 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 6 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     5677
+    ],
+    "filter 6 + text 2": [
+     49,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083,
+     8897
+    ],
+    "filter 7 + text 0": [
+     7,
+     10,
+     8,
+     11,
+     42,
+     38,
+     64,
+     6,
+     65,
+     41
+    ],
+    "filter 7 + text 1": [
+     20,
+     16,
+     5677,
+     257,
+     5746,
+     9736,
+     5574,
+     215,
+     6389,
+     5958
+    ],
+    "filter 7 + text 2": [
+     6456,
+     390,
+     1350,
+     5490,
+     459,
+     1056,
+     9723,
+     6239,
+     5266,
+     5377
+    ],
+    "filter 8 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64,
+     6
+    ],
+    "filter 8 + text 1": [
+     16,
+     14,
+     13,
+     19,
+     18,
+     9736,
+     979,
+     7163,
+     2054,
+     1909
+    ],
+    "filter 8 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 9 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 9 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     100
+    ],
+    "filter 9 + text 2": [
+     49,
+     26,
+     27,
+     50,
+     48,
+     25,
+     74,
+     3,
+     24,
+     47
+    ],
+    "filter 10 + text 0": [
+     1,
+     2,
+     61,
+     13,
+     22,
+     67
+    ],
+    "filter 10 + text 1": [
+     13,
+     22,
+     73,
+     72,
+     66
+    ],
+    "filter 10 + text 2": [
+     51,
+     22,
+     67,
+     1,
+     13,
+     2,
+     61,
+     72,
+     73,
+     66
+    ],
+    "filter 11 + text 0": [
+     3,
+     2,
+     61,
+     62,
+     553,
+     1550,
+     4335,
+     2095,
+     605,
+     1337
+    ],
+    "filter 11 + text 1": [
+     8775,
+     7242,
+     852,
+     2783,
+     8585,
+     589,
+     1972,
+     1618,
+     6453,
+     1168
+    ],
+    "filter 11 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 12 + text 0": [
+     42,
+     65,
+     44,
+     43,
+     93,
+     94,
+     92,
+     5497,
+     1602,
+     5483
+    ],
+    "filter 12 + text 1": [
+     42,
+     43,
+     44,
+     5954,
+     6489,
+     728,
+     9887,
+     5386,
+     94,
+     6081
+    ],
+    "filter 12 + text 2": [
+     29,
+     3058,
+     6918,
+     6845,
+     3295,
+     7609,
+     1772,
+     94,
+     8774,
+     5687
+    ],
+    "filter 13 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 13 + text 1": [
+     14,
+     13,
+     5462,
+     1429,
+     5590,
+     5823,
+     584,
+     9853,
+     9766,
+     154
+    ],
+    "filter 13 + text 2": [
+     49,
+     26,
+     5215,
+     1650,
+     5975,
+     557,
+     548,
+     9769,
+     5581,
+     6129
+    ],
+    "filter 14 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 14 + text 1": [
+     8,
+     64,
+     65,
+     7,
+     6,
+     10
+    ],
+    "filter 14 + text 2": [
+     3,
+     2,
+     1,
+     10,
+     65,
+     61,
+     8,
+     64,
+     6,
+     62
+    ],
+    "filter 15 + text 0": [
+     10,
+     64,
+     30,
+     34,
+     95
+    ],
+    "filter 15 + text 1": [
+     30,
+     95,
+     64,
+     34,
+     10
+    ],
+    "filter 15 + text 2": [
+     30,
+     10,
+     34,
+     95,
+     64
+    ],
+    "filter 16 + text 0": [
+     24,
+     27,
+     26,
+     23
+    ],
+    "filter 16 + text 1": [
+     2086,
+     7382,
+     7577,
+     4133,
+     537,
+     4248,
+     7899,
+     4123,
+     8485,
+     819
+    ],
+    "filter 16 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 17 + text 0": [
+     5349,
+     7796,
+     5778,
+     764,
+     562,
+     1001,
+     8838,
+     2487,
+     6055,
+     8225
+    ],
+    "filter 17 + text 1": [
+     17,
+     21,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761,
+     2186,
+     4960,
+     9849
+    ],
+    "filter 17 + text 2": [
+     3992,
+     9581,
+     4074,
+     4204,
+     1481,
+     2362,
+     8991,
+     6510,
+     7264,
+     5220
+    ],
+    "filter 18 + text 0": [
+     5332,
+     979,
+     6308,
+     9994,
+     9765,
+     5967,
+     6094,
+     6284,
+     253,
+     1547
+    ],
+    "filter 18 + text 1": [
+     3299,
+     5746,
+     979,
+     5477,
+     180,
+     825,
+     2054,
+     8570,
+     2277,
+     2998
+    ],
+    "filter 18 + text 2": [
+     1056,
+     5494,
+     7147,
+     2724,
+     5003,
+     2639,
+     2272,
+     9032,
+     6461,
+     4065
+    ],
+    "filter 19 + text 0": [
+     6348,
+     1447,
+     1516,
+     5125,
+     9873,
+     212,
+     9729,
+     9861,
+     514,
+     6085
+    ],
+    "filter 19 + text 1": [
+     20,
+     5750,
+     6238,
+     5019,
+     8545,
+     9729,
+     4472,
+     5996,
+     5881,
+     9863
+    ],
+    "filter 19 + text 2": [
+     3206,
+     6638,
+     4307,
+     9460,
+     6074,
+     6238,
+     4253,
+     8545,
+     4577,
+     8504
+    ]
+   },
+   "N=1000": {
+    "frozen G001": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2
+    ],
+    "frozen G002": [
+     20,
+     14,
+     16,
+     13,
+     19,
+     18,
+     15,
+     17,
+     21,
+     825
+    ],
+    "frozen G003": [
+     6179,
+     7044,
+     587,
+     28,
+     571,
+     1114,
+     1969,
+     1404,
+     7129,
+     4971
+    ],
+    "frozen G004": [
+     34,
+     33,
+     32,
+     35,
+     99,
+     98,
+     8243,
+     8446,
+     9871,
+     4939
+    ],
+    "frozen G005": [
+     45,
+     46,
+     935,
+     7565,
+     7289,
+     3534,
+     265,
+     9800,
+     8766,
+     8093
+    ],
+    "frozen G006": [
+     3,
+     8,
+     7,
+     4,
+     10,
+     9,
+     2,
+     1423,
+     8711,
+     2512
+    ],
+    "frozen G007": [
+     26,
+     27,
+     25,
+     5619,
+     1410,
+     5422,
+     6773,
+     7409,
+     8296,
+     2708
+    ],
+    "frozen G008": [
+     20,
+     6762,
+     5111,
+     3896,
+     348,
+     2123,
+     3553,
+     8318,
+     9910,
+     6713
+    ],
+    "frozen G009": [
+     31,
+     7152,
+     6750,
+     7315,
+     9454,
+     8252,
+     5464,
+     5351,
+     3756,
+     8200
+    ],
+    "frozen G010": [
+     19,
+     8051,
+     6795,
+     6163,
+     6905,
+     9965,
+     4272,
+     8375,
+     9089,
+     958
+    ],
+    "frozen G011": [
+     96,
+     23,
+     3430,
+     8551,
+     1933,
+     6946,
+     9002,
+     2029,
+     24,
+     5820
+    ],
+    "frozen G012": [
+     2,
+     3,
+     4,
+     9,
+     24,
+     3263,
+     2506,
+     3465,
+     9807,
+     6742
+    ],
+    "frozen G013": [
+     22,
+     29,
+     5101,
+     7119,
+     3867,
+     3709,
+     66,
+     8618,
+     7773,
+     9550
+    ],
+    "frozen G014": [
+     41,
+     712,
+     3545,
+     1355,
+     1202,
+     715,
+     4916,
+     4993,
+     2915,
+     324
+    ],
+    "frozen G015": [
+     13,
+     18,
+     14,
+     19,
+     15,
+     20,
+     16,
+     21,
+     27,
+     7880
+    ],
+    "frozen G016": [
+     7,
+     9,
+     3,
+     10,
+     8,
+     4717,
+     3299,
+     6752,
+     1314,
+     2054
+    ],
+    "frozen G017": [
+     11,
+     38,
+     12,
+     39,
+     7,
+     8,
+     4,
+     40,
+     89,
+     3
+    ],
+    "frozen G018": [
+     15,
+     17,
+     5222,
+     5920,
+     571,
+     5955,
+     1334,
+     328,
+     1296,
+     406
+    ],
+    "frozen G019": [
+     33,
+     34,
+     35,
+     32,
+     37,
+     365,
+     43,
+     39,
+     44,
+     6456
+    ],
+    "frozen G020": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "frozen G021": [
+     94,
+     44,
+     92,
+     42,
+     43,
+     91,
+     942,
+     6745,
+     5977,
+     9125
+    ],
+    "frozen G022": [
+     40,
+     3592,
+     3648,
+     90,
+     36,
+     87,
+     12,
+     39,
+     38,
+     11
+    ],
+    "frozen G023": [
+     28,
+     76,
+     93,
+     37,
+     36,
+     70,
+     1576,
+     24,
+     5236,
+     73
+    ],
+    "frozen G024": [
+     41,
+     642,
+     9681,
+     1490,
+     952,
+     3458,
+     6761,
+     4475,
+     9159,
+     3890
+    ],
+    "frozen G025": [
+     21,
+     17,
+     15,
+     20,
+     14,
+     76,
+     8177,
+     1436,
+     3186,
+     2186
+    ],
+    "frozen G026": [
+     33,
+     35,
+     34,
+     671,
+     32,
+     5803,
+     162,
+     5990,
+     1553,
+     5692
+    ],
+    "frozen G027": [
+     1,
+     55,
+     53,
+     52,
+     94,
+     6347,
+     9642,
+     5977,
+     1387,
+     9125
+    ],
+    "frozen G028": [
+     45,
+     18,
+     15,
+     46,
+     21,
+     39,
+     20,
+     16,
+     17,
+     83
+    ],
+    "frozen G029": [
+     2,
+     3,
+     7,
+     10,
+     318,
+     1460,
+     6552,
+     1423,
+     6410,
+     733
+    ],
+    "frozen G030": [
+     30,
+     95,
+     24,
+     29,
+     23,
+     27,
+     22,
+     47,
+     96,
+     26
+    ],
+    "frozen G031": [
+     22,
+     29,
+     27,
+     24,
+     7417,
+     7119,
+     25,
+     26,
+     30,
+     95
+    ],
+    "frozen G032": [
+     7,
+     10,
+     737,
+     5216,
+     4982,
+     215,
+     382,
+     6389,
+     1073,
+     5397
+    ],
+    "frozen G033": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     3299
+    ],
+    "frozen G034": [
+     29,
+     28,
+     42,
+     22,
+     93,
+     51,
+     94,
+     92,
+     44,
+     43
+    ],
+    "frozen G035": [
+     8,
+     3,
+     7,
+     10,
+     49,
+     5216,
+     737,
+     2062,
+     9731,
+     5614
+    ],
+    "frozen G036": [
+     30,
+     95,
+     8755,
+     9457,
+     8894,
+     8602,
+     9614,
+     7075,
+     2294,
+     7912
+    ],
+    "frozen G037": [
+     6,
+     6097,
+     8409,
+     7081,
+     352,
+     6094,
+     5482,
+     2633,
+     4041,
+     1243
+    ],
+    "frozen G038": [
+     34,
+     2034,
+     4537,
+     3657,
+     518,
+     721,
+     4232,
+     4199,
+     4783,
+     572
+    ],
+    "frozen G039": [
+     2,
+     4336,
+     7291,
+     6067,
+     4453,
+     284,
+     3768,
+     9372,
+     3184,
+     2336
+    ],
+    "frozen G040": [
+     6620,
+     7071,
+     9729,
+     9621,
+     7040,
+     6970,
+     285,
+     212,
+     3235,
+     100
+    ],
+    "frozen H001": [
+     16,
+     20,
+     14,
+     13,
+     825,
+     5746,
+     5477,
+     5677,
+     4862,
+     8931
+    ],
+    "frozen H002": [
+     22,
+     29,
+     24,
+     28,
+     26,
+     27,
+     3554,
+     30,
+     1331,
+     2111
+    ],
+    "frozen H003": [
+     7,
+     9,
+     3,
+     10,
+     1,
+     8,
+     5,
+     2,
+     4,
+     6
+    ],
+    "frozen H004": [
+     34,
+     32,
+     33,
+     98,
+     97,
+     35,
+     99,
+     59,
+     8967,
+     41
+    ],
+    "frozen H005": [
+     24,
+     28,
+     30,
+     47,
+     3832,
+     9565,
+     9250,
+     5228,
+     7486,
+     3184
+    ],
+    "frozen H006": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     21,
+     15,
+     17,
+     12
+    ],
+    "frozen H007": [
+     12,
+     4080,
+     3551,
+     4138,
+     7708,
+     2063,
+     9388,
+     7750,
+     6084,
+     2669
+    ],
+    "frozen H008": [
+     2,
+     3,
+     61,
+     62,
+     10,
+     63,
+     41,
+     4,
+     5,
+     65
+    ],
+    "frozen H009": [
+     30,
+     24,
+     95,
+     28,
+     47,
+     27,
+     23,
+     8663,
+     7174,
+     6416
+    ],
+    "frozen H010": [
+     3,
+     7,
+     9,
+     2,
+     10,
+     1,
+     5,
+     8,
+     4,
+     62
+    ],
+    "frozen H011": [
+     33,
+     34,
+     32,
+     35,
+     99,
+     97,
+     98,
+     43,
+     39,
+     37
+    ],
+    "frozen H012": [
+     24,
+     30,
+     28,
+     47,
+     27,
+     95,
+     4631,
+     9250,
+     10,
+     370
+    ],
+    "frozen H013": [
+     24,
+     30,
+     47,
+     23,
+     27,
+     95,
+     28,
+     2,
+     96,
+     26
+    ],
+    "frozen H014": [
+     15,
+     16,
+     13,
+     20,
+     17,
+     14,
+     19,
+     18,
+     21,
+     825
+    ],
+    "frozen H015": [
+     2,
+     61,
+     3,
+     62,
+     10,
+     5,
+     63,
+     41,
+     4,
+     65
+    ],
+    "frozen H016": [
+     20,
+     14,
+     19,
+     18,
+     13,
+     16,
+     21,
+     15,
+     17,
+     9118
+    ],
+    "frozen H017": [
+     22,
+     29,
+     5165,
+     9291,
+     8451,
+     6593,
+     6506,
+     2228,
+     410,
+     7843
+    ],
+    "frozen H018": [
+     34,
+     33,
+     32,
+     98,
+     99,
+     35,
+     97,
+     7898,
+     419,
+     4939
+    ],
+    "generic 0": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "generic 1": [
+     9723,
+     36,
+     39,
+     38,
+     11,
+     37,
+     89,
+     88,
+     87,
+     86
+    ],
+    "generic 2": [
+     681,
+     1422,
+     7969,
+     9338,
+     6165,
+     703,
+     566,
+     1468,
+     2809,
+     8109
+    ],
+    "generic 3": [
+     825,
+     5677,
+     5746,
+     8931,
+     4749,
+     3495,
+     5477,
+     5146,
+     6389,
+     7828
+    ],
+    "generic 4": [
+     1453,
+     279,
+     8861,
+     993,
+     9508,
+     3801,
+     1767,
+     7551,
+     9674,
+     7757
+    ],
+    "generic 5": [
+     9299,
+     582,
+     9371,
+     1449,
+     3116,
+     198,
+     4975,
+     3441,
+     1862,
+     1286
+    ],
+    "generic 6": [
+     4248,
+     318,
+     1460,
+     6552,
+     9607,
+     7825,
+     446,
+     585,
+     2968,
+     292
+    ],
+    "generic 7": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "generic 8": [
+     6762,
+     7683,
+     9684,
+     771,
+     4416,
+     5240,
+     125,
+     7111,
+     5699,
+     8144
+    ],
+    "generic 9": [
+     8886,
+     110,
+     2729,
+     5378,
+     3548,
+     5894,
+     4310,
+     1585,
+     4913,
+     7793
+    ],
+    "generic 10": [
+     5436,
+     5337,
+     8473,
+     7284,
+     1813,
+     1830,
+     787,
+     3273,
+     4558,
+     7377
+    ],
+    "generic 11": [
+     3917,
+     5843,
+     990,
+     2457,
+     116,
+     3957,
+     4074,
+     775,
+     8988,
+     4147
+    ],
+    "generic 12": [
+     1989,
+     9865,
+     6931,
+     7922,
+     5680,
+     4134,
+     2182,
+     8993,
+     9001,
+     5829
+    ],
+    "generic 13": [
+     8613,
+     8749,
+     4044,
+     6914,
+     2079,
+     5633,
+     560,
+     7542,
+     2565,
+     5156
+    ],
+    "generic 14": [
+     1418,
+     3807,
+     4313,
+     7625,
+     307,
+     708,
+     3496,
+     6478,
+     1669,
+     7394
+    ],
+    "generic 15": [
+     6992,
+     4243,
+     3129,
+     7605,
+     7798,
+     5743,
+     4564,
+     6596,
+     1883,
+     7592
+    ],
+    "generic 16": [
+     9934,
+     8042,
+     7411,
+     4895,
+     3004,
+     8062,
+     9833,
+     8967,
+     4711,
+     4338
+    ],
+    "generic 17": [
+     3274,
+     3524,
+     7782,
+     3607,
+     4167,
+     9032,
+     4852,
+     2422,
+     9891,
+     8322
+    ],
+    "generic 18": [
+     6818,
+     653,
+     3554,
+     224,
+     505,
+     5007,
+     1980,
+     7417,
+     5101,
+     7119
+    ],
+    "generic 19": [
+     5416,
+     103,
+     9972,
+     6473,
+     4239,
+     9436,
+     552,
+     9979,
+     5682,
+     1180
+    ],
+    "generic 20": [
+     3819,
+     4350,
+     8527,
+     7933,
+     6585,
+     6629,
+     8940,
+     5403,
+     663,
+     1692
+    ],
+    "generic 21": [
+     115,
+     4621,
+     1938,
+     5824,
+     683,
+     7180,
+     7852,
+     8052,
+     5205,
+     3071
+    ],
+    "generic 22": [
+     41,
+     3545,
+     6514,
+     5114,
+     4916,
+     4423,
+     4993,
+     2915,
+     4715,
+     8592
+    ],
+    "generic 23": [
+     382,
+     8111,
+     1073,
+     3150,
+     4299,
+     9578,
+     6665,
+     5818,
+     4398,
+     2949
+    ],
+    "generic 24": [
+     5379,
+     5250,
+     3485,
+     7331,
+     1740,
+     2482,
+     8617,
+     3123,
+     1184,
+     4114
+    ],
+    "generic 25": [
+     2517,
+     9627,
+     4521,
+     5444,
+     2710,
+     9013,
+     2589,
+     935,
+     7648,
+     6518
+    ],
+    "generic 26": [
+     6799,
+     1556,
+     7487,
+     2801,
+     1561,
+     3760,
+     1733,
+     3942,
+     3980,
+     6469
+    ],
+    "generic 27": [
+     1334,
+     4541,
+     9564,
+     2607,
+     8472,
+     2865,
+     624,
+     9663,
+     2846,
+     3523
+    ],
+    "generic 28": [
+     7095,
+     9704,
+     1885,
+     8415,
+     3714,
+     7971,
+     832,
+     4166,
+     8640,
+     6539
+    ],
+    "generic 29": [
+     7396,
+     1750,
+     7342,
+     9204,
+     5406,
+     4532,
+     7500,
+     2179,
+     7866,
+     1234
+    ],
+    "generic 30": [
+     8373,
+     9674,
+     7757,
+     7551,
+     279,
+     1453,
+     1767,
+     8554,
+     3410,
+     7493
+    ],
+    "generic 31": [
+     7024,
+     3730,
+     1768,
+     3877,
+     1584,
+     8187,
+     318,
+     4996,
+     2968,
+     6552
+    ],
+    "generic 32": [
+     109,
+     211,
+     205,
+     106,
+     207,
+     159,
+     330,
+     248,
+     387,
+     164
+    ],
+    "generic 33": [
+     8139,
+     1722,
+     131,
+     4940,
+     9735,
+     6551,
+     3330,
+     9711,
+     9756,
+     8729
+    ],
+    "generic 34": [
+     98,
+     99,
+     46,
+     45,
+     9458,
+     6021,
+     9471,
+     8766,
+     5088,
+     3194
+    ],
+    "generic 35": [
+     7148,
+     8083,
+     7892,
+     6916,
+     2551,
+     6943,
+     3246,
+     6871,
+     2883,
+     2935
+    ],
+    "generic 36": [
+     76,
+     7532,
+     4702,
+     581,
+     3990,
+     72,
+     7694,
+     6962,
+     7570,
+     6712
+    ],
+    "generic 37": [
+     1918,
+     2263,
+     10,
+     2191,
+     1469,
+     2373,
+     6969,
+     6132,
+     2818,
+     2596
+    ],
+    "generic 38": [
+     7339,
+     9815,
+     4262,
+     7075,
+     5972,
+     9343,
+     2458,
+     7035,
+     5805,
+     8214
+    ],
+    "generic 39": [
+     8220,
+     5940,
+     7103,
+     3886,
+     2276,
+     2916,
+     2349,
+     9451,
+     5951,
+     7326
+    ],
+    "filter 0 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 0 + text 1": [
+     14,
+     13,
+     2562,
+     2125,
+     9249,
+     2241,
+     5462,
+     1429,
+     2967,
+     3309
+    ],
+    "filter 0 + text 2": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "filter 1 + text 0": [
+     9,
+     28,
+     1036,
+     5937,
+     334,
+     33,
+     5830,
+     5029,
+     5924,
+     5829
+    ],
+    "filter 1 + text 1": [
+     15,
+     17,
+     21,
+     18,
+     45,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761
+    ],
+    "filter 1 + text 2": [
+     2692,
+     3379,
+     2438,
+     3335,
+     3308,
+     503,
+     5059,
+     3933,
+     8155,
+     1723
+    ],
+    "filter 2 + text 0": [
+     7,
+     8,
+     6,
+     209,
+     1009,
+     1603,
+     393,
+     1257,
+     1306,
+     5607
+    ],
+    "filter 2 + text 1": [
+     16,
+     3299,
+     5677,
+     257,
+     8476,
+     8931,
+     5746,
+     9736,
+     4749,
+     5574
+    ],
+    "filter 2 + text 2": [
+     1350,
+     5490,
+     2026,
+     8790,
+     8378,
+     3432,
+     1056,
+     6239,
+     3632,
+     8002
+    ],
+    "filter 3 + text 0": [
+     11,
+     38,
+     12,
+     39,
+     40,
+     36,
+     89,
+     90,
+     37,
+     1161
+    ],
+    "filter 3 + text 1": [
+     38,
+     12,
+     11,
+     90,
+     39,
+     87,
+     86,
+     6012,
+     5860,
+     5009
+    ],
+    "filter 3 + text 2": [
+     9723,
+     8122,
+     8121,
+     6513,
+     3373,
+     6519,
+     1716,
+     88,
+     3393,
+     87
+    ],
+    "filter 4 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 4 + text 1": [
+     9736,
+     979,
+     7163,
+     2054,
+     1909,
+     6238,
+     7241,
+     9650,
+     6612,
+     3380
+    ],
+    "filter 4 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 5 + text 0": [
+     24,
+     16,
+     28,
+     30,
+     836,
+     472,
+     711,
+     6494,
+     5301,
+     653
+    ],
+    "filter 5 + text 1": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     5746,
+     4749,
+     3495,
+     5750
+    ],
+    "filter 5 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 6 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 6 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     5677
+    ],
+    "filter 6 + text 2": [
+     49,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083,
+     8897
+    ],
+    "filter 7 + text 0": [
+     7,
+     10,
+     8,
+     11,
+     42,
+     38,
+     64,
+     6,
+     65,
+     41
+    ],
+    "filter 7 + text 1": [
+     20,
+     16,
+     5677,
+     257,
+     5746,
+     9736,
+     5574,
+     215,
+     6389,
+     5958
+    ],
+    "filter 7 + text 2": [
+     6456,
+     390,
+     1350,
+     5490,
+     459,
+     1056,
+     9723,
+     6239,
+     5266,
+     5377
+    ],
+    "filter 8 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64,
+     6
+    ],
+    "filter 8 + text 1": [
+     16,
+     14,
+     13,
+     19,
+     18,
+     9736,
+     979,
+     7163,
+     2054,
+     1909
+    ],
+    "filter 8 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 9 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 9 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     100
+    ],
+    "filter 9 + text 2": [
+     49,
+     26,
+     27,
+     50,
+     48,
+     25,
+     74,
+     3,
+     24,
+     47
+    ],
+    "filter 10 + text 0": [
+     1,
+     2,
+     61,
+     13,
+     22,
+     67
+    ],
+    "filter 10 + text 1": [
+     13,
+     22,
+     73,
+     72,
+     66
+    ],
+    "filter 10 + text 2": [
+     51,
+     22,
+     67,
+     1,
+     13,
+     2,
+     61,
+     72,
+     73,
+     66
+    ],
+    "filter 11 + text 0": [
+     3,
+     2,
+     61,
+     62,
+     553,
+     1550,
+     4335,
+     2095,
+     605,
+     1337
+    ],
+    "filter 11 + text 1": [
+     8775,
+     7242,
+     852,
+     2783,
+     8585,
+     589,
+     1972,
+     1618,
+     6453,
+     1168
+    ],
+    "filter 11 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 12 + text 0": [
+     42,
+     65,
+     44,
+     43,
+     93,
+     94,
+     92,
+     5497,
+     1602,
+     5483
+    ],
+    "filter 12 + text 1": [
+     42,
+     43,
+     44,
+     5954,
+     6489,
+     728,
+     9887,
+     5386,
+     94,
+     6081
+    ],
+    "filter 12 + text 2": [
+     29,
+     3058,
+     6918,
+     6845,
+     3295,
+     7609,
+     1772,
+     94,
+     8774,
+     5687
+    ],
+    "filter 13 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 13 + text 1": [
+     14,
+     13,
+     5462,
+     1429,
+     5590,
+     5823,
+     584,
+     9853,
+     9766,
+     154
+    ],
+    "filter 13 + text 2": [
+     49,
+     26,
+     5215,
+     1650,
+     5975,
+     557,
+     548,
+     9769,
+     5581,
+     6129
+    ],
+    "filter 14 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 14 + text 1": [
+     8,
+     64,
+     65,
+     7,
+     6,
+     10
+    ],
+    "filter 14 + text 2": [
+     3,
+     2,
+     1,
+     10,
+     65,
+     61,
+     8,
+     64,
+     6,
+     62
+    ],
+    "filter 15 + text 0": [
+     10,
+     64,
+     30,
+     34,
+     95
+    ],
+    "filter 15 + text 1": [
+     30,
+     95,
+     64,
+     34,
+     10
+    ],
+    "filter 15 + text 2": [
+     30,
+     10,
+     34,
+     95,
+     64
+    ],
+    "filter 16 + text 0": [
+     24,
+     27,
+     26,
+     23
+    ],
+    "filter 16 + text 1": [
+     2086,
+     7382,
+     7577,
+     4133,
+     537,
+     4248,
+     7899,
+     4123,
+     8485,
+     819
+    ],
+    "filter 16 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 17 + text 0": [
+     5349,
+     7796,
+     5778,
+     764,
+     562,
+     1001,
+     8838,
+     2487,
+     6055,
+     8225
+    ],
+    "filter 17 + text 1": [
+     17,
+     21,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761,
+     2186,
+     4960,
+     9849
+    ],
+    "filter 17 + text 2": [
+     3992,
+     9581,
+     4074,
+     4204,
+     1481,
+     2362,
+     8991,
+     6510,
+     7264,
+     5220
+    ],
+    "filter 18 + text 0": [
+     5332,
+     979,
+     6308,
+     9994,
+     9765,
+     5967,
+     6094,
+     6284,
+     253,
+     1547
+    ],
+    "filter 18 + text 1": [
+     3299,
+     5746,
+     979,
+     5477,
+     180,
+     825,
+     2054,
+     8570,
+     2277,
+     2998
+    ],
+    "filter 18 + text 2": [
+     1056,
+     5494,
+     7147,
+     2724,
+     5003,
+     2639,
+     2272,
+     9032,
+     6461,
+     4065
+    ],
+    "filter 19 + text 0": [
+     6348,
+     1447,
+     1516,
+     5125,
+     9873,
+     212,
+     9729,
+     9861,
+     514,
+     6085
+    ],
+    "filter 19 + text 1": [
+     20,
+     5750,
+     6238,
+     5019,
+     8545,
+     9729,
+     4472,
+     5996,
+     5881,
+     9863
+    ],
+    "filter 19 + text 2": [
+     3206,
+     6638,
+     4307,
+     9460,
+     6074,
+     6238,
+     4253,
+     8545,
+     4577,
+     8504
+    ]
+   },
+   "N=2000": {
+    "frozen G001": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2
+    ],
+    "frozen G002": [
+     20,
+     14,
+     16,
+     13,
+     19,
+     18,
+     15,
+     17,
+     21,
+     825
+    ],
+    "frozen G003": [
+     6179,
+     7044,
+     587,
+     28,
+     571,
+     1114,
+     1969,
+     1404,
+     7129,
+     4971
+    ],
+    "frozen G004": [
+     34,
+     33,
+     32,
+     35,
+     99,
+     98,
+     8243,
+     8446,
+     9871,
+     4939
+    ],
+    "frozen G005": [
+     45,
+     46,
+     935,
+     7565,
+     7289,
+     3534,
+     265,
+     9800,
+     8766,
+     8093
+    ],
+    "frozen G006": [
+     3,
+     8,
+     7,
+     4,
+     10,
+     9,
+     2,
+     1423,
+     8711,
+     2512
+    ],
+    "frozen G007": [
+     26,
+     27,
+     25,
+     5619,
+     1410,
+     5422,
+     6773,
+     7409,
+     8296,
+     2708
+    ],
+    "frozen G008": [
+     20,
+     6762,
+     5111,
+     3896,
+     348,
+     2123,
+     3553,
+     8318,
+     9910,
+     6713
+    ],
+    "frozen G009": [
+     31,
+     7152,
+     6750,
+     7315,
+     9454,
+     8252,
+     5464,
+     5351,
+     3756,
+     8200
+    ],
+    "frozen G010": [
+     19,
+     8051,
+     6795,
+     6163,
+     6905,
+     9965,
+     4272,
+     8375,
+     9089,
+     958
+    ],
+    "frozen G011": [
+     96,
+     23,
+     3430,
+     8551,
+     1933,
+     6946,
+     9002,
+     2029,
+     24,
+     5820
+    ],
+    "frozen G012": [
+     2,
+     3,
+     4,
+     9,
+     24,
+     5,
+     3263,
+     2506,
+     3465,
+     9807
+    ],
+    "frozen G013": [
+     22,
+     29,
+     5101,
+     7119,
+     3867,
+     3709,
+     66,
+     8618,
+     7773,
+     9550
+    ],
+    "frozen G014": [
+     41,
+     712,
+     3545,
+     1355,
+     1202,
+     715,
+     4916,
+     4993,
+     2915,
+     324
+    ],
+    "frozen G015": [
+     13,
+     18,
+     14,
+     19,
+     15,
+     20,
+     16,
+     21,
+     27,
+     7880
+    ],
+    "frozen G016": [
+     7,
+     9,
+     3,
+     10,
+     8,
+     11,
+     1,
+     4717,
+     3299,
+     6752
+    ],
+    "frozen G017": [
+     11,
+     38,
+     12,
+     39,
+     7,
+     8,
+     4,
+     40,
+     89,
+     3
+    ],
+    "frozen G018": [
+     15,
+     17,
+     5222,
+     5920,
+     571,
+     5955,
+     1334,
+     328,
+     1296,
+     406
+    ],
+    "frozen G019": [
+     33,
+     34,
+     35,
+     32,
+     37,
+     365,
+     43,
+     39,
+     44,
+     6456
+    ],
+    "frozen G020": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "frozen G021": [
+     94,
+     44,
+     92,
+     42,
+     43,
+     91,
+     942,
+     6745,
+     5977,
+     9125
+    ],
+    "frozen G022": [
+     40,
+     3592,
+     3648,
+     90,
+     36,
+     87,
+     12,
+     39,
+     38,
+     11
+    ],
+    "frozen G023": [
+     28,
+     76,
+     93,
+     37,
+     36,
+     70,
+     1576,
+     24,
+     5236,
+     73
+    ],
+    "frozen G024": [
+     41,
+     642,
+     9681,
+     1490,
+     952,
+     3458,
+     6761,
+     4475,
+     9159,
+     3890
+    ],
+    "frozen G025": [
+     21,
+     17,
+     15,
+     20,
+     14,
+     76,
+     8177,
+     1436,
+     3186,
+     2186
+    ],
+    "frozen G026": [
+     33,
+     35,
+     34,
+     671,
+     32,
+     5803,
+     162,
+     5990,
+     1553,
+     5692
+    ],
+    "frozen G027": [
+     1,
+     55,
+     53,
+     52,
+     94,
+     6347,
+     9642,
+     5977,
+     1387,
+     9125
+    ],
+    "frozen G028": [
+     45,
+     18,
+     15,
+     46,
+     21,
+     39,
+     20,
+     16,
+     17,
+     83
+    ],
+    "frozen G029": [
+     2,
+     3,
+     7,
+     10,
+     318,
+     1460,
+     6552,
+     1423,
+     6410,
+     733
+    ],
+    "frozen G030": [
+     30,
+     95,
+     24,
+     29,
+     23,
+     27,
+     22,
+     47,
+     96,
+     26
+    ],
+    "frozen G031": [
+     22,
+     29,
+     27,
+     24,
+     7417,
+     7119,
+     25,
+     26,
+     30,
+     95
+    ],
+    "frozen G032": [
+     7,
+     10,
+     737,
+     5216,
+     4982,
+     215,
+     382,
+     6389,
+     1073,
+     5397
+    ],
+    "frozen G033": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     3299
+    ],
+    "frozen G034": [
+     29,
+     28,
+     42,
+     22,
+     36,
+     93,
+     51,
+     37,
+     24,
+     94
+    ],
+    "frozen G035": [
+     8,
+     3,
+     7,
+     10,
+     11,
+     49,
+     44,
+     41,
+     5216,
+     737
+    ],
+    "frozen G036": [
+     30,
+     95,
+     40,
+     8755,
+     9457,
+     8894,
+     8602,
+     9614,
+     7075,
+     2294
+    ],
+    "frozen G037": [
+     6,
+     6097,
+     8409,
+     7081,
+     352,
+     6094,
+     5482,
+     2633,
+     4041,
+     1243
+    ],
+    "frozen G038": [
+     34,
+     2034,
+     4537,
+     3657,
+     518,
+     721,
+     4232,
+     4199,
+     4783,
+     572
+    ],
+    "frozen G039": [
+     2,
+     4336,
+     7291,
+     6067,
+     4453,
+     284,
+     5642,
+     3768,
+     9372,
+     3184
+    ],
+    "frozen G040": [
+     6620,
+     7071,
+     9729,
+     9621,
+     7040,
+     6970,
+     285,
+     212,
+     3235,
+     100
+    ],
+    "frozen H001": [
+     16,
+     20,
+     14,
+     13,
+     825,
+     5746,
+     5477,
+     5677,
+     4862,
+     8931
+    ],
+    "frozen H002": [
+     22,
+     29,
+     24,
+     28,
+     26,
+     27,
+     3554,
+     30,
+     1331,
+     2111
+    ],
+    "frozen H003": [
+     7,
+     9,
+     3,
+     10,
+     1,
+     8,
+     5,
+     2,
+     4,
+     6
+    ],
+    "frozen H004": [
+     34,
+     32,
+     33,
+     98,
+     97,
+     35,
+     99,
+     59,
+     8967,
+     41
+    ],
+    "frozen H005": [
+     24,
+     28,
+     30,
+     47,
+     3832,
+     9565,
+     9250,
+     5228,
+     7486,
+     3184
+    ],
+    "frozen H006": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     21,
+     15,
+     17,
+     12
+    ],
+    "frozen H007": [
+     12,
+     4080,
+     3551,
+     4138,
+     7708,
+     2063,
+     9388,
+     7750,
+     6084,
+     2669
+    ],
+    "frozen H008": [
+     2,
+     3,
+     61,
+     62,
+     10,
+     63,
+     41,
+     4,
+     5,
+     65
+    ],
+    "frozen H009": [
+     30,
+     24,
+     95,
+     28,
+     47,
+     29,
+     40,
+     27,
+     23,
+     22
+    ],
+    "frozen H010": [
+     3,
+     7,
+     9,
+     2,
+     10,
+     1,
+     5,
+     8,
+     4,
+     62
+    ],
+    "frozen H011": [
+     33,
+     34,
+     32,
+     35,
+     99,
+     97,
+     98,
+     43,
+     39,
+     37
+    ],
+    "frozen H012": [
+     24,
+     30,
+     28,
+     47,
+     41,
+     27,
+     29,
+     40,
+     95,
+     4631
+    ],
+    "frozen H013": [
+     24,
+     30,
+     47,
+     23,
+     27,
+     29,
+     95,
+     28,
+     2,
+     96
+    ],
+    "frozen H014": [
+     15,
+     16,
+     13,
+     20,
+     17,
+     14,
+     19,
+     18,
+     21,
+     825
+    ],
+    "frozen H015": [
+     2,
+     61,
+     3,
+     62,
+     10,
+     5,
+     63,
+     41,
+     4,
+     65
+    ],
+    "frozen H016": [
+     20,
+     14,
+     19,
+     18,
+     13,
+     16,
+     21,
+     15,
+     17,
+     9118
+    ],
+    "frozen H017": [
+     22,
+     29,
+     5165,
+     9291,
+     8451,
+     6593,
+     6506,
+     2228,
+     410,
+     7843
+    ],
+    "frozen H018": [
+     34,
+     33,
+     32,
+     98,
+     99,
+     35,
+     97,
+     7898,
+     419,
+     4939
+    ],
+    "generic 0": [
+     43,
+     42,
+     3818,
+     2658,
+     9985,
+     9612,
+     3217,
+     9095,
+     338,
+     1930
+    ],
+    "generic 1": [
+     9723,
+     36,
+     39,
+     38,
+     11,
+     37,
+     89,
+     88,
+     87,
+     86
+    ],
+    "generic 2": [
+     681,
+     1422,
+     7969,
+     9338,
+     6165,
+     703,
+     566,
+     1468,
+     2809,
+     8109
+    ],
+    "generic 3": [
+     825,
+     5677,
+     5746,
+     8931,
+     4749,
+     3495,
+     5477,
+     5146,
+     6389,
+     7828
+    ],
+    "generic 4": [
+     1453,
+     279,
+     8861,
+     993,
+     9508,
+     3801,
+     1767,
+     7551,
+     9674,
+     7757
+    ],
+    "generic 5": [
+     9299,
+     582,
+     9371,
+     1449,
+     3116,
+     198,
+     4975,
+     3441,
+     1862,
+     1286
+    ],
+    "generic 6": [
+     4248,
+     318,
+     1460,
+     6552,
+     9607,
+     7825,
+     446,
+     585,
+     2968,
+     292
+    ],
+    "generic 7": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "generic 8": [
+     6762,
+     7683,
+     9684,
+     771,
+     4416,
+     5240,
+     125,
+     7111,
+     5699,
+     8144
+    ],
+    "generic 9": [
+     8886,
+     110,
+     2729,
+     5378,
+     3548,
+     5894,
+     4310,
+     1585,
+     4913,
+     7793
+    ],
+    "generic 10": [
+     5436,
+     5337,
+     8473,
+     7284,
+     1813,
+     1830,
+     787,
+     3273,
+     4558,
+     7377
+    ],
+    "generic 11": [
+     3917,
+     5843,
+     990,
+     2457,
+     116,
+     3957,
+     4074,
+     775,
+     8988,
+     4147
+    ],
+    "generic 12": [
+     1989,
+     9865,
+     6931,
+     7922,
+     5680,
+     4134,
+     2182,
+     8993,
+     9001,
+     5829
+    ],
+    "generic 13": [
+     8613,
+     8749,
+     4044,
+     6914,
+     2079,
+     5633,
+     560,
+     7542,
+     2565,
+     5156
+    ],
+    "generic 14": [
+     1418,
+     3807,
+     4313,
+     7625,
+     307,
+     708,
+     3496,
+     6478,
+     1669,
+     7394
+    ],
+    "generic 15": [
+     6992,
+     4243,
+     3129,
+     7605,
+     7798,
+     5743,
+     4564,
+     6596,
+     1883,
+     7592
+    ],
+    "generic 16": [
+     9934,
+     8042,
+     7411,
+     4895,
+     3004,
+     8062,
+     9833,
+     8967,
+     4711,
+     4338
+    ],
+    "generic 17": [
+     3274,
+     3524,
+     7782,
+     3607,
+     4167,
+     9032,
+     4852,
+     2422,
+     9891,
+     8322
+    ],
+    "generic 18": [
+     6818,
+     653,
+     3554,
+     224,
+     505,
+     5007,
+     1980,
+     7417,
+     5101,
+     7119
+    ],
+    "generic 19": [
+     5416,
+     103,
+     9972,
+     6473,
+     4239,
+     9436,
+     552,
+     9979,
+     5682,
+     1180
+    ],
+    "generic 20": [
+     3819,
+     4350,
+     8527,
+     7933,
+     6585,
+     6629,
+     8940,
+     5403,
+     663,
+     1692
+    ],
+    "generic 21": [
+     115,
+     4621,
+     1938,
+     5824,
+     683,
+     7180,
+     7852,
+     8052,
+     5205,
+     3071
+    ],
+    "generic 22": [
+     41,
+     3545,
+     6514,
+     5114,
+     4916,
+     4423,
+     4993,
+     2915,
+     4715,
+     8592
+    ],
+    "generic 23": [
+     382,
+     8111,
+     1073,
+     3150,
+     4299,
+     9578,
+     6665,
+     5818,
+     4398,
+     2949
+    ],
+    "generic 24": [
+     5379,
+     5250,
+     3485,
+     7331,
+     1740,
+     2482,
+     8617,
+     3123,
+     1184,
+     4114
+    ],
+    "generic 25": [
+     2517,
+     9627,
+     4521,
+     5444,
+     2710,
+     9013,
+     2589,
+     935,
+     7648,
+     6518
+    ],
+    "generic 26": [
+     6799,
+     1556,
+     7487,
+     2801,
+     1561,
+     3760,
+     1733,
+     3942,
+     3980,
+     6469
+    ],
+    "generic 27": [
+     1334,
+     4541,
+     9564,
+     2607,
+     8472,
+     2865,
+     624,
+     9663,
+     2846,
+     3523
+    ],
+    "generic 28": [
+     7095,
+     9704,
+     1885,
+     8415,
+     3714,
+     7971,
+     832,
+     4166,
+     8640,
+     6539
+    ],
+    "generic 29": [
+     7396,
+     1750,
+     7342,
+     9204,
+     5406,
+     4532,
+     7500,
+     2179,
+     7866,
+     1234
+    ],
+    "generic 30": [
+     8373,
+     9674,
+     7757,
+     7551,
+     279,
+     1453,
+     1767,
+     8554,
+     3410,
+     7493
+    ],
+    "generic 31": [
+     7024,
+     3730,
+     1768,
+     3877,
+     1584,
+     8187,
+     318,
+     4996,
+     2968,
+     6552
+    ],
+    "generic 32": [
+     109,
+     211,
+     205,
+     106,
+     207,
+     159,
+     330,
+     248,
+     387,
+     164
+    ],
+    "generic 33": [
+     8139,
+     1722,
+     131,
+     4940,
+     9735,
+     6551,
+     3330,
+     9711,
+     9756,
+     8729
+    ],
+    "generic 34": [
+     98,
+     99,
+     46,
+     45,
+     9458,
+     6021,
+     9471,
+     8766,
+     5088,
+     3194
+    ],
+    "generic 35": [
+     7148,
+     8083,
+     7892,
+     6916,
+     2551,
+     6943,
+     3246,
+     6871,
+     2883,
+     2935
+    ],
+    "generic 36": [
+     76,
+     7532,
+     4702,
+     581,
+     3990,
+     72,
+     7694,
+     6962,
+     7570,
+     6712
+    ],
+    "generic 37": [
+     1918,
+     2263,
+     10,
+     2191,
+     1469,
+     2373,
+     6969,
+     6132,
+     2818,
+     2596
+    ],
+    "generic 38": [
+     7339,
+     9815,
+     4262,
+     7075,
+     5972,
+     9343,
+     2458,
+     7035,
+     5805,
+     8214
+    ],
+    "generic 39": [
+     8220,
+     5940,
+     7103,
+     3886,
+     2276,
+     2916,
+     2349,
+     9451,
+     5951,
+     7326
+    ],
+    "filter 0 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 0 + text 1": [
+     14,
+     13,
+     2562,
+     2125,
+     9249,
+     2241,
+     5462,
+     1429,
+     2967,
+     3309
+    ],
+    "filter 0 + text 2": [
+     49,
+     26,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083
+    ],
+    "filter 1 + text 0": [
+     9,
+     28,
+     1036,
+     5937,
+     334,
+     33,
+     5830,
+     5029,
+     5924,
+     5829
+    ],
+    "filter 1 + text 1": [
+     15,
+     17,
+     21,
+     18,
+     45,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761
+    ],
+    "filter 1 + text 2": [
+     2692,
+     3379,
+     2438,
+     3335,
+     3308,
+     503,
+     5059,
+     3933,
+     8155,
+     1723
+    ],
+    "filter 2 + text 0": [
+     7,
+     8,
+     6,
+     209,
+     1009,
+     1603,
+     393,
+     1257,
+     1306,
+     5607
+    ],
+    "filter 2 + text 1": [
+     16,
+     3299,
+     5677,
+     257,
+     8476,
+     8931,
+     5746,
+     9736,
+     4749,
+     5574
+    ],
+    "filter 2 + text 2": [
+     1350,
+     5490,
+     2026,
+     8790,
+     8378,
+     3432,
+     1056,
+     6239,
+     3632,
+     8002
+    ],
+    "filter 3 + text 0": [
+     11,
+     38,
+     12,
+     39,
+     40,
+     36,
+     89,
+     90,
+     37,
+     1161
+    ],
+    "filter 3 + text 1": [
+     38,
+     12,
+     11,
+     90,
+     39,
+     87,
+     86,
+     6012,
+     5860,
+     5009
+    ],
+    "filter 3 + text 2": [
+     9723,
+     8122,
+     8121,
+     6513,
+     3373,
+     6519,
+     1716,
+     88,
+     3393,
+     87
+    ],
+    "filter 4 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 4 + text 1": [
+     9736,
+     979,
+     7163,
+     2054,
+     1909,
+     6238,
+     7241,
+     9650,
+     6612,
+     3380
+    ],
+    "filter 4 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 5 + text 0": [
+     24,
+     16,
+     28,
+     30,
+     836,
+     472,
+     711,
+     6494,
+     5301,
+     653
+    ],
+    "filter 5 + text 1": [
+     20,
+     16,
+     14,
+     13,
+     19,
+     18,
+     5746,
+     4749,
+     3495,
+     5750
+    ],
+    "filter 5 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 6 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 6 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     5677
+    ],
+    "filter 6 + text 2": [
+     49,
+     9342,
+     5215,
+     2576,
+     4554,
+     1650,
+     7385,
+     8918,
+     7083,
+     8897
+    ],
+    "filter 7 + text 0": [
+     7,
+     10,
+     8,
+     11,
+     42,
+     38,
+     64,
+     6,
+     65,
+     41
+    ],
+    "filter 7 + text 1": [
+     20,
+     16,
+     5677,
+     257,
+     5746,
+     9736,
+     5574,
+     215,
+     6389,
+     5958
+    ],
+    "filter 7 + text 2": [
+     6456,
+     390,
+     1350,
+     5490,
+     459,
+     1056,
+     9723,
+     6239,
+     5266,
+     5377
+    ],
+    "filter 8 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64,
+     6
+    ],
+    "filter 8 + text 1": [
+     16,
+     14,
+     13,
+     19,
+     18,
+     9736,
+     979,
+     7163,
+     2054,
+     1909
+    ],
+    "filter 8 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 9 + text 0": [
+     7,
+     10,
+     3,
+     8,
+     9,
+     11,
+     4,
+     42,
+     2,
+     38
+    ],
+    "filter 9 + text 1": [
+     20,
+     16,
+     15,
+     17,
+     14,
+     21,
+     13,
+     19,
+     18,
+     100
+    ],
+    "filter 9 + text 2": [
+     49,
+     26,
+     27,
+     50,
+     48,
+     25,
+     74,
+     3,
+     24,
+     47
+    ],
+    "filter 10 + text 0": [
+     1,
+     2,
+     61,
+     13,
+     22,
+     67
+    ],
+    "filter 10 + text 1": [
+     13,
+     22,
+     73,
+     72,
+     66
+    ],
+    "filter 10 + text 2": [
+     51,
+     22,
+     67,
+     1,
+     13,
+     2,
+     61,
+     72,
+     73,
+     66
+    ],
+    "filter 11 + text 0": [
+     3,
+     2,
+     61,
+     62,
+     553,
+     1550,
+     4335,
+     2095,
+     605,
+     1337
+    ],
+    "filter 11 + text 1": [
+     8775,
+     7242,
+     852,
+     2783,
+     8585,
+     589,
+     1972,
+     1618,
+     6453,
+     1168
+    ],
+    "filter 11 + text 2": [
+     557,
+     548,
+     9184,
+     7140,
+     1135,
+     1618,
+     3557,
+     8118,
+     4410,
+     2409
+    ],
+    "filter 12 + text 0": [
+     42,
+     65,
+     44,
+     43,
+     93,
+     94,
+     92,
+     5497,
+     1602,
+     5483
+    ],
+    "filter 12 + text 1": [
+     42,
+     43,
+     44,
+     5954,
+     6489,
+     728,
+     9887,
+     5386,
+     94,
+     6081
+    ],
+    "filter 12 + text 2": [
+     29,
+     3058,
+     6918,
+     6845,
+     3295,
+     7609,
+     1772,
+     94,
+     8774,
+     5687
+    ],
+    "filter 13 + text 0": [
+     3,
+     2,
+     24,
+     61,
+     62,
+     47,
+     14,
+     13,
+     553,
+     1550
+    ],
+    "filter 13 + text 1": [
+     14,
+     13,
+     5462,
+     1429,
+     5590,
+     5823,
+     584,
+     9853,
+     9766,
+     154
+    ],
+    "filter 13 + text 2": [
+     49,
+     26,
+     5215,
+     1650,
+     5975,
+     557,
+     548,
+     9769,
+     5581,
+     6129
+    ],
+    "filter 14 + text 0": [
+     7,
+     10,
+     3,
+     1,
+     8,
+     9,
+     4,
+     2,
+     5,
+     64
+    ],
+    "filter 14 + text 1": [
+     8,
+     64,
+     65,
+     7,
+     6,
+     10
+    ],
+    "filter 14 + text 2": [
+     3,
+     2,
+     1,
+     10,
+     65,
+     61,
+     8,
+     64,
+     6,
+     62
+    ],
+    "filter 15 + text 0": [
+     10,
+     64,
+     30,
+     34,
+     95
+    ],
+    "filter 15 + text 1": [
+     30,
+     95,
+     64,
+     34,
+     10
+    ],
+    "filter 15 + text 2": [
+     30,
+     10,
+     34,
+     95,
+     64
+    ],
+    "filter 16 + text 0": [
+     24,
+     27,
+     26,
+     23
+    ],
+    "filter 16 + text 1": [
+     2086,
+     7382,
+     7577,
+     4133,
+     537,
+     4248,
+     7899,
+     4123,
+     8485,
+     819
+    ],
+    "filter 16 + text 2": [
+     26,
+     8490,
+     4414,
+     5422,
+     8296,
+     6773,
+     5725,
+     3184,
+     9830,
+     7409
+    ],
+    "filter 17 + text 0": [
+     5349,
+     7796,
+     5778,
+     764,
+     562,
+     1001,
+     8838,
+     2487,
+     6055,
+     8225
+    ],
+    "filter 17 + text 1": [
+     17,
+     21,
+     7431,
+     7067,
+     3992,
+     2078,
+     3761,
+     2186,
+     4960,
+     9849
+    ],
+    "filter 17 + text 2": [
+     3992,
+     9581,
+     4074,
+     4204,
+     1481,
+     2362,
+     8991,
+     6510,
+     7264,
+     5220
+    ],
+    "filter 18 + text 0": [
+     5332,
+     979,
+     6308,
+     9994,
+     9765,
+     5967,
+     6094,
+     6284,
+     253,
+     1547
+    ],
+    "filter 18 + text 1": [
+     3299,
+     5746,
+     979,
+     5477,
+     180,
+     825,
+     2054,
+     8570,
+     2277,
+     2998
+    ],
+    "filter 18 + text 2": [
+     1056,
+     5494,
+     7147,
+     2724,
+     5003,
+     2639,
+     2272,
+     9032,
+     6461,
+     4065
+    ],
+    "filter 19 + text 0": [
+     6348,
+     1447,
+     1516,
+     5125,
+     9873,
+     212,
+     9729,
+     9861,
+     514,
+     6085
+    ],
+    "filter 19 + text 1": [
+     20,
+     5750,
+     6238,
+     5019,
+     8545,
+     9729,
+     4472,
+     5996,
+     5881,
+     9863
+    ],
+    "filter 19 + text 2": [
+     3206,
+     6638,
+     4307,
+     9460,
+     6074,
+     6238,
+     4253,
+     8545,
+     4577,
+     8504
+    ]
+   }
+  },
+  "times_ms": {
+   "current": {
+    "frozen G001": 527.212,
+    "frozen G002": 964.538,
+    "frozen G003": 1611.997,
+    "frozen G004": 820.921,
+    "frozen G005": 1340.795,
+    "frozen G006": 523.499,
+    "frozen G007": 757.708,
+    "frozen G008": 156.187,
+    "frozen G009": 764.256,
+    "frozen G010": 473.848,
+    "frozen G011": 889.034,
+    "frozen G012": 1864.778,
+    "frozen G013": 349.113,
+    "frozen G014": 1274.286,
+    "frozen G015": 1820.408,
+    "frozen G016": 1474.189,
+    "frozen G017": 1310.046,
+    "frozen G018": 1112.381,
+    "frozen G019": 1076.924,
+    "frozen G020": 846.369,
+    "frozen G021": 1279.986,
+    "frozen G022": 901.836,
+    "frozen G023": 760.803,
+    "frozen G024": 900.036,
+    "frozen G025": 738.866,
+    "frozen G026": 992.061,
+    "frozen G027": 165.993,
+    "frozen G028": 323.194,
+    "frozen G029": 1152.635,
+    "frozen G030": 1082.021,
+    "frozen G031": 515.744,
+    "frozen G032": 1273.266,
+    "frozen G033": 942.732,
+    "frozen G034": 235.186,
+    "frozen G035": 1193.471,
+    "frozen G036": 95.031,
+    "frozen G037": 864.222,
+    "frozen G038": 914.789,
+    "frozen G039": 1565.899,
+    "frozen G040": 252.157,
+    "frozen H001": 1021.085,
+    "frozen H002": 1358.375,
+    "frozen H003": 2227.725,
+    "frozen H004": 1779.794,
+    "frozen H005": 2302.619,
+    "frozen H006": 1449.942,
+    "frozen H007": 2278.679,
+    "frozen H008": 2162.992,
+    "frozen H009": 1361.848,
+    "frozen H010": 1964.904,
+    "frozen H011": 1671.101,
+    "frozen H012": 1283.887,
+    "frozen H013": 1947.867,
+    "frozen H014": 2028.87,
+    "frozen H015": 2068.226,
+    "frozen H016": 1380.453,
+    "frozen H017": 395.996,
+    "frozen H018": 1392.61,
+    "generic 0": 899.073,
+    "generic 1": 910.77,
+    "generic 2": 568.228,
+    "generic 3": 844.095,
+    "generic 4": 885.978,
+    "generic 5": 951.43,
+    "generic 6": 957.684,
+    "generic 7": 939.07,
+    "generic 8": 53.119,
+    "generic 9": 1161.262,
+    "generic 10": 513.75,
+    "generic 11": 426.715,
+    "generic 12": 458.994,
+    "generic 13": 246.126,
+    "generic 14": 172.867,
+    "generic 15": 226.384,
+    "generic 16": 327.769,
+    "generic 17": 632.463,
+    "generic 18": 185.925,
+    "generic 19": 1045.979,
+    "generic 20": 858.854,
+    "generic 21": 460.26,
+    "generic 22": 899.734,
+    "generic 23": 688.12,
+    "generic 24": 386.154,
+    "generic 25": 649.51,
+    "generic 26": 755.105,
+    "generic 27": 437.026,
+    "generic 28": 1032.011,
+    "generic 29": 474.794,
+    "generic 30": 319.482,
+    "generic 31": 83.608,
+    "generic 32": 905.791,
+    "generic 33": 454.275,
+    "generic 34": 350.098,
+    "generic 35": 1014.455,
+    "generic 36": 128.6,
+    "generic 37": 820.662,
+    "generic 38": 72.894,
+    "generic 39": 412.956,
+    "filter 0 + text 0": 123.132,
+    "filter 0 + text 1": 348.313,
+    "filter 0 + text 2": 394.744,
+    "filter 1 + text 0": 70.78,
+    "filter 1 + text 1": 163.58,
+    "filter 1 + text 2": 157.01,
+    "filter 2 + text 0": 177.961,
+    "filter 2 + text 1": 135.087,
+    "filter 2 + text 2": 109.871,
+    "filter 3 + text 0": 66.892,
+    "filter 3 + text 1": 88.159,
+    "filter 3 + text 2": 49.818,
+    "filter 4 + text 0": 226.823,
+    "filter 4 + text 1": 111.716,
+    "filter 4 + text 2": 108.502,
+    "filter 5 + text 0": 62.109,
+    "filter 5 + text 1": 231.984,
+    "filter 5 + text 2": 133.271,
+    "filter 6 + text 0": 322.251,
+    "filter 6 + text 1": 589.004,
+    "filter 6 + text 2": 587.739,
+    "filter 7 + text 0": 275.974,
+    "filter 7 + text 1": 271.342,
+    "filter 7 + text 2": 228.547,
+    "filter 8 + text 0": 222.516,
+    "filter 8 + text 1": 105.205,
+    "filter 8 + text 2": 128.922,
+    "filter 9 + text 0": 16.804,
+    "filter 9 + text 1": 13.922,
+    "filter 9 + text 2": 9.112,
+    "filter 10 + text 0": 1.867,
+    "filter 10 + text 1": 1.506,
+    "filter 10 + text 2": 1.507,
+    "filter 11 + text 0": 120.785,
+    "filter 11 + text 1": 43.907,
+    "filter 11 + text 2": 52.463,
+    "filter 12 + text 0": 65.868,
+    "filter 12 + text 1": 108.827,
+    "filter 12 + text 2": 100.727,
+    "filter 13 + text 0": 65.091,
+    "filter 13 + text 1": 157.282,
+    "filter 13 + text 2": 165.838,
+    "filter 14 + text 0": 31.618,
+    "filter 14 + text 1": 37.195,
+    "filter 14 + text 2": 2.167,
+    "filter 15 + text 0": 2.304,
+    "filter 15 + text 1": 2.395,
+    "filter 15 + text 2": 1.984,
+    "filter 16 + text 0": 29.295,
+    "filter 16 + text 1": 82.755,
+    "filter 16 + text 2": 50.632,
+    "filter 17 + text 0": 40.441,
+    "filter 17 + text 1": 95.493,
+    "filter 17 + text 2": 135.972,
+    "filter 18 + text 0": 67.947,
+    "filter 18 + text 1": 64.575,
+    "filter 18 + text 2": 54.913,
+    "filter 19 + text 0": 41.608,
+    "filter 19 + text 1": 103.171,
+    "filter 19 + text 2": 37.41
+   },
+   "N=250": {
+    "frozen G001": 65.772,
+    "frozen G002": 71.988,
+    "frozen G003": 93.248,
+    "frozen G004": 73.748,
+    "frozen G005": 84.129,
+    "frozen G006": 130.44,
+    "frozen G007": 165.47,
+    "frozen G008": 164.65,
+    "frozen G009": 59.72,
+    "frozen G010": 82.105,
+    "frozen G011": 206.105,
+    "frozen G012": 112.826,
+    "frozen G013": 46.046,
+    "frozen G014": 78.926,
+    "frozen G015": 104.228,
+    "frozen G016": 93.749,
+    "frozen G017": 84.971,
+    "frozen G018": 76.005,
+    "frozen G019": 77.271,
+    "frozen G020": 182.408,
+    "frozen G021": 95.283,
+    "frozen G022": 143.991,
+    "frozen G023": 63.643,
+    "frozen G024": 63.654,
+    "frozen G025": 64.055,
+    "frozen G026": 71.523,
+    "frozen G027": 59.785,
+    "frozen G028": 41.454,
+    "frozen G029": 77.867,
+    "frozen G030": 75.387,
+    "frozen G031": 55.007,
+    "frozen G032": 77.961,
+    "frozen G033": 78.758,
+    "frozen G034": 44.377,
+    "frozen G035": 81.175,
+    "frozen G036": 30.5,
+    "frozen G037": 84.475,
+    "frozen G038": 66.218,
+    "frozen G039": 91.06,
+    "frozen G040": 46.733,
+    "frozen H001": 77.879,
+    "frozen H002": 89.317,
+    "frozen H003": 158.857,
+    "frozen H004": 109.7,
+    "frozen H005": 123.901,
+    "frozen H006": 100.457,
+    "frozen H007": 126.944,
+    "frozen H008": 129.633,
+    "frozen H009": 88.434,
+    "frozen H010": 118.734,
+    "frozen H011": 107.631,
+    "frozen H012": 84.202,
+    "frozen H013": 115.305,
+    "frozen H014": 121.005,
+    "frozen H015": 123.015,
+    "frozen H016": 96.399,
+    "frozen H017": 55.323,
+    "frozen H018": 90.07,
+    "generic 0": 172.022,
+    "generic 1": 153.819,
+    "generic 2": 66.158,
+    "generic 3": 75.861,
+    "generic 4": 252.71,
+    "generic 5": 200.02,
+    "generic 6": 248.334,
+    "generic 7": 162.036,
+    "generic 8": 69.295,
+    "generic 9": 121.376,
+    "generic 10": 163.633,
+    "generic 11": 114.831,
+    "generic 12": 140.121,
+    "generic 13": 56.749,
+    "generic 14": 38.399,
+    "generic 15": 67.747,
+    "generic 16": 76.427,
+    "generic 17": 61.632,
+    "generic 18": 102.164,
+    "generic 19": 119.302,
+    "generic 20": 111.955,
+    "generic 21": 245.715,
+    "generic 22": 70.367,
+    "generic 23": 94.225,
+    "generic 24": 163.32,
+    "generic 25": 57.934,
+    "generic 26": 62.208,
+    "generic 27": 121.303,
+    "generic 28": 272.237,
+    "generic 29": 189.621,
+    "generic 30": 208.782,
+    "generic 31": 111.997,
+    "generic 32": 847.051,
+    "generic 33": 449.107,
+    "generic 34": 40.534,
+    "generic 35": 114.789,
+    "generic 36": 26.472,
+    "generic 37": 82.054,
+    "generic 38": 23.675,
+    "generic 39": 162.343,
+    "filter 0 + text 0": 52.927,
+    "filter 0 + text 1": 63.719,
+    "filter 0 + text 2": 151.376,
+    "filter 1 + text 0": 54.633,
+    "filter 1 + text 1": 59.39,
+    "filter 1 + text 2": 82.321,
+    "filter 2 + text 0": 59.034,
+    "filter 2 + text 1": 62.813,
+    "filter 2 + text 2": 83.065,
+    "filter 3 + text 0": 49.147,
+    "filter 3 + text 1": 53.144,
+    "filter 3 + text 2": 77.331,
+    "filter 4 + text 0": 60.242,
+    "filter 4 + text 1": 61.119,
+    "filter 4 + text 2": 83.924,
+    "filter 5 + text 0": 52.557,
+    "filter 5 + text 1": 62.494,
+    "filter 5 + text 2": 82.561,
+    "filter 6 + text 0": 62.733,
+    "filter 6 + text 1": 72.356,
+    "filter 6 + text 2": 126.313,
+    "filter 7 + text 0": 64.572,
+    "filter 7 + text 1": 71.356,
+    "filter 7 + text 2": 98.297,
+    "filter 8 + text 0": 59.461,
+    "filter 8 + text 1": 58.862,
+    "filter 8 + text 2": 82.174,
+    "filter 9 + text 0": 27.486,
+    "filter 9 + text 1": 22.92,
+    "filter 9 + text 2": 17.978,
+    "filter 10 + text 0": 5.489,
+    "filter 10 + text 1": 7.492,
+    "filter 10 + text 2": 8.326,
+    "filter 11 + text 0": 52.55,
+    "filter 11 + text 1": 66.96,
+    "filter 11 + text 2": 62.87,
+    "filter 12 + text 0": 53.02,
+    "filter 12 + text 1": 58.174,
+    "filter 12 + text 2": 82.024,
+    "filter 13 + text 0": 52.101,
+    "filter 13 + text 1": 59.985,
+    "filter 13 + text 2": 97.955,
+    "filter 14 + text 0": 20.829,
+    "filter 14 + text 1": 25.577,
+    "filter 14 + text 2": 25.008,
+    "filter 15 + text 0": 7.69,
+    "filter 15 + text 1": 9.605,
+    "filter 15 + text 2": 9.379,
+    "filter 16 + text 0": 17.781,
+    "filter 16 + text 1": 57.754,
+    "filter 16 + text 2": 61.056,
+    "filter 17 + text 0": 28.529,
+    "filter 17 + text 1": 65.858,
+    "filter 17 + text 2": 95.404,
+    "filter 18 + text 0": 57.921,
+    "filter 18 + text 1": 52.75,
+    "filter 18 + text 2": 78.943,
+    "filter 19 + text 0": 30.667,
+    "filter 19 + text 1": 59.713,
+    "filter 19 + text 2": 57.225
+   },
+   "N=500": {
+    "frozen G001": 103.65,
+    "frozen G002": 101.089,
+    "frozen G003": 125.902,
+    "frozen G004": 99.331,
+    "frozen G005": 118.252,
+    "frozen G006": 141.484,
+    "frozen G007": 165.681,
+    "frozen G008": 164.624,
+    "frozen G009": 82.567,
+    "frozen G010": 91.698,
+    "frozen G011": 218.227,
+    "frozen G012": 152.01,
+    "frozen G013": 71.591,
+    "frozen G014": 104.726,
+    "frozen G015": 141.698,
+    "frozen G016": 127.307,
+    "frozen G017": 116.864,
+    "frozen G018": 106.805,
+    "frozen G019": 111.374,
+    "frozen G020": 194.351,
+    "frozen G021": 124.89,
+    "frozen G022": 144.754,
+    "frozen G023": 87.253,
+    "frozen G024": 82.573,
+    "frozen G025": 92.29,
+    "frozen G026": 102.632,
+    "frozen G027": 81.943,
+    "frozen G028": 64.256,
+    "frozen G029": 102.994,
+    "frozen G030": 103.66,
+    "frozen G031": 77.618,
+    "frozen G032": 110.684,
+    "frozen G033": 114.298,
+    "frozen G034": 72.107,
+    "frozen G035": 116.657,
+    "frozen G036": 52.643,
+    "frozen G037": 109.474,
+    "frozen G038": 92.194,
+    "frozen G039": 121.98,
+    "frozen G040": 76.888,
+    "frozen H001": 108.049,
+    "frozen H002": 126.324,
+    "frozen H003": 210.985,
+    "frozen H004": 148.422,
+    "frozen H005": 168.773,
+    "frozen H006": 141.237,
+    "frozen H007": 172.47,
+    "frozen H008": 177.65,
+    "frozen H009": 124.126,
+    "frozen H010": 165.516,
+    "frozen H011": 150.404,
+    "frozen H012": 118.004,
+    "frozen H013": 151.895,
+    "frozen H014": 169.941,
+    "frozen H015": 169.057,
+    "frozen H016": 135.25,
+    "frozen H017": 85.534,
+    "frozen H018": 125.936,
+    "generic 0": 185.229,
+    "generic 1": 153.784,
+    "generic 2": 90.15,
+    "generic 3": 98.064,
+    "generic 4": 252.42,
+    "generic 5": 200.35,
+    "generic 6": 249.796,
+    "generic 7": 162.902,
+    "generic 8": 69.463,
+    "generic 9": 134.516,
+    "generic 10": 161.399,
+    "generic 11": 115.018,
+    "generic 12": 139.758,
+    "generic 13": 67.048,
+    "generic 14": 57.247,
+    "generic 15": 75.065,
+    "generic 16": 82.453,
+    "generic 17": 82.789,
+    "generic 18": 120.02,
+    "generic 19": 119.381,
+    "generic 20": 118.06,
+    "generic 21": 246.315,
+    "generic 22": 90.411,
+    "generic 23": 111.657,
+    "generic 24": 164.06,
+    "generic 25": 79.74,
+    "generic 26": 88.055,
+    "generic 27": 120.586,
+    "generic 28": 271.205,
+    "generic 29": 188.409,
+    "generic 30": 209.346,
+    "generic 31": 111.854,
+    "generic 32": 843.735,
+    "generic 33": 447.635,
+    "generic 34": 59.935,
+    "generic 35": 130.227,
+    "generic 36": 43.814,
+    "generic 37": 100.741,
+    "generic 38": 41.249,
+    "generic 39": 174.755,
+    "filter 0 + text 0": 85.744,
+    "filter 0 + text 1": 91.934,
+    "filter 0 + text 2": 151.351,
+    "filter 1 + text 0": 61.451,
+    "filter 1 + text 1": 91.274,
+    "filter 1 + text 2": 103.455,
+    "filter 2 + text 0": 97.977,
+    "filter 2 + text 1": 97.005,
+    "filter 2 + text 2": 106.167,
+    "filter 3 + text 0": 57.0,
+    "filter 3 + text 1": 77.663,
+    "filter 3 + text 2": 95.626,
+    "filter 4 + text 0": 94.22,
+    "filter 4 + text 1": 91.856,
+    "filter 4 + text 2": 104.674,
+    "filter 5 + text 0": 52.391,
+    "filter 5 + text 1": 93.551,
+    "filter 5 + text 2": 103.317,
+    "filter 6 + text 0": 99.679,
+    "filter 6 + text 1": 105.837,
+    "filter 6 + text 2": 126.734,
+    "filter 7 + text 0": 103.295,
+    "filter 7 + text 1": 104.473,
+    "filter 7 + text 2": 119.589,
+    "filter 8 + text 0": 93.391,
+    "filter 8 + text 1": 89.819,
+    "filter 8 + text 2": 103.066,
+    "filter 9 + text 0": 27.674,
+    "filter 9 + text 1": 22.677,
+    "filter 9 + text 2": 18.129,
+    "filter 10 + text 0": 5.459,
+    "filter 10 + text 1": 7.428,
+    "filter 10 + text 2": 8.274,
+    "filter 11 + text 0": 86.065,
+    "filter 11 + text 1": 66.907,
+    "filter 11 + text 2": 82.607,
+    "filter 12 + text 0": 56.362,
+    "filter 12 + text 1": 88.496,
+    "filter 12 + text 2": 100.399,
+    "filter 13 + text 0": 55.488,
+    "filter 13 + text 1": 89.57,
+    "filter 13 + text 2": 112.677,
+    "filter 14 + text 0": 20.656,
+    "filter 14 + text 1": 24.995,
+    "filter 14 + text 2": 24.839,
+    "filter 15 + text 0": 7.664,
+    "filter 15 + text 1": 9.578,
+    "filter 15 + text 2": 9.381,
+    "filter 16 + text 0": 17.521,
+    "filter 16 + text 1": 85.964,
+    "filter 16 + text 2": 80.965,
+    "filter 17 + text 0": 27.95,
+    "filter 17 + text 1": 73.899,
+    "filter 17 + text 2": 96.875,
+    "filter 18 + text 0": 58.599,
+    "filter 18 + text 1": 52.203,
+    "filter 18 + text 2": 79.259,
+    "filter 19 + text 0": 30.729,
+    "filter 19 + text 1": 93.245,
+    "filter 19 + text 2": 70.412
+   },
+   "N=1000": {
+    "frozen G001": 174.324,
+    "frozen G002": 159.255,
+    "frozen G003": 193.108,
+    "frozen G004": 149.954,
+    "frozen G005": 184.076,
+    "frozen G006": 160.985,
+    "frozen G007": 171.956,
+    "frozen G008": 165.112,
+    "frozen G009": 126.371,
+    "frozen G010": 130.181,
+    "frozen G011": 248.821,
+    "frozen G012": 226.08,
+    "frozen G013": 120.892,
+    "frozen G014": 157.15,
+    "frozen G015": 210.965,
+    "frozen G016": 192.139,
+    "frozen G017": 184.118,
+    "frozen G018": 167.159,
+    "frozen G019": 180.833,
+    "frozen G020": 195.27,
+    "frozen G021": 179.592,
+    "frozen G022": 162.366,
+    "frozen G023": 139.164,
+    "frozen G024": 125.981,
+    "frozen G025": 148.853,
+    "frozen G026": 161.469,
+    "frozen G027": 127.356,
+    "frozen G028": 110.34,
+    "frozen G029": 154.411,
+    "frozen G030": 157.309,
+    "frozen G031": 125.543,
+    "frozen G032": 170.764,
+    "frozen G033": 182.66,
+    "frozen G034": 127.582,
+    "frozen G035": 177.08,
+    "frozen G036": 97.938,
+    "frozen G037": 161.796,
+    "frozen G038": 142.47,
+    "frozen G039": 184.529,
+    "frozen G040": 132.789,
+    "frozen H001": 165.929,
+    "frozen H002": 197.053,
+    "frozen H003": 342.358,
+    "frozen H004": 228.254,
+    "frozen H005": 261.685,
+    "frozen H006": 220.437,
+    "frozen H007": 266.312,
+    "frozen H008": 262.219,
+    "frozen H009": 191.188,
+    "frozen H010": 258.307,
+    "frozen H011": 242.428,
+    "frozen H012": 183.47,
+    "frozen H013": 228.1,
+    "frozen H014": 264.644,
+    "frozen H015": 251.222,
+    "frozen H016": 211.463,
+    "frozen H017": 145.314,
+    "frozen H018": 199.557,
+    "generic 0": 186.041,
+    "generic 1": 154.592,
+    "generic 2": 138.045,
+    "generic 3": 142.918,
+    "generic 4": 253.435,
+    "generic 5": 200.748,
+    "generic 6": 249.331,
+    "generic 7": 171.832,
+    "generic 8": 69.694,
+    "generic 9": 197.423,
+    "generic 10": 191.747,
+    "generic 11": 127.561,
+    "generic 12": 140.46,
+    "generic 13": 110.114,
+    "generic 14": 95.16,
+    "generic 15": 119.263,
+    "generic 16": 127.073,
+    "generic 17": 123.642,
+    "generic 18": 153.752,
+    "generic 19": 153.532,
+    "generic 20": 162.644,
+    "generic 21": 244.694,
+    "generic 22": 126.832,
+    "generic 23": 147.64,
+    "generic 24": 165.594,
+    "generic 25": 120.947,
+    "generic 26": 138.592,
+    "generic 27": 129.95,
+    "generic 28": 271.036,
+    "generic 29": 189.899,
+    "generic 30": 209.178,
+    "generic 31": 112.375,
+    "generic 32": 844.215,
+    "generic 33": 447.683,
+    "generic 34": 97.594,
+    "generic 35": 152.224,
+    "generic 36": 81.713,
+    "generic 37": 147.631,
+    "generic 38": 75.779,
+    "generic 39": 199.331,
+    "filter 0 + text 0": 117.805,
+    "filter 0 + text 1": 151.788,
+    "filter 0 + text 2": 161.097,
+    "filter 1 + text 0": 61.288,
+    "filter 1 + text 1": 153.409,
+    "filter 1 + text 2": 144.031,
+    "filter 2 + text 0": 174.173,
+    "filter 2 + text 1": 129.044,
+    "filter 2 + text 2": 138.776,
+    "filter 3 + text 0": 57.058,
+    "filter 3 + text 1": 77.886,
+    "filter 3 + text 2": 110.024,
+    "filter 4 + text 0": 160.247,
+    "filter 4 + text 1": 104.906,
+    "filter 4 + text 2": 149.744,
+    "filter 5 + text 0": 52.283,
+    "filter 5 + text 1": 153.806,
+    "filter 5 + text 2": 144.788,
+    "filter 6 + text 0": 168.61,
+    "filter 6 + text 1": 167.864,
+    "filter 6 + text 2": 163.601,
+    "filter 7 + text 0": 172.588,
+    "filter 7 + text 1": 168.584,
+    "filter 7 + text 2": 161.655,
+    "filter 8 + text 0": 160.177,
+    "filter 8 + text 1": 96.427,
+    "filter 8 + text 2": 143.113,
+    "filter 9 + text 0": 27.989,
+    "filter 9 + text 1": 22.826,
+    "filter 9 + text 2": 17.999,
+    "filter 10 + text 0": 5.49,
+    "filter 10 + text 1": 7.402,
+    "filter 10 + text 2": 8.315,
+    "filter 11 + text 0": 115.469,
+    "filter 11 + text 1": 67.363,
+    "filter 11 + text 2": 92.183,
+    "filter 12 + text 0": 56.497,
+    "filter 12 + text 1": 97.792,
+    "filter 12 + text 2": 126.605,
+    "filter 13 + text 0": 55.0,
+    "filter 13 + text 1": 137.106,
+    "filter 13 + text 2": 152.831,
+    "filter 14 + text 0": 20.837,
+    "filter 14 + text 1": 25.028,
+    "filter 14 + text 2": 25.071,
+    "filter 15 + text 0": 7.64,
+    "filter 15 + text 1": 9.57,
+    "filter 15 + text 2": 9.335,
+    "filter 16 + text 0": 17.26,
+    "filter 16 + text 1": 109.346,
+    "filter 16 + text 2": 88.481,
+    "filter 17 + text 0": 28.114,
+    "filter 17 + text 1": 74.135,
+    "filter 17 + text 2": 96.786,
+    "filter 18 + text 0": 58.385,
+    "filter 18 + text 1": 52.504,
+    "filter 18 + text 2": 79.093,
+    "filter 19 + text 0": 30.346,
+    "filter 19 + text 1": 94.509,
+    "filter 19 + text 2": 72.058
+   },
+   "N=2000": {
+    "frozen G001": 319.096,
+    "frozen G002": 274.542,
+    "frozen G003": 324.551,
+    "frozen G004": 255.341,
+    "frozen G005": 317.01,
+    "frozen G006": 236.283,
+    "frozen G007": 258.33,
+    "frozen G008": 168.595,
+    "frozen G009": 213.55,
+    "frozen G010": 214.652,
+    "frozen G011": 302.748,
+    "frozen G012": 381.407,
+    "frozen G013": 225.439,
+    "frozen G014": 264.979,
+    "frozen G015": 363.992,
+    "frozen G016": 320.539,
+    "frozen G017": 328.144,
+    "frozen G018": 289.84,
+    "frozen G019": 325.06,
+    "frozen G020": 277.018,
+    "frozen G021": 304.542,
+    "frozen G022": 272.299,
+    "frozen G023": 247.693,
+    "frozen G024": 213.914,
+    "frozen G025": 268.119,
+    "frozen G026": 284.019,
+    "frozen G027": 189.883,
+    "frozen G028": 206.664,
+    "frozen G029": 258.969,
+    "frozen G030": 267.339,
+    "frozen G031": 220.862,
+    "frozen G032": 296.859,
+    "frozen G033": 312.213,
+    "frozen G034": 245.043,
+    "frozen G035": 320.445,
+    "frozen G036": 101.496,
+    "frozen G037": 258.371,
+    "frozen G038": 245.432,
+    "frozen G039": 310.938,
+    "frozen G040": 249.274,
+    "frozen H001": 284.245,
+    "frozen H002": 344.149,
+    "frozen H003": 639.413,
+    "frozen H004": 389.127,
+    "frozen H005": 445.098,
+    "frozen H006": 386.181,
+    "frozen H007": 463.35,
+    "frozen H008": 438.24,
+    "frozen H009": 336.422,
+    "frozen H010": 435.292,
+    "frozen H011": 430.328,
+    "frozen H012": 318.658,
+    "frozen H013": 393.859,
+    "frozen H014": 457.041,
+    "frozen H015": 418.137,
+    "frozen H016": 368.55,
+    "frozen H017": 273.976,
+    "frozen H018": 346.744,
+    "generic 0": 275.118,
+    "generic 1": 242.919,
+    "generic 2": 227.818,
+    "generic 3": 241.19,
+    "generic 4": 287.409,
+    "generic 5": 274.628,
+    "generic 6": 271.749,
+    "generic 7": 259.725,
+    "generic 8": 70.763,
+    "generic 9": 334.906,
+    "generic 10": 308.668,
+    "generic 11": 209.476,
+    "generic 12": 236.712,
+    "generic 13": 187.935,
+    "generic 14": 171.428,
+    "generic 15": 213.422,
+    "generic 16": 224.178,
+    "generic 17": 214.4,
+    "generic 18": 202.477,
+    "generic 19": 242.069,
+    "generic 20": 254.127,
+    "generic 21": 245.845,
+    "generic 22": 205.837,
+    "generic 23": 223.987,
+    "generic 24": 217.629,
+    "generic 25": 209.546,
+    "generic 26": 242.712,
+    "generic 27": 224.366,
+    "generic 28": 273.517,
+    "generic 29": 219.43,
+    "generic 30": 271.69,
+    "generic 31": 113.571,
+    "generic 32": 861.574,
+    "generic 33": 447.835,
+    "generic 34": 175.137,
+    "generic 35": 227.263,
+    "generic 36": 138.416,
+    "generic 37": 253.318,
+    "generic 38": 78.146,
+    "generic 39": 231.975,
+    "filter 0 + text 0": 118.182,
+    "filter 0 + text 1": 278.576,
+    "filter 0 + text 2": 247.219,
+    "filter 1 + text 0": 61.589,
+    "filter 1 + text 1": 158.706,
+    "filter 1 + text 2": 192.15,
+    "filter 2 + text 0": 175.708,
+    "filter 2 + text 1": 128.562,
+    "filter 2 + text 2": 138.733,
+    "filter 3 + text 0": 57.223,
+    "filter 3 + text 1": 77.861,
+    "filter 3 + text 2": 109.3,
+    "filter 4 + text 0": 226.504,
+    "filter 4 + text 1": 105.232,
+    "filter 4 + text 2": 167.328,
+    "filter 5 + text 0": 52.118,
+    "filter 5 + text 1": 221.5,
+    "filter 5 + text 2": 165.95,
+    "filter 6 + text 0": 317.407,
+    "filter 6 + text 1": 298.894,
+    "filter 6 + text 2": 253.532,
+    "filter 7 + text 0": 280.64,
+    "filter 7 + text 1": 266.989,
+    "filter 7 + text 2": 199.259,
+    "filter 8 + text 0": 227.094,
+    "filter 8 + text 1": 96.047,
+    "filter 8 + text 2": 161.337,
+    "filter 9 + text 0": 27.8,
+    "filter 9 + text 1": 23.012,
+    "filter 9 + text 2": 17.919,
+    "filter 10 + text 0": 5.489,
+    "filter 10 + text 1": 7.392,
+    "filter 10 + text 2": 8.27,
+    "filter 11 + text 0": 115.577,
+    "filter 11 + text 1": 66.825,
+    "filter 11 + text 2": 92.145,
+    "filter 12 + text 0": 57.182,
+    "filter 12 + text 1": 98.004,
+    "filter 12 + text 2": 126.669,
+    "filter 13 + text 0": 55.379,
+    "filter 13 + text 1": 136.933,
+    "filter 13 + text 2": 202.889,
+    "filter 14 + text 0": 20.59,
+    "filter 14 + text 1": 25.249,
+    "filter 14 + text 2": 24.717,
+    "filter 15 + text 0": 7.627,
+    "filter 15 + text 1": 9.585,
+    "filter 15 + text 2": 9.328,
+    "filter 16 + text 0": 17.631,
+    "filter 16 + text 1": 109.166,
+    "filter 16 + text 2": 88.468,
+    "filter 17 + text 0": 28.332,
+    "filter 17 + text 1": 73.456,
+    "filter 17 + text 2": 96.702,
+    "filter 18 + text 0": 58.723,
+    "filter 18 + text 1": 52.207,
+    "filter 18 + text 2": 79.29,
+    "filter 19 + text 0": 30.12,
+    "filter 19 + text 1": 94.696,
+    "filter 19 + text 2": 70.042
+   }
+  }
+ },
+ "verdicts": {
+  "current": {
+   "p50_ms": 413.0,
+   "p95_ms": 1864.8,
+   "max_ms": 2302.6
+  },
+  "arms": {
+   "N=250": {
+    "checks": {
+     "Q1 no frozen query leaves the top 10": true,
+     "Q2 MRR >= current - 0.01 and hit@1 down <= 1 query": true,
+     "Q3 >= 90% identical top 10": false,
+     "S1 p95 -40% and p50 -30%": true
+    },
+    "passes": false,
+    "lost_from_top10": [],
+    "rank_changes": {},
+    "identical_top10": 135,
+    "mean_overlap": 0.964,
+    "p50_ms": 76.0,
+    "p95_ms": 200.0,
+    "max_ms": 847.1,
+    "p50_change": -0.816,
+    "p95_change": -0.893
+   },
+   "N=500": {
+    "checks": {
+     "Q1 no frozen query leaves the top 10": true,
+     "Q2 MRR >= current - 0.01 and hit@1 down <= 1 query": true,
+     "Q3 >= 90% identical top 10": false,
+     "S1 p95 -40% and p50 -30%": true
+    },
+    "passes": false,
+    "lost_from_top10": [],
+    "rank_changes": {},
+    "identical_top10": 139,
+    "mean_overlap": 0.972,
+    "p50_ms": 101.1,
+    "p95_ms": 209.3,
+    "max_ms": 843.7,
+    "p50_change": -0.755,
+    "p95_change": -0.888
+   },
+   "N=1000": {
+    "checks": {
+     "Q1 no frozen query leaves the top 10": true,
+     "Q2 MRR >= current - 0.01 and hit@1 down <= 1 query": true,
+     "Q3 >= 90% identical top 10": true,
+     "S1 p95 -40% and p50 -30%": true
+    },
+    "passes": true,
+    "lost_from_top10": [],
+    "rank_changes": {},
+    "identical_top10": 146,
+    "mean_overlap": 0.984,
+    "p50_ms": 148.9,
+    "p95_ms": 258.3,
+    "max_ms": 844.2,
+    "p50_change": -0.64,
+    "p95_change": -0.861
+   },
+   "N=2000": {
+    "checks": {
+     "Q1 no frozen query leaves the top 10": true,
+     "Q2 MRR >= current - 0.01 and hit@1 down <= 1 query": true,
+     "Q3 >= 90% identical top 10": true,
+     "S1 p95 -40% and p50 -30%": true
+    },
+    "passes": true,
+    "lost_from_top10": [],
+    "rank_changes": {},
+    "identical_top10": 153,
+    "mean_overlap": 0.995,
+    "p50_ms": 226.5,
+    "p95_ms": 430.3,
+    "max_ms": 861.6,
+    "p50_change": -0.452,
+    "p95_change": -0.769
+   }
+  },
+  "chosen": "N=1000"
+ }
+}
