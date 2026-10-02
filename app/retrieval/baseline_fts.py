@@ -9,6 +9,11 @@ score = term coverage + weighted full-text rank + 0.5 x trigram similarity
 
 Revisions are ranked, then collapsed to their best revision per document (ties: newer revision).
 
+Two stages: the score above is computed only for candidates - the STAGE1_LIMIT best full-text
+matches by coverage then ts_rank, plus every trigram (spelling) candidate, or every filtered row
+when browsing. A query matching STAGE1_LIMIT rows or fewer is ranked exactly as by scoring every
+match. Chosen by experiment 2C-v2 (eval/experiments/reports/two-stage-v2-*.md).
+
 Round trips: one for ranking (the trigram threshold is set in the same pipeline), one for the
 evidence of all results together.
 """
@@ -19,6 +24,9 @@ from app.retrieval.base import HL_END, HL_START, FieldHit, Filters, RawMatch, Sn
 
 NAME = "baseline-fts-v1"
 TRIGRAM_MIN = 0.3
+# Stage 1 keeps this many full-text matches (best coverage, then ts_rank). Experiment 2C-v2 arm A:
+# frozen-set quality unchanged at 10,000 and 40,000 documents; 158/158 and 156/158 top 10s identical.
+STAGE1_LIMIT = 2000
 # The trigram index finds candidates with word_similarity at or above this (set per session as
 # pg_trgm.word_similarity_threshold); TRIGRAM_MIN is then applied exactly. Kept just below
 # TRIGRAM_MIN so the index can never miss a row the exact condition would keep.
@@ -29,8 +37,9 @@ _FIELD_HEADLINE = f"HighlightAll=true, {_HIGHLIGHT}"
 _SNIPPET_HEADLINE = f'MaxFragments=2, MaxWords=30, MinWords=12, FragmentDelimiter=" ... ", {_HIGHLIGHT}'
 
 # q: the query's stemmed terms, each quoted as a tsquery literal, in tsvector order; computed once.
-# Candidates must match a term (the full-text index) or be similar in spelling (the trigram index);
-# the exact conditions in `ranked` decide, so the result is the same as scoring every row.
+# first_stage: the STAGE1_LIMIT best full-text matches by coverage, then ts_rank (cheap; coverage
+# dominates the final score). candidates: those, every trigram candidate and, when browsing, every
+# filtered row. The exact conditions in `ranked` decide. stage1_limit NULL scores every match.
 # `scored` is materialized so each candidate's coverage, rank and trigram are computed once; inlined,
 # Postgres re-evaluated them for every reference in `ranked` (score, window order, filter).
 RANK_SQL = """
@@ -42,19 +51,42 @@ with q as materialized (
                      from unnest(tsvector_to_array(to_tsvector('english', %(q)s))) with ordinality as t(lexeme, n)
                      order by n) as terms) quoted
 ),
+first_stage as (
+  select e.revision_id
+  from dcc.search_entry e
+  join dcc.revision r on r.id = e.revision_id
+  join dcc.document d on d.id = e.document_id
+  where {filters} and e.tsv @@ (select tsq from q)
+  order by coalesce((select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)::float
+                    / nullif(cardinality((select terms from q)), 0), 0) desc,
+           ts_rank('{{0.1, 0.2, 0.4, 1.0}}', e.tsv, (select tsq from q)) desc, e.revision_id
+  limit %(stage1_limit)s
+),
+candidates as (
+  select revision_id from first_stage
+  union
+  select e.revision_id
+  from dcc.search_entry e
+  join dcc.revision r on r.id = e.revision_id
+  join dcc.document d on d.id = e.document_id
+  where {filters} and %(q)s operator(extensions.<%%) e.trgm_text
+  union
+  select e.revision_id
+  from dcc.search_entry e
+  join dcc.revision r on r.id = e.revision_id
+  join dcc.document d on d.id = e.document_id
+  where %(browse)s and {filters}
+),
 scored as materialized (
   select e.revision_id, e.document_id, r.revision_date, r.rev_code,
          coalesce((select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)::float
                   / nullif(cardinality((select terms from q)), 0), 0) as coverage,
          coalesce(ts_rank_cd('{{0.1, 0.2, 0.4, 1.0}}', e.tsv, (select tsq from q), 32), 0) as fts_rank,
          case when %(q)s = '' then 0 else extensions.word_similarity(%(q)s, e.trgm_text) end as trigram
-  from dcc.search_entry e
+  from candidates c
+  join dcc.search_entry e on e.revision_id = c.revision_id
   join dcc.revision r on r.id = e.revision_id
   join dcc.document d on d.id = e.document_id
-  where {filters}
-    and (%(browse)s
-         or e.tsv @@ (select tsq from q)
-         or %(q)s operator(extensions.<%%) e.trgm_text)
 ),
 ranked as (
   select *, coverage + fts_rank + 0.5 * trigram as score,
@@ -135,13 +167,16 @@ FILTER_SQL = {
 }
 
 
-def ranking_query(query: str, filters: Filters, limit: int) -> tuple[str, dict]:
-    """The ranking SQL and its parameters (also used by the benchmark to explain the same query)."""
+def ranking_query(query: str, filters: Filters, limit: int,
+                  stage1_limit: int | None = STAGE1_LIMIT) -> tuple[str, dict]:
+    """The ranking SQL and its parameters (also used by the benchmark to explain the same query).
+    stage1_limit=None scores every match (LIMIT NULL), the exhaustive ranking tests compare against."""
     query = query.strip()
     active = filters.active()
     where = " and ".join(FILTER_SQL[k] for k in active) or "true"
     return RANK_SQL.format(filters=where), {
-        **active, "q": query, "browse": not query, "trigram_min": TRIGRAM_MIN, "limit": limit}
+        **active, "q": query, "browse": not query, "trigram_min": TRIGRAM_MIN, "limit": limit,
+        "stage1_limit": stage1_limit}
 
 
 class BaselineFtsRetriever:

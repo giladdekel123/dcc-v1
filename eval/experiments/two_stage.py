@@ -16,7 +16,6 @@ Frozen queries and ground truth are used unchanged; nothing is tuned on the resu
 """
 
 import argparse
-import ctypes
 import hashlib
 import json
 import re
@@ -37,7 +36,7 @@ from app.models import SearchResponse
 from app.retrieval import baseline_fts
 from app.retrieval.base import Filters, RawMatch
 from app.search import MAX_RESULTS
-from eval.bench.run_bench import Session, bench_database_url, load_scale, percentile, progress
+from eval.bench.run_bench import Session, bench_database_url, keep_awake, load_scale, percentile, progress
 from eval.check_equivalence import cases as equivalence_cases
 
 REPORTS = REPO_ROOT / "eval" / "experiments" / "reports"
@@ -60,7 +59,46 @@ ARM_SPEC: dict[str, tuple[str, int]] = {}          # arm -> (stage 1, limit)
 ARM_SQLS: dict[str, str] = {}                      # stage 1 -> SQL
 TIMING_RUNS = 3
 
-RANK_SQL = baseline_fts.RANK_SQL
+# The ranking this experiment was designed and run against: the change-set-2 RANK_SQL (b7a0878;
+# reports record its hash 5a46199225a937f9). Pinned here because change set 3 replaced it in the app
+# with arm A of this experiment at N=2000; "current" below means this exhaustive ranking.
+RANK_SQL = """
+with q as materialized (
+  select terms, terms::tsquery[] as term_queries,
+         nullif(array_to_string(terms, ' | '), '') as tsq_text,
+         nullif(array_to_string(terms, ' | '), '')::tsquery as tsq
+  from (select array(select '''' || replace(replace(lexeme, '\\', '\\\\'), '''', '''''') || ''''
+                     from unnest(tsvector_to_array(to_tsvector('english', %(q)s))) with ordinality as t(lexeme, n)
+                     order by n) as terms) quoted
+),
+scored as materialized (
+  select e.revision_id, e.document_id, r.revision_date, r.rev_code,
+         coalesce((select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)::float
+                  / nullif(cardinality((select terms from q)), 0), 0) as coverage,
+         coalesce(ts_rank_cd('{{0.1, 0.2, 0.4, 1.0}}', e.tsv, (select tsq from q), 32), 0) as fts_rank,
+         case when %(q)s = '' then 0 else extensions.word_similarity(%(q)s, e.trgm_text) end as trigram
+  from dcc.search_entry e
+  join dcc.revision r on r.id = e.revision_id
+  join dcc.document d on d.id = e.document_id
+  where {filters}
+    and (%(browse)s
+         or e.tsv @@ (select tsq from q)
+         or %(q)s operator(extensions.<%%) e.trgm_text)
+),
+ranked as (
+  select *, coverage + fts_rank + 0.5 * trigram as score,
+         row_number() over (partition by document_id
+                            order by coverage + fts_rank + 0.5 * trigram desc,
+                                     revision_date desc, dcc.rev_code_rank(rev_code) desc) as pos_in_document
+  from scored
+  where %(browse)s or coverage > 0 or trigram >= %(trigram_min)s
+)
+select revision_id, document_id, score, coverage, fts_rank, trigram, (select tsq_text from q) as tsq
+from ranked
+where pos_in_document = 1
+order by score desc, revision_date desc, document_id
+limit %(limit)s
+"""
 _Q_END = RANK_SQL.index("),\nscored as") + 3       # end of the `q` CTE
 _JOINS = """from dcc.search_entry e
   join dcc.revision r on r.id = e.revision_id
@@ -137,19 +175,12 @@ def set_arms(stage1s: list[str], limits: list[int]) -> None:
             ARM_SPEC[arm] = (stage1, n)
 
 
-def keep_awake() -> None:
-    """Ask Windows not to sleep while this process runs (lapses when it exits)."""
-    if sys.platform == "win32":
-        es_continuous, es_system_required, es_display_required = 0x80000000, 0x00000001, 0x00000002
-        ctypes.windll.kernel32.SetThreadExecutionState(es_continuous | es_system_required | es_display_required)
-
-
 def params(text: str, f: Filters, arm: str) -> tuple[str, dict]:
-    sql, p = baseline_fts.ranking_query(text, f, MAX_RESULTS)
-    if arm == "current":
-        return sql, p
+    _, p = baseline_fts.ranking_query(text, f, MAX_RESULTS)
     active = f.active()
     where = " and ".join(baseline_fts.FILTER_SQL[k] for k in active) or "true"
+    if arm == "current":
+        return RANK_SQL.format(filters=where), p
     stage1, n = ARM_SPEC[arm]
     return ARM_SQLS[stage1].format(filters=where), {**p, "stage1_limit": n}
 

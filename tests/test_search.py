@@ -169,3 +169,46 @@ def test_materialized_scoring_ranks_exactly_like_inline_scoring(indexed):
         assert indexed.execute(sql, params).fetchall() == expected, case_id
         compared += bool(expected)
     assert compared > 150
+
+
+def _ranking(conn, text, filters, **kwargs):
+    from app.retrieval import baseline_fts
+    sql, params = baseline_fts.ranking_query(text, filters, 10, **kwargs)
+    conn.execute(baseline_fts.SET_TRIGRAM_THRESHOLD_SQL, (str(baseline_fts.TRIGRAM_CANDIDATE_MIN),))
+    return conn.execute(sql, params).fetchall()
+
+
+def test_two_stage_ranking_is_exhaustive_below_the_stage1_limit(indexed):
+    """Change set 3: every evaluation case matches far fewer than STAGE1_LIMIT rows on the dev corpus,
+    so the two-stage ranking must equal scoring every match (stage1_limit NULL): ids, order, scores."""
+    from eval.check_equivalence import cases
+
+    compared = 0
+    for case_id, text, f in cases():
+        exhaustive = _ranking(indexed, text, f, stage1_limit=None)
+        assert _ranking(indexed, text, f) == exhaustive, case_id
+        compared += bool(exhaustive)
+    assert compared > 150
+
+
+def test_stage1_limit_bites_but_spelling_and_browse_paths_survive(indexed):
+    from app.retrieval import baseline_fts
+
+    query = "the contractor confirmed the programme dates"     # many full-text matches, few spelling ones
+    indexed.execute(baseline_fts.SET_TRIGRAM_THRESHOLD_SQL, (str(baseline_fts.TRIGRAM_CANDIDATE_MIN),))
+    spelling = {row[0] for row in indexed.execute(
+        "select revision_id from dcc.search_entry where %s operator(extensions.<%%) trgm_text", (query,))}
+
+    def from_full_text(rows):
+        return sum(row[0] not in spelling for row in rows)
+
+    assert from_full_text(_ranking(indexed, query, Filters(), stage1_limit=None)) > 5    # the limit can bite
+    assert from_full_text(_ranking(indexed, query, Filters(), stage1_limit=5)) <= 5      # only 5 are scored
+
+    typo = "abutmnet layuot"                   # matches nothing by full text, only by spelling
+    by_spelling = _ranking(indexed, typo, Filters(), stage1_limit=0)
+    assert by_spelling and all(row[5] >= baseline_fts.TRIGRAM_CANDIDATE_MIN for row in by_spelling)
+    assert by_spelling == _ranking(indexed, typo, Filters(), stage1_limit=None)   # spelling path never limited
+
+    browse = Filters(doc_type="DR")                             # browsing keeps every filtered row
+    assert _ranking(indexed, "", browse, stage1_limit=0) == _ranking(indexed, "", browse, stage1_limit=None)
