@@ -150,3 +150,22 @@ def test_search_uses_a_fixed_number_of_round_trips(indexed):
 def test_trigram_candidates_cannot_miss_a_row_the_exact_condition_keeps():
     from app.retrieval import baseline_fts
     assert baseline_fts.TRIGRAM_CANDIDATE_MIN < baseline_fts.TRIGRAM_MIN
+
+
+def test_materialized_scoring_ranks_exactly_like_inline_scoring(indexed):
+    """Change set 2: materializing `scored` only avoids re-evaluating its expressions; the ranking
+    (ids, order and every score) must be identical to the inline form for every evaluation case."""
+    from app.retrieval import baseline_fts
+    from eval.check_equivalence import cases
+
+    inline = baseline_fts.RANK_SQL.replace("scored as materialized (", "scored as (")
+    assert inline != baseline_fts.RANK_SQL
+    indexed.execute(baseline_fts.SET_TRIGRAM_THRESHOLD_SQL, (str(baseline_fts.TRIGRAM_CANDIDATE_MIN),))
+    compared = 0
+    for case_id, text, f in cases():
+        sql, params = baseline_fts.ranking_query(text, f, 10)
+        where = " and ".join(baseline_fts.FILTER_SQL[k] for k in f.active()) or "true"
+        expected = indexed.execute(inline.format(filters=where), params).fetchall()
+        assert indexed.execute(sql, params).fetchall() == expected, case_id
+        compared += bool(expected)
+    assert compared > 150

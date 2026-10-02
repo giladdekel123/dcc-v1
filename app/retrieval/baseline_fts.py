@@ -31,6 +31,8 @@ _SNIPPET_HEADLINE = f'MaxFragments=2, MaxWords=30, MinWords=12, FragmentDelimite
 # q: the query's stemmed terms, each quoted as a tsquery literal, in tsvector order; computed once.
 # Candidates must match a term (the full-text index) or be similar in spelling (the trigram index);
 # the exact conditions in `ranked` decide, so the result is the same as scoring every row.
+# `scored` is materialized so each candidate's coverage, rank and trigram are computed once; inlined,
+# Postgres re-evaluated them for every reference in `ranked` (score, window order, filter).
 RANK_SQL = """
 with q as materialized (
   select terms, terms::tsquery[] as term_queries,
@@ -40,7 +42,7 @@ with q as materialized (
                      from unnest(tsvector_to_array(to_tsvector('english', %(q)s))) with ordinality as t(lexeme, n)
                      order by n) as terms) quoted
 ),
-scored as (
+scored as materialized (
   select e.revision_id, e.document_id, r.revision_date, r.rev_code,
          coalesce((select count(*) from unnest((select term_queries from q)) t where e.tsv @@ t)::float
                   / nullif(cardinality((select terms from q)), 0), 0) as coverage,
