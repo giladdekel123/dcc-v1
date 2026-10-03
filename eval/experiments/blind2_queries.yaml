@@ -1,0 +1,39 @@
+# Blind set 2 queries (BLIND2_PREREGISTRATION.md + BLIND2_AMENDMENT.md).
+# Query = original S01-S12 scenario body (amendment M2 formatting only); user-supplied WBS: none for every
+# scenario (user decision, 2026-10-03). No expected-answer field. Generated mechanically; not edited by hand.
+- id: "S01"
+  user_wbs: null
+  query: "In early summer 2025 the contractor hit soggy, poor-quality ground while digging out a stretch where the road runs below the surrounding land, roughly halfway along the route. They asked the designer what to do about it. You want what the designer wrote back: the answer, not the contractor's question."
+- id: "S02"
+  user_wbs: null
+  query: "Same situation as S01. Afterwards, the designer reissued a drawing covering that part of the road, with the sloping sides of that dug-out stretch made gentler. You need that changed drawing, as it was after the change."
+- id: "S03"
+  user_wbs: null
+  query: "Before construction began, the electricity company sent the council a price for moving their overhead power line out of the way of the new road. Some weeks later, in autumn 2024, the council wrote back telling them to go ahead. You want the council's go-ahead, not the price."
+- id: "S04"
+  user_wbs: null
+  query: "The contractor's overall timetable for the works has been reissued several times. Around the middle of 2025, after the bridge piling and the culvert work were held up, it was redone to get the job back on track. You need that mid-2025 version specifically: not the original at contract award, and not the newest one."
+- id: "S05"
+  user_wbs: null
+  query: "The independent checking firm formally signed off the bridge foundations early in 2025. After the piles at one end were changed, they issued their sign-off again. You need the sign-off that covers the changed piles."
+- id: "S06"
+  user_wbs: null
+  query: "Before the design was finished, an ecologist looked at the small ponds in the fields near the route for a protected species, a small amphibian that lives in ponds. You can't remember what the animal is called. You want the report of what they found."
+- id: "S07"
+  user_wbs: null
+  query: "You're looking for the contractor's plan for dealing with rubbish from the site: leftover soil, packaging, washed-out concrete, which skips things go in, and what can be reused."
+- id: "S08"
+  user_wbs: null
+  query: "In early summer 2025 the contractor wrote to the council to flag that heavy rain had stopped them placing fill on lots of days, and that they'd fallen about two weeks behind. You want that letter."
+- id: "S09"
+  user_wbs: null
+  query: "The contractor priced a change to the work for bringing in extra soil for the grass edges along the road, plus spreading it. You don't remember the exact figure, only that it was somewhere between ten and fifteen thousand pounds."
+- id: "S10"
+  user_wbs: null
+  query: "The contractor issues monthly results showing whether the fill was rolled firm enough. You want the one that came out in early August 2025. You remember it included the spot where bad ground had been dug out and replaced."
+- id: "S11"
+  user_wbs: null
+  query: "A letter from the phone and broadband company about moving their cables near the eastern part of the road. It said their own crew would do the work in June and that our contractor mustn't dig close to their equipment without them there. You think it was filed under drainage (WBS 300)."
+- id: "S12"
+  user_wbs: null
+  query: "Around May 2025, after the new buried power cable had been switched on, someone set out how deep it must stay covered and what must be laid over it during the road works. You think this came from the designer."
