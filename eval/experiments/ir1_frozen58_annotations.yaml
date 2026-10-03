@@ -1,0 +1,1162 @@
+# IR-1 frozen-58 interpreted requests (annotation pass, NOT frozen until reviewed).
+# Inputs: ID + raw query text only, from eval/queries/generated.yaml and eval/queries/human.yaml.
+#   Extraction read only the `- id:` and `query:` lines; no other field was parsed or displayed.
+# Vocabulary: supabase/migrations/20260930020126_convention_vocab.sql (discipline, doc_type, stage).
+#   WBS and organisation codes are not defined outside the corpus spec -> see unresolved_vocabulary.
+# No corpus, database, search output, expected answers or reports were consulted. No retrieval or evaluation was run.
+#
+# Annotation conventions (annotator choices, for review):
+#   text        = the useful lexical expression of the person's recollection, not the residue left after
+#                 structured extraction. Words may appear BOTH in text and in a clue/relation/state field when
+#                 they carry lexical subject/entity information. Kept when present in raw_text: specific
+#                 asset/project/place names (e.g. River Kest Bridge, Pond 2 East, Mill Lane Culvert), named
+#                 organisations (e.g. Northvale Water, Stratum), document/title terminology that expresses what
+#                 is remembered (e.g. GA, general arrangement, layout, programme, bill of quantities, check
+#                 certificate), and technical subject/content terms. Left out: generic actor/role words
+#                 (contractor, designer, council) unless part of the content, broad WBS headings (Project
+#                 Management, drainage), generic document-class words (letter, drawing, report, submittal,
+#                 RFI, minutes, question, document), question/request scaffolding, relation wording, state
+#                 instructions, hedges, and approximate dates/amounts. Relations, states and uncertainty stay
+#                 in their structured fields.
+#   doc_type    = likely at most (never confirmed). discipline = likely when the word qualifies the target
+#                 document, context when it is topic/location or a WBS heading word. wbs = confirmed (stated).
+#   relation    = only when the anchor is described as a document. Wording names the type (reply -> responds_to,
+#                 replaced -> supersedes); purely temporal wording (followed / after) -> any.
+#                 Direction reads `from --link_type--> to`; the later/replying/replacing document is `from`.
+#   state_source = extension to the schema: literal raw_text words supporting a non-default state.
+#   approx / verify / withdrawn items are literal substrings of raw_text.
+#   source_file = annotation provenance only. unresolved_vocabulary = source-bound information that could not
+#                 safely be mapped to the permitted vocabulary. Neither is an IR-1 retrieval signal.
+
+requests:
+  - id: "G001"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the contractor's question about piles hitting soft clay at the east side of the bridge"
+    text: "piles hitting soft clay east side bridge"
+    clues:
+      - field: "doc_type"
+        code: "RI"
+        strength: "likely"
+        source: "question"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "bridge"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G002"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "problem with the water pipe near the Mill Lane culvert"
+    text: "problem water pipe Mill Lane culvert"
+    clues:
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "culvert"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G003"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "pond needs to hold more water because the council cut the discharge rate"
+    text: "pond hold more water council cut discharge rate"
+    clues:
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G004"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "cheaper aggregate for the roundabout road surface"
+    text: "cheaper aggregate roundabout road surface"
+    clues:
+      - field: "discipline"
+        code: "C"
+        strength: "context"
+        source: "road surface"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G005"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "overnight closures and traffic lights where the new road joins the existing road"
+    text: "overnight closures traffic lights new road joins existing road"
+    clues:
+      - field: "discipline"
+        code: "C"
+        strength: "context"
+        source: "new road"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G006"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "piling layout east abutment"
+    text: "piling layout east abutment"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "layout"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "abutment"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G007"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "drainage layout sheet 2"
+    text: "drainage layout sheet 2"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "layout"
+      - field: "discipline"
+        code: "D"
+        strength: "likely"
+        source: "drainage"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G008"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "variation 07"
+    text: "variation 07"
+    clues: []
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G009"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "bill of quantities for the pavements"
+    text: "bill of quantities pavements"
+    clues:
+      - field: "doc_type"
+        code: "BQ"
+        strength: "likely"
+        source: "bill of quantities"
+      - field: "discipline"
+        code: "C"
+        strength: "context"
+        source: "pavements"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G010"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "check certificate for the culvert"
+    text: "check certificate culvert"
+    clues:
+      - field: "doc_type"
+        code: "CT"
+        strength: "likely"
+        source: "check certificate"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "culvert"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G011"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "Pond 1 GA"
+    text: "Pond 1 GA"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "GA"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G012"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the first construction issue of the east abutment general arrangement, before the piles were lengthened"
+    text: "east abutment general arrangement"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "general arrangement"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "abutment"
+    revision_state: "earliest_for_construction"
+    document_state: "any"
+    state_source: ["first construction issue"]
+    approx: []
+    verify: ["before the piles were lengthened"]
+    withdrawn: []
+  - id: "G013"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the preliminary drainage strategy from summer 2024"
+    text: "preliminary drainage strategy"
+    clues:
+      - field: "discipline"
+        code: "D"
+        strength: "likely"
+        source: "drainage"
+      - field: "stage"
+        code: "PD"
+        strength: "likely"
+        source: "preliminary"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["from summer 2024"]
+    verify: []
+    withdrawn: []
+  - id: "G014"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "baseline construction programme at contract award"
+    text: "baseline construction programme contract award"
+    clues:
+      - field: "doc_type"
+        code: "SC"
+        strength: "likely"
+        source: "programme"
+    revision_state: "earliest"
+    document_state: "any"
+    state_source: ["baseline"]
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G015"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "Mill Lane culvert drawing issued for construction with the original invert at 10.80"
+    text: "Mill Lane culvert invert"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "drawing"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "culvert"
+    revision_state: "earliest_for_construction"
+    document_state: "any"
+    state_source: ["issued for construction", "original invert"]
+    approx: []
+    verify: ["original invert at 10.80"]
+    withdrawn: []
+  - id: "G016"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the designer's reply to the RFI about soft clay under the piles"
+    text: "soft clay under piles"
+    clues: []
+    relation:
+      link_type: "responds_to"
+      target_side: "from"
+      anchor_text: "the RFI about soft clay under the piles"
+      source: "reply to"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G017"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "minutes of the meeting where the east abutment piling problem was first raised"
+    text: "east abutment piling problem"
+    clues:
+      - field: "doc_type"
+        code: "MM"
+        strength: "likely"
+        source: "minutes"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "abutment"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["first raised"]
+    withdrawn: []
+  - id: "G018"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "Northvale Water's reply to the council's trial hole letter"
+    text: "Northvale Water trial hole"
+    clues: []
+    relation:
+      link_type: "responds_to"
+      target_side: "from"
+      anchor_text: "the council's trial hole letter"
+      source: "reply to"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G019"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the submittal that followed the contractor's letter about the roundabout surface course aggregate"
+    text: "roundabout surface course aggregate"
+    clues:
+      - field: "doc_type"
+        code: "SB"
+        strength: "likely"
+        source: "submittal"
+    relation:
+      link_type: "any"
+      target_side: "from"
+      anchor_text: "the contractor's letter about the roundabout surface course aggregate"
+      source: "followed"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G020"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "progress report for July 2025"
+    text: "progress July 2025"
+    clues:
+      - field: "doc_type"
+        code: "RP"
+        strength: "likely"
+        source: "report"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G021"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the monthly progress report issued at the start of September"
+    text: "monthly progress"
+    clues:
+      - field: "doc_type"
+        code: "RP"
+        strength: "likely"
+        source: "report"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["issued at the start of September"]
+    verify: []
+    withdrawn: []
+  - id: "G022"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "progress meeting in mid October 2025"
+    text: "progress"
+    clues:
+      - field: "doc_type"
+        code: "MM"
+        strength: "likely"
+        source: "progress meeting"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["in mid October 2025"]
+    verify: []
+    withdrawn: []
+  - id: "G023"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the council's letter about the pond from May 2025"
+    text: "pond"
+    clues:
+      - field: "doc_type"
+        code: "LT"
+        strength: "likely"
+        source: "letter"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["from May 2025"]
+    verify: []
+    withdrawn: []
+  - id: "G024"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "programme update from October"
+    text: "programme update"
+    clues:
+      - field: "doc_type"
+        code: "SC"
+        strength: "likely"
+        source: "programme"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["from October"]
+    verify: []
+    withdrawn: []
+  - id: "G025"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "letter from Northvale Water accepting the protection slab"
+    text: "Northvale Water accepting protection slab"
+    clues:
+      - field: "doc_type"
+        code: "LT"
+        strength: "likely"
+        source: "letter"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G026"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "Arden Moss letter accepting the alternative roundabout surfacing"
+    text: "Arden Moss accepting alternative roundabout surfacing"
+    clues:
+      - field: "doc_type"
+        code: "LT"
+        strength: "likely"
+        source: "letter"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G027"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "Stratum's ground investigation report"
+    text: "Stratum ground investigation"
+    clues:
+      - field: "doc_type"
+        code: "RP"
+        strength: "likely"
+        source: "report"
+      - field: "discipline"
+        code: "T"
+        strength: "likely"
+        source: "ground investigation"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G028"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "letter from Castlegate about lane closures"
+    text: "Castlegate lane closures"
+    clues:
+      - field: "doc_type"
+        code: "LT"
+        strength: "likely"
+        source: "letter"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G029"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the east abutment GA drawing we should build from"
+    text: "east abutment GA"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "GA drawing"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "abutment"
+    revision_state: "latest_for_construction"
+    document_state: "any"
+    state_source: ["we should build from"]
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G030"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the approved flow control device for Pond 2"
+    text: "flow control device Pond 2"
+    clues:
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["approved"]
+    withdrawn: []
+  - id: "G031"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the current drainage strategy for the ponds"
+    text: "drainage strategy ponds"
+    clues:
+      - field: "discipline"
+        code: "D"
+        strength: "likely"
+        source: "drainage"
+    revision_state: "latest"
+    document_state: "current"
+    state_source: ["current"]
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G032"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the drawing that changed after the contractor's question about soft clay"
+    text: "soft clay"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "drawing"
+    relation:
+      link_type: "any"
+      target_side: "from"
+      anchor_text: "the contractor's question about soft clay"
+      source: "changed after"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G033"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the cost variation that came out of the Mill Lane water main clash"
+    text: "cost variation Mill Lane water main clash"
+    clues:
+      - field: "discipline"
+        code: "Q"
+        strength: "likely"
+        source: "cost variation"
+      - field: "discipline"
+        code: "U"
+        strength: "context"
+        source: "water main"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G034"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the report that responded to the council's reduced discharge limit"
+    text: "council reduced discharge limit"
+    clues:
+      - field: "doc_type"
+        code: "RP"
+        strength: "likely"
+        source: "report"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "G035"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the follow-up question the contractor asked about the revised piling layout"
+    text: "revised piling layout"
+    clues:
+      - field: "doc_type"
+        code: "RI"
+        strength: "likely"
+        source: "question"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["follow-up"]
+    withdrawn: []
+  - id: "G036"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the rejected flow control submittal"
+    text: "flow control"
+    clues:
+      - field: "doc_type"
+        code: "SB"
+        strength: "likely"
+        source: "submittal"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["rejected"]
+    withdrawn: []
+  - id: "G037"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "closed RFI about the bearing plinths"
+    text: "bearing plinths"
+    clues:
+      - field: "doc_type"
+        code: "RI"
+        strength: "likely"
+        source: "RFI"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["closed"]
+    withdrawn: []
+  - id: "G038"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the surfacing submittal that was approved with comments"
+    text: "surfacing"
+    clues:
+      - field: "doc_type"
+        code: "SB"
+        strength: "likely"
+        source: "submittal"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["approved with comments"]
+    withdrawn: []
+  - id: "G039"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "abutment drawing issued for comment in October with a drainage layer"
+    text: "abutment drainage layer"
+    clues:
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "drawing"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "abutment"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "drainage layer"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["in October"]
+    verify: ["issued for comment"]
+    withdrawn: []
+  - id: "G040"
+    source_file: "eval/queries/generated.yaml"
+    raw_text: "the variation the council accepted for about 48 thousand pounds"
+    text: "variation"
+    clues: []
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["about 48 thousand pounds"]
+    verify: ["the council accepted"]
+    withdrawn: []
+  - id: "H001"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 330 – culvert clash with existing water main"
+    text: "culvert clash existing water main"
+    clues:
+      - field: "wbs"
+        code: "330"
+        strength: "confirmed"
+        source: "WBS 330"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "culvert"
+      - field: "discipline"
+        code: "U"
+        strength: "context"
+        source: "water main"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H002"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 300 drainage. Change in allowable discharge for Pond 2. Pond 2 infrastructure."
+    text: "change allowable discharge Pond 2 infrastructure"
+    clues:
+      - field: "wbs"
+        code: "300"
+        strength: "confirmed"
+        source: "WBS 300"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "drainage"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H003"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 410 River Kest Bridge. Soft clay found below the east abutment piles. RFI and response."
+    text: "River Kest Bridge soft clay below east abutment piles"
+    clues:
+      - field: "wbs"
+        code: "410"
+        strength: "confirmed"
+        source: "WBS 410"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "Bridge"
+      - field: "doc_type"
+        code: "RI"
+        strength: "likely"
+        source: "RFI"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["RFI and response"]
+    withdrawn: []
+  - id: "H004"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 510 Eastern Roundabout. Document approving the alternative pavement material for construction."
+    text: "Eastern Roundabout approving alternative pavement material"
+    clues:
+      - field: "wbs"
+        code: "510"
+        strength: "confirmed"
+        source: "WBS 510"
+      - field: "discipline"
+        code: "C"
+        strength: "context"
+        source: "pavement"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H005"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 320 Pond 2 East. Somewhere the allowable discharge was changed from 8 to 5 litres per second."
+    text: "Pond 2 East allowable discharge changed"
+    clues:
+      - field: "wbs"
+        code: "320"
+        strength: "confirmed"
+        source: "WBS 320"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["from 8 to 5 litres per second"]
+    withdrawn: []
+  - id: "H006"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 330 Mill Lane Culvert. Document from Northvale Water about protecting the existing water main."
+    text: "Mill Lane Culvert Northvale Water protecting existing water main"
+    clues:
+      - field: "wbs"
+        code: "330"
+        strength: "confirmed"
+        source: "WBS 330"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Culvert"
+      - field: "discipline"
+        code: "U"
+        strength: "context"
+        source: "water main"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H007"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 100 Project Management. Meeting minutes from around July or August where the recovery programme was discussed."
+    text: "recovery programme discussed"
+    clues:
+      - field: "wbs"
+        code: "100"
+        strength: "confirmed"
+        source: "WBS 100"
+      - field: "discipline"
+        code: "G"
+        strength: "context"
+        source: "Project Management"
+      - field: "doc_type"
+        code: "MM"
+        strength: "likely"
+        source: "Meeting minutes"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["from around July or August"]
+    verify: []
+    withdrawn: []
+  - id: "H008"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 410 River Kest Bridge. I need the earlier general arrangement drawing, before the construction revision."
+    text: "River Kest Bridge general arrangement"
+    clues:
+      - field: "wbs"
+        code: "410"
+        strength: "confirmed"
+        source: "WBS 410"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "Bridge"
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "general arrangement drawing"
+    revision_state: "earliest"
+    document_state: "any"
+    state_source: ["earlier"]
+    approx: []
+    verify: ["before the construction revision"]
+    withdrawn: []
+  - id: "H009"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 320 Pond 2 East. Flow-control submittal that was rejected."
+    text: "Pond 2 East Flow-control"
+    clues:
+      - field: "wbs"
+        code: "320"
+        strength: "confirmed"
+        source: "WBS 320"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+      - field: "doc_type"
+        code: "SB"
+        strength: "likely"
+        source: "submittal"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["rejected"]
+    withdrawn: []
+  - id: "H010"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 410 River Kest Bridge. Drawing issued after the RFI about the soft clay below the piles was resolved."
+    text: "River Kest Bridge soft clay below piles"
+    clues:
+      - field: "wbs"
+        code: "410"
+        strength: "confirmed"
+        source: "WBS 410"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "Bridge"
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "Drawing"
+    relation:
+      link_type: "any"
+      target_side: "from"
+      anchor_text: "the RFI about the soft clay below the piles"
+      source: "issued after"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["was resolved"]
+    withdrawn: []
+  - id: "H011"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 510 Eastern Roundabout. I think there was a letter from the contractor about changing the asphalt aggregate to PSV 60 or 65."
+    text: "Eastern Roundabout changing asphalt aggregate PSV"
+    clues:
+      - field: "wbs"
+        code: "510"
+        strength: "confirmed"
+        source: "WBS 510"
+      - field: "doc_type"
+        code: "LT"
+        strength: "likely"
+        source: "letter"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["PSV 60 or 65"]
+    withdrawn: []
+  - id: "H012"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 320 Pond 2 East. What document caused us to enlarge Pond 2?"
+    text: "Pond 2 East enlarge"
+    clues:
+      - field: "wbs"
+        code: "320"
+        strength: "confirmed"
+        source: "WBS 320"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H013"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 320 Pond 2 East. I need the drawing that was approved for the flow control arrangement."
+    text: "Pond 2 East flow control arrangement"
+    clues:
+      - field: "wbs"
+        code: "320"
+        strength: "confirmed"
+        source: "WBS 320"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Pond"
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "drawing"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["approved"]
+    withdrawn: []
+  - id: "H014"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 330 Mill Lane Culvert. Something from around the time of the trial hole about the water main being deeper than expected."
+    text: "Mill Lane Culvert water main deeper than expected"
+    clues:
+      - field: "wbs"
+        code: "330"
+        strength: "confirmed"
+        source: "WBS 330"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Culvert"
+      - field: "discipline"
+        code: "U"
+        strength: "context"
+        source: "water main"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: ["from around the time of the trial hole"]
+    verify: []
+    withdrawn: []
+  - id: "H015"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 410 River Kest Bridge. Which general arrangement drawing were we supposed to use for construction?"
+    text: "River Kest Bridge general arrangement"
+    clues:
+      - field: "wbs"
+        code: "410"
+        strength: "confirmed"
+        source: "WBS 410"
+      - field: "discipline"
+        code: "S"
+        strength: "context"
+        source: "Bridge"
+      - field: "doc_type"
+        code: "DR"
+        strength: "likely"
+        source: "general arrangement drawing"
+    revision_state: "latest_for_construction"
+    document_state: "any"
+    state_source: ["supposed to use for construction"]
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H016"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 330 Mill Lane Culvert. What was the cost of the variation for protecting the water main?"
+    text: "Mill Lane Culvert variation protecting water main"
+    clues:
+      - field: "wbs"
+        code: "330"
+        strength: "confirmed"
+        source: "WBS 330"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Culvert"
+      - field: "discipline"
+        code: "Q"
+        strength: "context"
+        source: "cost"
+      - field: "discipline"
+        code: "U"
+        strength: "context"
+        source: "water main"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H017"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 300 Drainage. What replaced the earlier drainage strategy report?"
+    text: "drainage strategy"
+    clues:
+      - field: "wbs"
+        code: "300"
+        strength: "confirmed"
+        source: "WBS 300"
+      - field: "discipline"
+        code: "D"
+        strength: "context"
+        source: "Drainage"
+    relation:
+      link_type: "supersedes"
+      target_side: "from"
+      anchor_text: "the earlier drainage strategy report"
+      source: "replaced"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: []
+    withdrawn: []
+  - id: "H018"
+    source_file: "eval/queries/human.yaml"
+    raw_text: "WBS 510 Eastern Roundabout. Where's the document where we finally agreed what surfacing to use?"
+    text: "Eastern Roundabout agreed surfacing"
+    clues:
+      - field: "wbs"
+        code: "510"
+        strength: "confirmed"
+        source: "WBS 510"
+    revision_state: "best_match"
+    document_state: "any"
+    approx: []
+    verify: ["finally agreed"]
+    withdrawn: []
+
+unresolved_vocabulary:
+  - id: "G001"
+    field: "originator"
+    source: "the contractor's"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G016"
+    field: "originator"
+    source: "the designer's"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G018"
+    field: "originator"
+    source: "Northvale Water's"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G023"
+    field: "originator"
+    source: "the council's"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G025"
+    field: "sender"
+    source: "from Northvale Water"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G026"
+    field: "sender"
+    source: "Arden Moss letter"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G027"
+    field: "originator"
+    source: "Stratum's"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G028"
+    field: "sender"
+    source: "from Castlegate"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "G035"
+    field: "originator"
+    source: "the contractor asked"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "H006"
+    field: "sender"
+    source: "from Northvale Water"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it"
+  - id: "H011"
+    field: "sender"
+    source: "I think there was a letter from the contractor"
+    reason: "no organisation vocabulary outside the corpus spec; convention_vocab.sql defers organisations to it; also hedged ('I think')"
+  - id: "H001"
+    field: "wbs"
+    source: "WBS 330"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H002"
+    field: "wbs"
+    source: "WBS 300"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H003"
+    field: "wbs"
+    source: "WBS 410"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H004"
+    field: "wbs"
+    source: "WBS 510"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H005"
+    field: "wbs"
+    source: "WBS 320"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H006"
+    field: "wbs"
+    source: "WBS 330"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H007"
+    field: "wbs"
+    source: "WBS 100"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H008"
+    field: "wbs"
+    source: "WBS 410"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H009"
+    field: "wbs"
+    source: "WBS 320"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H010"
+    field: "wbs"
+    source: "WBS 410"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H011"
+    field: "wbs"
+    source: "WBS 510"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H012"
+    field: "wbs"
+    source: "WBS 320"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H013"
+    field: "wbs"
+    source: "WBS 320"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H014"
+    field: "wbs"
+    source: "WBS 330"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H015"
+    field: "wbs"
+    source: "WBS 410"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H016"
+    field: "wbs"
+    source: "WBS 330"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H017"
+    field: "wbs"
+    source: "WBS 300"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
+  - id: "H018"
+    field: "wbs"
+    source: "WBS 510"
+    reason: "WBS number taken literally from raw_text; WBS vocabulary is defined only in the corpus spec, so membership is unverified"
