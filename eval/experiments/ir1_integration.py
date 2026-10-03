@@ -244,20 +244,19 @@ def interpretation_record(plan_: Plan, outcome: Outcome) -> dict:
     }
 
 
-def to_response(conn, plan_: Plan, outcome: Outcome, rows: Sequence[RankRow], facts: Facts,
-                extra_filters: Filters = Filters(), debug: bool = False) -> IR1Response:
-    """Build the conventional SearchResponse for the IR-1 results with the existing evidence
-    and fact builders, as app.search.search does, plus related_document evidence for M3 paths."""
-    query = outcome.lexical_query
-    filters = conventional_filters(plan_, extra_filters)
-    matches, need_trigram = matches_for(outcome, rows)
+def build_search_response(conn, query: str, filters: Filters, rows: Sequence[RankRow], matches: list[RawMatch],
+                          need_trigram: Sequence[int] = (), related: Sequence[list[EvidenceItem]] | None = None,
+                          debug: bool = False) -> SearchResponse:
+    """The SearchResponse for `matches` (in rank order) with the existing evidence and fact
+    builders, as app.search.search does. `rows` is the conventional ranking that supplied the
+    query terms and trigram values; `related` adds related_document evidence per result."""
     retriever = baseline_fts.BaselineFtsRetriever()
     stripped = query.strip()
     if stripped and rows:                                       # as BaselineFtsRetriever.search
         tsq = rows[0].tsq
         trigram = {r.revision_id: r.trigram for r in rows}
         if need_trigram:
-            trigram.update(dict(conn.execute(TRIGRAM_SQL, {"q": stripped, "ids": need_trigram}).fetchall()))
+            trigram.update(dict(conn.execute(TRIGRAM_SQL, {"q": stripped, "ids": list(need_trigram)}).fetchall()))
         fields, passages = retriever._evidence(conn, [m.revision_id for m in matches], tsq)
         for match in matches:
             match.field_hits = retriever._field_hits(fields.get(match.revision_id, []),
@@ -265,14 +264,34 @@ def to_response(conn, plan_: Plan, outcome: Outcome, rows: Sequence[RankRow], fa
             match.snippets = passages.get(match.revision_id, []) if tsq else []
     revision_facts = load_facts(conn, [m.revision_id for m in matches])
     results = []
-    for rank_, (match, result) in enumerate(zip(matches, outcome.results), 1):
-        item = build_result(rank_, match, revision_facts[match.revision_id], filters, debug)
-        if result.paths:
-            item = item.model_copy(update={"evidence": item.evidence + related_evidence(result, facts)})
+    for i, match in enumerate(matches):
+        item = build_result(i + 1, match, revision_facts[match.revision_id], filters, debug)
+        if related and related[i]:
+            item = item.model_copy(update={"evidence": item.evidence + related[i]})
         results.append(item)
-    response = SearchResponse(query=query, filters={k: str(v) for k, v in filters.active().items()},
-                              engine=ENGINE_LABEL, results=results)
+    return SearchResponse(query=query, filters={k: str(v) for k, v in filters.active().items()},
+                          engine=ENGINE_LABEL, results=results)
+
+
+def to_response(conn, plan_: Plan, outcome: Outcome, rows: Sequence[RankRow], facts: Facts,
+                extra_filters: Filters = Filters(), debug: bool = False) -> IR1Response:
+    """The conventional SearchResponse for the IR-1 results, plus related_document evidence for
+    M3 paths; the interpretation record is returned beside it."""
+    matches, need_trigram = matches_for(outcome, rows)
+    response = build_search_response(conn, outcome.lexical_query, conventional_filters(plan_, extra_filters), rows,
+                                     matches, need_trigram, [related_evidence(r, facts) for r in outcome.results],
+                                     debug)
     return IR1Response(response, interpretation_record(plan_, outcome))
+
+
+def conventional_response(conn, query: str, filters: Filters, debug: bool = False,
+                          ranker: Ranker = rank) -> SearchResponse:
+    """Below Stage 1, for queries no Stage-1 request can carry (blank browse/filter queries): the
+    adapter's own ranking call and response building, with no Plan and no Stage 2. The pool is
+    ranked as for IR-1 (POOL_SIZE) and the first OUTPUT_SIZE rows are shown in row order."""
+    rows = ranker(conn, query, filters, POOL_SIZE)[:ir1_engine.OUTPUT_SIZE]
+    matches = [RawMatch(r.revision_id, r.document_id, scores=_rounded(r)) for r in rows]
+    return build_search_response(conn, query, filters, rows, matches, debug=debug)
 
 
 def gate_a_view(response: SearchResponse) -> dict:
